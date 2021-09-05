@@ -196,17 +196,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\layout_afterlogin.css" />
+    <Content Include="Assets\css\layout_beforelogin.css" />
     <Content Include="Assets\css\reset.css" />
-    <Content Include="Assets\images\anepal.png" />
-    <Content Include="Assets\images\avatar.png" />
-    <Content Include="Assets\images\chat1.jpg" />
-    <Content Include="Assets\images\chat2.jpg" />
-    <Content Include="Assets\images\chat3.jpg" />
-    <Content Include="Assets\images\chatroom.png" />
-    <Content Include="Assets\images\couponicon.png" />
-    <Content Include="Assets\images\epalplus.png" />
-    <Content Include="Assets\images\footericon.png" />
-    <Content Include="Assets\images\googleicon.png" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
     <Content Include="Assets\images\homepageimg\arrow-right.png" />
     <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
@@ -245,21 +236,32 @@
     <Content Include="Assets\images\homepageimg\top slider games\hearthStone.png" />
     <Content Include="Assets\images\homepageimg\top slider games\lol.png" />
     <Content Include="Assets\images\homepageimg\Yoonah.jpg" />
-    <Content Include="Assets\images\inorder.png" />
-    <Content Include="Assets\images\login.png" />
-    <Content Include="Assets\images\logo.png" />
-    <Content Include="Assets\images\message1.png" />
-    <Content Include="Assets\images\message11.png" />
-    <Content Include="Assets\images\message2.png" />
-    <Content Include="Assets\images\message21.png" />
-    <Content Include="Assets\images\message3.png" />
-    <Content Include="Assets\images\message31.png" />
-    <Content Include="Assets\images\offline.png" />
-    <Content Include="Assets\images\online.png" />
-    <Content Include="Assets\images\ordericon.png" />
-    <Content Include="Assets\images\resting.png" />
-    <Content Include="Assets\images\walleticon.png" />
+    <Content Include="Assets\images\layout\anepal.png" />
+    <Content Include="Assets\images\layout\avatar.png" />
+    <Content Include="Assets\images\layout\chat1.jpg" />
+    <Content Include="Assets\images\layout\chat2.jpg" />
+    <Content Include="Assets\images\layout\chat3.jpg" />
+    <Content Include="Assets\images\layout\chatroom.png" />
+    <Content Include="Assets\images\layout\couponicon.png" />
+    <Content Include="Assets\images\layout\epalplus.png" />
+    <Content Include="Assets\images\layout\footericon.png" />
+    <Content Include="Assets\images\layout\googleicon.png" />
+    <Content Include="Assets\images\layout\inorder.png" />
+    <Content Include="Assets\images\layout\login.png" />
+    <Content Include="Assets\images\layout\logo.png" />
+    <Content Include="Assets\images\layout\message1.png" />
+    <Content Include="Assets\images\layout\message11.png" />
+    <Content Include="Assets\images\layout\message2.png" />
+    <Content Include="Assets\images\layout\message21.png" />
+    <Content Include="Assets\images\layout\message3.png" />
+    <Content Include="Assets\images\layout\message31.png" />
+    <Content Include="Assets\images\layout\offline.png" />
+    <Content Include="Assets\images\layout\online.png" />
+    <Content Include="Assets\images\layout\ordericon.png" />
+    <Content Include="Assets\images\layout\resting.png" />
+    <Content Include="Assets\images\layout\walleticon.png" />
     <Content Include="Assets\js\layout_afterlogin.js" />
+    <Content Include="Assets\js\layout_beforelogin.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -318,6 +320,7 @@
     <Content Include="Views\Project\Project.cshtml" />
     <Content Include="Views\Recommend\RecommenedController.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\Shared\_Layout_beforelogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

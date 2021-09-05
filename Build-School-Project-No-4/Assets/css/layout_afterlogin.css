@@ -745,49 +745,55 @@ footer #address {
 
 
 
-    .aside-Menu {
+    .me-sm {
+        position: relative;
+    }
+    .me-sm .aside-Menu {
         position: absolute;
-        height: 80vh;
         top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100vh;
         background-color: #21212C;
+        display: none;
     }
 
-    .aside-Menu .userinfo {
+    .me-sm .aside-Menu .userinfo {
         display: flex;
         margin: 25px 25px 10px;
     }
 
-    .aside-Menu .userinfo .user-photo {
+    .me-sm .aside-Menu .userinfo .user-photo {
         width: 50px;
         margin-right: 10px;
     }
 
-    .aside-Menu .userinfo .user-photo img {
+    .me-sm .aside-Menu .userinfo .user-photo img {
         width: 100%;
         border-radius: 50%;
     }
 
-    .aside-Menu .userinfo .uesr-account-name {
+    .me-sm .aside-Menu .userinfo .uesr-account-name {
         margin-top: auto;
         margin-bottom: auto;
     }
 
-    .aside-Menu .userinfo .uesr-account-name a {
+    .me-sm .aside-Menu .userinfo .uesr-account-name a {
         text-decoration: none;
         color: white;
         display: block;
     }
 
-    .aside-Menu .userinfo .aside-close {
+    .me-sm .aside-Menu .userinfo .aside-close {
         font-size: 12px;
         margin-left: auto;
     }
 
-    .aside-Menu .online-wrapper {
+    .me-sm .aside-Menu .online-wrapper {
         margin: 10px 25px;
     }
 
-    .aside-Menu .online-wrapper .btn {
+    .me-sm .aside-Menu .online-wrapper .btn {
         width: 100%;
         height: 40px;
         line-height: 25px;
@@ -799,34 +805,34 @@ footer #address {
         font-size: 14px;
     }
 
-    .aside-Menu .online-wrapper .btn img {
+    .me-sm .aside-Menu .online-wrapper .btn img {
         width: 20px;
         padding-right: 10px;
         display: inline-block;
     }
 
-    .aside-Menu .online-wrapper .dropdown-menu {
+    .me-sm .aside-Menu .online-wrapper .dropdown-menu {
         background-color: #21212C;
     }
 
-    .aside-Menu .online-wrapper .dropdown-menu .dropdown-item {
+    .me-sm .aside-Menu .online-wrapper .dropdown-menu .dropdown-item {
         color: white;
         font-size: 14px;
         padding: 10px;
     }
 
-    .aside-Menu .online-wrapper .dropdown-menu li .dropdown-item:hover {
+    .me-sm .aside-Menu .online-wrapper .dropdown-menu li .dropdown-item:hover {
         background-color: #120E1B;
     }
 
-    .aside-Menu .online-wrapper .dropdown-menu img {
+    .me-sm .aside-Menu .online-wrapper .dropdown-menu img {
         width: 10px;
         height: 10px;
         margin-right: 5px;
         display: inline-block;
     }
 
-    .aside-Menu .info-wrapper {
+    .me-sm .aside-Menu .info-wrapper {
         display: flex;
         margin: 25px 15px 20px;
         justify-content: space-between;
@@ -838,11 +844,11 @@ footer #address {
         width: 24.5%;
     }
 
-    .aside-Menu .info-wrapper .infosta:hover {
+    .me-sm .aside-Menu .info-wrapper .infosta:hover {
         background-color: #120E1B;
     }
 
-    .aside-Menu .info-wrapper .infosta:not(:first-child)::after {
+    .me-sm .aside-Menu .info-wrapper .infosta:not(:first-child)::after {
         content: "";
         background: white;
         position: absolute;
@@ -851,12 +857,12 @@ footer #address {
         width: 0.5px;
     }
 
-    .aside-Menu .info-wrapper .infosta .num {
+    .me-sm .aside-Menu .info-wrapper .infosta .num {
         font-size: 20px;
         text-align: center;
     }
 
-    .aside-Menu .info-wrapper .infosta .txt {
+    .me-sm .aside-Menu .info-wrapper .infosta .txt {
         font-size: 13px;
         color: #a4a4d1;
         font-weight: 200;
@@ -864,7 +870,7 @@ footer #address {
         padding-top: 10px;
     }
 
-    .aside-Menu .money-wrapper {
+    .me-sm .aside-Menu .money-wrapper {
         display: flex;
         justify-content: space-between;
         margin: 20px 15px 10px;
@@ -872,7 +878,7 @@ footer #address {
         align-items: center;
     }
 
-    .aside-Menu .money-wrapper::after {
+    .me-sm .aside-Menu .money-wrapper::after {
         content: '';
         display: inline-block;
         width: 93%;
@@ -882,75 +888,75 @@ footer #address {
         border: .1px solid gray;
     }
 
-    .aside-Menu .money-wrapper .money-item {
+    .me-sm .aside-Menu .money-wrapper .money-item {
         padding: 15px 25px;
         width: 33.333333%;
     }
 
-    .aside-Menu .money-wrapper .money-item a {
+    .me-sm .aside-Menu .money-wrapper .money-item a {
         text-decoration: none;
         color: white;
     }
 
-    .aside-Menu .money-wrapper .money-item img {
+    .me-sm .aside-Menu .money-wrapper .money-item img {
         width: 30px;
         display: block;
         margin: 0 auto;
     }
 
-    .aside-Menu .money-wrapper .money-item .txt {
+    .me-sm .aside-Menu .money-wrapper .money-item .txt {
         font-weight: 500;
         font-size: 14px;
         text-align: center;
         padding-top: 7px;
     }
 
-    .aside-Menu .member-wrapper {
+    .me-sm .aside-Menu .member-wrapper {
         margin: 25px 10px;
     }
 
-    .aside-Menu .member-wrapper .makemember {
+    .me-sm .aside-Menu .member-wrapper .makemember {
         margin: 10px;
         border-radius: 5px;
     }
 
-    .aside-Menu .member-wrapper .makemember a {
+    .me-sm .aside-Menu .member-wrapper .makemember a {
         text-decoration: none;
         color: white;
     }
 
-    .aside-Menu .member-wrapper #epalplus {
-        background-image: url('../images/epalplus.png');
+    .me-sm .aside-Menu .member-wrapper #epalplus {
+        background-image: url('../images/layout/epalplus.png');
         height: 110px;
     }
 
-    .aside-Menu .member-wrapper #anepal {
-        background-image: url('../images/anepal.png');
+    .me-sm .aside-Menu .member-wrapper #anepal {
+        background-image: url('../images/layout/anepal.png');
         height: 110px;
     }
 
-    .aside-Menu .member-wrapper .makemember p {
+    .me-sm .aside-Menu .member-wrapper .makemember p {
         font-weight: 300;
         line-height: 1.5;
         padding-left: 60px;
     }
 
-    .aside-Menu .member-wrapper .makemember #plustxt {
+    .me-sm .aside-Menu .member-wrapper .makemember #plustxt {
         padding-top: 60px;
         font-size: 15px;
     }
 
-    .aside-Menu .member-wrapper .makemember #anepaltxt1 {
+    .me-sm .aside-Menu .member-wrapper .makemember #anepaltxt1 {
         padding-top: 22px;
         padding-left: 72px;
         font-size: 24px;
     }
 
-    .aside-Menu .member-wrapper .makemember #anepaltxt2 {
+    .me-sm .aside-Menu .member-wrapper .makemember #anepaltxt2 {
         font-size: 15px;
     }
 
-    .aside-Menu .member-wrapper::after {
+    .me-sm .aside-Menu .member-wrapper::after {
         content: '';
         display: inline-block;
         width: 93%;
@@ -961,7 +967,7 @@ footer #address {
         border: .1px solid gray;
     }
 
-    .aside-Menu .setting-wrappers {
+    .me-sm .aside-Menu .setting-wrappers {
         display: flex;
         cursor: pointer;
         margin: 30px 20px;
@@ -969,26 +975,30 @@ footer #address {
         padding: 5px 0;
     }
 
-    .aside-Menu .setting-wrappers:hover {
+    .me-sm .aside-Menu .setting-wrappers:hover {
         background-color: #120E1B;
     }
 
-    .aside-Menu .setting-wrappers .settingimg {
+    .me-sm .aside-Menu .setting-wrappers .settingimg {
         padding-right: 5px;
     }
 
-    .aside-Menu .setting-wrappers .settingimg a {
+    .me-sm .aside-Menu .setting-wrappers .settingimg a {
         text-decoration: none;
         color: white;
     }
 
-    .aside-Menu .setting-wrappers .txt {
+    .me-sm .aside-Menu .setting-wrappers .txt {
         font-size: 16px;
         font-weight: 300;
     }
+
 }
 
 @media screen and (min-width:768px) {
+    .me-sm {
+        display: none;
+    }
     .navbar-sm {
         display: none;
     }
@@ -1210,12 +1220,12 @@ footer #address {
     }
 
     .aside-Menu .member-wrapper #epalplus {
-        background-image: url('../images/epalplus.png');
+        background-image: url('../images/layout/epalplus.png');
         height: 110px;
     }
 
     .aside-Menu .member-wrapper #anepal {
-        background-image: url('../images/anepal.png');
+        background-image: url('../images/layout/anepal.png');
         height: 110px;
     }
 
