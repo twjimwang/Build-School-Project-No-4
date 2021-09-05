@@ -19,7 +19,7 @@ let logsigntab = document.querySelectorAll('.logsign-tab');
 let logsigntitle = document.querySelector('.logsign-title');
 let modalfooter = document.querySelector('.modalfooter');
 let msgroom = document.querySelector('#dropdown-message');
-let searchbar= document.querySelector('.search input');
+let searchbar = document.querySelector('.search input');
 
 window.onload = function () {
 
@@ -94,7 +94,7 @@ $("body").on('click', '[data-stopPropagation]', function (e) {
 
 
 //dropdown-message-ul icon replace
-msgicon.forEach((icon, idx) => {       
+msgicon.forEach((icon, idx) => {
     icon.addEventListener('click', function (event) {
         msgicon[0].src = "/Assets/images/message1.png";
         msgicon[1].src = "/Assets/images/message2.png";
@@ -132,20 +132,24 @@ function PersonalClose() {
 
 
 //chatroom  open/close
-function MsgRoomOpen(){
+function MsgRoomOpen() {
     document.querySelector(".chat-container").style.display = "block";
 }
 function MsgRoomClose() {
-    document.querySelector(".chat-container").style.display = "none";            
+    document.querySelector(".chat-container").style.display = "none";
 }
-
+//chatroom  open for phone
+function MsgRoomOpenForPhone() {
+    document.querySelector(".container-fulid.main").style.display = "none";
+    document.querySelector(".chat-container").style.display = "block";
+}
 
 
 //gotop
 $(function () {
     $('#gotop').click(function () {
         event.preventDefault();
-        $('html,body').animate({ scrollTop: 0 }, 'fast');   
+        $('html,body').animate({ scrollTop: 0 }, 'fast');
         return false;
     });
 
@@ -160,11 +164,11 @@ $(function () {
 
 
 
-function changeLong(){
+function changeLong() {
     searchbar.style.width = '250px';
 }
 
-function changeShort(){
+function changeShort() {
     searchbar.style.width = '100px';
 }
 
