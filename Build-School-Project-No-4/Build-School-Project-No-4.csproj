@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChillLiveController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -264,6 +265,30 @@
     <Content Include="Assets\images\layout\walleticon.png" />
     <Content Include="Assets\js\layout_afterlogin.js" />
     <Content Include="Assets\js\layout_beforelogin.js" />
+    <Content Include="Assets\LiveImages\head1.png" />
+    <Content Include="Assets\LiveImages\head10.png" />
+    <Content Include="Assets\LiveImages\head11.png" />
+    <Content Include="Assets\LiveImages\head12.png" />
+    <Content Include="Assets\LiveImages\head2.png" />
+    <Content Include="Assets\LiveImages\head3.png" />
+    <Content Include="Assets\LiveImages\head4.png" />
+    <Content Include="Assets\LiveImages\head5.png" />
+    <Content Include="Assets\LiveImages\head6.png" />
+    <Content Include="Assets\LiveImages\head7.png" />
+    <Content Include="Assets\LiveImages\head8.png" />
+    <Content Include="Assets\LiveImages\head9.png" />
+    <Content Include="Assets\LiveImages\live1.png" />
+    <Content Include="Assets\LiveImages\live10.png" />
+    <Content Include="Assets\LiveImages\live11.png" />
+    <Content Include="Assets\LiveImages\live12.png" />
+    <Content Include="Assets\LiveImages\live2.png" />
+    <Content Include="Assets\LiveImages\live3.png" />
+    <Content Include="Assets\LiveImages\live4.png" />
+    <Content Include="Assets\LiveImages\live5.png" />
+    <Content Include="Assets\LiveImages\live6.png" />
+    <Content Include="Assets\LiveImages\live7.png" />
+    <Content Include="Assets\LiveImages\live8.png" />
+    <Content Include="Assets\LiveImages\live9.png" />
     <Content Include="Assets\MeetImages\backgroundLeft.png" />
     <Content Include="Assets\MeetImages\backgroundRight.png" />
     <Content Include="Assets\MeetImages\head1.png" />
@@ -332,10 +357,10 @@
     <Content Include="Views\Shared\_Layout_beforelogin.cshtml" />
     <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\ChillMeet\Meet.cshtml" />
+    <Content Include="Views\ChillLive\Live.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\LiveImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
