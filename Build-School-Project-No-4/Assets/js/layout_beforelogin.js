@@ -8,18 +8,21 @@ let maillog = document.querySelector('.maillog');
 let phonelog = document.querySelector('.phonelog');
 let mobileicon = document.querySelector('.fa-mobile');
 let mailicon = document.querySelector('.fa-envelope');
+// let logmobile = document.querySelector('.logmobile');
+// let logmail = document.querySelector('.logmail');
+// let signmobile = document.querySelector('.signmobile');
+// let signmail = document.querySelector('.signmail');
+
 let logsignBtn = document.querySelector('#loginbutton');
-let msgicon = document.querySelectorAll('.message-icon-bk');
-let msgiconCl = document.querySelectorAll('.message-icon-cl');
-let msgListTitle = document.querySelector('#message-list-title');
+
 let msgClose = document.querySelector('.msg-close');
 let msgdropdown = document.querySelector('.dropdown-menu');
-// let asidemenu = document.querySelector('.aside-Menu');
+
 let logsigntab = document.querySelectorAll('.logsign-tab');
 let logsigntitle = document.querySelector('.logsign-title');
 let modalfooter = document.querySelector('.modalfooter');
-let msgroom = document.querySelector('#dropdown-message');
-let searchbar = document.querySelector('.search input');
+
+
 
 window.onload = function () {
 
@@ -33,6 +36,7 @@ window.onload = function () {
             event.srcElement.classList.add('purple-text-border');
         })
     })
+
 
     //login / signup modal
     modalbtn.forEach((btn, idx) => {
@@ -48,8 +52,11 @@ window.onload = function () {
             maillog.style.display = 'block';
 
             logsigntab.forEach((item, index) => {
+
                 //modal裡面按下不同tab，執行各自的purple border
                 item.addEventListener('click', function (event) {
+                    // maillog.style.display = 'block';
+
                     item.classList.remove('logsign-purple-border');
                     logsigntab.forEach(e => {
                         e.classList.remove('logsign-purple-border');
@@ -71,6 +78,25 @@ window.onload = function () {
 
 
 
+// //login/signup through mail or mobile
+// logmobile.addEventListener('click', function () {
+//     maillog.style.display = 'none';
+//     phonelog.style.display = 'block';
+// })
+// logmail.addEventListener('click', function () {
+//     maillog.style.display = 'block';
+//     phonelog.style.display = 'none';
+// })
+// signmobile.addEventListener('click', function () {
+//     maillog.style.display = 'none';
+//     phonelog.style.display = 'block';
+// })
+// signmail.addEventListener('click', function () {
+//     maillog.style.display = 'block';
+//     phonelog.style.display = 'none';
+// })
+
+
 //modal password hide/show
 function Password() {
     var x = document.querySelector('#myinput');
@@ -86,80 +112,16 @@ function Password() {
 
 
 
-//dropdown點選查詢不關閉下拉框
-$("body").on('click', '[data-stopPropagation]', function (e) {
-    e.stopPropagation();
-});
-
-
-
-//dropdown-message-ul icon replace
-msgicon.forEach((icon, idx) => {
-    icon.addEventListener('click', function (event) {
-        msgicon[0].src = "/Assets/images/message1.png";
-        msgicon[1].src = "/Assets/images/message2.png";
-        msgicon[2].src = "/Assets/images/message3.png";
-
-        switch (idx) {
-            case 0:
-                msgListTitle.innerHTML = "Order Messages";
-                icon.src = "/Assets/images/message11.png";
-                break;
-            case 1:
-                msgListTitle.innerHTML = "Social Messages";
-                icon.src = "/Assets/images/message21.png";
-                break;
-            case 2:
-                msgListTitle.innerHTML = "System Messages";
-                icon.src = "/Assets/images/message31.png";
-                break;
-            default:
-                break;
-        }
-    })
-})
-
-
-//personal info.  open/close  
-function PersonalOpen() {
-    document.querySelector(".aside-Menu").style.width = "400px";
-    document.querySelector(".aside-Menu").style.right = "0%";
-    document.querySelector(".aside-Menu").style.zIndex = "10";
-}
-function PersonalClose() {
-    document.querySelector(".aside-Menu").style.right = "-100%";
-}
-//personal info.  open  for phone
-function AccountOpen() {
-    document.querySelector(".container-fulid.main").style.display = "none";
-    document.querySelector(".chat-container").style.display = "none";
-    document.querySelector(".me-sm .aside-Menu").style.display = "block";
-}
-
-
-//chatroom  open/close
-function MsgRoomOpen() {
-    document.querySelector(".chat-container").style.display = "block";
-}
-function MsgRoomClose() {
-    document.querySelector(".chat-container").style.display = "none";
-}
-//chatroom  open for phone
-function MsgRoomOpenForPhone() {
-    document.querySelector(".container-fulid.main").style.display = "none";
-    document.querySelector(".me-sm .aside-Menu").style.display = "none";
-    document.querySelector(".chat-container").style.display = "block";
-}
-
-
 //gotop
 $(function () {
+    // 按下gotop按鈕事件 
     $('#gotop').click(function () {
         event.preventDefault();
         $('html,body').animate({ scrollTop: 0 }, 'fast');
         return false;
     });
 
+    //卷軸滑動時，往下滑超過200px就讓gotop按鈕出現 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
             $('#gotop').fadeIn();
@@ -170,13 +132,50 @@ $(function () {
 });
 
 
+//(手機)login/signup change
+$('.logsign-toggle').on('click', function (e) {
+    e.preventDefault();
 
-function changeLong() {
-    searchbar.style.width = '250px';
-}
+    $(this).parent().addClass('active');
+    $(this).parent().siblings().removeClass('active');
 
-function changeShort() {
-    searchbar.style.width = '100px';
-}
+    target = $(this).attr('href');
+    $('.tab-content > div').not(target).hide();
+    $(target).fadeIn(600);
+});
 
 
+//navbar隨不同頁面做變化
+$(function () {
+    //href需替換
+    if (window.location.href == "http://127.0.0.1:5500/ePal/beforelogin/E-Pal_layout_beforelogin.html") {
+        //首頁navbar向下滑動出現
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 60) {
+                $('#navbarLeft').css('display', 'flex')
+                $('#navbarLeft').fadeIn();
+                $('.navbar').css('background-color', '#302F3D')
+            } else {
+                $('#navbarLeft').fadeOut();
+                $('.navbar').css('background-color', 'transparent')
+            }
+        });
+    }
+    else {
+        $('#navbarLeft').css('display', 'flex')
+        $('.navbar').css('background-color', '#302F3D')
+    }
+})
+
+
+// //首頁navbar向下滑動出現
+// $(window).scroll(function () {
+//     if ($(this).scrollTop() > 60) {
+//         $('#navbarLeft').css('display', 'flex')
+//         $('#navbarLeft').fadeIn();
+//         $('.navbar').css('background-color', '#302F3D')
+//     } else {
+//         $('#navbarLeft').fadeOut();
+//         $('.navbar').css('background-color', 'transparent')
+//     }
+// });

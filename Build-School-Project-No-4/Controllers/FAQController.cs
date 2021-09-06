@@ -6,14 +6,14 @@ using System.Web.Mvc;
 
 namespace Build_School_Project_No_4.Controllers
 {
-    public class HomeController : Controller
+    public class FAQController : Controller
     {
+        // GET: FAQ
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult HomePage()
+        public ActionResult FAQ()
         {
             return View();
         }
