@@ -1,0 +1,498 @@
+﻿<nav>
+    <div class="container phoneTopNav">
+        <div class="phoneNavSelect">
+            <div class="row text-center">
+                <div class="col-4 selectPlay">
+                    <a href="#">Live</a>
+                </div>
+                <div class="col-4 selectPlay">
+                    <a href="#">Meet</a>
+                </div>
+                <div class="col-4">
+                    <input type="checkbox" id="menu-checks">
+                    <div class="personal-account">
+                        <label class="hb" for="menu-checks">
+                            <i class="fas fa-th-large"></i>
+                        </label>
+                        <nav class="aside-Menu">
+                            <ul class="list-group align-items-start ">
+                                <li class="list-group-item bg-secondary  ">
+                                    <a href="#">
+                                        <i class="far fa-smile" id="likeMenu">&nbsp Like &nbsp &nbsp<br></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item bg-secondary  ">
+                                    <a href="#">
+                                        <i class="far fa-smile" id="likeMenu">&nbsp Setting<br></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="contentThree d-flex justify-content-center">
+        <!-- 左 -->
+        <div class="col-12 col-md-4" id="chillLeft">
+            <div class="row">
+                <div class="labelLeft">
+                    <a href="#" class="label">Live</a>
+                    <a href="#" class="label" id="labelMeet">Meet</a>
+                </div>
+            </div>
+            <div class="row">
+                <p>Match game players through gamer cards</p>
+            </div>
+        
+        <img src="~/Assets/MeetImages/backgroundLeft.png" alt="Alternate Text" />
+        </div>
+
+
+        <!-- 中 (卡片) -->
+        <div class="col-12 col-md-4">
+            <div class="card">
+                <div class="itemtop">
+                    <img src="https://static-oss.epal.gg/data/static/logo_Amongus_L.png" alt="" class="logoPic">
+                <img src="~/Assets/MeetImages/head1.png" alt="Alternate Text" />
+                </div>
+                <div class="itembottom">
+                    <div class="txt">
+                        <h3 class="card-title">Pokemon, 23</h3>
+                        <p class="card-content">English</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 中 (表情) -->
+            <div class="container fontSelect" style="padding: 0;">
+                <div class="row" style="justify-content: center;" style="align-items: center;">
+                    <div class="circle col-md-3 col-3" id="circle1">
+                        <img src="~/Assets/MeetImages/icon1.png" alt="Alternate Text" />
+                    </div>
+                    <div class="circle col-md-3 col-3" id="circle2">
+                        <img src="~/Assets/MeetImages/icon2.png" alt="Alternate Text" />
+                    </div>
+                    <div class="circle col-md-3 col-3" id="circle3">
+                        <img src="~/Assets/MeetImages/icon3.png" alt="Alternate Text" />
+                    </div>
+                    <div class="circle col-md-3 col-3 " id="circle4">
+                        <img src="~/Assets/MeetImages/icon4.png" alt="Alternate Text" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 右 -->
+        <div class="col-12 col-md-4 rightSetting" id="chillRight">
+            <div class="labelRight">
+                <button type="button" class="btn btn-secondary ">
+                    <i class="far fa-smile"></i>
+                    <span>Likes</span>
+                </button>
+                <button type="button" class="btn btn-secondary">
+                    <i class="fas fa-cog"></i>
+                    <span>Setting</span>
+                </button>
+            </div>
+        <img src="~/Assets/MeetImages/backgroundRight.png" alt="Alternate Text" />
+        </div>
+    </div>
+</div>
+
+@section topCSS{
+    <style>
+        * {
+            font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+            ;
+        }
+
+        body {
+	background-color: black;
+	font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+/* 卡片設定 */
+.card {
+	border-color: black;
+	margin-top: 25px;
+	border: 0;
+}
+
+.contentThree {
+	margin: 15px 15px;
+}
+
+.itemtop {
+	background-image: url('https://static-oss.epal.gg/data/static/bg_app_0104_AmongUs.png');
+	background-size: 100% 100%;
+	width: 100%;
+	text-align: center;
+}
+
+.itemtop .logoPic {
+	width: 50%;
+	padding: 0;
+	margin: 0;
+}
+
+.itemtop .headPic {
+	width: 60%;
+	position: relative;
+	bottom: -35px;
+}
+
+.itembottom {
+	background-image: url('');
+	background-color: #21212c;
+	color: blanchedalmond;
+}
+
+.itembottom .txt {
+	margin-top: 75px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.itembottom .txt h3 {
+	font-size: 24px;
+	color: #fff;
+	margin: 8px;
+}
+
+.itembottom .txt p {
+	font-size: 14px;
+	color: #fff;
+	margin: 8px;
+	margin-bottom: 40px;
+}
+
+.fontSelect {
+	margin-top: 15px;
+}
+
+.selectPlay a {
+	font-size: 24px;
+}
+
+/* 表情 */
+#circle1 {
+	background: linear-gradient(143deg, #ffe99d, #ff3258);
+	border-radius: 50%;
+	z-index: 1;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	width: 64px;
+	height: 64px;
+}
+
+#circle2 {
+	background: linear-gradient(135deg, #ff3fb5, #ff1f1f);
+	border-radius: 50%;
+	z-index: 1;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	width: 90px;
+	height: 90px;
+}
+
+#circle3 {
+	background: linear-gradient(135deg, #2bffee, #1fb995);
+	border-radius: 50%;
+	z-index: 1;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	width: 90px;
+	height: 90px;
+}
+
+#circle4 {
+	background: linear-gradient(135deg, #00fff7, #2e48ff);
+	border-radius: 50%;
+	z-index: 1;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	width: 64px;
+	height: 64px;
+}
+
+/* 左部分 */
+.labelLeft {
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+}
+
+.labelLeft a {
+	color: #fff;
+	margin: 20px;
+	text-decoration: none;
+	font-size: 40px;
+}
+
+.labelLeft a:hover {
+	border-bottom: 6px solid #7041e6;
+}
+
+#chillLeft {
+	margin-right: 50px;
+	margin: 0 25px;
+}
+
+#chillLeft p {
+	color: white;
+	margin-top: 30px;
+}
+
+#BackgrounLeft {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+#chillRight {
+	margin-left: 50px;
+}
+
+.labelRight {
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+}
+
+.labelRight button {
+	border-radius: 20px;
+	margin: 15px;
+	font-size: x-large;
+}
+
+.labelRight button i {
+	size: 5px;
+}
+
+#BackgrounRight {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+/* 手機直向 xs/ */
+/* 目的:(1)調整表情的平板/桌機大小
+		(2)調整卡片置中 */
+
+@@media screen and (max-width:767px) {
+	#chillLeft {
+		display: none;
+	}
+
+	#chillRight {
+		display: none;
+	}
+
+	body {
+		padding: 20px;
+		background-color: #7041e6;
+	}
+
+	.card {
+		margin-top: 30px;
+	}
+
+	/* 導覽列 */
+	.phoneTopNav .personal-account {
+		display: flex;
+		box-sizing: border-box;
+		margin-left: 24px;
+	}
+
+	.phoneTopNav {
+		text-align: center;
+		justify-content: center;
+	}
+
+	.phoneTopNav #menu-checks {
+		display: none;
+	}
+
+	.phoneNavSelect {
+		text-align: center;
+		justify-content: center;
+	}
+
+	.phoneTopNav .hb {
+		position: relative;
+	}
+
+	.phoneTopNav .hb i {
+		color: white;
+		position: absolute;
+		font-size: 25px;
+
+		display: block;
+		margin: auto;
+		border-radius: 50%;
+	}
+
+	.phoneTopNav .personal-account .aside-Menu {
+		position: absolute;
+		/* width: 10vh; */
+		height: 10vh;
+		top: 72px;
+		right: 0%;
+		opacity: 0;
+		display: inline-flex;
+		/* background-color: #21212C; */
+		/* background-color: #293044; */
+		transition: 1s;
+	}
+
+	.phoneTopNav #menu-checks:checked~.personal-account>.aside-Menu {
+		top: 72px;
+		right: 0%;
+		z-index: 1;
+		opacity: 1;
+	}
+
+	#likeMenu {
+		color: #dee2e6;
+	}
+
+	#setMenu {
+		color: #dee2e6;
+	}
+
+	.selectPlay a {
+		color: #dee2e6;
+		text-decoration: none;
+		size: 24px;
+	}
+
+	.circle {
+		margin: 5px;
+	}
+
+	#circle1 {
+		height: 48px;
+		width: 48px;
+
+	}
+
+	#circle2 {
+		height: 80px;
+		width: 80px;
+
+	}
+
+	#circle3 {
+		height: 80px;
+		width: 80px;
+
+	}
+
+	#circle4 {
+		height: 48px;
+		width: 48px;
+
+	}
+}
+
+/* 平板卡片置中 */
+@@media screen and (min-width:768px) {
+	.phoneTopNav {
+		display: none;
+	}
+
+	.card {
+		margin-top: 200px;
+	}
+
+	.circle {
+		margin: 0;
+	}
+
+	#circle1 {
+		height: 48px;
+		width: 48px;
+	}
+
+	#circle2 {
+		height: 64px;
+		width: 64px;
+	}
+
+	#circle3 {
+		height: 64px;
+		width: 64px;
+	}
+
+	#circle4 {
+		height: 48px;
+		width: 48px;
+	}
+
+	.labelRight button {
+		font-size: small;
+	}
+}
+
+/* / iPad橫向 lg/ */
+/* 平板卡片置中 */
+@@media screen and (min-width:1025px) {
+	.card {
+		margin-top: 50px;
+	}
+
+	.circle {
+		margin: 0;
+	}
+
+	#circle1 {
+		height: 64px;
+		width: 64px;
+	}
+
+	#circle2 {
+		height: 90px;
+		width: 90px;
+	}
+
+	#circle3 {
+		height: 90px;
+		width: 90px;
+	}
+
+	#circle4 {
+		height: 64px;
+		width: 64px;
+	}
+
+	.labelRight button {
+		font-size: x-large;
+	}
+}
+
+/* / iPad Pro橫向 & 桌機 xl/ */
+@@media screen and (min-width: 1366px) {
+	.circle {
+		margin: 5px;
+	}
+}
+
+
+
+
+
+    </style>
+} 

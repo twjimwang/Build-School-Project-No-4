@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
@@ -222,6 +223,13 @@
     <Content Include="Assets\images\resting.png" />
     <Content Include="Assets\images\walleticon.png" />
     <Content Include="Assets\js\layout_afterlogin.js" />
+    <Content Include="Assets\MeetImages\backgroundLeft.png" />
+    <Content Include="Assets\MeetImages\backgroundRight.png" />
+    <Content Include="Assets\MeetImages\head1.png" />
+    <Content Include="Assets\MeetImages\icon1.png" />
+    <Content Include="Assets\MeetImages\icon2.png" />
+    <Content Include="Assets\MeetImages\icon3.png" />
+    <Content Include="Assets\MeetImages\icon4.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -279,9 +287,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Project\Project.cshtml" />
     <Content Include="Views\Recommend\RecommenedController.cshtml" />
+    <Content Include="Views\ChillMeet\Meet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\LiveImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
