@@ -21,6 +21,7 @@ let msgdropdown = document.querySelector('.dropdown-menu');
 let logsigntab = document.querySelectorAll('.logsign-tab');
 let logsigntitle = document.querySelector('.logsign-title');
 let modalfooter = document.querySelector('.modalfooter');
+let modalfooterP = document.querySelector('.modalfooter>p');
 
 
 
@@ -47,7 +48,8 @@ window.onload = function () {
             //初始化modal打開樣式
             logsigntab[idx].classList.add('logsign-purple-border');
             logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign in and experience ePal services for free";
-            modalfooter.style.display = idx === 0 ? 'flex' : 'none';
+            //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
+            modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
             logsignBtn.innerHTML = idx === 0 ? "Log In" : "Sign Up";
             maillog.style.display = 'block';
 
@@ -61,7 +63,8 @@ window.onload = function () {
                     logsigntab.forEach(e => {
                         e.classList.remove('logsign-purple-border');
                         logsigntitle.innerHTML = index === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
-                        modalfooter.style.display = index === 0 ? 'flex' : 'none';
+                        //modalfooter.style.display = index === 0 ? 'flex' : 'none';
+                        modalfooterP.innerHTML = index === 0 ? 'Or log in with' : 'Or sign up with';
                         logsignBtn.innerHTML = index === 0 ? "Log In" : "Sign Up";
                     })
                     event.srcElement.classList.add('logsign-purple-border');
@@ -168,14 +171,4 @@ $(function () {
 })
 
 
-// //首頁navbar向下滑動出現
-// $(window).scroll(function () {
-//     if ($(this).scrollTop() > 60) {
-//         $('#navbarLeft').css('display', 'flex')
-//         $('#navbarLeft').fadeIn();
-//         $('.navbar').css('background-color', '#302F3D')
-//     } else {
-//         $('#navbarLeft').fadeOut();
-//         $('.navbar').css('background-color', 'transparent')
-//     }
-// });
+

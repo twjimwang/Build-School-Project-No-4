@@ -14,12 +14,13 @@ let msgiconCl = document.querySelectorAll('.message-icon-cl');
 let msgListTitle = document.querySelector('#message-list-title');
 let msgClose = document.querySelector('.msg-close');
 let msgdropdown = document.querySelector('.dropdown-menu');
-// let asidemenu = document.querySelector('.aside-Menu');
 let logsigntab = document.querySelectorAll('.logsign-tab');
 let logsigntitle = document.querySelector('.logsign-title');
 let modalfooter = document.querySelector('.modalfooter');
 let msgroom = document.querySelector('#dropdown-message');
 let searchbar = document.querySelector('.search input');
+let statusbar = document.querySelector('.statusbar');
+let statuslistbtn = document.querySelectorAll('.aside-Menu .dropdown-menu button');
 
 window.onload = function () {
 
@@ -179,4 +180,15 @@ function changeShort() {
     searchbar.style.width = '100px';
 }
 
+
+
+
+//online/offline change
+statuslistbtn.forEach((stabtn, idx) => {
+    // statusbar.innerHTML = `<img src="online.png" alt="">ONLINE`;
+    stabtn.addEventListener('click', function () {
+        statusbar.innerHTML = stabtn.innerHTML;
+
+    })
+})
 

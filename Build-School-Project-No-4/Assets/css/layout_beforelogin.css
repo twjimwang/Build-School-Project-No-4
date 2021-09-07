@@ -548,29 +548,36 @@ footer #address {
         font-weight: 300;
         font-size: 14px;
     }
-        
-    .tab-content #login .login-footer{
+
+    .tab-content #login .login-footer,
+    .tab-content #signup .signup-footer {
         margin-top: 20px;
     }
-    .tab-content #login .login-footer p{
+
+    .tab-content #login .login-footer p,
+    .tab-content #signup .signup-footer p {
         font-size: 12px;
         color: #b5b2e4;
         padding: 30px 0;
         text-align: center;
     }
-    .tab-content #login .login-footer .otherlogin {
+
+    .tab-content #login .login-footer .otherlogin,
+    .tab-content #signup .signup-footer .othersignup {
         text-align: center;
         position: absolute;
         right: 60px;
     }
-    
-    .tab-content #login .login-footer .otherlogin a {
+
+    .tab-content #login .login-footer .otherlogin a,
+    .tab-content #signup .signup-footer .othersignup a {
         padding: 0 4px;
         display: inline-block;
         position: relative;
     }
-    
-    .tab-content #login .login-footer .otherlogin #google {
+
+    .tab-content #login .login-footer .otherlogin #google,
+    .tab-content #signup .signup-footer .othersignup #google {
         width: 40px;
         height: 40px;
         display: inline-block;
@@ -578,8 +585,9 @@ footer #address {
         left: -35px;
         bottom: -10px;
     }
-    
-    .tab-content #login .login-footer .otherlogin .fab {
+
+    .tab-content #login .login-footer .otherlogin .fab,
+    .tab-content #signup .signup-footer .othersignup .fab {
         font-size: 25px;
         background-color: white;
         width: 40px;
@@ -587,16 +595,19 @@ footer #address {
         border-radius: 50%;
         padding: 8px 0;
     }
-    
-    .tab-content #login .login-footer .otherlogin .fa-twitch {
+
+    .tab-content #login .login-footer .otherlogin .fa-twitch,
+    .tab-content #signup .signup-footer .othersignup .fa-twitch {
         color: #9146FF;
     }
-    
-    .tab-content #login .login-footer .otherlogin .fa-discord {
+
+    .tab-content #login .login-footer .otherlogin .fa-discord,
+    .tab-content #signup .signup-footer .othersignup .fa-discord {
         color: #8599DF;
     }
-    
-    .tab-content #login .login-footer .otherlogin .fa-apple {
+
+    .tab-content #login .login-footer .otherlogin .fa-apple,
+    .tab-content #signup .signup-footer .othersignup .fa-apple {
         color: black;
     }
     
