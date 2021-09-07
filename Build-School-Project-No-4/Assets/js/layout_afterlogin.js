@@ -96,22 +96,22 @@ $("body").on('click', '[data-stopPropagation]', function (e) {
 //dropdown-message-ul icon replace
 msgicon.forEach((icon, idx) => {
     icon.addEventListener('click', function (event) {
-        msgicon[0].src = "/Assets/images/message1.png";
-        msgicon[1].src = "/Assets/images/message2.png";
-        msgicon[2].src = "/Assets/images/message3.png";
+        msgicon[0].src = "/Assets/images/layout/message1.png";
+        msgicon[1].src = "/Assets/images/layout/message2.png";
+        msgicon[2].src = "/Assets/images/layout/message3.png";
 
         switch (idx) {
             case 0:
                 msgListTitle.innerHTML = "Order Messages";
-                icon.src = "/Assets/images/message11.png";
+                icon.src = "/Assets/images/layout/message11.png";
                 break;
             case 1:
                 msgListTitle.innerHTML = "Social Messages";
-                icon.src = "/Assets/images/message21.png";
+                icon.src = "/Assets/images/layout/message21.png";
                 break;
             case 2:
                 msgListTitle.innerHTML = "System Messages";
-                icon.src = "/Assets/images/message31.png";
+                icon.src = "/Assets/images/layout/message31.png";
                 break;
             default:
                 break;
