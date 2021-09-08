@@ -90,6 +90,67 @@ body {
 }
 
 
+.report .modal-header {
+    background-color: #302F3D;
+}
+
+.report .modal-header button {
+    background-color: transparent;
+}
+
+.report .modal-body {
+    background-color: rgb(48, 47, 61);
+}
+
+.report .modal-body p {
+    background-color: rgb(48, 47, 61);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-bottom: 30px;
+}
+
+.report .modal-body h4 {
+    padding: 10px 0;
+}
+
+.report .modal-body input,
+.report .modal-body textarea {
+    color: white;
+}
+
+.report .modal-footer {
+    background-color: rgb(48, 47, 61);
+}
+
+.report .btn-oblong {
+    border-radius: 30px 30px 30px 30px;
+}
+
+.report .footer {
+    text-align: right;
+    padding: 10px;
+}
+
+.report .form-control {
+    background-color: rgb(33, 33, 44)
+}
+
+.report .container .wrapper {
+    height: 100px;
+    width: 100px;
+    border: 2px dashed white;
+}
+
+.report .btn-close {
+    background-color: white;
+}
+
+.report .selectionoption {
+    color: rgba(240, 248, 255, 0.267);
+}
+
+
 
 #loginmodal {
     background-color: transparent;

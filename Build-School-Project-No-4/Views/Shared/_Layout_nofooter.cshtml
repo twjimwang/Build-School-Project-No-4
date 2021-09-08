@@ -60,7 +60,11 @@
                             id="dropdown-about-ul">
                             <li class="ultitle">Helper Center</li>
                             <li class="ulitem"><a class="dropdown-item" href="#">FAQ</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Report</a></li>
+                            <li class="ulitem">
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-backdrop="static" data-keyboard="false">
+                                    Report
+                                </a>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -290,8 +294,56 @@
                 </div>
             </div>
         </nav>
-
     </header>
+
+
+    <!-- contact us-- Modal  -->
+    <div class="modal fade report" style="" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered" data-backdrop="static">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title border-0" id="staticBackdropLabel">Contact Us</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body border-0 ">
+                    <p>Please use this form to report any violations of our Guidelines or Terms of Service. When reporting a profile, please provide all the requested information so we can quickly resolve the issue. For technical issues, please provide screenshots of any error messages received. We greatly appreciate any comments or suggestions to improve the ebsite as well!</p>
+
+                    <h4>Type</h4>
+                    <select class="selectionoption form-control form-select mb-3" aria-label=".form-select example">
+                        <option value=''>Please select report type</option>
+                        <option value="1">Suggestion</option>
+                        <option value="2">Refund</option>
+                        <option value="3">Harassment</option>
+                        <option value="4">General Inquiry</option>
+                        <option value="5">Boosting</option>
+                        <option value="6">Bug</option>
+                        <option value="7">Other</option>
+                    </select>
+
+                    <h4>Subject</h4>
+                    <input class=" form-control" type="text" placeholder="Please enter report title"><br>
+
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlTextarea1">Description</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please describe your problem"></textarea><br>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Your Contact Information</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Please enter your email">
+                    </div>
+
+                    <div class="footer">
+                        <button type="button" class="btn btn-secondary btn-oblong" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary btn-oblong">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -696,7 +748,7 @@
                 </div>
                 <div class="col">
                     <div class="item">
-                        <a href="#" onclick="MsgRoomOpenForPhone()" >
+                        <a href="#" onclick="MsgRoomOpenForPhone()">
                             <i class="far fa-comment-dots"></i>
                             Chat
                         </a>
@@ -704,7 +756,7 @@
                 </div>
                 <div class="col">
                     <div class="item">
-                        <a href="#" onclick="AccountOpen()" >
+                        <a href="#" onclick="AccountOpen()">
                             <i class="fas fa-user"></i>
                             Me
                         </a>
