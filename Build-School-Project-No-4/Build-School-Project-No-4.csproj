@@ -198,7 +198,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
+    <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
     <Content Include="Assets\css\layout_beforelogin.css" />
     <Content Include="Assets\css\reset.css" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
@@ -263,7 +265,9 @@
     <Content Include="Assets\images\layout\ordericon.png" />
     <Content Include="Assets\images\layout\resting.png" />
     <Content Include="Assets\images\layout\walleticon.png" />
+    <Content Include="Assets\js\layout_afterlogin_nofooter.js" />
     <Content Include="Assets\js\layout_afterlogin.js" />
+    <Content Include="Assets\js\layout_beforelogin_nofooter.js" />
     <Content Include="Assets\js\layout_beforelogin.js" />
     <Content Include="Assets\LiveImages\head1.png" />
     <Content Include="Assets\LiveImages\head10.png" />
@@ -359,6 +363,8 @@
     <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\ChillMeet\Meet.cshtml" />
     <Content Include="Views\ChillLive\Live.cshtml" />
+    <Content Include="Views\Shared\_Layout_nofooter.cshtml" />
+    <Content Include="Views\Shared\_Layout_beforelogin_nofooter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

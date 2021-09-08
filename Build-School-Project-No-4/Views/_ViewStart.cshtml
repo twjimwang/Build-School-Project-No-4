@@ -1,3 +1,22 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    string ControllerName = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"]);
+    switch (ControllerName)
+    {
+        case "Home":
+            Layout = "~/Views/Shared/_Layout_beforelogin.cshtml";
+            break;
+        case "ChillMeet":
+        case "ChillLive":
+            Layout = "~/Views/Shared/_Layout_nofooter.cshtml";
+            break;
+        default:
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+    }
 }
+
+
+@*@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
