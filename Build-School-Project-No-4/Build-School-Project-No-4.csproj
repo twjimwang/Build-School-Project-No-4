@@ -293,6 +293,7 @@
     <Content Include="Assets\LiveImages\live7.png" />
     <Content Include="Assets\LiveImages\live8.png" />
     <Content Include="Assets\LiveImages\live9.png" />
+    <Content Include="Assets\MeetImages\AmongUs.png" />
     <Content Include="Assets\MeetImages\backgroundLeft.png" />
     <Content Include="Assets\MeetImages\backgroundRight.png" />
     <Content Include="Assets\MeetImages\head1.png" />
