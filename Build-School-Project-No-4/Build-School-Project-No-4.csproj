@@ -181,12 +181,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Edit_ProfileController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RecommendController.cs" />
+    <Compile Include="Controllers\SettingsAccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,6 +202,7 @@
     <Content Include="Assets\css\layout_afterlogin.css" />
     <Content Include="Assets\css\layout_beforelogin.css" />
     <Content Include="Assets\css\reset.css" />
+    <Content Include="Assets\Edit_Profile\avatar.png" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
     <Content Include="Assets\images\homepageimg\arrow-right.png" />
     <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
@@ -332,6 +335,8 @@
     <Content Include="Views\Shared\_Layout_beforelogin.cshtml" />
     <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\ChillMeet\Meet.cshtml" />
+    <Content Include="Views\Edit_Profile\Edit_Profile.cshtml" />
+    <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
