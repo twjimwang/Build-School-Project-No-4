@@ -14,34 +14,34 @@ body {
     z-index: 10;
 }
 
-    .navbar .logo {
-        display: inline-block;
-        width: 150px;
-    }
+.navbar .logo {
+    display: inline-block;
+    width: 150px;
+}
 
-        .navbar .logo img {
-            width: 80%;
-            vertical-align: middle;
-            padding-bottom: 6px;
-        }
+.navbar .logo img {
+    width: 80%;
+    vertical-align: middle;
+    padding-bottom: 6px;
+}
 
-    .navbar .navbar-left .nav-item:not(:last-child) > a {
-        border-bottom: 6px solid transparent;
-        height: 60px;
-        color: white;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        transition: color .3s;
-        margin: 0 3px;
-        text-decoration: none;
-    }
+.navbar .navbar-left .nav-item:not(:last-child) > a {
+    border-bottom: 6px solid transparent;
+    height: 60px;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    transition: color .3s;
+    margin: 0 3px;
+    text-decoration: none;
+}
 
-    .navbar .navbar-left .nav-item:hover:not(:last-child) > a {
-        border-bottom: 6px solid #7041e6;
-        color: #7041e6 !important;
-        text-decoration: none;
-    }
+.navbar .navbar-left .nav-item:hover:not(:last-child) > a {
+    border-bottom: 6px solid #7041e6;
+    color: #7041e6 !important;
+    text-decoration: none;
+}
 
 .purple-text-border {
     color: #7041e6 !important;
@@ -56,11 +56,11 @@ body {
     margin-top: 8px;
 }
 
-    .navbar #dropdown-about:hover {
-        background-color: #21212C;
-        border-radius: 5px;
-        text-decoration: none;
-    }
+.navbar #dropdown-about:hover {
+    background-color: #21212C;
+    border-radius: 5px;
+    text-decoration: none;
+}
 
 .navbar #dropdown-about-ul {
     position: absolute;
@@ -585,41 +585,8 @@ body {
 }
 
 
-
 footer {
-    position: relative;
-    bottom: 0;
-    background-color: #302F3D;
-    width: 100%;
-    padding: 50px 0;
-}
-
-footer .container {
-    display: flex;
-}
-
-footer img {
-    width: 80%;
-}
-
-footer h4 {
-    font-size: 12px;
-    font-weight: 300;
-    padding-bottom: 20px;
-}
-
-footer p {
-    font-size: 10px;
-    font-weight: 100;
-    line-height: 1.5;
-}
-
-footer #company {
-    width: 300px;
-}
-
-footer #address {
-    padding-left: 50px;
+    display:none;
 }
 
 
@@ -1593,18 +1560,6 @@ footer #address {
         margin-left: 16px;
     }
 
-    footer img {
-        width: 50%;
-    }
-
-    footer #company {
-        width: 350px;
-    }
-
-    footer #address {
-        padding-left: 50px;
-    }
-
     .chat-messages {
         max-height: 470px;
     }
@@ -1667,17 +1622,6 @@ footer #address {
         margin-left: 16px;
     }
 
-    footer img {
-        width: 50%;
-    }
-
-    footer #company {
-        width: 450px;
-    }
-
-    footer #address {
-        padding-left: 150px;
-    }
 
     .chat-messages {
         max-height: 62vh;

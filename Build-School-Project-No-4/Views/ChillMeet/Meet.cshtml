@@ -50,7 +50,8 @@
                 <p>Match game players through gamer cards</p>
             </div>
         
-        <img src="~/Assets/MeetImages/backgroundLeft.png" alt="Alternate Text" />
+        <img src="~/Assets/MeetImages/backgroundLeft.png" alt="Alternate Text" id="BackgrounLeft" />
+        
         </div>
 
 
@@ -58,8 +59,9 @@
         <div class="col-12 col-md-4">
             <div class="card">
                 <div class="itemtop">
-                    <img src="https://static-oss.epal.gg/data/static/logo_Amongus_L.png" alt="" class="logoPic">
-                <img src="~/Assets/MeetImages/head1.png" alt="Alternate Text" />
+
+                    <img src="~/Assets/MeetImages/AmongUs.png" alt="Alternate Text" class="logoPic" />
+                    <img src="~/Assets/MeetImages/head1.png" alt="Alternate Text" class="headPic" />
                 </div>
                 <div class="itembottom">
                     <div class="txt">
@@ -102,7 +104,7 @@
                     <span>Setting</span>
                 </button>
             </div>
-        <img src="~/Assets/MeetImages/backgroundRight.png" alt="Alternate Text" />
+        <img src="~/Assets/MeetImages/backgroundRight.png" alt="Alternate Text" id="BackgrounRight"/>
         </div>
     </div>
 </div>
@@ -127,7 +129,8 @@
 }
 
 .contentThree {
-	margin: 15px 15px;
+	/*margin: 15px 15px;*/
+	padding:30px;
 }
 
 .itemtop {
@@ -143,11 +146,11 @@
 	margin: 0;
 }
 
-.itemtop .headPic {
-	width: 60%;
-	position: relative;
-	bottom: -35px;
-}
+        .itemtop .headPic {
+            width: 70%;
+            position: relative;
+            bottom: -35px;
+        }
 
 .itembottom {
 	background-image: url('');
@@ -259,7 +262,7 @@
 #BackgrounLeft {
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: -100px;
 }
 
 #chillRight {
@@ -282,10 +285,10 @@
 	size: 5px;
 }
 
-#BackgrounRight {
+ #BackgrounRight {
 	position: absolute;
 	right: 0;
-	bottom: 0;
+	bottom: -100px;
 }
 
 /* 手機直向 xs/ */
@@ -293,6 +296,8 @@
 		(2)調整卡片置中 */
 
 @@media screen and (max-width:767px) {
+
+
 	#chillLeft {
 		display: none;
 	}
@@ -306,9 +311,38 @@
 		background-color: #7041e6;
 	}
 
+        .contentThree {
+            /*margin: 15px 15px;*/
+            /* padding: 30px;*/
+            padding: 10px;
+        }
+
+	/*調整卡片大小至手機板適合*/
 	.card {
-		margin-top: 30px;
+		margin-top: 10px;
 	}
+        .itemtop .logoPic {
+            width: 60%;
+         /*   position: relative;*/
+           
+        }
+
+        .itemtop .headPic {
+    /*        width: 60%;*/
+            position: relative;
+			bottom: 0px
+        }
+
+	.itembottom {
+
+	}
+
+    .itembottom .txt{
+		margin-top: 10px;
+	}
+        .itembottom .txt p {
+            margin-bottom: 20px;
+        }
 
 	/* 導覽列 */
 	.phoneTopNav .personal-account {
@@ -320,6 +354,7 @@
 	.phoneTopNav {
 		text-align: center;
 		justify-content: center;
+		margin-top: 15px;
 	}
 
 	.phoneTopNav #menu-checks {
@@ -410,6 +445,8 @@
 
 /* 平板卡片置中 */
 @@media screen and (min-width:768px) {
+
+  
 	.phoneTopNav {
 		display: none;
 	}
@@ -489,10 +526,6 @@
 		margin: 5px;
 	}
 }
-
-
-
-
 
     </style>
 } 

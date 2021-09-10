@@ -90,6 +90,7 @@ body {
 }
 
 
+
 .report .modal-header {
     background-color: #302F3D;
 }
@@ -436,46 +437,9 @@ body {
 }
 
 
-
-
-
-
 footer {
-    position: relative;
-    bottom: 0;
-    background-color: #302F3D;
-    width: 100%;
-    padding: 50px 0;
+    display:none;
 }
-
-footer .container {
-    display: flex;
-}
-
-footer img {
-    width: 80%;
-}
-
-footer h4 {
-    font-size: 12px;
-    font-weight: 300;
-    padding-bottom: 20px;
-}
-
-footer p {
-    font-size: 10px;
-    font-weight: 100;
-    line-height: 1.5;
-}
-
-footer #company {
-    width: 300px;
-}
-
-footer #address {
-    padding-left: 50px;
-}
-
 
 
 @media screen and (max-width:767px) {
@@ -772,25 +736,8 @@ footer #address {
     }
 
 
-    footer img {
-        width: 50%;
-    }
-    footer #company {
-        width: 350px;
-    }
-    footer #address {
-        padding-left: 50px;
-    }
 }
 
 @media screen and (min-width:1200px) {
-    footer img {
-        width: 50%;
-    }
-    footer #company {
-        width: 450px;
-    }
-    footer #address {
-        padding-left: 150px;
-    }
+
 }

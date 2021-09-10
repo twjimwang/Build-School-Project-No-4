@@ -27,6 +27,7 @@ let passinput = document.querySelectorAll('#myinput');
 let passshow = document.querySelectorAll('.passwordshow');
 
 
+
 window.onload = function () {
 
     let navItems = document.querySelectorAll('.navItem');
