@@ -191,6 +191,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeForPhoneController.cs" />
+    <Compile Include="Controllers\Page404Controller.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RecommendController.cs" />
     <Compile Include="Global.asax.cs">
@@ -277,6 +278,7 @@
     <Content Include="Assets\images\layout\ordericon.png" />
     <Content Include="Assets\images\layout\resting.png" />
     <Content Include="Assets\images\layout\walleticon.png" />
+    <Content Include="Assets\images\Page404\404.png" />
     <Content Include="Assets\js\layout.js" />
     <Content Include="Assets\js\layout_afterlogin_nofooter.js" />
     <Content Include="Assets\js\layout_afterlogin.js" />
@@ -388,6 +390,7 @@
     <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
     <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
     <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
+    <Content Include="Views\Page404\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
