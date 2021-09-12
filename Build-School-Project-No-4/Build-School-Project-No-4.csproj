@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
     <Compile Include="Controllers\ePalController.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MeForPhoneController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RecommendController.cs" />
     <Compile Include="Global.asax.cs">
@@ -375,6 +377,8 @@
     <Content Include="Views\Shared\_Layout_beforelogin_nofooter.cshtml" />
     <Content Include="Views\ePal\ePal.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
+    <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
+    <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

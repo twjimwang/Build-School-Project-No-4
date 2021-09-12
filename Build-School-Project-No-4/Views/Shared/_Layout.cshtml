@@ -384,7 +384,7 @@
     </a>
 
 
-    <!-- chatroom   desktop/pad/phone-->
+    <!-- chatroom  for desktop/pad-->
     <div class="chatroom">
         <button class="chatbot" onclick="MsgRoomOpen()">
             <img src="~/Assets/images/layout/chatroom.png" alt="">
@@ -604,124 +604,13 @@
 
 
 
-
-    <!-- me for phone -->
-    <div class="me-sm">
-        <div class="aside-Menu">
-            <div class="userinfo">
-                <div class="user-photo">
-                    <a href="#">
-                        <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
-                    </a>
-                </div>
-                <div class="uesr-account-name">
-                    <a href="#">XXX</a>
-                </div>
-            </div>
-
-            <div class="online-wrapper dropdown">
-                <a type="button" class="btn statusbar" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="~/Assets/images/layout/online.png" alt="">ONLINE
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <button class="dropdown-item" type="button">
-                            <img src="~/Assets/images/layout/online.png" alt="">ONLINE
-                        </button>
-                    </li>
-                    <li>
-                        <button class="dropdown-item" type="button">
-                            <img src="~/Assets/images/layout/inorder.png" alt="">IN AN ORDER
-                        </button>
-                    </li>
-                    <li>
-                        <button class="dropdown-item" type="button">
-                            <img src="~/Assets/images/layout/resting.png" alt="">RESTING
-                        </button>
-                    </li>
-                    <li>
-                        <button class="dropdown-item" type="button">
-                            <img src="~/Assets/images/layout/offline.png" alt="">OFFLINE
-                        </button>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="info-wrapper">
-                <div class="infosta" id="followers">
-                    <div class="num">0</div>
-                    <div class="txt">Followers</div>
-                </div>
-                <div class="infosta" id="followings">
-                    <div class="num">1</div>
-                    <div class="txt">Folloeings</div>
-                </div>
-                <div class="infosta" id="vistors">
-                    <div class="num">2</div>
-                    <div class="txt">Vistors</div>
-                </div>
-                <div class="infosta" id="medals">
-                    <div class="num">3</div>
-                    <div class="txt">Medals</div>
-                </div>
-            </div>
-
-            <div class="money-wrapper">
-                <div class="money-item" id="order">
-                    <a href="#">
-                        <img src="~/Assets/images/layout/ordericon.png" alt="order">
-                        <div class="txt">Order</div>
-                    </a>
-                </div>
-                <div class="money-item" id="wallet">
-                    <a href="#">
-                        <img src="~/Assets/images/layout/walleticon.png" alt="wallet">
-                        <div class="txt">Wallet</div>
-                    </a>
-                </div>
-                <div class="money-item" id="coupons">
-                    <a href="#">
-                        <img src="~/Assets/images/layout/couponicon.png" alt="coupon">
-                        <div class="txt">Coupons</div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="member-wrapper">
-                <div class="makemember" id="epalplus">
-                    <a href="#">
-                        <p id="plustxt">4.99 Buff for 14 privileges</p>
-                    </a>
-
-                </div>
-                <div class="makemember" id="anepal">
-                    <a href="#">
-                        <p id="anepaltxt1">Become an ePal</p>
-                        <p id="anepaltxt2">Earn extra cash by gaming with others.</p>
-                    </a>
-                </div>
-            </div>
-
-            <div class="setting-wrappers">
-                <div class="settingimg">
-                    <a href="#">
-                        <i class="fas fa-cog"></i>
-                    </a>
-                </div>
-                <div class="txt">Settings</div>
-            </div>
-        </div>
-    </div>
-
-
-
     <!-- 手機navbar置底 -->
     <nav class="navbar-sm">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="item">
-                        <a href="#">
+                        <a href="@Url.Action("ePal","ePal")">
                             <i class="fas fa-gamepad"></i>
                             ePal
                         </a>
@@ -729,7 +618,7 @@
                 </div>
                 <div class="col">
                     <div class="item">
-                        <a href="#">
+                        <a href="@Url.Action("Live","ChillLive")">
                             <i class="fas fa-desktop"></i>
                             Chill
                         </a>
@@ -745,7 +634,7 @@
                 </div>
                 <div class="col">
                     <div class="item">
-                        <a href="#" onclick="MsgRoomOpenForPhone()">
+                        <a href="@Url.Action("ChatForPhonePage","ChatForPhone")">
                             <i class="far fa-comment-dots"></i>
                             Chat
                         </a>
@@ -753,7 +642,7 @@
                 </div>
                 <div class="col">
                     <div class="item">
-                        <a href="#" onclick="AccountOpen()">
+                        <a href="@Url.Action("MeForPhonePage","MeForPhone")" >
                             <i class="fas fa-user"></i>
                             Me
                         </a>
