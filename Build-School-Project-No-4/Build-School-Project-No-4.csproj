@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BecomeEPalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
@@ -207,6 +208,13 @@
     <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
     <Content Include="Assets\css\layout_beforelogin.css" />
     <Content Include="Assets\css\reset.css" />
+    <Content Include="Assets\images\becomeEPal\becomebg.png" />
+    <Content Include="Assets\images\becomeEPal\flexity.png" />
+    <Content Include="Assets\images\becomeEPal\friends.png" />
+    <Content Include="Assets\images\becomeEPal\income.png" />
+    <Content Include="Assets\images\becomeEPal\whatsEpal.png" />
+    <Content Include="Assets\images\becomeEPal\who.png" />
+    <Content Include="Assets\images\becomeEPal\zero.png" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
     <Content Include="Assets\images\homepageimg\arrow-right.png" />
     <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
@@ -379,6 +387,7 @@
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
     <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
+    <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
