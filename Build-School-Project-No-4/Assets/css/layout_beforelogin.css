@@ -206,14 +206,13 @@ body {
     border: transparent;
     color: #b5b2e4;
     font-weight: 300;
-    border-bottom: 4px soild transparent;
+    border-bottom: 4px solid transparent;
     transition: color .3s;
     margin-right: 10px;
 }
 
 .modal .modal-body .logsign-tab:hover {
     color: white;
-    font-size: 600;
 }
 
 .logsign-purple-border {

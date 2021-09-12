@@ -1,13 +1,16 @@
-﻿@{
-    string ControllerName = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"]);
-    switch (ControllerName)
+﻿@*2021/9/12修改為利用Action名稱區分layout套用的版型*@
+@{
+    string ActionName = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"]);
+    switch (ActionName)
     {
-        case "Home":
+        case "HomePage":
             Layout = "~/Views/Shared/_Layout_beforelogin.cshtml";
             break;
-        case "ChillMeet":
-        case "ChillLive":
         case "ePal":
+        case "Meet":
+        case "Live":
+        case "BecomeEPalPage":
+        case "Page404":
             Layout = "~/Views/Shared/_Layout_nofooter.cshtml";
             break;
         default:
@@ -17,7 +20,26 @@
 }
 
 
-@*@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}*@
 
+@*@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+
+@*@{
+    string ControllerName = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"]);
+    switch (ControllerName)
+    {
+        case "Home":
+            Layout = "~/Views/Shared/_Layout_beforelogin.cshtml";
+            break;
+        case "ChillMeet":
+        case "ChillLive":
+        case "ePal":
+        case "BecomeEPal":
+            Layout = "~/Views/Shared/_Layout_nofooter.cshtml";
+            break;
+        default:
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+    }
+}*@

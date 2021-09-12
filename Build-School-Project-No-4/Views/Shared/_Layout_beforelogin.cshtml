@@ -31,15 +31,15 @@
     <header>
         <nav class="navbar">
             <div class="container-fluid">
-                <a class="logo" href="#">
+                <a class="logo" href="@Url.Action("HomePage","Home")">
                     <img src="~/Assets/images/layout/logo.png" alt="E-Pal">
                 </a>
                 <ul class="" id="navbarLeft">
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" aria-current="page" href="#">ePal</a>
+                        <a class="nav-link text-white navItem" aria-current="page" href="@Url.Action("ePal","ePal")">ePal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="#">Chill</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","ChillMeet")">Chill</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link text-white navItem" href="#">Posts</a>
