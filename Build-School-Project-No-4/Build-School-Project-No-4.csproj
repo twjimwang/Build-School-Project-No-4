@@ -180,17 +180,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BecomeEPalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
+    <Compile Include="Controllers\CouponsController.cs" />
+    <Compile Include="Controllers\Edit_ProfileController.cs" />
+    <Compile Include="Controllers\epalAccountController.cs" />
+    <Compile Include="Controllers\ePalController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MeForPhoneController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\Page404Controller.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RecommendController.cs" />
     <Compile Include="Controllers\SettingsAccountController.cs" />
+    <Compile Include="Controllers\UserAgreementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -201,12 +210,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Coupons\Coupons.png" />
+    <Content Include="Assets\AboutUsImages\about.png" />
+    <Content Include="Assets\AboutUsImages\aboutusmark.png" />
+    <Content Include="Assets\CouponsImages\Coupons.png" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
     <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
     <Content Include="Assets\css\layout_beforelogin.css" />
     <Content Include="Assets\css\reset.css" />
+    <Content Include="Assets\Edit_ProfileImages\avatar.png" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
     <Content Include="Assets\images\homepageimg\arrow-right.png" />
     <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
@@ -307,6 +319,10 @@
     <Content Include="Assets\MeetImages\icon2.png" />
     <Content Include="Assets\MeetImages\icon3.png" />
     <Content Include="Assets\MeetImages\icon4.png" />
+    <Content Include="Assets\OrderImages\order.png" />
+    <Content Include="Assets\WalletImages\Income.png" />
+    <Content Include="Assets\WalletImages\Money.png" />
+    <Content Include="Assets\WalletImages\wallet.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -371,6 +387,14 @@
     <Content Include="Views\ChillLive\Live.cshtml" />
     <Content Include="Views\Shared\_Layout_nofooter.cshtml" />
     <Content Include="Views\Shared\_Layout_beforelogin_nofooter.cshtml" />
+    <Content Include="Views\Coupons\Coupons.cshtml" />
+    <Content Include="Views\epalAccount\Wallet.cshtml" />
+    <Content Include="Views\ePal\ePal.cshtml" />
+    <Content Include="Views\Edit_Profile\Edit_Profile.cshtml" />
+    <Content Include="Views\Order\Order.cshtml" />
+    <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
+    <Content Include="Views\AboutUs\AboutUs.cshtml" />
+    <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

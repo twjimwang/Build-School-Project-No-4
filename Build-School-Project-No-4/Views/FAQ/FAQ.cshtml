@@ -1,7 +1,7 @@
 ﻿
 <div class="container-fluid">
     <div class="row">
-        <div class=" item  col-12 col-md-3">
+        <div class=" items  col-12 col-md-3">
             <div class="text">
                 <ul class="list-group ">
                     <a href="#parent-1" class="list-group-item list-group-item-action border-0 bg-transparent">Getting   Started</a>
@@ -14,11 +14,11 @@
                 </ul>
             </div>
         </div>
-        <div class="item bg-dark  items border-0 col-12 col-md-9">
+        <div class="items bg-dark   border-0 col-12 col-md-9">
             <div class="text">
                 <h1>FAQ</h1><br>
                 <h2 id="parent-1">Getting Started</h2><br>
-                <h2>Q: What is an ePal?</h2>
+                <h2 class="h2_height">Q: What is an ePal?</h2>
                 <p class="textcolor">
                     A: An ePal is a verified (18+) user who offers gaming
                     companionship
@@ -26,8 +26,8 @@
                     participate in events, work with content creators, and represent EPal.gg.
                     There are many opportunities available to ePals,
                     the only limitation is your own ambition!
-                </p>
-                <h2>Q: How do I become an ePal?</h2>
+                </p><br>
+                <h2 class="h2_height">Q: How do I become an ePal?</h2>
                 <p class="textcolor">
                     A: An ePal is a verified (18+) user who offers gaming
                     companionship
@@ -35,8 +35,8 @@
                     participate in events, work with content creators, and represent EPal.gg.
                     There are many opportunities available to ePals,
                     the only limitation is your own ambition!
-                </p>
-                <h2>Q: Why was my application rejected?</h2>
+                </p><br>
+                <h2 class="h2_height">Q: Why was my application rejected?</h2>
                 <p class="textcolor">
                     A: An ePal is a verified (18+) user who offers gaming
                     companionship
@@ -44,8 +44,8 @@
                     participate in events, work with content creators, and represent EPal.gg.
                     There are many opportunities available to ePals,
                     the only limitation is your own ambition!
-                </p>
-                <h2>Q: How can I become a Coach?</h2>
+                </p><br>
+                <h2 class="h2_height">Q: How can I become a Coach?</h2>
                 <p class="textcolor">
                     A: An ePal is a verified (18+) user who offers gaming
                     companionship
@@ -54,8 +54,8 @@
                     There are many opportunities available to ePals,
                     the only limitation is your own ambition!br
                 </p><br>
-                <h2 id="parent-2">Order</h2>
-                <h2>Q: What is an ePal?</h2>
+                <h2 id="parent-2">Order</h2><br>
+                <h2 class="h2_height">Q: What is an ePal?</h2>
                 <p class="textcolor">
                     A: An ePal is a verified (18+) user who offers gaming
                     companionship
@@ -63,8 +63,8 @@
                     participate in events, work with content creators, and represent EPal.gg.
                     There are many opportunities available to ePals,
                     the only limitation is your own ambition!
-                </p>
-                <h2>Q: How do I become an ePal?</h2>
+                </p><br>
+                <h2 class="h2_height">Q: How do I become an ePal?</h2>
                 <p class="textcolor">
                     A: An ePal is a verified (18+) user who offers gaming
                     companionship
@@ -72,8 +72,8 @@
                     participate in events, work with content creators, and represent EPal.gg.
                     There are many opportunities available to ePals,
                     the only limitation is your own ambition!
-                </p>
-                <h2>Q: Why was my application rejected?</h2>
+                </p><br>
+                <h2 class="h2_height">Q: Why was my application rejected?</h2>
                 <p class="textcolor">
                     A: An ePal is a verified (18+) user who offers gaming
                     companionship
@@ -81,8 +81,8 @@
                     participate in events, work with content creators, and represent EPal.gg.
                     There are many opportunities available to ePals,
                     the only limitation is your own ambition!
-                </p>
-                <h2>Q: How can I become a Coach?</h2>
+                </p><br>
+                <h2 class="h2_height">Q: How can I become a Coach?</h2>
                 <p class="textcolor">
                     A: An ePal is a verified (18+) user who offers gaming
                     companionship
@@ -91,11 +91,11 @@
                     There are many opportunities available to ePals,
                     the only limitation is your own ambition!br
                 </p><br>
-                <h2 id="parent-3">Discounts and</h2>
-                <h2 id="parent-4">Refunds and Reviews</h2>
-                <h2 id="parent-5">Money</h2>
-                <h2 id="parent-6">Safety and Security</h2>
-                <h2 id="parent-7">General</h2>
+                <h2 id="parent-3">Discounts and</h2><br>
+                <h2 id="parent-4">Refunds and Reviews</h2><br>
+                <h2 id="parent-5">Money</h2><br>
+                <h2 id="parent-6">Safety and Security</h2><br>
+                <h2 id="parent-7">General</h2><br>
             </div>
         </div>
 
@@ -103,37 +103,50 @@
 </div>
 @section topCSS{
     <style>
-        .item {
-            padding: 40px;
-            background-color: rgb(33,33,44)
+        header {
+            height: 66px;
         }
+        @@media screen and (max-width: 767px) {
+          
+            header {
+                height: 0px;
+            }
+        }  
+            .items {
+                padding: 30px;
+                background-color: rgb(33,33,44)
+            }
 
-        .text a {
-            font-size: 15px;
-            color: white;
-        }
+            .text a {
+                font-size: 15px;
+                color: white;
+            }
 
-        .text h1 {
-            font-size: 30px;
-            color: white;
-        }
+            .text h1 {
+                font-size: 30px;
+                color: white;
+            }
 
-        .text h2 {
-            font-size: 20px;
-            color: white;
-        }
+            .text h2 {
+                font-size: 15px;
+                color: white;
+            }
 
-        html, body {
-            font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
-            height: 100%;
-        }
+            html, body {
+                font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+                height: 100%;
+            }
 
-        .textcolor {
-            color: rgb(123, 107, 187);
-            ;
-        }
+            .textcolor {
+                font-size: 13px;
+                color: rgb(185,185,218);
+            }
 
+            .h2_height {
+                font-size: 10px;
+                height: 40px;
+            }
+    
     </style>
-
 
     }
