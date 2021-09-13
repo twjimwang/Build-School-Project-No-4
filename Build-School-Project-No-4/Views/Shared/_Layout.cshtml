@@ -31,15 +31,15 @@
     <header>
         <nav class="navbar">
             <div class="container-fluid">
-                <a class="logo" href="#">
+                <a class="logo" href="@Url.Action("ePal","ePal")">
                     <img src="~/Assets/images/layout/logo.png" alt="E-Pal">
                 </a>
                 <ul class="me-auto d-flex navbar-left">
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" aria-current="page" href="#">ePal</a>
+                        <a class="nav-link text-white navItem" aria-current="page" href="@Url.Action("ePal","ePal")">ePal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="#">Chill</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","ChillMeet")">Chill</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link text-white navItem" href="#">Posts</a>
@@ -57,7 +57,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdown-about"
                             id="dropdown-about-ul">
                             <li class="ultitle">Helper Center</li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li class="ulitem"><a class="dropdown-item" href="@Url.Action("FAQ","FAQ")">FAQ</a></li>
                             <li class="ulitem">
                                 <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-backdrop="static" data-keyboard="false">
                                     Report
@@ -68,10 +68,10 @@
                             </li>
                             <li class="ultitle">Contact Us</li>
                             <li class="ulitem"><a class="dropdown-item" href="#">Business Inquiry</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Twitter</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Facebook</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Instagram</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Discord</a></li>
+                            <li class="ulitem"><a class="dropdown-item" href="https://twitter.com/epalgg" target="_blank">Twitter</a></li>
+                            <li class="ulitem"><a class="dropdown-item" href="https://www.facebook.com/OfficialEpal" target="_blank">Facebook</a></li>
+                            <li class="ulitem"><a class="dropdown-item" href="https://www.instagram.com/epal.gg/" target="_blank">Instagram</a></li>
+                            <li class="ulitem"><a class="dropdown-item" href="https://discord.com/invite/epalgg" target="_blank">Discord</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -97,7 +97,7 @@
                     </div>
 
                     <div class="becomeEPal-button">
-                        <a href="#" role="button">Become an ePal</a>
+                        <a href="@Url.Action("BecomeEPalPage","BecomeEPal")">Become an ePal</a>
                     </div>
 
                     <div class="logsign-modal-button">
@@ -251,7 +251,7 @@
                                     </a>
                                 </div>
                                 <div class="money-item" id="wallet">
-                                    <a href="#">
+                                    <a href="@Url.Action("Wallet","epalAccount")">
                                         <img src="~/Assets/images/layout/walleticon.png" alt="wallet">
                                         <div class="txt">Wallet</div>
                                     </a>
@@ -384,7 +384,7 @@
     </a>
 
 
-    <!-- chatroom   desktop/pad/phone-->
+    <!-- chatroom  for desktop/pad-->
     <div class="chatroom">
         <button class="chatbot" onclick="MsgRoomOpen()">
             <img src="~/Assets/images/layout/chatroom.png" alt="">
@@ -604,124 +604,13 @@
 
 
 
-
-    <!-- me for phone -->
-    <div class="me-sm">
-        <div class="aside-Menu">
-            <div class="userinfo">
-                <div class="user-photo">
-                    <a href="#">
-                        <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
-                    </a>
-                </div>
-                <div class="uesr-account-name">
-                    <a href="#">XXX</a>
-                </div>
-            </div>
-
-            <div class="online-wrapper dropdown">
-                <a type="button" class="btn statusbar" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="~/Assets/images/layout/online.png" alt="">ONLINE
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <button class="dropdown-item" type="button">
-                            <img src="~/Assets/images/layout/online.png" alt="">ONLINE
-                        </button>
-                    </li>
-                    <li>
-                        <button class="dropdown-item" type="button">
-                            <img src="~/Assets/images/layout/inorder.png" alt="">IN AN ORDER
-                        </button>
-                    </li>
-                    <li>
-                        <button class="dropdown-item" type="button">
-                            <img src="~/Assets/images/layout/resting.png" alt="">RESTING
-                        </button>
-                    </li>
-                    <li>
-                        <button class="dropdown-item" type="button">
-                            <img src="~/Assets/images/layout/offline.png" alt="">OFFLINE
-                        </button>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="info-wrapper">
-                <div class="infosta" id="followers">
-                    <div class="num">0</div>
-                    <div class="txt">Followers</div>
-                </div>
-                <div class="infosta" id="followings">
-                    <div class="num">1</div>
-                    <div class="txt">Folloeings</div>
-                </div>
-                <div class="infosta" id="vistors">
-                    <div class="num">2</div>
-                    <div class="txt">Vistors</div>
-                </div>
-                <div class="infosta" id="medals">
-                    <div class="num">3</div>
-                    <div class="txt">Medals</div>
-                </div>
-            </div>
-
-            <div class="money-wrapper">
-                <div class="money-item" id="order">
-                    <a href="#">
-                        <img src="~/Assets/images/layout/ordericon.png" alt="order">
-                        <div class="txt">Order</div>
-                    </a>
-                </div>
-                <div class="money-item" id="wallet">
-                    <a href="#">
-                        <img src="~/Assets/images/layout/walleticon.png" alt="wallet">
-                        <div class="txt">Wallet</div>
-                    </a>
-                </div>
-                <div class="money-item" id="coupons">
-                    <a href="#">
-                        <img src="~/Assets/images/layout/couponicon.png" alt="coupon">
-                        <div class="txt">Coupons</div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="member-wrapper">
-                <div class="makemember" id="epalplus">
-                    <a href="#">
-                        <p id="plustxt">4.99 Buff for 14 privileges</p>
-                    </a>
-
-                </div>
-                <div class="makemember" id="anepal">
-                    <a href="#">
-                        <p id="anepaltxt1">Become an ePal</p>
-                        <p id="anepaltxt2">Earn extra cash by gaming with others.</p>
-                    </a>
-                </div>
-            </div>
-
-            <div class="setting-wrappers">
-                <div class="settingimg">
-                    <a href="#">
-                        <i class="fas fa-cog"></i>
-                    </a>
-                </div>
-                <div class="txt">Settings</div>
-            </div>
-        </div>
-    </div>
-
-
-
     <!-- 手機navbar置底 -->
     <nav class="navbar-sm">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="item">
-                        <a href="#">
+                        <a href="@Url.Action("ePal","ePal")">
                             <i class="fas fa-gamepad"></i>
                             ePal
                         </a>
@@ -729,7 +618,7 @@
                 </div>
                 <div class="col">
                     <div class="item">
-                        <a href="#">
+                        <a href="@Url.Action("Meet","ChillMeet")">
                             <i class="fas fa-desktop"></i>
                             Chill
                         </a>
@@ -745,7 +634,7 @@
                 </div>
                 <div class="col">
                     <div class="item">
-                        <a href="#" onclick="MsgRoomOpenForPhone()">
+                        <a href="@Url.Action("ChatForPhonePage","ChatForPhone")">
                             <i class="far fa-comment-dots"></i>
                             Chat
                         </a>
@@ -753,7 +642,7 @@
                 </div>
                 <div class="col">
                     <div class="item">
-                        <a href="#" onclick="AccountOpen()">
+                        <a href="@Url.Action("MeForPhonePage","MeForPhone")" >
                             <i class="fas fa-user"></i>
                             Me
                         </a>
