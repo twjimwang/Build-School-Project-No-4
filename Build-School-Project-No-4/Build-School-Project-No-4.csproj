@@ -184,6 +184,7 @@
     <Compile Include="Controllers\BecomeEPalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
     <Compile Include="Controllers\ePalController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\detail.css" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
     <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
@@ -216,6 +218,12 @@
     <Content Include="Assets\images\becomeEPal\whatsEpal.png" />
     <Content Include="Assets\images\becomeEPal\who.png" />
     <Content Include="Assets\images\becomeEPal\zero.png" />
+    <Content Include="Assets\images\detail\availability.png" />
+    <Content Include="Assets\images\detail\bg_LOL_img.png" />
+    <Content Include="Assets\images\detail\currency.png" />
+    <Content Include="Assets\images\detail\details.png" />
+    <Content Include="Assets\images\detail\lol-screenshot.jpg" />
+    <Content Include="Assets\images\detail\profile-eniza.gif" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
     <Content Include="Assets\images\homepageimg\arrow-right.png" />
     <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
@@ -391,6 +399,7 @@
     <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
     <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
     <Content Include="Views\Page404\Page404.cshtml" />
+    <Content Include="Views\Detail\DetailPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
