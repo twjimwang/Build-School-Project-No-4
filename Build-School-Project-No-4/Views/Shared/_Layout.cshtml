@@ -84,7 +84,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li class="ulitem"><a class="dropdown-item" href="#">Download App</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">About Us</a></li>
+                            <li class="ulitem"><a class="dropdown-item" href="@Url.Action("AboutUs","AboutUs")">About Us</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -245,7 +245,7 @@
 
                             <div class="money-wrapper">
                                 <div class="money-item" id="order">
-                                    <a href="#">
+                                    <a href="@Url.Action("Order","Order")">
                                         <img src="~/Assets/images/layout/ordericon.png" alt="order">
                                         <div class="txt">Order</div>
                                     </a>
@@ -281,11 +281,11 @@
 
                             <div class="setting-wrappers">
                                 <div class="settingimg">
-                                    <a href="#">
-                                        <i class="fas fa-cog"></i>
+                                    <a href="@Url.Action("Edit_Profile","Edit_Profile")">
+                                        <i class="fas fa-cog"></i>Settings
                                     </a>
                                 </div>
-                                <div class="txt">Settings</div>
+                                @*<div class="txt">Settings</div>*@
                             </div>
                         </div>
                     </div>

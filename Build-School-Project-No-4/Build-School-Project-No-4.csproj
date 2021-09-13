@@ -185,6 +185,9 @@
     <Compile Include="Controllers\BecomeEPalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
+    <Compile Include="Controllers\CouponsController.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
+    <Compile Include="Controllers\Edit_ProfileController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
     <Compile Include="Controllers\ePalController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
@@ -208,11 +211,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\AboutUsImages\about.png" />
+    <Content Include="Assets\AboutUsImages\aboutusmark.png" />
+    <Content Include="Assets\CouponsImages\Coupons.png" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
     <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
     <Content Include="Assets\css\layout_beforelogin.css" />
     <Content Include="Assets\css\reset.css" />
+    <Content Include="Assets\Edit_ProfileImages\avatar.png" />
     <Content Include="Assets\images\becomeEPal\becomebg.png" />
     <Content Include="Assets\images\becomeEPal\flexity.png" />
     <Content Include="Assets\images\becomeEPal\friends.png" />
@@ -396,6 +403,12 @@
     <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
     <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
     <Content Include="Views\Page404\Page404.cshtml" />
+    <Content Include="Views\AboutUs\AboutUs.cshtml" />
+    <Content Include="Views\Detail\DetailPage.cshtml" />
+    <Content Include="Views\Edit_Profile\Edit_Profile.cshtml" />
+    <Content Include="Views\Order\Order.cshtml" />
+    <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
+    <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
