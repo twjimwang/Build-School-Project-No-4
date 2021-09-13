@@ -180,11 +180,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BecomeEPalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
-    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
     <Compile Include="Controllers\ePalController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
@@ -192,9 +192,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeForPhoneController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\Page404Controller.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RecommendController.cs" />
+    <Compile Include="Controllers\SettingsAccountController.cs" />
+    <Compile Include="Controllers\UserAgreementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,7 +208,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\css\detail.css" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
     <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
@@ -218,12 +220,6 @@
     <Content Include="Assets\images\becomeEPal\whatsEpal.png" />
     <Content Include="Assets\images\becomeEPal\who.png" />
     <Content Include="Assets\images\becomeEPal\zero.png" />
-    <Content Include="Assets\images\detail\availability.png" />
-    <Content Include="Assets\images\detail\bg_LOL_img.png" />
-    <Content Include="Assets\images\detail\currency.png" />
-    <Content Include="Assets\images\detail\details.png" />
-    <Content Include="Assets\images\detail\lol-screenshot.jpg" />
-    <Content Include="Assets\images\detail\profile-eniza.gif" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
     <Content Include="Assets\images\homepageimg\arrow-right.png" />
     <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
@@ -324,11 +320,10 @@
     <Content Include="Assets\MeetImages\icon2.png" />
     <Content Include="Assets\MeetImages\icon3.png" />
     <Content Include="Assets\MeetImages\icon4.png" />
+    <Content Include="Assets\OrderImages\order.png" />
     <Content Include="Assets\WalletImages\Income.png" />
     <Content Include="Assets\WalletImages\Money.png" />
     <Content Include="Assets\WalletImages\wallet.png" />
-    <Content Include="bin\Build-School-Project-No-4.dll" />
-    <Content Include="bin\Build-School-Project-No-4.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -393,13 +388,14 @@
     <Content Include="Views\ChillLive\Live.cshtml" />
     <Content Include="Views\Shared\_Layout_nofooter.cshtml" />
     <Content Include="Views\Shared\_Layout_beforelogin_nofooter.cshtml" />
+    <Content Include="Views\Coupons\Coupons.cshtml" />
+    <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\ePal\ePal.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
     <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
     <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
     <Content Include="Views\Page404\Page404.cshtml" />
-    <Content Include="Views\Detail\DetailPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
