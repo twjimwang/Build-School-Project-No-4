@@ -18,46 +18,46 @@
 <div class="container">
     <div class="row ">
         <div class="Account_header col-12 col-md-12">
-            <h1>Account</h1>
-            <p>Account Information</p>
+            <h1 class="title_h1_size">Account</h1>
+            <p class="title_p_size">Account Information</p>
         </div>
         <div class="borderbottom">
             <div class="row ">
-                <div class="col-12 col-md-2">
+                <div class="col-12 col-md-4">
                     <p class="p_color">ID:</p>
                 </div>
                 <div class="col-12 col-md-5">
-                    <p>1520673244</p>
+                    <p class="p_size" >1520673244</p>
                 </div>
             </div>
         </div>
         <div class="borderbottom">
             <div class="row ">
-                <div class=" col-md-2">
+                <div class=" col-md-4">
                     <p class="p_color">Registration Time:</p>
                 </div>
                 <div class="col-12 col-md-5">
-                    <p>Aug 23,2021</p>
+                    <p class="p_size">Aug 23,2021</p>
                 </div>
             </div>
         </div>
         <div class="borderbottom">
             <div class="row ">
-                <div class=" col-md-2">
+                <div class=" col-md-4">
                     <p class="p_color">Account:</p>
                 </div>
                 <div class="col-12 col-md-5">
-                    <p>kyl*******@@gamil.com</p>
+                    <p class="p_size">kyl*******@@gamil.com</p>
                 </div>
             </div>
         </div>
         <div class="borderbottom">
-            <div class="row ">
-                <div class="col-12 col-md-2">
+            <div class="bindcenter row ">
+                <div class="col-12 col-md-4">
                     <p class="p_color">Phone:</p>
                 </div>
                 <div class="col-6 col-md-4">
-                    <p>You have not bound a Phone</p>
+                    <p class="p_size">You have not bound a Phone</p>
                 </div>
                 <div class="buttonright col-6 col-md-4 ">
                     <div>
@@ -72,11 +72,11 @@
         </div>
         <div class="borderbottom">
             <div class="row ">
-                <div class="col-12 col-md-2">
+                <div class="col-12 col-md-4">
                     <p class="p_color">Passsword:</p>
                 </div>
                 <div class="col-6 col-md-4">
-                    <p>*******</p>
+                    <p class="p_size">*******</p>
                 </div>
                 <div class="buttonright col-6 col-md-4">
                     <button class="button button1">Change</button>
@@ -85,7 +85,7 @@
         </div>
         <div class="borderfooter">
             <div class="row ">
-                <div class="col-12 col-md-2">
+                <div class="col-12 col-md-4">
                     <p class="p_color">Delete Account:</p>
                 </div>
                 <div class="buttonright col-6 col-md-4">
@@ -154,14 +154,18 @@
         html,
         body {
             font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 10px;
+            font-size: 7px;
             color: white;
             background-color: rgb(18, 14, 27);
             height: 100%;
         }
         .borderbottom
         {
-            padding:10px
+            align-items:center;
+            padding:10px;
+        }
+        .bindcenter {
+            align-items: center;
         }
 
         .tab-title a {
@@ -223,7 +227,13 @@
         .half {
             width: 50%;
         }
-
+        .title_h1_size{
+            height:70px;
+            font-size:30px
+        }
+        .title_p_size {
+            height: 30px;
+        }
         .buttonright .button1 {
             width: 130px;
             background-color: rgb(110, 67, 232);
@@ -235,9 +245,12 @@
         }
 
         .p_color {
+            font-size:10px;
             color: darkgray;
         }
-
+        .p_size {
+            font-size: 13px;
+        }
         .circle {
             display: block;
             float: left;

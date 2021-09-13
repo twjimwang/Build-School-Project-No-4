@@ -182,11 +182,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
+    <Compile Include="Controllers\CouponsController.cs" />
     <Compile Include="Controllers\Edit_ProfileController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RecommendController.cs" />
     <Compile Include="Controllers\SettingsAccountController.cs" />
@@ -200,6 +202,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Coupons\Coupons.png" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
     <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
@@ -304,6 +307,7 @@
     <Content Include="Assets\MeetImages\icon2.png" />
     <Content Include="Assets\MeetImages\icon3.png" />
     <Content Include="Assets\MeetImages\icon4.png" />
+    <Content Include="Assets\OrderImages\order.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -365,6 +369,9 @@
     <Content Include="Views\Shared\_Layout_beforelogin.cshtml" />
     <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\ChillMeet\Meet.cshtml" />
+    <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
+    <Content Include="Views\Order\Order.cshtml" />
+    <Content Include="Views\Coupons\Coupons.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
