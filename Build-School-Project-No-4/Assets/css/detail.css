@@ -1,0 +1,488 @@
+.whitespace {
+  height: 100px;
+}
+body {
+  background-color: rgb(18, 14, 27);
+  font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: white;
+  margin-bottom: 150px;
+  overflow-x: hidden;
+}
+button {
+  border: none;
+  border-radius: 15px;
+}
+
+.game-backdrop {
+    background-image: url('../images/detail/bg_LOL_img.png');
+    background-size: auto 200px;
+    background-repeat: no-repeat;
+    z-index: 3;
+    background-position: top;
+    min-height: 200px;
+}
+
+.game-backdrop button {
+  font-size: 14px;
+  padding: 5px 0;
+}
+.detail-title {
+  margin-top: 25px;
+}
+.greyish {
+  color: rgb(196, 195, 230);
+  font-size: 12px;
+}
+.whitish {
+  color: white;
+  font-size: 12px;
+}
+h1 {
+  font-size: 28px;
+}
+img.buff-img {
+  width: 11px;
+  height: auto;
+}
+.header-btns {
+  display: flex;
+  position: fixed;
+  justify-content: space-around;
+  margin-top: 15px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 15px;
+  background-color: rgb(18, 14, 27);
+}
+.game-price img {
+  width: 11px;
+  height: auto;
+}
+
+.detail-header button {
+  width: 45%;
+}
+
+.btn-play {
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(110, 67, 232);
+  border: 1px solid rgb(110, 67, 232);
+}
+.btn-play:hover {
+  color: rgb(81, 48, 173);
+  border: 1px solid rgb(81, 48, 173);
+  transition: all 0.2s ease-out;
+}
+
+.btn-purp {
+  background-color: rgb(110, 67, 232);
+  color: white;
+}
+.btn-purp:hover {
+  background-color: rgb(92, 55, 194);
+  transition: all 0.2s ease-out;
+}
+.main-profile {
+  margin-top: 20px;
+}
+.main-profile-img {
+    background-image: url('../images/detail/profile-eniza.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 120px;
+    height: auto;
+    border-radius: 10px;
+}
+.basic-info {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin: auto;
+}
+.name {
+  font-size: 22px;
+  width: 100%;
+}
+.language {
+  font-size: 12px;
+}
+.language-label {
+  display: none;
+}
+.main-profile-row {
+  margin-bottom: 15px;
+}
+
+.status {
+  position: relative;
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  background-color: rgb(31, 185, 149);
+  padding: 1px 4px;
+  top: 10px;
+  border-radius: 3px;
+  width: 43px;
+}
+.booking {
+  display: none;
+  border-radius: 10px;
+}
+
+.streamer-info {
+  background-color: rgb(74, 55, 128);
+  border-radius: 5px;
+  padding: 5px 0;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+.info-title {
+  font-size: 10px;
+  color: rgb(187, 175, 219);
+}
+.streamer-info-data {
+  font-size: 10px;
+}
+.streamer-score i {
+  font-size: 8px;
+  text-align: center;
+  background: linear-gradient(315deg, #ff894c, #ffd839);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.one-star {
+  display: inline;
+}
+.five-stars {
+  display: none;
+}
+.game-screenshot {
+  border-radius: 5px;
+  margin: 12px 0;
+}
+.game-screenshot img {
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.details, .availability {
+  background-color: rgb(48, 47, 61);
+  border-radius: 5px;
+  padding: 15px 13px;  
+}
+.availability{
+  padding: 0;
+}
+.availability td{
+  padding: 8px 10px;  
+
+}
+
+.details-heading{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+.details img, .availability img{
+  width: 12px;
+  height: auto;
+  margin-right: 7px;
+}
+.detail-entry{
+  width: 100%;
+  display: inline-flex;
+}
+.detail-name{
+  width: 30%;
+}
+.introduction{
+  border-top: 1px solid rgb(90, 89, 107);
+  margin: 10px 0;
+  padding-top: 10px;
+}
+.availability{
+  margin-top: 10px;
+  
+}
+.availability table{
+  width: 100%;
+}
+
+.availability thead td{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+.availability tbody tr:nth-child(odd){
+  background-color: rgb(33,33,44);
+}
+
+
+@media screen and (min-width: 400px) {
+  h1 {
+    font-size: 35px;
+  }
+  .info-title {
+    font-size: 11px;
+  }
+
+  .game-backdrop button {
+    font-size: 15px;
+  }
+  .main-profile-img {
+    height: 170px;
+  }
+}
+@media screen and (min-width: 576px){
+  .name {
+    font-size: 25px;
+  }
+  h2{
+    margin-bottom: 3px;
+  }
+  .language {
+    font-size: 14px;
+  }
+  .info-title {
+    font-size: 14px;
+  }
+  .streamer-info {
+    background: rgb(25, 46, 133);
+    background: linear-gradient(
+      90deg,
+      rgba(25, 46, 133, 1) 0%,
+      rgba(74, 55, 128, 1) 100%
+    );
+    height: 50px;
+    padding-top: 8px;
+  }
+  .detail-name{
+    width: 25%;
+  }
+  .greyish {
+    font-size: 13px;
+  }
+  .whitish {
+    font-size: 13px;
+  }
+  .details{
+    padding: 15px 0;
+  }
+  .availability{
+    padding: 10px 0;
+  }
+  .details, .availability td{
+    padding-left: 15px;  
+  }
+  .details{
+    padding-right: 15px;
+  }
+  .details, .availability{
+    height: 100%;
+  }
+
+
+  
+}
+@media screen and (min-width: 768px) {
+  .container{
+    padding: 0 10px;
+  }
+  .detail-header {
+    position: relative;
+    height: 100%;
+  }
+  h1 {
+    font-size: 38px;
+    font-weight: 550;
+  }
+
+
+  .price-header {
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  .price-header img {
+    width: 17px;
+    height: auto;
+    margin-right: 3px;
+  }
+
+  .header-btns {
+    z-index: 2;
+    padding: 12px 0 0;
+    width: 100%;
+    justify-content: space-evenly;
+    background-color: rgba(18, 14, 27, 0);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .detail-header button {
+    width: 100%;
+    margin: 0 3px;
+    padding: 3px 0;
+  }
+  .language {
+    display: block;
+  }
+  .main-profile-row {
+    flex-direction: column;
+  }
+  .reverse {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .streamer-info,
+  .main-profile-row {
+    margin-top: 10px;
+  }
+  .streamer-info {
+    height: 70px;
+    position: relative;
+  }
+  .streamer-info .col-3 {
+    position: relative;
+    top: 10px;
+  }
+  .main-profile {
+    margin-top: 0px;
+    background-color: rgb(48, 47, 61);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px 10px;
+  }
+  .main-profile-img {
+    width: 100%;
+    height: 180px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .stick{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
+    right: 0;
+  }
+  .booking {
+    display: block;
+    background-color: rgb(48, 47, 61);
+    padding: 10px 10px;
+  }
+  .booking .game-price {
+    padding-left: 3px;
+    font-size: 27px;
+  }
+  p {
+    font-size: 13px;
+    font-weight: 550;
+  }
+  .booking p {
+    margin-bottom: 5px;
+  }
+  .ppg {
+    display: inline-flex;
+    align-items: baseline;
+    width: 100%;
+    justify-content: center;
+  }
+  .ppg img {
+    width: 15px;
+  }
+  .ppg-btns {
+    margin: 15px 0 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .ppg-btns button {
+    width: 45%;
+    padding: 3px 0;
+  }
+  .info-title {
+    font-size: 13px;
+    color: white;
+  }
+  .streamer-info-data {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .streamer-score {
+    margin-left: 3px;
+    overflow-x: visible;
+  }
+  .streamer-score i {
+    font-size: 13px;
+    margin: 0 -2px;
+  }
+  .one-star {
+    display: none;
+  }
+  .five-stars {
+    display: inline;
+  }
+  .availability{
+    margin-top: 0px;
+  }
+  .details{
+    height: 100%;
+  }
+  td.greyish {
+    padding-left: 0;
+  }
+  .detail-name{
+    width: 35%;
+  }
+  .greyish {
+    font-size: 13px;
+  }
+  .whitish {
+    font-size: 13px;
+  }
+}
+@media screen and (min-width: 992px) {
+  h1 {
+    font-size: 50px;
+    font-weight: 500;
+  }
+  .main-profile-img {
+    height: 290px;
+  }
+  .header-btns{
+    justify-content: space-between;
+  }
+  .detail-header button {
+    padding: 5px 0;
+    font-size: 18px;
+    width: 48%;
+    border-radius: 20px;
+  }
+  .ppg-btns button {
+    font-size: 16px;
+    width: 48%;
+    padding: 5px 0;
+  }
+  .greyish {
+    color: rgb(196, 195, 230);
+    font-size: 14px;
+  }
+  .whitish {
+    color: white;
+    font-size: 14px;
+  }
+}
