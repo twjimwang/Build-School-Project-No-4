@@ -80,13 +80,13 @@
                             <li class="ultitle">User Agreement</li>
                             <li class="ulitem"><a class="dropdown-item" href="#">Terms of Service</a></li>
                             <li class="ulitem"><a class="dropdown-item" href="#">Privacy Policy</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Community</a></li>
+                            <li class="ulitem"><a class="dropdown-item" href="@Url.Action("UserAgreement","UserAgreement")">Community</a></li>
                             <li class="ulitem"><a class="dropdown-item" href="#">Multimedia Policy</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li class="ulitem"><a class="dropdown-item" href="#">Download App</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">About Us</a></li>
+                            <li class="ulitem"><a class="dropdown-item" href="@Url.Action("AboutUs","AboutUs")">About Us</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -247,7 +247,7 @@
 
                             <div class="money-wrapper">
                                 <div class="money-item" id="order">
-                                    <a href="#">
+                                    <a href="@Url.Action("Order","Order")">
                                         <img src="~/Assets/images/layout/ordericon.png" alt="order">
                                         <div class="txt">Order</div>
                                     </a>
@@ -259,7 +259,7 @@
                                     </a>
                                 </div>
                                 <div class="money-item" id="coupons">
-                                    <a href="#">
+                                    <a href="@Url.Action("Coupons","Coupons")">
                                         <img src="~/Assets/images/layout/couponicon.png" alt="coupon">
                                         <div class="txt">Coupons</div>
                                     </a>
@@ -283,11 +283,11 @@
 
                             <div class="setting-wrappers">
                                 <div class="settingimg">
-                                    <a href="#">
-                                        <i class="fas fa-cog"></i>
+                                    <a href="@Url.Action("Edit_Profile","Edit_Profile")">
+                                        <i class="fas fa-cog"></i>Settings
+                                        @*<div class="txt">Settings</div>*@
                                     </a>
                                 </div>
-                                <div class="txt">Settings</div>
                             </div>
                         </div>
                     </div>
