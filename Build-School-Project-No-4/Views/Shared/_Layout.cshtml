@@ -28,324 +28,329 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="container-fluid">
-                <a class="logo" href="@Url.Action("ePal","ePal")">
-                    <img src="~/Assets/images/layout/logo.png" alt="E-Pal">
-                </a>
-                <ul class="me-auto d-flex navbar-left">
-                    <li class="nav-item">
-                        <a class="nav-link text-white navItem" aria-current="page" href="@Url.Action("ePal","ePal")">ePal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","ChillMeet")">Chill</a>
-                    </li>
-                    <!-- <li class="nav-item">
+    @*<div class="layout-wrapper">*@
+
+        <header>
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <a class="logo" href="@Url.Action("ePal","ePal")">
+                        <img src="~/Assets/images/layout/logo.png" alt="E-Pal">
+                    </a>
+                    <ul class="me-auto d-flex navbar-left">
+                        <li class="nav-item">
+                            <a class="nav-link text-white navItem" aria-current="page" href="@Url.Action("ePal","ePal")">ePal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white navItem" href="@Url.Action("Meet","ChillMeet")">Chill</a>
+                        </li>
+                        <!-- <li class="nav-item">
                         <a class="nav-link text-white navItem" href="#">Posts</a>
                     </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="#">Creator Project</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white navItem" href="#">Creator Project</a>
+                        </li>
 
-                    <li class="dropdown nav-item dropdown-about-list">
-                        <a type="button" class="nav-link text-white" id="dropdown-about" data-bs-toggle="dropdown"
-                           aria-expanded="false">
+                        <li class="dropdown nav-item dropdown-about-list">
+                            <a type="button" class="nav-link text-white" id="dropdown-about" data-bs-toggle="dropdown"
+                               aria-expanded="false">
 
-                            • • •
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdown-about"
-                            id="dropdown-about-ul">
-                            <li class="ultitle">Helper Center</li>
-                            <li class="ulitem"><a class="dropdown-item" href="@Url.Action("FAQ","FAQ")">FAQ</a></li>
-                            <li class="ulitem">
-                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-backdrop="static" data-keyboard="false">
-                                    Report
-                                </a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li class="ultitle">Contact Us</li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Business Inquiry</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="https://twitter.com/epalgg" target="_blank">Twitter</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="https://www.facebook.com/OfficialEpal" target="_blank">Facebook</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="https://www.instagram.com/epal.gg/" target="_blank">Instagram</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="https://discord.com/invite/epalgg" target="_blank">Discord</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li class="ultitle">User Agreement</li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Terms of Service</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Privacy Policy</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Community</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Multimedia Policy</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li class="ulitem"><a class="dropdown-item" href="#">Download App</a></li>
-                            <li class="ulitem"><a class="dropdown-item" href="@Url.Action("AboutUs","AboutUs")">About Us</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                                • • •
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdown-about"
+                                id="dropdown-about-ul">
+                                <li class="ultitle">Helper Center</li>
+                                <li class="ulitem"><a class="dropdown-item" href="@Url.Action("FAQ","FAQ")">FAQ</a></li>
+                                <li class="ulitem">
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-backdrop="static" data-keyboard="false">
+                                        Report
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li class="ultitle">Contact Us</li>
+                                <li class="ulitem"><a class="dropdown-item" href="#">Business Inquiry</a></li>
+                                <li class="ulitem"><a class="dropdown-item" href="https://twitter.com/epalgg" target="_blank">Twitter</a></li>
+                                <li class="ulitem"><a class="dropdown-item" href="https://www.facebook.com/OfficialEpal" target="_blank">Facebook</a></li>
+                                <li class="ulitem"><a class="dropdown-item" href="https://www.instagram.com/epal.gg/" target="_blank">Instagram</a></li>
+                                <li class="ulitem"><a class="dropdown-item" href="https://discord.com/invite/epalgg" target="_blank">Discord</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li class="ultitle">User Agreement</li>
+                                <li class="ulitem"><a class="dropdown-item" href="#">Terms of Service</a></li>
+                                <li class="ulitem"><a class="dropdown-item" href="#">Privacy Policy</a></li>
+                                <li class="ulitem"><a class="dropdown-item" href="#">Community</a></li>
+                                <li class="ulitem"><a class="dropdown-item" href="#">Multimedia Policy</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li class="ulitem"><a class="dropdown-item" href="#">Download App</a></li>
+                                <li class="ulitem"><a class="dropdown-item" href="@Url.Action("AboutUs","AboutUs")">About Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
 
-                <!-- right navbar -->
-                <div class="navbar-right d-flex">
-                    <div class="search">
-                        <i class="fas fa-search"></i>
-                        <input class="ellipsis" type="text" placeholder="Search by Service, ePal name or ID" onfocus="changeLong()" onblur="changeShort()" />
-                    </div>
-
-                    <div class="becomeEPal-button">
-                        <a href="@Url.Action("BecomeEPalPage","BecomeEPal")">Become an ePal</a>
-                    </div>
-
-                    <div class="logsign-modal-button">
-                        <!-- 首頁login/signup -->
-                        <!-- Button trigger modal -->
-                        <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
-                                data-bs-target="#myModal" id="loginmodal">
-                            Log In
-                        </button>
-                        <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
-                                data-bs-target="#myModal" id="signupmodal">
-                            Sign Up
-                        </button>
-                    </div>
-
-                    <!-- right navbar message dropdown list -->
-                    <div class="message dropdown">
-                        <i class="far fa-envelope" type="button" id="dropdown-message" data-bs-toggle="dropdown"></i>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-message"
-                            id="dropdown-message-ul" data-stopPropagation="true" data-toggle="dropdown-menu">
-                            <div class="myMessage">
-                                <div class="sidepage">
-                                    <div class="sideitem">
-                                        <img src="~/Assets/images/layout/message1.png" alt="Order Messages" id="order-message"
-                                             class="message-icon message-icon-bk">
-                                    </div>
-                                    <div class="sideitem">
-                                        <img src="~/Assets/images/layout/message2.png" alt="Social Messages" id="social-message"
-                                             class="message-icon message-icon-bk">
-                                    </div>
-                                    <div class="sideitem">
-                                        <img src="~/Assets/images/layout/message3.png" alt="System Messages" id="system-message"
-                                             class="message-icon message-icon-bk">
-                                    </div>
-                                </div>
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <div class="title" id="message-list-title">Order Messages</div>
-                                    </div>
-                                    <!-- msg-body template -->
-                                    <div class="message-body">
-                                        <div class="list-item">
-                                            <div class="list-item-left">
-                                                <div class="list-title">
-                                                    League of Legends
-                                                </div>
-                                                <div class="list-text">
-                                                    Please pay within 15 mins
-                                                </div>
-                                                <div class="list-time">
-                                                    2 hours ago
-                                                </div>
-                                            </div>
-                                            <div class="list-item-right">
-                                                <div class="personalimg">
-                                                    <i class="fas fa-smile"></i>
-                                                </div>
-                                                <div class="list-check">
-                                                    <a href="#">
-                                                        check
-                                                        <i class="fas fa-chevron-right"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="message-footer">
-                                            <a href="#">
-                                                <span class="more">More</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ul>
-                    </div>
-
-
-                    <div class="personal-account">
-                        <div class="personal-img">
-                            <img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()">
+                    <!-- right navbar -->
+                    <div class="navbar-right d-flex">
+                        <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input class="ellipsis" type="text" placeholder="Search by Service, ePal name or ID" onfocus="changeLong()" onblur="changeShort()" />
                         </div>
-                        <div class="aside-Menu">
-                            <div class="userinfo">
-                                <div class="user-photo">
-                                    <a href="#">
-                                        <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
-                                    </a>
+
+                        <div class="becomeEPal-button">
+                            <a href="@Url.Action("BecomeEPalPage","BecomeEPal")">Become an ePal</a>
+                        </div>
+
+                        <div class="logsign-modal-button">
+                            <!-- 首頁login/signup -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
+                                    data-bs-target="#myModal" id="loginmodal">
+                                Log In
+                            </button>
+                            <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
+                                    data-bs-target="#myModal" id="signupmodal">
+                                Sign Up
+                            </button>
+                        </div>
+
+                        <!-- right navbar message dropdown list -->
+                        <div class="message dropdown">
+                            <i class="far fa-envelope" type="button" id="dropdown-message" data-bs-toggle="dropdown"></i>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-message"
+                                id="dropdown-message-ul" data-stopPropagation="true" data-toggle="dropdown-menu">
+                                <div class="myMessage">
+                                    <div class="sidepage">
+                                        <div class="sideitem">
+                                            <img src="~/Assets/images/layout/message1.png" alt="Order Messages" id="order-message"
+                                                 class="message-icon message-icon-bk">
+                                        </div>
+                                        <div class="sideitem">
+                                            <img src="~/Assets/images/layout/message2.png" alt="Social Messages" id="social-message"
+                                                 class="message-icon message-icon-bk">
+                                        </div>
+                                        <div class="sideitem">
+                                            <img src="~/Assets/images/layout/message3.png" alt="System Messages" id="system-message"
+                                                 class="message-icon message-icon-bk">
+                                        </div>
+                                    </div>
+                                    <div class="message-content">
+                                        <div class="message-header">
+                                            <div class="title" id="message-list-title">Order Messages</div>
+                                        </div>
+                                        <!-- msg-body template -->
+                                        <div class="message-body">
+                                            <div class="list-item">
+                                                <div class="list-item-left">
+                                                    <div class="list-title">
+                                                        League of Legends
+                                                    </div>
+                                                    <div class="list-text">
+                                                        Please pay within 15 mins
+                                                    </div>
+                                                    <div class="list-time">
+                                                        2 hours ago
+                                                    </div>
+                                                </div>
+                                                <div class="list-item-right">
+                                                    <div class="personalimg">
+                                                        <i class="fas fa-smile"></i>
+                                                    </div>
+                                                    <div class="list-check">
+                                                        <a href="#">
+                                                            check
+                                                            <i class="fas fa-chevron-right"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message-footer">
+                                                <a href="#">
+                                                    <span class="more">More</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="uesr-account-name">
-                                    <a href="#">XXX</a>
-                                </div>
-                                <div class="aside-close">
-                                    <button type="button" class="btn-close btn-close-white" aria-label="Close"
-                                            onclick="PersonalClose()"></button>
-                                </div>
+                            </ul>
+                        </div>
+
+
+                        <div class="personal-account">
+                            <div class="personal-img">
+                                <img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()">
                             </div>
+                            <div class="aside-Menu">
+                                <div class="userinfo">
+                                    <div class="user-photo">
+                                        <a href="#">
+                                            <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
+                                        </a>
+                                    </div>
+                                    <div class="uesr-account-name">
+                                        <a href="#">XXX</a>
+                                    </div>
+                                    <div class="aside-close">
+                                        <button type="button" class="btn-close btn-close-white" aria-label="Close"
+                                                onclick="PersonalClose()"></button>
+                                    </div>
+                                </div>
 
-                            <div class="online-wrapper dropstart">
-                                <a type="button" class="btn statusbar" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <!-- 用JS控制 -->
-                                    <img src="~/Assets/images/layout/online.png" alt="">ONLINE
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            <img src="~/Assets/images/layout/online.png" alt="">ONLINE
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            <img src="~/Assets/images/layout/inorder.png" alt="">IN AN ORDER
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            <img src="~/Assets/images/layout/resting.png" alt="">RESTING
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            <img src="~/Assets/images/layout/offline.png" alt="">OFFLINE
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
+                                <div class="online-wrapper dropstart">
+                                    <a type="button" class="btn statusbar" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <!-- 用JS控制 -->
+                                        <img src="~/Assets/images/layout/online.png" alt="">ONLINE
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <button class="dropdown-item" type="button">
+                                                <img src="~/Assets/images/layout/online.png" alt="">ONLINE
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="dropdown-item" type="button">
+                                                <img src="~/Assets/images/layout/inorder.png" alt="">IN AN ORDER
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="dropdown-item" type="button">
+                                                <img src="~/Assets/images/layout/resting.png" alt="">RESTING
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="dropdown-item" type="button">
+                                                <img src="~/Assets/images/layout/offline.png" alt="">OFFLINE
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
 
-                            <div class="info-wrapper">
-                                <div class="infosta" id="followers">
-                                    <div class="num">0</div>
-                                    <div class="txt">Followers</div>
+                                <div class="info-wrapper">
+                                    <div class="infosta" id="followers">
+                                        <div class="num">0</div>
+                                        <div class="txt">Followers</div>
+                                    </div>
+                                    <div class="infosta" id="followings">
+                                        <div class="num">1</div>
+                                        <div class="txt">Folloeings</div>
+                                    </div>
+                                    <div class="infosta" id="vistors">
+                                        <div class="num">2</div>
+                                        <div class="txt">Vistors</div>
+                                    </div>
+                                    <div class="infosta" id="medals">
+                                        <div class="num">3</div>
+                                        <div class="txt">Medals</div>
+                                    </div>
                                 </div>
-                                <div class="infosta" id="followings">
-                                    <div class="num">1</div>
-                                    <div class="txt">Folloeings</div>
-                                </div>
-                                <div class="infosta" id="vistors">
-                                    <div class="num">2</div>
-                                    <div class="txt">Vistors</div>
-                                </div>
-                                <div class="infosta" id="medals">
-                                    <div class="num">3</div>
-                                    <div class="txt">Medals</div>
-                                </div>
-                            </div>
 
-                            <div class="money-wrapper">
-                                <div class="money-item" id="order">
-                                    <a href="@Url.Action("Order","Order")">
-                                        <img src="~/Assets/images/layout/ordericon.png" alt="order">
-                                        <div class="txt">Order</div>
-                                    </a>
+                                <div class="money-wrapper">
+                                    <div class="money-item" id="order">
+                                        <a href="@Url.Action("Order","Order")">
+                                            <img src="~/Assets/images/layout/ordericon.png" alt="order">
+                                            <div class="txt">Order</div>
+                                        </a>
+                                    </div>
+                                    <div class="money-item" id="wallet">
+                                        <a href="@Url.Action("Wallet","epalAccount")">
+                                            <img src="~/Assets/images/layout/walleticon.png" alt="wallet">
+                                            <div class="txt">Wallet</div>
+                                        </a>
+                                    </div>
+                                    <div class="money-item" id="coupons">
+                                        <a href="#">
+                                            <img src="~/Assets/images/layout/couponicon.png" alt="coupon">
+                                            <div class="txt">Coupons</div>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="money-item" id="wallet">
-                                    <a href="@Url.Action("Wallet","epalAccount")">
-                                        <img src="~/Assets/images/layout/walleticon.png" alt="wallet">
-                                        <div class="txt">Wallet</div>
-                                    </a>
-                                </div>
-                                <div class="money-item" id="coupons">
-                                    <a href="#">
-                                        <img src="~/Assets/images/layout/couponicon.png" alt="coupon">
-                                        <div class="txt">Coupons</div>
-                                    </a>
-                                </div>
-                            </div>
 
-                            <div class="member-wrapper">
-                                <div class="makemember" id="epalplus">
-                                    <a href="#">
-                                        <p id="plustxt">4.99 Buff for 14 privileges</p>
-                                    </a>
+                                <div class="member-wrapper">
+                                    <div class="makemember" id="epalplus">
+                                        <a href="#">
+                                            <p id="plustxt">4.99 Buff for 14 privileges</p>
+                                        </a>
 
+                                    </div>
+                                    <div class="makemember" id="anepal">
+                                        <a href="#">
+                                            <p id="anepaltxt1">Become an ePal</p>
+                                            <p id="anepaltxt2">Earn extra cash by gaming with others.</p>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="makemember" id="anepal">
-                                    <a href="#">
-                                        <p id="anepaltxt1">Become an ePal</p>
-                                        <p id="anepaltxt2">Earn extra cash by gaming with others.</p>
-                                    </a>
-                                </div>
-                            </div>
 
-                            <div class="setting-wrappers">
-                                <div class="settingimg">
-                                    <a href="@Url.Action("Edit_Profile","Edit_Profile")">
-                                        <i class="fas fa-cog"></i>Settings
-                                    </a>
+                                <div class="setting-wrappers">
+                                    <div class="settingimg">
+                                        <a href="@Url.Action("Edit_Profile","Edit_Profile")">
+                                            <i class="fas fa-cog"></i>Settings
+                                        </a>
+                                    </div>
+                                    @*<div class="txt">Settings</div>*@
                                 </div>
-                                @*<div class="txt">Settings</div>*@
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
 
 
-    <!-- contact us-- Modal  -->
-    <div class="modal fade report" style="" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered" data-backdrop="static">
-            <div class="modal-content">
+        <!-- contact us-- Modal  -->
+        <div class="modal fade report" style="" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered" data-backdrop="static">
+                <div class="modal-content">
 
-                <div class="modal-header">
-                    <h5 class="modal-title border-0" id="staticBackdropLabel">Contact Us</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body border-0 ">
-                    <p>Please use this form to report any violations of our Guidelines or Terms of Service. When reporting a profile, please provide all the requested information so we can quickly resolve the issue. For technical issues, please provide screenshots of any error messages received. We greatly appreciate any comments or suggestions to improve the ebsite as well!</p>
-
-                    <h4>Type</h4>
-                    <select class="selectionoption form-control form-select mb-3" aria-label=".form-select example">
-                        <option value=''>Please select report type</option>
-                        <option value="1">Suggestion</option>
-                        <option value="2">Refund</option>
-                        <option value="3">Harassment</option>
-                        <option value="4">General Inquiry</option>
-                        <option value="5">Boosting</option>
-                        <option value="6">Bug</option>
-                        <option value="7">Other</option>
-                    </select>
-
-                    <h4>Subject</h4>
-                    <input class=" form-control" type="text" placeholder="Please enter report title"><br>
-
-                    <div class="form-group mb-3">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please describe your problem"></textarea><br>
+                    <div class="modal-header">
+                        <h5 class="modal-title border-0" id="staticBackdropLabel">Contact Us</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Your Contact Information</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Please enter your email">
-                    </div>
+                    <div class="modal-body border-0 ">
+                        <p>Please use this form to report any violations of our Guidelines or Terms of Service. When reporting a profile, please provide all the requested information so we can quickly resolve the issue. For technical issues, please provide screenshots of any error messages received. We greatly appreciate any comments or suggestions to improve the ebsite as well!</p>
 
-                    <div class="footer">
-                        <button type="button" class="btn btn-secondary btn-oblong" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-secondary btn-oblong">Submit</button>
-                    </div>
+                        <h4>Type</h4>
+                        <select class="selectionoption form-control form-select mb-3" aria-label=".form-select example">
+                            <option value=''>Please select report type</option>
+                            <option value="1">Suggestion</option>
+                            <option value="2">Refund</option>
+                            <option value="3">Harassment</option>
+                            <option value="4">General Inquiry</option>
+                            <option value="5">Boosting</option>
+                            <option value="6">Bug</option>
+                            <option value="7">Other</option>
+                        </select>
 
+                        <h4>Subject</h4>
+                        <input class=" form-control" type="text" placeholder="Please enter report title"><br>
+
+                        <div class="form-group mb-3">
+                            <label for="exampleFormControlTextarea1">Description</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please describe your problem"></textarea><br>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Your Contact Information</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Please enter your email">
+                        </div>
+
+                        <div class="footer">
+                            <button type="button" class="btn btn-secondary btn-oblong" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary btn-oblong">Submit</button>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    @RenderBody()
+        @RenderBody()
 
+
+
+    @*</div>*@
 
     <footer>
         <div class="container">
