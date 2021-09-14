@@ -214,6 +214,7 @@
     <Content Include="Assets\AboutUsImages\about.png" />
     <Content Include="Assets\AboutUsImages\aboutusmark.png" />
     <Content Include="Assets\CouponsImages\Coupons.png" />
+    <Content Include="Assets\css\detail.css" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
     <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
