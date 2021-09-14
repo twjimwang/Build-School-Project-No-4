@@ -200,6 +200,7 @@
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RecommendController.cs" />
     <Compile Include="Controllers\SettingsAccountController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Controllers\UserAgreementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -219,6 +220,7 @@
     <Content Include="Assets\css\layout_afterlogin.css" />
     <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
     <Content Include="Assets\css\layout_beforelogin.css" />
+    <Content Include="Assets\css\PlusPremium.css" />
     <Content Include="Assets\css\reset.css" />
     <Content Include="Assets\Edit_ProfileImages\avatar.png" />
     <Content Include="Assets\images\becomeEPal\becomebg.png" />
@@ -266,6 +268,35 @@
     <Content Include="Assets\images\homepageimg\top slider games\hearthStone.png" />
     <Content Include="Assets\images\homepageimg\top slider games\lol.png" />
     <Content Include="Assets\images\homepageimg\Yoonah.jpg" />
+    <Content Include="Assets\images\subImg\back%402x.png" />
+    <Content Include="Assets\images\subImg\buff%402x.png" />
+    <Content Include="Assets\images\subImg\buff.png" />
+    <Content Include="Assets\images\subImg\chat%402x.png" />
+    <Content Include="Assets\images\subImg\check.png" />
+    <Content Include="Assets\images\subImg\discount%402x.png" />
+    <Content Include="Assets\images\subImg\draws%402x.png" />
+    <Content Include="Assets\images\subImg\emoji%402x.png" />
+    <Content Include="Assets\images\subImg\food%402x.png" />
+    <Content Include="Assets\images\subImg\friends%402x.png" />
+    <Content Include="Assets\images\subImg\gif%402x.png" />
+    <Content Include="Assets\images\subImg\giftChatroom%402x.png" />
+    <Content Include="Assets\images\subImg\giftIM%402x.png" />
+    <Content Include="Assets\images\subImg\guardian%402x.png" />
+    <Content Include="Assets\images\subImg\likes%402x.png" />
+    <Content Include="Assets\images\subImg\medal%402x.png" />
+    <Content Include="Assets\images\subImg\pet%402x.png" />
+    <Content Include="Assets\images\subImg\pluspremium.png" />
+    <Content Include="Assets\images\subImg\pluspremiumbackground.png" />
+    <Content Include="Assets\images\subImg\plusprivilieges.png" />
+    <Content Include="Assets\images\subImg\prem-badge.png" />
+    <Content Include="Assets\images\subImg\premiumprivileges.png" />
+    <Content Include="Assets\images\subImg\roomeffect%402x.png" />
+    <Content Include="Assets\images\subImg\subscribeplus.png" />
+    <Content Include="Assets\images\subImg\subscribeprem.png" />
+    <Content Include="Assets\images\subImg\superlike%402x.png" />
+    <Content Include="Assets\images\subImg\swipe%402x.png" />
+    <Content Include="Assets\images\subImg\task%402x.png" />
+    <Content Include="Assets\images\subImg\team%402x.png" />
     <Content Include="Assets\images\layout\anepal.png" />
     <Content Include="Assets\images\layout\avatar.png" />
     <Content Include="Assets\images\layout\chat1.jpg" />
@@ -410,6 +441,8 @@
     <Content Include="Views\Order\Order.cshtml" />
     <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
+    <Content Include="Views\Subscription\Subscription.cshtml" />
+    <Content Include="Views\Detail\DetailPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
