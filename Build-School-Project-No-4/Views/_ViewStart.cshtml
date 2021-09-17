@@ -3,9 +3,9 @@
     string ActionName = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"]);
     switch (ActionName)
     {
-        case "HomePage":
-            Layout = "~/Views/Shared/_Layout_beforelogin.cshtml";
-            break;
+        //case "HomePage":
+        //    Layout = "~/Views/Shared/_Layout_beforelogin.cshtml";
+        //    break;
         case "ePal":
         case "Meet":
         case "Live":
@@ -17,6 +17,8 @@
         case "Edit_Profile":
         case "SettingAccount":
         case "Order":
+        case "SettingsAccount":
+        case "Coupons":
             Layout = "~/Views/Shared/_Layout_nofooter.cshtml";
             break;
         default:
