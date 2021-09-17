@@ -395,6 +395,7 @@
     <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
+    <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
