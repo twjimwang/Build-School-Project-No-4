@@ -202,6 +202,30 @@
     <Compile Include="Controllers\SettingsAccountController.cs" />
     <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Controllers\UserAgreementController.cs" />
+    <Compile Include="DataModels\Chatlist.cs" />
+    <Compile Include="DataModels\City.cs" />
+    <Compile Include="DataModels\Comment.cs" />
+    <Compile Include="DataModels\CommentDetail.cs" />
+    <Compile Include="DataModels\EPalContext.cs" />
+    <Compile Include="DataModels\Following.cs" />
+    <Compile Include="DataModels\GameCategory.cs" />
+    <Compile Include="DataModels\Language.cs" />
+    <Compile Include="DataModels\LiveChat.cs" />
+    <Compile Include="DataModels\MeetLike.cs" />
+    <Compile Include="DataModels\Member.cs" />
+    <Compile Include="DataModels\MessageType.cs" />
+    <Compile Include="DataModels\Order.cs" />
+    <Compile Include="DataModels\Position.cs" />
+    <Compile Include="DataModels\Product.cs" />
+    <Compile Include="DataModels\ProductPlan.cs" />
+    <Compile Include="DataModels\ProductPosition.cs" />
+    <Compile Include="DataModels\ProductServer.cs" />
+    <Compile Include="DataModels\ProductStyle.cs" />
+    <Compile Include="DataModels\Rank.cs" />
+    <Compile Include="DataModels\RecentVistor.cs" />
+    <Compile Include="DataModels\SatisfyTag.cs" />
+    <Compile Include="DataModels\Server.cs" />
+    <Compile Include="DataModels\Style.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -209,7 +233,10 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\MemberRepository.cs" />
+    <Compile Include="Services\MemberService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\MemberViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AboutUsImages\about.png" />
