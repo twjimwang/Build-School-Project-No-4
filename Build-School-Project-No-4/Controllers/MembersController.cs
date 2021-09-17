@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Build_School_Project_No_4.DataModels;
 using Build_School_Project_No_4.Repositories;
+using Build_School_Project_No_4.Services;
+using Build_School_Project_No_4.ViewModels;
 
 namespace Build_School_Project_No_4.Controllers
 {
@@ -17,9 +19,11 @@ namespace Build_School_Project_No_4.Controllers
 
 
         private MemberRepository _MemberRepo;
+        private MemberService _MemberService;
         public MembersController()
         {
             _MemberRepo = new MemberRepository();
+            _MemberService = new MemberService();
         }
 
         public ActionResult CreateSeed()
@@ -28,6 +32,15 @@ namespace Build_School_Project_No_4.Controllers
 
             return Content("寫入資料庫成功!");
         }
+
+        public ActionResult ReadMember()
+        {
+            List<MemberViewModel> MemberData = _MemberService.GetMember();
+
+            return View(MemberData);
+        }
+
+
 
         // GET: Members
         public ActionResult Index()

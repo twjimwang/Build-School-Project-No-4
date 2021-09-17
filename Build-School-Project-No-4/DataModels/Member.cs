@@ -32,6 +32,8 @@ namespace Build_School_Project_No_4.DataModels
         [StringLength(50)]
         public string MemberName { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Column(TypeName = "date")]
         public DateTime RegistrationDate { get; set; }
 
@@ -54,6 +56,8 @@ namespace Build_School_Project_No_4.DataModels
 
         public int Gender { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Column(TypeName = "date")]
         public DateTime BirthDay { get; set; }
 
