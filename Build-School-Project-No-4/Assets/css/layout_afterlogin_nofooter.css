@@ -438,7 +438,7 @@ body {
 /*登入後不顯示login/signup*/
 
 .logsign-modal-button {
-    display: none;
+    /*display: none;*/
 }
 
 .navbar-right {
