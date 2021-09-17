@@ -1,0 +1,1009 @@
+﻿
+@{
+    ViewBag.Title = "Subscription";
+}
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link href="~/Assets/css/PlusPremium.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="container-fluid header-background">
+        <div class="row">
+            <div class="col-12">
+                <div class="header">
+                    <img src="~/Assets/images/subImg/pluspremium.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container privileges">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="plus-privileges-container">
+                    <div class="plus-header priv-header">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="enjoy">
+                                    <div class="priv-desc-1 whitish">Enjoy 15 privileges</div>
+                                    <div class="priv-desc-2">
+                                        <img src="~/Assets/images/subImg/buff.png" />
+                                        <span class="orangish">15 free per month</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="for-only">
+                                    <div class="for-only-text whitish">For Only</div>
+                                    <div class="whitish">
+                                        $ <span class="priv-price">18.99</span>/month
+                                    </div>
+                                    <button class="plus-sub-btn sub-btn" data-bs-toggle="modal"
+                                            data-bs-target="#plusModal">
+                                        Subscribe
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="priv-body">
+                        <div class="priv-name">PLUS Privileges</div>
+
+                        <div class="swiper-container">
+                            <div class="swiper-pagination1"></div>
+
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" data-name="Best perks">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/buff@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Subscribe to get free Buff
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Subscribe to Monthly Plus to receive 15 free Buff
+                                                per month<br />
+                                                · Subscribe to Seasonal Plus to receive 40 free Buff
+                                                per season<br />
+                                                · Subscribe to Annual Plus to receive 117 free Buff
+                                                per year
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/chat@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Ultimate Chatting Experience
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Messages between replies<br />
+                                                · Plus Message Background<br />
+                                                · Plus Message Bubbles
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/swipe@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Unlimited right swipes
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Meet right swipes
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/team@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Unlimited use of Team rooms
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Rooms Creation
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/pet@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Multiplier for eMeow ev
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Receive extra ev
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide" data-name="Status">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/chat@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Ultimate Chatting Experience
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Messages between replies<br />
+                                                · Plus Message Background<br />
+                                                · Plus Message Bubbles
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/medal@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Prestige Identification
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Plus Nickname Color<br />
+                                                · Plus Medal
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/giftIM@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Exclusive IM Gifts
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Plus exclusive IM gifts
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide" data-name="Service">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/buff@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Subscribe to get free Buff
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Subscribe to Monthly Plus to receive 15 free Buff
+                                                per month<br />
+                                                · Subscribe to Seasonal Plus to receive 40 free Buff
+                                                per season<br />
+                                                · Subscribe to Annual Plus to receive 117 free Buff
+                                                per year
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/friends@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Pay for your friends
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Treat your friends to orders
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/guardian@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Become a Guardian for ePals
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Subscribing to E-Pal Plus. Point multiplier is 10
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-name="Meet">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/swipe@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Unlimited right swipes
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Meet right swipes
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/back@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">Card Rewind</div>
+                                            <div class="benefit-desc greyish">
+                                                · You can rewind the previous card
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/superlike@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">Super Likes</div>
+                                            <div class="benefit-desc greyish">
+                                                · Send 5 Super Likes each day
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-name="Team">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/team@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Unlimited use of Team rooms
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Rooms Creation
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/emoji@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Exclusive emojis in Team
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Exclusive emojis in Team
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/giftChatroom@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Exclusive Gifts in Team
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Plus exclusive gifts in Team
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide" data-name="eMeow">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/pet@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Multiplier for eMeow ev
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Receive extra ev
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/draws@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Free Luck Draws for eMeow
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · 2 additional Lucky Draws each day
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/food@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Exclusive eMeow food
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Plus exclusive eMeow food
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                        </div>
+                    </div>
+                    <div class="priv-footer">
+                        <button class="plus-sub-btn sub-btn" data-bs-toggle="modal" data-bs-target="#plusModal">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- change out plus for premium later -->
+
+            <div class="col-12 col-md-6">
+                <div class="prem-privileges-container">
+                    <div class="premium-header priv-header">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="enjoy">
+                                    <div class="priv-desc-1 whitish">Enjoy 20 privileges</div>
+                                    <div class="priv-desc-2">
+                                        <img src="~/Assets/images/subImg/buff.png" />
+                                        <span class="orangish">34 free per month</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="for-only">
+                                    <div class="for-only-text whitish">For Only</div>
+                                    <div class="whitish">
+                                        $ <span class="priv-price">38.99</span>/month
+                                    </div>
+                                    <button class="prem-sub-btn sub-btn" data-bs-toggle="modal"
+                                            data-bs-target="#premModal">
+                                        Subscribe
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="priv-body">
+                        <div class="priv-name">PREMIUM Privileges</div>
+
+                        <div class="swiper-container">
+                            <div class="swiper-pagination1"></div>
+
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" data-name="Best perks">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/buff@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Subscribe to get free Buff
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Subscribe to Monthly Premium to receive 34 free Buff
+                                                per month<br />
+                                                · Subscribe to Seasonal Premium to receive 83 free
+                                                Buff per season<br />
+                                                · Subscribe to Annual Premium to receive 211 free Buff
+                                                per year
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/chat@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Ultimate Chatting Experience
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Messages between replies<br />
+                                                · Premium Message Background<br />
+                                                · Premium Message Bubbles
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/swipe@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Unlimited right swipes
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Meet right swipes
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/team@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Unlimited use of Team rooms
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Rooms Creation
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/pet@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Multiplier for eMeow ev
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Receive extra ev
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide" data-name="Status">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/chat@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Ultimate Chatting Experience
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Messages between replies<br />
+                                                · Premium Message Background<br />
+                                                · Premium Message Bubbles
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/medal@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Prestige Identification
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Premium Nickname Color<br />
+                                                · Premium Medal
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/giftIM@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Exclusive IM Gifts
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Premium exclusive IM gifts
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/gif@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                GIF Profile Picture
+                                                <span class="prem-badge">
+                                                    <img src="~/Assets/images/subImg/prem-badge.png" />
+                                                </span>
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Allow you to use GIF file as profile picture
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide" data-name="Service">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/buff@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Subscribe to get free Buff
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Subscribe to Monthly Premium to receive 34 free Buff
+                                                per month<br />
+                                                · Subscribe to Seasonal Premium to receive 83 free
+                                                Buff per season<br />
+                                                · Subscribe to Annual Premium to receive 211 free Buff
+                                                per year
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/friends@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Pay for your friends
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Treat your friends to orders
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/guardian@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Become a Guardian for ePals
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Subscribing to E-Pal Premium. Point multiplier is 11
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/discount@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Premium Discount
+                                                <span class="prem-badge">
+                                                    <img src="~/Assets/images/subImg/prem-badge.png" />
+                                                </span>
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · 20-50% discount on orders
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide" data-name="Meet">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/swipe@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Unlimited right swipes
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Meet right swipes
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/back@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">Card Rewind</div>
+                                            <div class="benefit-desc greyish">
+                                                · You can rewind the previous card
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/superlike@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">Super Likes</div>
+                                            <div class="benefit-desc greyish">
+                                                · Send 10 Super Likes each day
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/likes@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                See who liked you
+                                                <span class="prem-badge">
+                                                    <img src="~/Assets/images/subImg/prem-badge.png" />
+                                                </span>
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Check out who liked you in Meet
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-name="Team">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/team@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Unlimited use of Team rooms
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Unlimited Rooms Creation
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/emoji@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Exclusive emojis in Team
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Exclusive emojis in Team
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/giftChatroom@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Exclusive Gifts in Team
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Premium exclusive gifts in Team
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/roomeffect@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Entrance Effect
+                                                <span class="prem-badge">
+                                                    <img src="~/Assets/images/subImg/prem-badge.png" />>
+                                                </span>
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Exclusive effect when entering Team rooms
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide" data-name="eMeow">
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/pet@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Multiplier for eMeow ev
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Receive extra ev
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/draws@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Free Luck Draws for eMeow
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · 4 additional Lucky Draws each day
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/food@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                Exclusive eMeow food
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Premium exclusive eMeow food
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="priv-container">
+                                        <div class="priv-img">
+                                            <img src="~/Assets/images/subImg/task@2x.png" />
+                                        </div>
+                                        <div class="priv-benefits">
+                                            <div class="benefit-header whitish">
+                                                50% more ev when completing Time Limited Tasks
+                                                <span class="prem-badge">
+                                                    <img src="~/Assets/images/subImg/prem-badge.png" />
+                                                </span>
+                                            </div>
+                                            <div class="benefit-desc greyish">
+                                                · Receive 50% more ev when you complete Time Limited
+                                                Tasks
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                        </div>
+                    </div>
+                    <div class="priv-footer">
+                        <button class="prem-sub-btn sub-btn" data-bs-toggle="modal" data-bs-target="#premModal">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade subscribe-plus-modal" id="plusModal" tabindex="-1" aria-labelledby="plusModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header plus-modal-header">
+                    <img src="~/Assets/images/subImg/subscribeplus.png" />
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-check sub-form">
+                        <label class="form-check-label" for="plus-sub-monthly">
+                            <input class="form-check-input" type="radio" name="plus-sub-radio" id="plus-sub-monthly" />
+                            Monthly
+                            <div class="free-buffs orangish">
+                                <img src="~/Assets/images/subImg/buff.png" />
+                                15 free every month
+                            </div>
+                            <div class="sub-pricing whitish">
+                                <span class="sub-price">$18.99</span>/month
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-check sub-form">
+                        <label class="form-check-label" for="plus-sub-seasonal">
+                            <input class="form-check-input" type="radio" name="plus-sub-radio" id="plus-sub-seasonal" />
+                            Seasonal <span class="sub-discount">14% Discount</span>
+                                     <div class="free-buffs orangish">
+                                         <img src="~/Assets/images/subImg/buff.png" />
+                                         40 free every season
+                                     </div>
+                            <div class="sub-pricing whitish">
+                                <span class="sub-price">$48.99</span>/season
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-check sub-form">
+                        <label class="form-check-label" for="plus-sub-annual">
+                            <input class="form-check-input" type="radio" name="plus-sub-radio" id="plus-sub-annual" />
+                            Annual <span class="sub-discount">39% Discount</span>
+                                   <div class="free-buffs orangish">
+                                       <img src="~/Assets/images/subImg/buff.png" />
+                                       117 free every year
+                                   </div>
+                            <div class="sub-pricing whitish">
+                                <span class="sub-price">$138.99</span>/year
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="terms">
+                        <div class="auto-renew">Auto renew, cancel anytime</div>
+                        <div class="policy">
+                            The subscription fees will be automatically deducted through the PayPal subscription service. PayPal will
+                            renew the subscription at the end of your subscription. You can unsubscribe at any time by going to your
+                            Account Settings on PayPal. By subscribing, you agree to our platform’s <a href="#">Terms of Service</a>,
+                            <a href="#">Privacy Policy</a> and other agreements displayed.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="cancel" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary subscribe">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade subscribe-prem-modal" id="premModal" tabindex="-1" aria-labelledby="premModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header prem-modal-header">
+                    <img src="~/Assets/images/subImg/subscribeprem.png" />
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-check sub-form">
+                        <label class="form-check-label" for="prem-sub-monthly">
+                            <input class="form-check-input" type="radio" name="prem-sub-radio" id="prem-sub-monthly" />
+                            Monthly
+                            <div class="free-buffs orangish">
+
+                                <img src="~/Assets/images/subImg/buff.png" />
+                                34 free every month
+                            </div>
+                            <div class="sub-pricing whitish">
+                                <span class="sub-price">$38.99</span>/month
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-check sub-form">
+                        <label class="form-check-label" for="prem-sub-seasonal">
+                            <input class="form-check-input" type="radio" name="prem-sub-radio" id="prem-sub-seasonal" />
+                            Seasonal <span class="sub-discount">20% Discount</span>
+                                     <div class="free-buffs orangish">
+                                         <img src="~/Assets/images/subImg/buff.png" />
+                                         83 free every season
+                                     </div>
+                            <div class="sub-pricing whitish">
+                                <span class="sub-price">$93.99</span>/season
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-check sub-form">
+                        <label class="form-check-label" for="prem-sub-annual">
+                            <input class="form-check-input" type="radio" name="prem-sub-radio" id="prem-sub-annual" />
+                            Annual <span class="sub-discount">50% Discount</span>
+                                   <div class="free-buffs orangish">
+                                       <img src="~/Assets/images/subImg/buff.png" />
+                                       211 free every year
+                                   </div>
+                            <div class="sub-pricing whitish">
+                                <span class="sub-price">$233.99</span>/year
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="terms">
+                        <div class="auto-renew">Auto renew, cancel anytime</div>
+                        <div class="policy">
+                            The subscription fees will be automatically deducted through the PayPal subscription service. PayPal will
+                            renew the subscription at the end of your subscription. You can unsubscribe at any time by going to your
+                            Account Settings on PayPal. By subscribing, you agree to our platform’s <a href="#">Terms of Service</a>,
+                            <a href="#">Privacy Policy</a> and other agreements displayed.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="cancel" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary subscribe">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+    var names = [];
+    $(".swiper-wrapper .swiper-slide").each(function (i) {
+      names.push($(this).data("name"));
+    });
+
+    var swiper = new Swiper(".swiper-container", {
+      pagination: {
+        el: ".swiper-pagination1",
+        clickable: true,
+        paginationClickable: true,
+        type: "custom",
+
+        renderCustom: function (swiper, current, total) {
+          var text =
+            "<span class='pContainer' style='background-color:transperent;text-align: left;width:100%; font-weight: 500; display:block;'>";
+          for (let i = 1; i <= total; i++) {
+            //alert(total);
+            if (current == i) {
+              text +=
+                "<span class=' purp-underline ' style='display:inline-block;border-bottom:3px solid rgb(112,65,230);text-align:left;width: auto;color:white; font-weight: 600; z-index: 5;' >" +
+                names[i - 1] +
+                "</span>";
+            } else {
+              text +=
+                "<span class='swiper-pagination-bullet p-span' style='display:inline-block;text-align:center; width: auto; color:rgb(196,195,230); margin-right: 8px;'>" +
+                names[i - 1] +
+                "</span>";
+            }
+          }
+          text += "</span>";
+          return text;
+        },
+      },
+      direction: "horizontal",
+      slidesPerView: 1,
+      paginationClickable: true,
+      spaceBetween: 30,
+      loop: true,
+      paginationHide: true,
+      clickable: true,
+    });
+    </script>
+    <script>
+    let subForm = document.querySelectorAll(".sub-form");
+    subForm.forEach((item) => {
+      if (item.querySelector("input").checked) {
+        item.classList.add("sub-form-border");
+      }
+      item.addEventListener("click", () => {
+        if (item.querySelector("input").checked) {
+          item.classList.add("sub-form-border");
+          subForm.forEach((a) => {
+            if (a.querySelector("input").checked == false) {
+              a.classList.remove("sub-form-border");
+            }
+          });
+        }
+      });
+    });
+    </script>
+</body>
+

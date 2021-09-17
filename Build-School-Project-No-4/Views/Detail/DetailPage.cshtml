@@ -1,0 +1,202 @@
+﻿
+@{
+    ViewBag.Title = "DetailPage";
+}
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+    <link href="~/Assets/css/detail.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="container game-backdrop">
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <div class="detail-header detail-title">
+                    <h1>League of Legends</h1>
+                    <div class="price-header">
+                        <img src="~/Assets/images/detail/currency.png" class="buff-img" alt="currency"/>
+                        <span class="game-price">2.00</span>/Game
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="detail-header">
+                    <div class="header-btns">
+                        <button class="btn-play">Play</button>
+                        <button class="btn-purp">Chat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- REVIEW, INFO, PROFILE -->
+        <div class="row reverse">
+            <div class="col-12 col-md-4 col-lg-4">
+                <div class="row main-profile-row">
+                    <div class="col-6 col-md-12">
+                        <div class="main-profile main-profile-img"></div>
+                    </div>
+                    <div class="col-6 col-md-12">
+                        <div class="main-profile basic-info">
+                            <h2 class="name">Eniza</h2>
+                            <div class="language">
+                                <span class="language-label">Language: </span>Filipino/English
+                            </div>
+                            <div class="status">ONLINE</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row stick">
+                    <div class="col-12">
+                        <div class="booking">
+                            <p class="greyish">Book this ePal for</p>
+                            <div class="ppg">
+                                <img src="~/Assets/images/detail/currency.png" alt="currency" class="buff-img" />
+                                <div class="game-price">2.00</div>
+                                /Game
+                            </div>
+                            <div class="ppg-btns">
+                                <button class="btn-play">Play</button>
+                                <button class="btn-purp">Chat</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8 col-lg-8">
+                <div class="streamer-info">
+                    <div class="row">
+                        <div class="col-3 review-score">
+                            <div class="info-title">Score</div>
+                            <div class="streamer-info-data streamer-score">
+                                <div class="one-star">
+                                    <i class="fas fa-star gold-star"></i>
+                                </div>
+                                5.0
+                                <div class="five-stars">
+                                    <i class="fas fa-star gold-star"></i>
+                                    <i class="fas fa-star gold-star"></i>
+                                    <i class="fas fa-star gold-star"></i>
+                                    <i class="fas fa-star gold-star"></i>
+                                    <i class="fas fa-star gold-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 served">
+                            <div class="info-title">Served</div>
+                            <div class="streamer-info-data cust-served">284</div>
+                        </div>
+                        <div class="col-3 recommended">
+                            <div class="info-title">Recommended</div>
+                            <div class="streamer-info-data num-recommended">284</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="info-title">Coach</div>
+                            <div class="streamer-info-data is-coach">No</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="game-screenshot">
+                        <img src="~/Assets/images/detail/lol-screenshot.jpg" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-7">
+                        <div class="details">
+                            <div class="details-heading">
+                                <img src="~/Assets/images/detail/details.png"  alt="details" />
+                                <div class="whitish">Details</div>
+                            </div>
+
+                            <div class="detail-entry">
+                                <div class="detail-name rank whitish">Rank</div>
+                                <div class="detail-value greyish">Platinum</div>
+
+                            </div>
+                            <div class="detail-entry">
+                                <div class="detail-name server whitish">Server(s)</div>
+                                <div class="detail-value greyish">EU West</div>
+                            </div>
+                            <div class="detail-entry">
+                                <div class="detail-name platform whitish">Platform(s)</div>
+                                <div class="detail-value greyish">PC</div>
+                            </div>
+                            <div class="introduction whitish">
+                                Introduction
+                            </div>
+                            <div class="intro-text greyish">
+                                Hi! Im Ace! I'm 22, female from the netherlands. Im a plat nami/lulu main. I prefer playing ranked or
+                                flex, but draft is alright too. On EUW i can play any elo, on NA/EUNE i can play in gold. I'm mainly on
+                                here to make friends, so don't ask for lewd content please.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <div class="availability">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <img src="~/Assets/images/detail/availability.png" />
+                                            <div class="whitish">Availabilty</div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="whitish">Monday</td>
+                                        <td class="greyish">
+                                            12:00 am-06:00 am <br>
+                                            04:00 pm-12:00 am
+                                        </td>
+                                    </tr>
+                                <td class="whitish">Tuesday</td>
+                                <td class="greyish">
+                                    12:00 am-06:00 am <br>
+                                    04:00 pm-12:00 am
+                                </td>
+                                </tr>
+                                <td class="whitish">Wednesday</td>
+                                <td class="greyish">
+                                    12:00 am-06:00 am <br>
+                                    04:00 pm-12:00 am
+                                </td>
+                                </tr>
+                                <td class="whitish">Thursday</td>
+                                <td class="greyish">
+                                    12:00 am-06:00 am <br>
+                                    04:00 pm-12:00 am
+                                </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="div whitespace"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</body>
+
+
+
