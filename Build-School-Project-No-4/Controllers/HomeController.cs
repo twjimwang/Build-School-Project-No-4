@@ -13,17 +13,8 @@ namespace Build_School_Project_No_4.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult HomePage()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

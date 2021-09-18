@@ -1,0 +1,497 @@
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: rgb(18, 14, 27);
+    color: white;
+    overflow-x: hidden;
+}
+button {
+  border: none;
+  border-radius: 13px;
+  color: white;
+  font-size: 12px;
+  padding: 3px 15px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+a{
+  text-decoration: none;
+}
+.header-background {
+  position: relative;
+  background: linear-gradient(135deg, #7041e6, #4916c0);
+  width: 100%;
+}
+.header {
+  display: flex;
+  justify-content: center;
+}
+.header img {
+  width: 100%;
+}
+.whitish {
+  font-size: 13px;
+  font-weight: 500;
+}
+.orangish {
+  font-size: 13px;
+  color: orange;
+  font-weight: 400;
+}
+.greyish {
+  color: rgb(196, 195, 230);
+  font-size: 13px;
+}
+.privileges {
+  max-width: 1250px;
+  width: 100%;
+}
+.plus-privileges-container,
+.prem-privileges-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.prem-privileges-container{
+    margin-bottom: 100px;
+}
+.priv-header,
+.priv-body {
+  padding: 0 4.5%;
+  background-color: rgb(48, 47, 61);
+}
+.priv-header {
+  background-repeat: no-repeat;
+  height: 90px;
+  margin-top: 10px;
+  position: relative;
+  background-size: 100% 90px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.plus-header {
+    background-image: url('../images/subImg/plusprivilieges.png');
+}
+.priv-desc-2 img {
+  width: 14px;
+}
+.priv-price {
+  font-size: 20px;
+}
+.plus-sub-btn {
+  border: 1px solid #49ffd5;
+  background: linear-gradient(87deg, #11accc, #00b389);
+}
+.plus-sub-btn:hover {
+    background: rgb(11,175,178);
+}
+.premium-header {
+    background-image: url('../images/subImg/premiumprivileges.png');
+}
+.prem-sub-btn {
+  border: 1px solid #af93ef;
+  background: linear-gradient(90deg, #7041e6, #7041e6);
+}
+.prem-sub-btn:hover {
+    background: rgb(110, 67, 219);
+  }
+.sub-btn:active{
+    box-shadow: 0 5px 10px rgba(112, 110, 114, 0.4);
+}
+.enjoy {
+  position: relative;
+  top: 55%;
+}
+.for-only {
+  position: relative;
+  top: 20%;
+  left: 15%;
+}
+.sub-btn {
+  position: relative;
+  top: 10px;
+  z-index: 3;
+}
+.priv-body {
+  background-color: rgb(48, 47, 61);
+}
+.priv-name {
+  padding: 12px 0 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.pag-priv {
+  color: white;
+}
+.swiper-container {
+  width: 100%;
+  max-width: 500px;
+  max-height: 100vh;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.pContainer {
+  border-bottom: 0.5px solid rgb(77, 71, 92);
+}
+.pContainer span {
+  font-size: 11px;
+}
+.swiper-pagination-bullet {
+  background-color: rgba(0, 100, 0, 0);
+  cursor: pointer;
+}
+.swiper-slide img {
+  width: 40px;
+  height: auto;
+}
+.priv-container {
+  display: flex;
+  margin: 15px 0;
+}
+.benefit-header {
+  font-size: 14px;
+}
+.benefit-desc {
+  font-size: 12px;
+}
+.priv-benefits {
+  margin-left: 15px;
+}
+.priv-footer {
+  border-top: 0.5px solid rgb(77, 71, 92);
+  background-color: rgb(48, 47, 61);
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.prem-badge {
+  display: inline-flex;
+}
+.prem-badge img {
+  height: 17px;
+  width: auto;
+}
+.p-span {
+  padding-right: 5px;
+}
+.purp-underline {
+  padding-bottom: 5px;
+  margin-right: 5px;
+}
+.priv-footer .sub-btn{
+    margin-top: 5px;
+}
+
+.modal-content{
+    background-color: rgb(48,47,61);
+}
+
+.subscribe-plus-modal .modal-header{
+    background: linear-gradient(87deg,#11accc,#00b389);
+    height: 130px;
+    border-bottom: none;
+}
+.subscribe-prem-modal .modal-header{
+  background: linear-gradient(135deg,#8d65ea,#4916c0);
+  height: 130px;
+  border-bottom: none;
+}
+.modal-header img{
+    width: 100%;
+}
+.plus-modal-header button, .prem-modal-header button{
+    position: relative;
+    top: -30px;
+    right: 30px;
+}
+.modal-footer{
+    border-top: none;
+    background-color: rgb(33,33,44);
+}
+.free-buffs img{
+  width: 16px;
+  height: auto;
+}
+.sub-form{
+  background-color: rgb(33,33,44);
+  width: 100%;
+  border-radius: 7px;
+}
+.sub-form{
+  position: relative;
+  height: 75px;
+  margin: 15px 0;
+}
+.form-check-label{
+  height: 100%;
+  width: 100%;
+  padding: 12px 12px;
+}
+
+.form-check-input:checked[type=radio] {
+    background-image: url('../images/subImg/check.png');
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+}
+.form-check input[type="radio"] {  
+  -webkit-box-shadow: none;
+  outline: -webkit-focus-ring-color auto 0px;
+} 
+.sub-pricing{
+  position: relative;
+  left: 63%;
+  bottom: 75%;
+}
+.sub-price{
+  font-size: 24px;
+}
+.sub-form-border{
+  border: 2px solid #7041E6;
+}
+.form-check-input:checked[type=radio] ~ .sub-form{
+  border: 10px solid orange;
+}
+.sub-discount{
+  font-weight: 500;
+  font-size: 80%;
+  background-color: rgb(31,185,149);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.terms{
+  font-size: 12px;
+  font-weight: 500;
+}
+.auto-renew{
+  text-align: center;
+}
+.policy{
+  color: rgb(196, 195, 230);
+}
+.policy a{
+  color: rgb(146,124,199);
+}
+.policy a:hover{
+  color: rgb(99, 79, 148);
+}
+.cancel{
+  position: relative;
+  right: 20px;
+  background-color:rgba(99, 79, 148, 0);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 18px 23px;
+  border-radius: 20px;
+}
+
+.cancel:hover{
+  background-color: rgb(92, 91, 109);
+  transition: 0.15s ease-in;
+}
+.subscribe{
+  position: relative;
+  right: 18px;
+  padding: 18px 23px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 375px) {
+  .pContainer span {
+    font-size: 13px;
+  }
+  .purp-underline {
+    margin-right: 9px;
+  }
+  .p-span {
+    margin-right: 9px;
+  }
+  .priv-price {
+    font-size: 25px;
+  }
+  .for-only {
+    top: 19%;
+    margin-left: 15%;
+  }
+  .sub-btn {
+    top: 6px;
+  }
+}
+@media screen and (min-width: 410px) {
+  .pContainer span {
+    font-size: 14px;
+  }
+  .purp-underline {
+    margin-right: 9px;
+  }
+  .p-span {
+    margin-right: 9px;
+  }
+  .priv-name {
+    padding: 16px 0;
+  }
+}
+@media screen and (min-width: 576px) {
+  .priv-header {
+    height: 120px;
+    margin-top: 20px;
+    background-size: 100% 120px;
+  }
+  .enjoy {
+    top: 61%;
+  }
+  .whitish,
+  .orangish,
+  .greyish {
+    font-size: 15px;
+  }
+  .benefit-header {
+    font-size: 16px;
+  }
+  .purp-underline {
+    padding-bottom: 10px;
+  }
+  .pContainer span {
+    font-size: 16px;
+  }
+  .purp-underline {
+    margin-right: 22px;
+  }
+  .p-span {
+    padding-right: 22px;
+  }
+  .priv-name {
+    font-size: 24px;
+    padding: 22px 0;
+  }
+  .priv-price {
+    font-size: 32px;
+  }
+  .swiper-container {
+    padding-bottom: 15px;
+  }
+  .sub-btn {
+    font-size: 17px;
+    top: 12px;
+    margin-left: 15px;
+    padding: 16px 19px;
+    border-radius: 17px;
+  }
+  .priv-footer .sub-btn{
+    top: 5px;
+}
+}
+
+@media screen and (min-width: 768px) {
+  .header img {
+    width: 66%;
+  }
+  .priv-header {
+    height: 120px;
+    margin-top: 20px;
+    background-size: 100% 120px;
+  }
+  .whitish,
+  .orangish,
+  .greyish {
+    font-size: 14px;
+  }
+  .priv-desc-2 {
+    margin-top: 2px;
+  }
+  .sub-btn {
+    top: 17px;
+  }
+  .priv-price {
+    font-size: 28px;
+  }
+  .benefit-header {
+    font-size: 16px;
+  }
+  .purp-underline {
+    margin-right: 5px;
+  }
+  .p-span {
+    padding-right: 5px;
+  }
+  .pContainer span {
+    font-size: 13px;
+  }
+  .enjoy {
+    top: 64%;
+  }
+  .for-only {
+    top: 35%;
+    margin-left: 9%;
+  }
+  .sub-btn {
+    font-size: 15px;
+    top: 11px;
+    margin-left: 10px;
+    padding: 14px 15px;
+  }
+  .priv-name {
+    padding: 25px 0;
+  }
+  .priv-body {
+    height: 600px;
+  }
+  .priv-footer{
+      height: 65px;
+  }
+    .plus-privileges-container,
+    .prem-privileges-container {
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+.priv-header {
+    height: 140px;
+    margin-top: 20px;
+    background-size: 100% 140px;
+    }
+  .priv-price {
+    font-size: 40px;
+  }
+  .enjoy {
+    top: 60%;
+  }
+  .enjoy .priv-desc-1{
+      margin-bottom: 5px;
+  }
+  .for-only {
+    top: 19%;
+    margin-left: 21%;
+  }
+  .whitish,
+  .orangish,
+  .greyish {
+    font-size: 15px;
+  }
+  .sub-btn {
+    font-size: 17px;
+    font-weight: 500;
+    top: 13px;
+    margin-left: 10px;
+    padding: 18px 20px;
+    border-radius: 23px;
+  }
+  .pContainer span {
+    font-size: 17px;
+  }
+  .purp-underline {
+    margin-right: 12px;
+  }
+  .p-span {
+    padding-right: 12px;
+  }
+}

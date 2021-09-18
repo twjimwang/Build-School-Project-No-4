@@ -45,18 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -132,6 +124,12 @@
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -182,10 +180,28 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BecomeEPalController.cs" />
+    <Compile Include="Controllers\ChatForPhoneController.cs" />
+    <Compile Include="Controllers\ChillLiveController.cs" />
+    <Compile Include="Controllers\CouponsController.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
+    <Compile Include="Controllers\Edit_ProfileController.cs" />
+    <Compile Include="Controllers\epalAccountController.cs" />
+    <Compile Include="Controllers\ePalController.cs" />
+    <Compile Include="Controllers\FAQController.cs" />
+    <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\MeForPhoneController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\Page404Controller.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\RecommendController.cs" />
+    <Compile Include="Controllers\SettingsAccountController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
+    <Compile Include="Controllers\UserAgreementController.cs" />
     <Compile Include="DataModels\Chatlist.cs" />
     <Compile Include="DataModels\City.cs" />
     <Compile Include="DataModels\Comment.cs" />
@@ -223,6 +239,157 @@
     <Compile Include="ViewModels\MemberViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\AboutUsImages\about.png" />
+    <Content Include="Assets\AboutUsImages\aboutusmark.png" />
+    <Content Include="Assets\CouponsImages\Coupons.png" />
+    <Content Include="Assets\css\detail.css" />
+    <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
+    <Content Include="Assets\css\layout_afterlogin.css" />
+    <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
+    <Content Include="Assets\css\layout_beforelogin.css" />
+    <Content Include="Assets\css\PlusPremium.css" />
+    <Content Include="Assets\css\reset.css" />
+    <Content Include="Assets\Edit_ProfileImages\avatar.png" />
+    <Content Include="Assets\images\becomeEPal\becomebg.png" />
+    <Content Include="Assets\images\becomeEPal\flexity.png" />
+    <Content Include="Assets\images\becomeEPal\friends.png" />
+    <Content Include="Assets\images\becomeEPal\income.png" />
+    <Content Include="Assets\images\becomeEPal\whatsEpal.png" />
+    <Content Include="Assets\images\becomeEPal\who.png" />
+    <Content Include="Assets\images\becomeEPal\zero.png" />
+    <Content Include="Assets\images\homepageimg\arrow-left.png" />
+    <Content Include="Assets\images\homepageimg\arrow-right.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\karaoke.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\lolMobile.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\minecraft.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\movie_1.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\overwatch.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\phasmophobia.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\pubg.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\relationshipadvice.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\rocketLeague.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\rust.png" />
+    <Content Include="Assets\images\homepageimg\bottom slider games\sleepcall_1.png" />
+    <Content Include="Assets\images\homepageimg\confirm-order.png" />
+    <Content Include="Assets\images\homepageimg\Hila.jpg" />
+    <Content Include="Assets\images\homepageimg\profile1.jpg" />
+    <Content Include="Assets\images\homepageimg\profile2.jpg" />
+    <Content Include="Assets\images\homepageimg\profile3.jpg" />
+    <Content Include="Assets\images\homepageimg\profile4.png" />
+    <Content Include="Assets\images\homepageimg\select-epals.png" />
+    <Content Include="Assets\images\homepageimg\select-services.png" />
+    <Content Include="Assets\images\homepageimg\story-background.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\amongUs.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\animalCrossing.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\apex.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\callOfDuty.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\csgo.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\deadByDaylight.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\dota2.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\drawing_1.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\echat_1.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\fallGuys.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\genshinImpact.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\gta5.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\hearthStone.png" />
+    <Content Include="Assets\images\homepageimg\top slider games\lol.png" />
+    <Content Include="Assets\images\homepageimg\Yoonah.jpg" />
+    <Content Include="Assets\images\subImg\back%402x.png" />
+    <Content Include="Assets\images\subImg\buff%402x.png" />
+    <Content Include="Assets\images\subImg\buff.png" />
+    <Content Include="Assets\images\subImg\chat%402x.png" />
+    <Content Include="Assets\images\subImg\check.png" />
+    <Content Include="Assets\images\subImg\discount%402x.png" />
+    <Content Include="Assets\images\subImg\draws%402x.png" />
+    <Content Include="Assets\images\subImg\emoji%402x.png" />
+    <Content Include="Assets\images\subImg\food%402x.png" />
+    <Content Include="Assets\images\subImg\friends%402x.png" />
+    <Content Include="Assets\images\subImg\gif%402x.png" />
+    <Content Include="Assets\images\subImg\giftChatroom%402x.png" />
+    <Content Include="Assets\images\subImg\giftIM%402x.png" />
+    <Content Include="Assets\images\subImg\guardian%402x.png" />
+    <Content Include="Assets\images\subImg\likes%402x.png" />
+    <Content Include="Assets\images\subImg\medal%402x.png" />
+    <Content Include="Assets\images\subImg\pet%402x.png" />
+    <Content Include="Assets\images\subImg\pluspremium.png" />
+    <Content Include="Assets\images\subImg\pluspremiumbackground.png" />
+    <Content Include="Assets\images\subImg\plusprivilieges.png" />
+    <Content Include="Assets\images\subImg\prem-badge.png" />
+    <Content Include="Assets\images\subImg\premiumprivileges.png" />
+    <Content Include="Assets\images\subImg\roomeffect%402x.png" />
+    <Content Include="Assets\images\subImg\subscribeplus.png" />
+    <Content Include="Assets\images\subImg\subscribeprem.png" />
+    <Content Include="Assets\images\subImg\superlike%402x.png" />
+    <Content Include="Assets\images\subImg\swipe%402x.png" />
+    <Content Include="Assets\images\subImg\task%402x.png" />
+    <Content Include="Assets\images\subImg\team%402x.png" />
+    <Content Include="Assets\images\layout\anepal.png" />
+    <Content Include="Assets\images\layout\avatar.png" />
+    <Content Include="Assets\images\layout\chat1.jpg" />
+    <Content Include="Assets\images\layout\chat2.jpg" />
+    <Content Include="Assets\images\layout\chat3.jpg" />
+    <Content Include="Assets\images\layout\chatroom.png" />
+    <Content Include="Assets\images\layout\couponicon.png" />
+    <Content Include="Assets\images\layout\epalplus.png" />
+    <Content Include="Assets\images\layout\footericon.png" />
+    <Content Include="Assets\images\layout\googleicon.png" />
+    <Content Include="Assets\images\layout\inorder.png" />
+    <Content Include="Assets\images\layout\login.png" />
+    <Content Include="Assets\images\layout\logo.png" />
+    <Content Include="Assets\images\layout\message1.png" />
+    <Content Include="Assets\images\layout\message11.png" />
+    <Content Include="Assets\images\layout\message2.png" />
+    <Content Include="Assets\images\layout\message21.png" />
+    <Content Include="Assets\images\layout\message3.png" />
+    <Content Include="Assets\images\layout\message31.png" />
+    <Content Include="Assets\images\layout\offline.png" />
+    <Content Include="Assets\images\layout\online.png" />
+    <Content Include="Assets\images\layout\ordericon.png" />
+    <Content Include="Assets\images\layout\resting.png" />
+    <Content Include="Assets\images\layout\walleticon.png" />
+    <Content Include="Assets\images\Page404\404.png" />
+    <Content Include="Assets\js\layout.js" />
+    <Content Include="Assets\js\layout_afterlogin_nofooter.js" />
+    <Content Include="Assets\js\layout_afterlogin.js" />
+    <Content Include="Assets\js\layout_beforelogin_nofooter.js" />
+    <Content Include="Assets\js\layout_beforelogin.js" />
+    <Content Include="Assets\LiveImages\head1.png" />
+    <Content Include="Assets\LiveImages\head10.png" />
+    <Content Include="Assets\LiveImages\head11.png" />
+    <Content Include="Assets\LiveImages\head12.png" />
+    <Content Include="Assets\LiveImages\head2.png" />
+    <Content Include="Assets\LiveImages\head3.png" />
+    <Content Include="Assets\LiveImages\head4.png" />
+    <Content Include="Assets\LiveImages\head5.png" />
+    <Content Include="Assets\LiveImages\head6.png" />
+    <Content Include="Assets\LiveImages\head7.png" />
+    <Content Include="Assets\LiveImages\head8.png" />
+    <Content Include="Assets\LiveImages\head9.png" />
+    <Content Include="Assets\LiveImages\live1.png" />
+    <Content Include="Assets\LiveImages\live10.png" />
+    <Content Include="Assets\LiveImages\live11.png" />
+    <Content Include="Assets\LiveImages\live12.png" />
+    <Content Include="Assets\LiveImages\live2.png" />
+    <Content Include="Assets\LiveImages\live3.png" />
+    <Content Include="Assets\LiveImages\live4.png" />
+    <Content Include="Assets\LiveImages\live5.png" />
+    <Content Include="Assets\LiveImages\live6.png" />
+    <Content Include="Assets\LiveImages\live7.png" />
+    <Content Include="Assets\LiveImages\live8.png" />
+    <Content Include="Assets\LiveImages\live9.png" />
+    <Content Include="Assets\MeetImages\AmongUs.png" />
+    <Content Include="Assets\MeetImages\backgroundLeft.png" />
+    <Content Include="Assets\MeetImages\backgroundRight.png" />
+    <Content Include="Assets\MeetImages\head1.png" />
+    <Content Include="Assets\MeetImages\icon1.png" />
+    <Content Include="Assets\MeetImages\icon2.png" />
+    <Content Include="Assets\MeetImages\icon3.png" />
+    <Content Include="Assets\MeetImages\icon4.png" />
+    <Content Include="Assets\OrderImages\order.png" />
+    <Content Include="Assets\WalletImages\Income.png" />
+    <Content Include="Assets\WalletImages\Money.png" />
+    <Content Include="Assets\WalletImages\wallet.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -278,17 +445,37 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Members\Create.cshtml" />
-    <Content Include="Views\Members\Delete.cshtml" />
-    <Content Include="Views\Members\Details.cshtml" />
-    <Content Include="Views\Members\Edit.cshtml" />
-    <Content Include="Views\Members\Index.cshtml" />
-    <Content Include="Views\Members\CreateSeed.cshtml" />
-    <Content Include="Views\Members\ReadMember.cshtml" />
+    <Content Include="Views\Project\Project.cshtml" />
+    <Content Include="Views\Recommend\RecommenedController.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\Shared\_Layout_beforelogin.cshtml" />
+    <Content Include="Views\FAQ\FAQ.cshtml" />
+    <Content Include="Views\ChillMeet\Meet.cshtml" />
+    <Content Include="Views\ChillLive\Live.cshtml" />
+    <Content Include="Views\Shared\_Layout_nofooter.cshtml" />
+    <Content Include="Views\Shared\_Layout_beforelogin_nofooter.cshtml" />
+    <Content Include="Views\Coupons\Coupons.cshtml" />
+    <Content Include="Views\epalAccount\Wallet.cshtml" />
+    <Content Include="Views\ePal\ePal.cshtml" />
+    <Content Include="Views\epalAccount\Wallet.cshtml" />
+    <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
+    <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
+    <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
+    <Content Include="Views\Page404\Page404.cshtml" />
+    <Content Include="Views\AboutUs\AboutUs.cshtml" />
+    <Content Include="Views\Detail\DetailPage.cshtml" />
+    <Content Include="Views\Edit_Profile\Edit_Profile.cshtml" />
+    <Content Include="Views\Order\Order.cshtml" />
+    <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
+    <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
+    <Content Include="Views\Subscription\Subscription.cshtml" />
+    <Content Include="Views\Detail\DetailPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Service\" />
+    <Folder Include="obj\Debug\" />
+    <Folder Include="obj\Release\" />
+    <Folder Include="Serive\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
