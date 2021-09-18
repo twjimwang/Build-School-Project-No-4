@@ -14,76 +14,88 @@ let msgiconCl = document.querySelectorAll('.message-icon-cl');
 let msgListTitle = document.querySelector('#message-list-title');
 let msgClose = document.querySelector('.msg-close');
 let msgdropdown = document.querySelector('.dropdown-menu');
+
+
 let logsigntab = document.querySelectorAll('.logsign-tab');
 let logsigntitle = document.querySelector('.logsign-title');
 let modalfooter = document.querySelector('.modalfooter');
+let modalfooterP = document.querySelector('.modalfooter>p');
+let passinput = document.querySelectorAll('#myinput');
+let passshow = document.querySelectorAll('.passwordshow');
+
+
 let msgroom = document.querySelector('#dropdown-message');
 let searchbar = document.querySelector('.search input');
 let statusbar = document.querySelector('.statusbar');
 let statuslistbtn = document.querySelectorAll('.aside-Menu .dropdown-menu button');
 
 window.onload = function () {
+    let navItems = document.querySelectorAll('.navItem');
+    navItems.forEach(ele => {
+        ele.classList.remove('purple-text-border');
+        ele.addEventListener('click', function (event) {
+            navItems.forEach(e => {
+                e.classList.remove('purple-text-border');
+            })
+            event.srcElement.classList.add('purple-text-border');
+        })
+    })
 
+    //login / signup modal
+    modalbtn.forEach((btn, idx) => {
+        logsigntab[idx].classList.remove('logsign-purple-border');
+
+        btn.addEventListener('click', function (event) {
+
+            //初始化modal打開樣式
+            logsigntab[idx].classList.add('logsign-purple-border');
+            logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign in and experience ePal services for free";
+            //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
+            modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
+            logsignBtn.innerHTML = idx === 0 ? "Log In" : "Sign Up";
+            maillog.style.display = 'block';
+
+            logsigntab.forEach((item, index) => {
+
+                //modal裡面按下不同tab，執行各自的purple border
+                item.addEventListener('click', function (event) {
+                    // maillog.style.display = 'block';
+
+                    item.classList.remove('logsign-purple-border');
+                    logsigntab.forEach(e => {
+                        e.classList.remove('logsign-purple-border');
+                        logsigntitle.innerHTML = index === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
+                        //modalfooter.style.display = index === 0 ? 'flex' : 'none';
+                        modalfooterP.innerHTML = index === 0 ? 'Or log in with' : 'Or sign up with';
+                        logsignBtn.innerHTML = index === 0 ? "Log In" : "Sign Up";
+                    })
+                    event.srcElement.classList.add('logsign-purple-border');
+                })
+                //modal關閉後清除purple border
+                modalbtnclose.addEventListener('click', function (event) {
+                    item.classList.remove('logsign-purple-border');
+                })
+            })
+        })
+    })
+    $('#myModal').modal({ backdrop: 'static', keyboard: false });
 
 }
 
-let navItems = document.querySelectorAll('.navItem');
-navItems.forEach(ele => {
-    ele.classList.remove('purple-text-border');
-    ele.addEventListener('click', function (event) {
-        navItems.forEach(e => {
-            e.classList.remove('purple-text-border');
-        })
-        event.srcElement.classList.add('purple-text-border');
-    })
-})
 
-////login / signup modal
-//modalbtn.forEach((btn, idx) => {
-//    logsigntab[idx].classList.remove('logsign-purple-border');
-
-//    btn.addEventListener('click', function (event) {
-
-//        //初始化modal打開樣式
-//        logsigntab[idx].classList.add('logsign-purple-border');
-//        logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign in and experience ePal services for free";
-//        modalfooter.style.display = idx === 0 ? 'flex' : 'none';
-//        logsignBtn.innerHTML = idx === 0 ? "Log In" : "Sign Up";
-//        maillog.style.display = 'block';
-
-//        logsigntab.forEach((item, index) => {
-//            //modal裡面按下不同tab，執行各自的purple border
-//            item.addEventListener('click', function (event) {
-//                item.classList.remove('logsign-purple-border');
-//                logsigntab.forEach(e => {
-//                    e.classList.remove('logsign-purple-border');
-//                    logsigntitle.innerHTML = index === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
-//                    modalfooter.style.display = index === 0 ? 'flex' : 'none';
-//                    logsignBtn.innerHTML = index === 0 ? "Log In" : "Sign Up";
-//                })
-//                event.srcElement.classList.add('logsign-purple-border');
-//            })
-//            //modal關閉後清除purple border
-//            modalbtnclose.addEventListener('click', function (event) {
-//                item.classList.remove('logsign-purple-border');
-//            })
-//        })
-//    })
-//})
-//$('#myModal').modal({ backdrop: 'static', keyboard: false });
 
 
 //modal password hide/show
 function Password() {
-    var x = document.querySelector('#myinput');
-    var y = document.querySelector('.passwordshow');
-    if (x.type === "password") {
-        x.type = "text";
-        y.value = "hide";
-    } else {
-        x.type = "password";
-        y.value = "show";
-    }
+    passinput.forEach((input, idx) => {
+        if (input.type === "password") {
+            input.type = "text";
+            passshow[idx].value = "hide";
+        } else {
+            input.type = "password";
+            passshow[idx].value = "show";
+        }
+    })
 }
 
 
