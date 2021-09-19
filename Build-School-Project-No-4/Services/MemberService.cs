@@ -23,9 +23,12 @@ namespace Build_School_Project_No_4.Services
             List<MemberViewModel> result = new List<MemberViewModel>();
             foreach (var item in members)
             {
-                result.Add(new MemberViewModel
-                {
+                result.Add(new MemberViewModel{
                     MemberId = item.MemberId,
+                    RegistrationDate = item.RegistrationDate,
+                    Email = item.Email,
+                    Phone = item.Phone,
+                    Password = item.Password,
                     MemberName = item.MemberName,
                     BirthDay = item.BirthDay,
 

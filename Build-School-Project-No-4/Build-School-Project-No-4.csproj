@@ -391,6 +391,8 @@
     <Content Include="Assets\WalletImages\Income.png" />
     <Content Include="Assets\WalletImages\Money.png" />
     <Content Include="Assets\WalletImages\wallet.png" />
+    <Content Include="bin\Build-School-Project-No-4.dll" />
+    <Content Include="bin\Build-School-Project-No-4.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

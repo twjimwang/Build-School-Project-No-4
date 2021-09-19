@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Build_School_Project_No_4.Services;
+using Build_School_Project_No_4.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,14 @@ namespace Build_School_Project_No_4.Controllers
 {
     public class SettingsAccountController : Controller
     {
+
+        private MemberService _MemberService;
+        public SettingsAccountController()
+        {
+            _MemberService = new MemberService();
+        }
+
+
         // GET: SettingsAccount
         public ActionResult Index()
         {
@@ -15,7 +25,9 @@ namespace Build_School_Project_No_4.Controllers
         }
         public ActionResult SettingsAccount()
         {
-            return View();
+            List<MemberViewModel> MemberData = _MemberService.GetMember();
+
+            return View(MemberData);
         }
     }
 }

@@ -1,4 +1,29 @@
-﻿
+﻿@model IEnumerable<MemberViewModel>
+@{
+    ViewBag.Title = "Myaccount";
+
+    var member = Model.Where(x => x.MemberId == 1);
+
+    @*foreach (var m in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(x => m.MemberId)</td>
+            <td>@Html.DisplayFor(x => m.MemberName)</td>
+            <td>@Html.DisplayFor(x => m.BirthDay)</td>
+        </tr>
+        }
+
+        //foreach (var item in Model)
+        //{
+        //    if(item.MemberId == 1)
+        //    {
+        //        var ID = item.MemberId;
+        //        var memberName = item.MemberName;
+        //    }
+
+    }*@
+
+}
 <div class="sidebar ">
     <input type="checkbox" name="" id="side-menu-switch">
     <div class="side-menu">
@@ -27,7 +52,7 @@
                     <p class="p_color">ID:</p>
                 </div>
                 <div class="col-12 col-md-5">
-                    <p class="p_size" >1520673244</p>
+                    <p class="p_size">@string.Join(Environment.NewLine, member.Select(x => x.MemberId))</p>
                 </div>
             </div>
         </div>
@@ -37,7 +62,7 @@
                     <p class="p_color">Registration Time:</p>
                 </div>
                 <div class="col-12 col-md-5">
-                    <p class="p_size">Aug 23,2021</p>
+                    <p class="p_size">@string.Join(Environment.NewLine, member.Select(x => x.RegistrationDate.Date))</p>
                 </div>
             </div>
         </div>
@@ -47,7 +72,7 @@
                     <p class="p_color">Account:</p>
                 </div>
                 <div class="col-12 col-md-5">
-                    <p class="p_size">kyl*******@@gamil.com</p>
+                    <p class="p_size">@string.Join(Environment.NewLine, member.Select(x => x.Email))</p>
                 </div>
             </div>
         </div>
@@ -57,7 +82,7 @@
                     <p class="p_color">Phone:</p>
                 </div>
                 <div class="col-6 col-md-4">
-                    <p class="p_size">You have not bound a Phone</p>
+                    <p class="p_size">@string.Join(Environment.NewLine, member.Select(x => x.Phone))</p>
                 </div>
                 <div class="buttonright col-6 col-md-4 ">
                     <div>
@@ -76,7 +101,7 @@
                     <p class="p_color">Passsword:</p>
                 </div>
                 <div class="col-6 col-md-4">
-                    <p class="p_size">*******</p>
+                    <p class="p_size">@string.Join(Environment.NewLine, member.Select(x => x.Password))</p>
                 </div>
                 <div class="buttonright col-6 col-md-4">
                     <button class="button button1">Change</button>
@@ -93,6 +118,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 @section topCSS{
@@ -100,14 +126,17 @@
         header {
             height: 66px;
         }
+
         footer {
             display: none;
         }
+
         @@media screen and (max-width: 767px) {
             .Account_header {
                 color: white;
                 text-align: center;
             }
+
             .borderbottom {
                 border-bottom: outset;
                 border-width: 2px;
@@ -156,11 +185,12 @@
             background-color: rgb(18, 14, 27);
             height: 100%;
         }
-        .borderbottom
-        {
-            align-items:center;
-            padding:10px;
+
+        .borderbottom {
+            align-items: center;
+            padding: 10px;
         }
+
         .bindcenter {
             align-items: center;
         }
@@ -200,7 +230,7 @@
                 transform: translateX(0);
             }
 
-               #side-menu-switch:checked + .side-menu label .fas {
+                #side-menu-switch:checked + .side-menu label .fas {
                     transform: scale(-1);
                 }
 
@@ -224,13 +254,16 @@
         .half {
             width: 50%;
         }
-        .title_h1_size{
-            height:70px;
-            font-size:30px
+
+        .title_h1_size {
+            height: 70px;
+            font-size: 30px
         }
+
         .title_p_size {
             height: 30px;
         }
+
         .buttonright .button1 {
             width: 130px;
             background-color: rgb(110, 67, 232);
@@ -242,12 +275,14 @@
         }
 
         .p_color {
-            font-size:10px;
+            font-size: 10px;
             color: darkgray;
         }
+
         .p_size {
             font-size: 13px;
         }
+
         .circle {
             display: block;
             float: left;
@@ -317,8 +352,8 @@
             crossorigin="anonymous"></script>
     <script src="Jquery/jquery.min.js"></script>
     <script>
-            	$(function(){
-				$('[data-toggle="tooltip"]').tooltip();
-			});
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
     </script>
 }
