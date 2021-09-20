@@ -1,0 +1,162 @@
+﻿@model  IEnumerable<Build_School_Project_No_4.ViewModels.MemberViewModel>
+
+@{
+    ViewBag.Title = "MeetLikes";
+}
+
+<h2>MeetLikes</h2>
+
+
+<div class="container meet-title">
+    <div class="row">
+        <h3>MyMeet</h3>
+    </div>
+</div>
+
+<div class="container  meet-pcTopNav">
+    <div class="row meet-title-Select col-md-12">
+        <div class="col-md-1 liveBorder"> <a href="@Url.Action("MeetLikes","ChillMeetLike")">Likes</a></div>
+        <div class="col-md-1 "> <a href="@Url.Action("MeetLikes","ChillMeetLike")">Match</a></div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="container meet-Container">
+
+        @foreach (var m in Model)
+        {
+            <div class="row meet-Card ">
+                <div class="meet-card-leftPic col-3 col-md-1">
+                    <img src="~/Assets/MeetLikeimages/head2.png" />
+                </div>
+                <div class="meet-card-center col-9 col-md-7">
+                    <div class="meet-card-centerContent">
+                        <span class="meet-card-gender">
+                            @Html.DisplayFor(x => m.MemberName)
+                        </span>
+                        <span class="meet-card-gender"></span>
+                        <span class="meet-card-days"></span>
+                    </div>
+                    <div class="meet-card-introduce">
+                        <div>You both enjoy Lol: Wild Rift</div>
+                    </div>
+                </div>
+                <div class="meet-card-btn col-3 col-md-4">
+                    <button type="button" class="btn btn-primary">Follow</button>
+                    <button type="button" class="btn btn-primary">Chat</button>
+                </div>
+            </div>
+        }
+    </div>
+
+
+</div>
+
+
+
+
+
+
+@section topCSS{
+
+    <style>
+
+
+        .meet-total {
+            margin-top: 100px;
+        }
+        /* 標題部分 */
+        .meet-title {
+            padding-top: 80px;
+            color: white;
+        }
+
+            .meet-title h3 {
+                font-size: 24px;
+                padding: 0 20px;
+            }
+
+        .meet-pcTopNav {
+            text-align: left;
+        }
+
+        .meet-title-Select {
+            margin: 10px 0;
+        }
+
+            .meet-title-Select a {
+                text-decoration: none;
+                font-size: 18px;
+                color: white;
+            }
+
+        /* 卡片部分 */
+        body {
+            background-color: black;
+        }
+
+        .meet-Container {
+            /* background-color: blueviolet; */
+            border-width: 5px;
+            border-bottom-style: solid;
+        }
+
+        .meet-selection-two {
+            display: flex;
+        }
+
+        .meet-Card {
+            margin-bottom: 10px;
+        }
+
+        .meet-card-leftPic img {
+            width: 100%;
+        }
+
+        .meet-card-center {
+            /* display: flex; */
+            align-items: center;
+            margin: auto;
+            color: white;
+        }
+
+        .meet-card-leftPic img {
+            width: 100%;
+        }
+
+        .incomeFare img {
+            /* width: 30%; */
+        }
+
+        .meet-card-btn button {
+            width: 100px;
+            border-radius: 30px;
+        }
+
+        .meet-card-btn {
+            text-align: center;
+            margin: auto;
+        }
+
+        .match-container-item img {
+            width: 50%;
+        }
+
+        @@media screen and (max-width:767px) {
+
+            .meet-card-btn {
+                display: none;
+            }
+        }
+
+        @@media screen and (min-width:768px) {
+        }
+
+        @@media screen and (min-width:996px) {
+        }
+
+        @@media screen and (min-width:1200px) {
+        }
+    </style>
+}
