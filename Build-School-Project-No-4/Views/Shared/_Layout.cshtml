@@ -875,6 +875,45 @@
 
     @section endJS{
         <script>
+            window.onload = () => {
+                let email = document.querySelector(".emailinput:first-child").value;
+                let password = document.querySelector(".passwordinput:first-child").value;
+
+                let loginData = {
+                    email: email,
+                    password: password 
+                }
+
+                if (localStorage.getItem("login") == null) {
+
+                    localStorage.setItem("login", JSON.stringify(loginData));
+
+                }
+                else {
+
+                    loginarray = JSON.parse(localStorage.getItem("login"));    //localStarsge是文字格式，要轉回array
+
+                }
+
+
+            }
+
+
+
+            //let btn = document.querySelector('.btnClass');
+            //let call = document.querySelector('.callClass');
+
+            //function savename(e) {
+            //    // 撈出輸入鍵的值
+            //    var text = document.querySelector('.textClass').value;
+            //    // 存在Localstoreage
+            //    localStorage.setItem('mylove', text);
+
+            //}
+            //btn.addEventListener('click', savename);
+            //call.addEventListener('click', function () {
+            //    // 撈出Localstoreage的值
+            //    var str = localStorage.getItem('mylove');
 
         </script>
     }

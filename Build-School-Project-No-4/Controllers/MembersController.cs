@@ -62,9 +62,12 @@ namespace Build_School_Project_No_4.Controllers
                 ViewBag.Message = "帳密錯誤，登入失敗";
                 return View();
             }
-            Session["WelCome"] = member.Email + "歡迎光臨";
+            Session["loginEmail"] = member.Email;
+            //Session["loginPwd"] = member.Password;
+            //Session["WelCome"] = member.Email + "歡迎光臨";
             FormsAuthentication.RedirectFromLoginPage(Email, true);
             return RedirectToAction("ePal", "ePal");
+            //return View();
         }
 
 
@@ -88,6 +91,7 @@ namespace Build_School_Project_No_4.Controllers
             if (member == null)
             {
                 db.Members.Add(pMember);
+                //db.Members.Add(new Member { RegistrationDate = DateTime.Now});
                 db.SaveChanges();
                 return RedirectToAction("Edit_Profile", "Edit_Profile");
             }
