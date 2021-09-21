@@ -22,5 +22,14 @@ namespace Build_School_Project_No_4.Controllers
 
             return View(members);
         }
+
+        public ActionResult MeetMatches()
+        {
+            var memberGet = new MemberService();
+            var members = memberGet.GetMember();
+
+            return View(members);
+        }
+
     }
 }
