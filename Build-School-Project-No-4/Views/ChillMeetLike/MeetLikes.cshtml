@@ -1,31 +1,31 @@
 ﻿@model  IEnumerable<Build_School_Project_No_4.ViewModels.MemberViewModel>
 
-@{
+    @{
     ViewBag.Title = "MeetLikes";
-}
+    }
 
-<h2>MeetLikes</h2>
+    <h2>MeetLikes</h2>
 
 
-<div class="container meet-title">
-    <div class="row">
-        <h3>MyMeet</h3>
+    <div class="container meet-title">
+        <div class="row">
+            <h3>MyMeet</h3>
+        </div>
     </div>
-</div>
 
-<div class="container  meet-pcTopNav">
-    <div class="row meet-title-Select col-md-12">
-        <div class="col-md-1 liveBorder"> <a href="@Url.Action("MeetLikes","ChillMeetLike")">Likes</a></div>
-        <div class="col-md-1 "> <a href="@Url.Action("MeetLikes","ChillMeetLike")">Match</a></div>
+    <div class="container  meet-pcTopNav">
+        <div class="row meet-title-Select col-md-12">
+            <div class="col-md-1 "> <a href="@Url.Action(" MeetLikes","ChillMeetLike")" class="likesBorder">Likes</a></div>
+            <div class="col-md-1 matchBorder "> <a href="@Url.Action(" MeetLikes","ChillMeetLike")">Match</a></div>
+        </div>
     </div>
-</div>
 
-<div class="container">
+    <div class="container">
 
-    <div class="container meet-Container">
+        <div class="container meet-Container">
 
-        @foreach (var m in Model)
-        {
+            @foreach (var m in Model)
+            {
             <div class="row meet-Card ">
                 <div class="meet-card-leftPic col-3 col-md-1">
                     <img src="~/Assets/LiveImages/head3.png" />
@@ -47,18 +47,18 @@
                     <button type="button" class="btn btn-primary">Chat</button>
                 </div>
             </div>
-        }
+            }
+        </div>
+
+
     </div>
 
 
-</div>
 
 
 
 
-
-
-@section topCSS{
+    @section topCSS{
 
     <style>
 
@@ -82,14 +82,22 @@
         }
 
         .meet-title-Select {
-            margin: 10px 0;
+            margin: 20px 0;
         }
 
             .meet-title-Select a {
                 text-decoration: none;
+                padding-bottom: 3px;
                 font-size: 18px;
                 color: white;
+                /*margin-bottom:20px;*/
             }
+
+        .likesBorder {
+            border-bottom: 6px solid #7041e6;
+        }
+
+
 
         /* 卡片部分 */
         body {
@@ -99,7 +107,7 @@
         .meet-Container {
             /* background-color: blueviolet; */
             border-width: 5px;
-            border-bottom-style: solid;
+            /* border-bottom-style: solid;*/
         }
 
         .meet-selection-two {
@@ -107,11 +115,12 @@
         }
 
         .meet-Card {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .meet-card-leftPic img {
             width: 100%;
+            border-radius: 30px;
         }
 
         .meet-card-center {
@@ -132,6 +141,8 @@
         .meet-card-btn button {
             width: 100px;
             border-radius: 30px;
+            background-color: #7041e6;
+            border-color: #7041e6;
         }
 
         .meet-card-btn {
@@ -159,4 +170,4 @@
         @@media screen and (min-width:1200px) {
         }
     </style>
-}
+    }
