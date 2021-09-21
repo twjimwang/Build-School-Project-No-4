@@ -438,7 +438,7 @@ body {
 /*登入後不顯示login/signup*/
 
 .logsign-modal-button {
-    display: none;
+    /*display: none;*/
 }
 
 .navbar-right {
@@ -936,12 +936,14 @@ footer {
     .aside-Menu .setting-wrappers .settingimg a {
         text-decoration: none;
         color: white;
-    }
-
-    .aside-Menu .setting-wrappers .txt {
+        display:block;
         font-size: 16px;
         font-weight: 300;
     }
+/*    .aside-Menu .setting-wrappers .txt {
+        font-size: 16px;
+        font-weight: 300;
+    }*/
 
 
     #gotop {

@@ -3,7 +3,16 @@ body {
     color: white;
     font-size: large;
     font-weight: 600;
+
+/*    height: 100%;
+    margin: 0;
+    display:flex;
+    flex-direction:column;*/
 }
+/*.layout-wrapper{
+    flex-grow:1;
+}*/
+
 
 .navbar {
     position: fixed;
@@ -438,7 +447,8 @@ body {
 /*登入後不顯示login/signup*/
 
 .logsign-modal-button {
-    display: none;
+    /*display: none;*/
+
 }
 
 .navbar-right {
@@ -685,6 +695,9 @@ footer #address {
 }
 
 @media screen and (min-width:768px) {
+    html {
+        height: 100%;
+    }
     .me-sm {
         display: none;
     }
@@ -969,12 +982,15 @@ footer #address {
     .aside-Menu .setting-wrappers .settingimg a {
         text-decoration: none;
         color: white;
-    }
-
-    .aside-Menu .setting-wrappers .txt {
+        display: block;
         font-size: 16px;
         font-weight: 300;
     }
+
+/*    .aside-Menu .setting-wrappers .txt {
+        font-size: 16px;
+        font-weight: 300;
+    }*/
 
 
     #gotop {

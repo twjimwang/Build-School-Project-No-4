@@ -9,10 +9,6 @@ namespace Build_School_Project_No_4.Controllers
     public class ePalController : Controller
     {
         // GET: ePal
-        public ActionResult Index()
-        {
-            return View();
-        }
         public ActionResult ePal()
         {
             return View();
