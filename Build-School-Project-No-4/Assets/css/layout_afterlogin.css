@@ -233,7 +233,7 @@ body {
     position: relative;
 }
 
-.modal .modal-body #email {
+.modal .modal-body .maillabel {
     padding-top: 20px;
     font-weight: 100;
     font-size: 14px;
@@ -321,8 +321,8 @@ body {
 
 .modal .modal-body .passwordshow {
     position: absolute;
-    z-index:2;
-    bottom: 65px;
+    z-index:100;
+    bottom: 110px;
     left: 390px;
     color: #7041e6;
     background-color: transparent;

@@ -519,6 +519,9 @@
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\ReadMember.cshtml" />
+    <Content Include="Views\ChillMeetLike\MeetLikes.cshtml" />
+    <Content Include="Views\ChillMeetLike\MeetMatches.cshtml" />
+    <Content Include="Views\Members\test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

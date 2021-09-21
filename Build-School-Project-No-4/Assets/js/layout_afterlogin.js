@@ -29,7 +29,38 @@ let searchbar = document.querySelector('.search input');
 let statusbar = document.querySelector('.statusbar');
 let statuslistbtn = document.querySelectorAll('.aside-Menu .dropdown-menu button');
 
+let email = document.querySelector(".emailinput");
+/*let password = document.querySelector(".passwordinput");*/
+let logsignmodalbtn = document.querySelector('.logsign-modal-button');
+
+let mailerror = document.getElementById('email-error');
+let passerror = document.getElementById('myinput-error');
+let valerror = document.querySelectorAll(".field-validation-error");
+
+
+
 window.onload = function () {
+
+    //let loginData = {
+    //    email: email,
+    //    password: password
+    //}
+    logsignBtn.addEventListener('click', function () {
+/*        if (localStorage.getItem("login") == null) {*/
+        localStorage.setItem("loginEmail", email.value);
+/*        }*/
+        //else {
+        //    loginarray = JSON.parse(localStorage.getItem("login"));    
+        //}
+    })
+    if (localStorage.getItem("loginEmail") == null) {
+        logsignmodalbtn.style.display = "block";
+    } else {
+        logsignmodalbtn.style.display = "none";
+    }
+
+
+
     let navItems = document.querySelectorAll('.navItem');
     navItems.forEach(ele => {
         ele.classList.remove('purple-text-border');
@@ -41,9 +72,15 @@ window.onload = function () {
         })
     })
 
+
+
     //login / signup modal
     modalbtn.forEach((btn, idx) => {
         logsigntab[idx].classList.remove('logsign-purple-border');
+
+
+
+
 
         btn.addEventListener('click', function (event) {
 
@@ -55,11 +92,22 @@ window.onload = function () {
             logsignBtn.innerHTML = idx === 0 ? "Log In" : "Sign Up";
             maillog.style.display = 'block';
 
-            logsigntab.forEach((item, index) => {
+            //登入驗證errormsg清除
+            document.querySelectorAll(".field-validation-error").forEach(item => {
+                item.innerText = "";
+            })
 
+
+            logsigntab.forEach((item, index) => {
                 //modal裡面按下不同tab，執行各自的purple border
                 item.addEventListener('click', function (event) {
                     // maillog.style.display = 'block';
+
+                    //登入驗證errormsg清除
+                    document.querySelectorAll(".field-validation-error").forEach(item => {
+                        item.innerText = "";
+                    })
+
 
                     item.classList.remove('logsign-purple-border');
                     logsigntab.forEach(e => {
@@ -86,9 +134,24 @@ window.onload = function () {
 
 
 
+////modal password hide/show
+//function Password() {
+//    passinput.forEach((input, idx) => {
+//        if (input.type === "password") {
+//            input.type = "text";
+//            passshow[idx].value = "hide";
+//        } else {
+//            input.type = "password";
+//            passshow[idx].value = "show";
+//        }
+//    })
+//}
+
 //modal password hide/show
-function Password() {
-    passinput.forEach((input, idx) => {
+passinput.forEach((input, idx) => {
+
+    passshow[idx].addEventListener('click', function () {
+
         if (input.type === "password") {
             input.type = "text";
             passshow[idx].value = "hide";
@@ -97,7 +160,9 @@ function Password() {
             passshow[idx].value = "show";
         }
     })
-}
+
+})
+
 
 
 

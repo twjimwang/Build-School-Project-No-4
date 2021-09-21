@@ -390,49 +390,62 @@
                         <!-- login tab content -->
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="wrap">
-                                <form action="@Url.Action("Login", "Members")" method="post" id="logsignform" class="needs-validation" novalidate>
+
+                                <form action="@Url.Action("Login", "Members")" method="post" id="logsignform" >
                                     <!-- mail login -->
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="maillog logmethod">
-                                        <label for="email" id="email">Email</label><br>
+                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
+                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:14px" })
+
+                                        @*<label for="email" id="email">Email</label><br>
                                         <input id="email" type="email" name="email" class="emailinput ellipsis"
-                                               placeholder="Please enter your email" value="" required="required">
-                                        <div class="valid-feedback">
+                                               placeholder="Please enter your email" value="" required="required">*@
+
+                                        @*<div class="valid-feedback">
                                             Looks good!
-                                        </div>
+                                        </div>*@
                                         @*<span class="btn" id="loginmethod">
-                                                <i class="fas fa-mobile logmobile"></i>
-                                            </span>*@
+                                            <i class="fas fa-mobile logmobile"></i>
+                                        </span>*@
                                     </div>
                                     <!-- phone login -->
                                     <!--<div class="phonelog logmethod">
-                                        <label for="phone" id="email">Phone Number</label>
-                                        <select id="phone" class="form-select  phoneselect">
-                                            <option selected>+1</option>
-                                            <option>...</option>
-                                        </select>
+        <label for="phone" id="email">Phone Number</label>
+        <select id="phone" class="form-select  phoneselect">
+            <option selected>+1</option>
+            <option>...</option>
+        </select>
 
-                                        <input type="tel" name="phone" class="phoneinput ellipsis"
-                                               placeholder="Please enter your phone number">
+        <input type="tel" name="phone" class="phoneinput ellipsis"
+               placeholder="Please enter your phone number">
 
-                                        <span class="btn" id="loginmethod">
-                                            <i class="far fa-envelope logmail"></i>
-                                        </span>
-                                    </div>-->
+        <span class="btn" id="loginmethod">
+            <i class="far fa-envelope logmail"></i>
+        </span>
+    </div>-->
                                     <!-- password -->
-                                    <label for="password" id="password">Password</label><br>
+                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
+                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", name = "password", placeholder = "Please enter your password" })
+                                    <input type="button" class="passwordshow" value="show" ><br>
+
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:14px" })
+
+                                    @*<label for="password" id="password">Password</label><br>
                                     <input type="password" name="password" class="passwordinput ellipsis"
-                                           placeholder="Please enter your password" value="" id="myinput" required="required">
-                                    <input type="button" class="passwordshow" value="show" onclick="Password()"><br>
-                                    <div class="valid-feedback">
+                                           placeholder="Please enter your password" value="" id="myinput" required="required">*@
+
+
+                                    @*<div class="valid-feedback">
                                         Looks good!
-                                    </div>
+                                    </div>*@
 
                                     <a href="#" id="forgetpass">Forget your password?</a>
 
                                     @*<input type="submit"  value="Log In" />*@
-                                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" id="loginbutton">
-                                        Log In
-                                    </button>
+                                    <input type="submit" class="btn btn-secondary" data-bs-dismiss="modal" id="loginbutton" value="Log In">
                                     @ViewBag.Message
                                 </form>
                             </div>
@@ -452,9 +465,9 @@
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <!-- mail signup -->
                                     <div class="maillog">
-                                        @Html.LabelFor(model => model.Email, new { @id = "email" })<br>
+                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
                                         @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:14px" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:12px" })
 
                                         @*<label for="email" id="email">Email</label><br>
                                             <input type="email" name="email" class="emailinput ellipsis"
@@ -482,9 +495,9 @@
                                     <!-- password -->
                                     @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
                                     @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", placeholder = "Please enter your password" })
-                                    <input type="button" class="passwordshow" value="show" onclick="Password()">
+                                    <input type="button" class="passwordshow" value="show">
 
-                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:14px" })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:12px" })
 
                                     @*<label for="password" id="password">Password</label><br>
                                         <input type="password" name="password" class="passwordinput ellipsis"
@@ -875,28 +888,43 @@
 
     @section endJS{
         <script>
-            window.onload = () => {
-                let email = document.querySelector(".emailinput:first-child").value;
-                let password = document.querySelector(".passwordinput:first-child").value;
-
-                let loginData = {
-                    email: email,
-                    password: password 
-                }
-
-                if (localStorage.getItem("login") == null) {
-
-                    localStorage.setItem("login", JSON.stringify(loginData));
-
-                }
-                else {
-
-                    loginarray = JSON.parse(localStorage.getItem("login"));    //localStarsge是文字格式，要轉回array
-
-                }
 
 
-            }
+            //let logsignmodalbtn = document.querySelector('.logsign-modal-button');
+            //window.onload = () => {
+            //    if (localStorage.getItem("loginEmail") != null) {
+
+            //        logsignmodalbtn.style.display = "none";
+
+            //    }
+
+
+                //let email = document.querySelector(".emailinput:first-child").value;
+                //let password = document.querySelector(".passwordinput:first-child").value;
+                //let loginbutton = document.querySelector("#loginbutton:first-child");
+
+                //let loginData = {
+                //    email: email,
+                //    password: password 
+                //}
+
+                //loginbutton.addEventListener('click', function () {
+
+                //    if (localStorage.getItem("login") == null) {
+
+                //        localStorage.setItem("login", JSON.stringify(loginData));
+
+                //    }
+                //    else {
+
+                //        loginarray = JSON.parse(localStorage.getItem("login"));    //localStarsge是文字格式，要轉回array
+
+                //    }
+                //})
+
+
+
+/*            }*/
 
 
 

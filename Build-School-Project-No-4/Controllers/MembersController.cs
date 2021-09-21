@@ -43,6 +43,10 @@ namespace Build_School_Project_No_4.Controllers
             return View(MemberData);
         }
 
+        public string test()
+        {
+            return "<p>" + User.Identity.Name + "您好<p>";
+        }
 
 
         //Get: Members/Login
@@ -59,14 +63,15 @@ namespace Build_School_Project_No_4.Controllers
                 .FirstOrDefault();
             if (member == null)
             {
-                ViewBag.Message = "帳密錯誤，登入失敗";
+                ViewBag.Message = "帳密錯誤";
                 return View();
             }
             Session["loginEmail"] = member.Email;
-            //Session["loginPwd"] = member.Password;
             //Session["WelCome"] = member.Email + "歡迎光臨";
             FormsAuthentication.RedirectFromLoginPage(Email, true);
-            return RedirectToAction("ePal", "ePal");
+            //return RedirectToAction("ePal", "ePal");
+            return RedirectToAction("RecommenedController", "Recommend");
+            //return RedirectToAction("test");
             //return View();
         }
 
@@ -79,18 +84,18 @@ namespace Build_School_Project_No_4.Controllers
         }
         //Post:Members/Register
         [HttpPost]
-        public ActionResult Register(Member pMember)
+        public ActionResult Register(Member newMember)
         {
             if (ModelState.IsValid == false)
             {
                 return View();
             }
             var member = db.Members
-                .Where(m => m.Email == pMember.Email)
+                .Where(m => m.Email == newMember.Email)
                 .FirstOrDefault();
             if (member == null)
             {
-                db.Members.Add(pMember);
+                db.Members.Add(newMember);
                 //db.Members.Add(new Member { RegistrationDate = DateTime.Now});
                 db.SaveChanges();
                 return RedirectToAction("Edit_Profile", "Edit_Profile");
