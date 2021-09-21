@@ -185,6 +185,11 @@
     <Compile Include="Controllers\BecomeEPalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
+    <Compile Include="Controllers\ChooseAServiceController.cs" />
+    <Compile Include="Controllers\CouponsController.cs" />
+    <Compile Include="Controllers\CreatorProjectController.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
+    <Compile Include="Controllers\Edit_ProfileController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
     <Compile Include="Controllers\ePalController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
@@ -192,6 +197,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeForPhoneController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\Page404Controller.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
@@ -599,6 +605,7 @@
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\ReadMember.cshtml" />
     <Content Include="Views\Order\Orders.cshtml" />
+    <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
