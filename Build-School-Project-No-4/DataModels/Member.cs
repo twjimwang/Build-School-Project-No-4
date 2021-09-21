@@ -28,7 +28,7 @@ namespace Build_School_Project_No_4.DataModels
 
         public int MemberId { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(50)]
         public string MemberName { get; set; }
 
@@ -37,23 +37,26 @@ namespace Build_School_Project_No_4.DataModels
         [Column(TypeName = "date")]
         public DateTime RegistrationDate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your Email")]
         [StringLength(50)]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your password")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required]
+        
         [StringLength(50)]
         public string Phone { get; set; }
 
-        [Required]
+
         [StringLength(50)]
         public string Country { get; set; }
 
-        public int CityId { get; set; }
 
+        public int? CityId { get; set; }
+
+        //[Required]
         public int Gender { get; set; }
 
         [DataType(DataType.Date)]
@@ -61,19 +64,22 @@ namespace Build_School_Project_No_4.DataModels
         [Column(TypeName = "date")]
         public DateTime BirthDay { get; set; }
 
-        public int TimeZone { get; set; }
+        public int? TimeZone { get; set; }
 
-        public int LanguageId { get; set; }
+        //[Required]
+        public int? LanguageId { get; set; }
 
-        [Required]
+        
         public string Bio { get; set; }
 
-        [Required]
+        //[Required]
         public string ProfilePicture { get; set; }
 
-        [Required]
+        
         [StringLength(50)]
         public string LineStatus { get; set; }
+
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Chatlist> Chatlists { get; set; }

@@ -241,7 +241,7 @@ body {
 }
 
 .modal .modal-body .emailinput {
-    width: 420px;
+    width: 460px;
     height: 40px;
     border-radius: 5px;
     margin-top: 5px;
@@ -321,6 +321,7 @@ body {
 
 .modal .modal-body .passwordshow {
     position: absolute;
+    z-index:2;
     bottom: 65px;
     left: 390px;
     color: #7041e6;
@@ -350,6 +351,7 @@ body {
     font-weight: 600;
     margin-bottom: 20px;
 }
+
 
 .modal .modal-body .form-check {
     margin-top: 20px;

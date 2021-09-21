@@ -28,8 +28,8 @@
     <input type="checkbox" name="" id="side-menu-switch">
     <div class="side-menu">
         <nav class="tab-title">
-            <a href="#">Edit Profile</a>
-            <a href="#">Account</a>
+            <a href="@Url.Action("Edit_Profile","Edit_Profile")">Edit Profile</a>
+            <a href="@Url.Action("SettingsAccount","SettingsAccount")">Account</a>
             <a href="#">Notifications</a>
             <a href="#">Privacy</a>
             <a href="#">Wedsite Log</a>
@@ -62,7 +62,7 @@
                     <p class="p_color">Registration Time:</p>
                 </div>
                 <div class="col-12 col-md-5">
-                    <p class="p_size">@string.Join(Environment.NewLine, member.Select(x => x.RegistrationDate.Date))</p>
+                    <p class="p_size">@string.Join(Environment.NewLine, member.Select(x => x.RegistrationDate.ToShortDateString()))</p>
                 </div>
             </div>
         </div>

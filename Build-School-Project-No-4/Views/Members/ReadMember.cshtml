@@ -16,6 +16,7 @@
             <th>會員代號</th>
             <th>會員姓名</th>
             <th>會員生日</th>
+            @*<th>會員密碼</th>*@
         </tr>
     </thead>
 
@@ -27,6 +28,7 @@
                 <td>@Html.DisplayFor(x => m.MemberId)</td>
                 <td>@Html.DisplayFor(x => m.MemberName)</td>
                 <td>@Html.DisplayFor(x => m.BirthDay)</td>
+                @*<td>@Html.PasswordFor(x => m.Password)</td>*@
             </tr>
         }
     </tbody>

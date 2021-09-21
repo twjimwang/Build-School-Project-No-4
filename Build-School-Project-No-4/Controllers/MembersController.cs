@@ -4,9 +4,12 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Build_School_Project_No_4.DataModels;
+//using Build_School_Project_No_4.Models;
 using Build_School_Project_No_4.Repositories;
 using Build_School_Project_No_4.Services;
 using Build_School_Project_No_4.ViewModels;
@@ -39,6 +42,66 @@ namespace Build_School_Project_No_4.Controllers
 
             return View(MemberData);
         }
+
+
+
+        //Get: Members/Login
+        public ActionResult Login()
+        {
+            return View();
+        }
+        //Post: Members/Login
+        [HttpPost]
+        public ActionResult Login(string Email, string Password)
+        {            
+            var member = db.Members
+                .Where(m => m.Email == Email && m.Password == Password)
+                .FirstOrDefault();
+            if (member == null)
+            {
+                ViewBag.Message = "帳密錯誤，登入失敗";
+                return View();
+            }
+            Session["WelCome"] = member.Email + "歡迎光臨";
+            FormsAuthentication.RedirectFromLoginPage(Email, true);
+            return RedirectToAction("ePal", "ePal");
+        }
+
+
+
+        //Get:Members/Register
+        public ActionResult Register()
+        {
+            return View();
+        }
+        //Post:Members/Register
+        [HttpPost]
+        public ActionResult Register(Member pMember)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return View();
+            }
+            var member = db.Members
+                .Where(m => m.Email == pMember.Email)
+                .FirstOrDefault();
+            if (member == null)
+            {
+                db.Members.Add(pMember);
+                db.SaveChanges();
+                return RedirectToAction("Edit_Profile", "Edit_Profile");
+            }
+
+            ViewBag.Message = "此帳號己有人使用，註冊失敗";
+            return RedirectToAction("ePal", "ePal");
+        }
+
+
+
+
+
+
+
 
 
 

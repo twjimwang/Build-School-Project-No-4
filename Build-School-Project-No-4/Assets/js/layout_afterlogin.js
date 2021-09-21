@@ -23,6 +23,7 @@ let modalfooterP = document.querySelector('.modalfooter>p');
 let passinput = document.querySelectorAll('#myinput');
 let passshow = document.querySelectorAll('.passwordshow');
 
+
 let msgroom = document.querySelector('#dropdown-message');
 let searchbar = document.querySelector('.search input');
 let statusbar = document.querySelector('.statusbar');
@@ -195,3 +196,63 @@ statuslistbtn.forEach((stabtn, idx) => {
     })
 })
 
+
+
+    //< button type = "button" class="btn btn-secondary" data - bs - dismiss="modal" id = "loginbutton" disabled = "true" >
+    //    Log In
+    //                        </button >
+//let mailinput = document.querySelectorAll('.emailinput');
+//let passinput = document.querySelectorAll('.passwordinput');
+
+//logsignBtn.forEach((btn,idx), function () {
+
+//    if (mailinput[idx] != "" && passinput[idx] != "")
+//    {
+//        logsignBtn[idx].disabled = false;
+//    }
+//})
+
+
+//$(function () {
+
+//    $("#logsignform").validate({
+//        rules: {
+//            email: {
+//                required: true,
+//                email: true
+//            },
+//            myinput: "required"
+//        },
+//        messages: {
+//            email: {
+//                required: "Please enter your Email",
+//                email: "Email format is not true"
+//            },
+//            myinput: "Please enter your password"
+//        },
+//        //submitHandler: function (logsignform) {
+//        //    form.submit();
+//        //}
+//    });
+//});
+
+
+    //(function () {
+    //    'use strict'
+
+    //    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //    var forms = document.querySelectorAll('.needs-validation')
+
+    //    // Loop over them and prevent submission
+    //    Array.prototype.slice.call(forms)
+    //        .forEach(function (form) {
+    //            form.addEventListener('submit', function (event) {
+    //                if (!form.checkValidity()) {
+    //                    event.preventDefault()
+    //                    event.stopPropagation()
+    //                }
+
+    //                form.classList.add('was-validated')
+    //            }, false)
+    //        })
+    //})()

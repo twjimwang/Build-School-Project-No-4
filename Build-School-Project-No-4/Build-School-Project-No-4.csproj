@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -123,12 +129,6 @@
     </Reference>
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -230,6 +230,43 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109200332179_InitialCreate.cs" />
+    <Compile Include="Migrations\202109200332179_InitialCreate.Designer.cs">
+      <DependentUpon>202109200332179_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109200351357_modifyDM.cs" />
+    <Compile Include="Migrations\202109200351357_modifyDM.Designer.cs">
+      <DependentUpon>202109200351357_modifyDM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109210253381_modifyMemberDM.cs" />
+    <Compile Include="Migrations\202109210253381_modifyMemberDM.Designer.cs">
+      <DependentUpon>202109210253381_modifyMemberDM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109210310453_modifyMemberDM2.cs" />
+    <Compile Include="Migrations\202109210310453_modifyMemberDM2.Designer.cs">
+      <DependentUpon>202109210310453_modifyMemberDM2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109210343209_modifyMemberDM3.cs" />
+    <Compile Include="Migrations\202109210343209_modifyMemberDM3.Designer.cs">
+      <DependentUpon>202109210343209_modifyMemberDM3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109210445466_modifyMemberDM4.cs" />
+    <Compile Include="Migrations\202109210445466_modifyMemberDM4.Designer.cs">
+      <DependentUpon>202109210445466_modifyMemberDM4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109210459188_modifyMemberDM5.cs" />
+    <Compile Include="Migrations\202109210459188_modifyMemberDM5.Designer.cs">
+      <DependentUpon>202109210459188_modifyMemberDM5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109210506377_modifyMemberDM6.cs" />
+    <Compile Include="Migrations\202109210506377_modifyMemberDM6.Designer.cs">
+      <DependentUpon>202109210506377_modifyMemberDM6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109210512212_modifyMemberDM7.cs" />
+    <Compile Include="Migrations\202109210512212_modifyMemberDM7.Designer.cs">
+      <DependentUpon>202109210512212_modifyMemberDM7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -480,6 +517,7 @@
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\ReadMember.cshtml" />
+    <Content Include="Views\Members\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -499,6 +537,35 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202109200332179_InitialCreate.resx">
+      <DependentUpon>202109200332179_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109200351357_modifyDM.resx">
+      <DependentUpon>202109200351357_modifyDM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109210253381_modifyMemberDM.resx">
+      <DependentUpon>202109210253381_modifyMemberDM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109210310453_modifyMemberDM2.resx">
+      <DependentUpon>202109210310453_modifyMemberDM2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109210343209_modifyMemberDM3.resx">
+      <DependentUpon>202109210343209_modifyMemberDM3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109210445466_modifyMemberDM4.resx">
+      <DependentUpon>202109210445466_modifyMemberDM4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109210459188_modifyMemberDM5.resx">
+      <DependentUpon>202109210459188_modifyMemberDM5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109210506377_modifyMemberDM6.resx">
+      <DependentUpon>202109210506377_modifyMemberDM6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109210512212_modifyMemberDM7.resx">
+      <DependentUpon>202109210512212_modifyMemberDM7.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

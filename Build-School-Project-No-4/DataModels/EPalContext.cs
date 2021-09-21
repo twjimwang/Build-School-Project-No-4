@@ -38,10 +38,10 @@ namespace Build_School_Project_No_4.DataModels
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<City>()
-                .HasMany(e => e.Members)
-                .WithRequired(e => e.City)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<City>()
+            //    .HasMany(e => e.Members)
+            //    .WithRequired(e => e.City)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CommentDetail>()
                 .HasMany(e => e.Comments)
@@ -53,10 +53,10 @@ namespace Build_School_Project_No_4.DataModels
                 .WithRequired(e => e.GameCategory)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Language>()
-                .HasMany(e => e.Members)
-                .WithRequired(e => e.Language)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Language>()
+            //    .HasMany(e => e.Members)
+            //    .WithRequired(e => e.Language)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Member>()
                 .Property(e => e.LineStatus)
