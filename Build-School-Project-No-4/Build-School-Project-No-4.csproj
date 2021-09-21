@@ -425,6 +425,7 @@
     <Content Include="Assets\MeetImages\icon2.png" />
     <Content Include="Assets\MeetImages\icon3.png" />
     <Content Include="Assets\MeetImages\icon4.png" />
+    <Content Include="Assets\MeetImages\MeetLike\here.png" />
     <Content Include="Assets\OrderImages\order.png" />
     <Content Include="Assets\WalletImages\Income.png" />
     <Content Include="Assets\WalletImages\Money.png" />
@@ -519,6 +520,7 @@
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\ReadMember.cshtml" />
     <Content Include="Views\ChillMeetLike\MeetLikes.cshtml" />
+    <Content Include="Views\ChillMeetLike\MeetMatches.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
