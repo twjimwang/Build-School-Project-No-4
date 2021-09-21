@@ -185,6 +185,7 @@
     <Compile Include="Controllers\BecomeEPalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
+    <Compile Include="Controllers\ChillMeetLikeController.cs" />
     <Compile Include="Controllers\CouponsController.cs" />
     <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\Edit_ProfileController.cs" />
@@ -517,7 +518,6 @@
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\ReadMember.cshtml" />
-    <Content Include="Views\Members\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

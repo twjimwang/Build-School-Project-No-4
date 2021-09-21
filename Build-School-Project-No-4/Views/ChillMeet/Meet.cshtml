@@ -74,7 +74,7 @@
 
             <!-- 中 (表情) -->
             <div class="container fontSelect" style="padding: 0;">
-                <div class="row" style="justify-content: center;" style="align-items: center;">
+                <div class="row" style="justify-content: center;" >
                     <div class="circle col-md-3 col-3" id="circle1">
                         <img src="~/Assets/MeetImages/icon1.png" alt="Alternate Text" />
                     </div>
@@ -96,8 +96,10 @@
         <div class="col-12 col-md-4 rightSetting" id="chillRight">
             <div class="labelRight">
                 <button type="button" class="btn btn-secondary ">
-                    <i class="far fa-smile"></i>
-                    <span>Likes</span>
+                    <a href="@Url.Action("MeetLikes","ChillMeetLike")">
+                        <i class="far fa-smile"></i>
+                        <span>Likes</span>
+                    </a>
                 </button>
                 <button type="button" class="btn btn-secondary">
                     <i class="fas fa-cog"></i>
@@ -113,7 +115,7 @@
     <style>
         * {
             font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
-            ;
+            
         }
 
         body {
@@ -288,8 +290,13 @@
 }
 
 .labelRight button i {
-	size: 5px;
+	/*size: 5px;*/
 }
+ .labelRight button a {
+            /*size: 5px;*/
+	color:white;
+	text-decoration:none;
+ }
 
  #BackgrounRight {
 	position: absolute;
@@ -417,7 +424,7 @@
 	.selectPlay a {
 		color: #dee2e6;
 		text-decoration: none;
-		size: 24px;
+		/*size: 24px;*/
 	}
 
 	.circle {
