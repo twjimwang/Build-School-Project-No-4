@@ -165,7 +165,7 @@
     </div>
 
     <div class="container-fluid liveList">
-        <div class="row wrap">
+        <div class="row wrap lastWrap">
             <div class="item col-12 col-md-6 col-lg-3">
                 <div class="LiveIcon"></div>
                 <div class="ViewersIcon"></div>
@@ -428,12 +428,21 @@
                     .item {
                         margin-top: 20px;
                     }
-                        /* 修正手機跑掉問題 */
-                        .item .ViewersIcon::before {
-                            top: 150px;
-                            left: 10px;
-                            text-align: center;
-                        }
+
+                    .wrap {
+                       /* margin-bottom:100px;*/
+
+                    }
+
+                    .lastWrap {
+                        margin-bottom:100px;
+                    }
+                    /* 修正手機跑掉問題 */
+                    .item .ViewersIcon::before {
+                        top: 150px;
+                        left: 10px;
+                        text-align: center;
+                    }
                 }
 
                 /* 平板卡片置中 */
@@ -478,6 +487,7 @@
                     .wrap {
                         margin-left: 12px;
                         margin-right: 12px;
+                       
                     }
                 }
 

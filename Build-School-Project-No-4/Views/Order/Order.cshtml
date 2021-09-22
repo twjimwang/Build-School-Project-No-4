@@ -1,4 +1,5 @@
-﻿<div class="sidebar ">
+﻿@model IEnumerable<Build_School_Project_No_4.ViewModels.OrderViewModel>
+<div class="sidebar ">
     <input type="checkbox" name="" id="side-menu-switch">
     <div class="side-menu">
         <p>Purchased Orders</p>
@@ -20,39 +21,57 @@
             <h1>Unpaid</h1>
         </div>
         <div>
-            <div class="wrap row ">
-                <div class=" col-2 col-md-2">
-                    <p>
-                        Details
-                    </p>
+            @foreach (var m in Model)
+            {
+                <div class="wrap row ">
+                    <div class=" col-2 col-md-2">
+                        <p>
+                            Details
+                        </p>
+                        <p>
+                            @Html.DisplayFor(x => m.OrderId)
+                        </p>
+                    </div>
+                    <div class=" col-2 col-md-2">
+                        <p>
+                            Order Time
+                        </p>
+                        <p>
+                            @Html.DisplayFor(x => m.OrderDate)
+                        </p>
+                    </div>
+                    <div class=" col-2 col-md-2">
+                        <p>
+                            Quantity
+                        </p>
+                        <p>
+                            @Html.DisplayFor(x => m.Quality)
+                        </p>
+                    </div>
+                    <div class=" col-2 col-md-2">
+                        <p>
+                            Total Price
+                        </p>
+                        <p>
+                            @Html.DisplayFor(x => m.TotalPrice)
+                        </p>
+                    </div>
+                    <div class=" col-2 col-md-2">
+                        <p>
+                            Order Status
+                        </p>
+                        <p>
+                            @Html.DisplayFor(x => m.OrderStatus)
+                        </p>
+                    </div>
+                    <div class="col-2 col-md-2">
+                        <p>
+                            Options
+                        </p>
+                    </div>
                 </div>
-                <div class=" col-2 col-md-2">
-                    <p>
-                        Order Time
-                    </p>
-                </div>
-                <div class=" col-2 col-md-2">
-                    <p>
-                        Quantity
-                    </p>
-                </div>
-                <div class=" col-2 col-md-2">
-                    <p>
-                        Total Price
-                    </p>
-                </div>
-                <div class=" col-2 col-md-2">
-                    <p>
-                        Order Status
-                    </p>
-                </div>
-                <div class="col-2 col-md-2">
-                    <p>
-                        Options
-                    </p>
-                </div>
-            </div>
-        </div>
+            }
+            </div>      
     </div>
     <div class="row">
         <div class="footerimg col-12">
@@ -60,7 +79,6 @@
         </div>
     </div>
 </div>
-
 @section topCSS{
     <style>
         header {
@@ -70,19 +88,23 @@
         footer {
             display: none;
         }
-        .rowpadding{
-            padding:30px;
+
+        .rowpadding {
+            padding: 30px;
         }
-        .title_height_padding{
-            height:40px;
-            padding:0px;
+
+        .title_height_padding {
+            height: 40px;
+            padding: 0px;
         }
+
         @@media screen and (max-width: 767px) {
             .side-menu {
                 display: flex;
                 flex-direction: row;
                 width: 95%;
             }
+
             header {
                 height: 0px;
             }
@@ -102,8 +124,6 @@
 
         @@media screen and (min-width: 1200px) {
         }
-
-
         html,
         body {
             font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -112,7 +132,6 @@
             background-color: rgb(18, 14, 27);
             height: 100%;
         }
-
         .borderbottom {
             align-items: center;
             padding: 10px;
@@ -194,6 +213,7 @@
             display: flex;
             align-items: center;
         }
+
         .col-md-2 p {
             margin-bottom: auto;
         }

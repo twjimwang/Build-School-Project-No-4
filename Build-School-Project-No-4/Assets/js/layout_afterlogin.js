@@ -33,7 +33,40 @@ let statuslistbtn = document.querySelectorAll('.aside-Menu .dropdown-menu button
 let email = document.querySelector(".emailinput");
 /*let password = document.querySelector(".passwordinput");*/
 let logsignmodalbtn = document.querySelector('.logsign-modal-button');
+window.onload = function () {
+    //login / signup modal
+    modalbtn.forEach((btn, idx) => {
+        logsigntab[idx].classList.remove('logsign-purple-border');
 
+        btn.addEventListener('click', function (event) {
+
+            //初始化modal打開樣式
+            logsigntab[idx].classList.add('logsign-purple-border');
+            logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign in and experience ePal services for free";
+            modalfooter.style.display = idx === 0 ? 'flex' : 'none';
+            logsignBtn.innerHTML = idx === 0 ? "Log In" : "Sign Up";
+            maillog.style.display = 'block';
+
+            logsigntab.forEach((item, index) => {
+                //modal裡面按下不同tab，執行各自的purple border
+                item.addEventListener('click', function (event) {
+                    item.classList.remove('logsign-purple-border');
+                    logsigntab.forEach(e => {
+                        e.classList.remove('logsign-purple-border');
+                        logsigntitle.innerHTML = index === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
+                        modalfooter.style.display = index === 0 ? 'flex' : 'none';
+                        logsignBtn.innerHTML = index === 0 ? "Log In" : "Sign Up";
+                    })
+                    event.srcElement.classList.add('logsign-purple-border');
+                })
+                //modal關閉後清除purple border
+                modalbtnclose.addEventListener('click', function (event) {
+                    item.classList.remove('logsign-purple-border');
+                })
+            })
+        })
+    })
+    $('#myModal').modal({ backdrop: 'static', keyboard: false });
 let mailerror = document.getElementById('email-error');
 let passerror = document.getElementById('myinput-error');
 let valerror = document.querySelectorAll(".field-validation-error");
