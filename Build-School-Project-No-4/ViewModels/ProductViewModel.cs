@@ -27,8 +27,15 @@ namespace Build_School_Project_No_4.ViewModels
 
         public int StarLevel { get; set; }
 
-        public string PositionName { get; set; }
+        public List<string> PositionName { get; set; }
 
-        public string ProductPlans { get; set; }
+        public List<AvailableTime> ProductPlans { get; set; }
+    }
+
+    public class AvailableTime
+    {
+        public string AvailableDay { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
     }
 }
