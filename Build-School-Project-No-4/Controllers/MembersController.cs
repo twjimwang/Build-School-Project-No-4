@@ -63,7 +63,7 @@ namespace Build_School_Project_No_4.Controllers
                 .FirstOrDefault();
             if (member == null)
             {
-                ViewBag.Message = "帳密錯誤";
+                ViewBag.Message = "帳號密碼錯誤";
                 return View();
             }
             Session["loginEmail"] = member.Email;
@@ -98,10 +98,11 @@ namespace Build_School_Project_No_4.Controllers
                 db.Members.Add(newMember);
                 //db.Members.Add(new Member { RegistrationDate = DateTime.Now});
                 db.SaveChanges();
-                return RedirectToAction("Edit_Profile", "Edit_Profile");
+                //return RedirectToAction("Edit_Profile", "Edit_Profile");
+                return RedirectToAction("HomePage", "Home");
             }
 
-            ViewBag.Message = "此帳號己有人使用，註冊失敗";
+            ViewBag.Message = "帳號己有人使用";
             return RedirectToAction("ePal", "ePal");
         }
 

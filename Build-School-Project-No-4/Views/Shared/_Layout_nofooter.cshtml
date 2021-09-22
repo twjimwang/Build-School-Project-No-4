@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Member
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +22,7 @@
 
 
     <link rel="stylesheet" href="~/Assets/css/reset.css">
-    <link rel="stylesheet" href="~/Assets/css/layout_afterlogin_nofooter.css">
+    <link rel="stylesheet" href="~/Assets/css/layout_afterlogin_nofooter.css?v=<?=time()?>">
 
 
 
@@ -33,7 +34,7 @@
     <header>
         <nav class="navbar">
             <div class="container-fluid">
-                <a class="logo" href="@Url.Action("ePal","ePal")">
+                <a class="logo" href="@Url.Action("HomePage","Home")">
                     <img src="~/Assets/images/layout/logo.png" alt="E-Pal">
                 </a>
                 <ul class="me-auto d-flex navbar-left">
@@ -346,6 +347,7 @@
     </div>
 
 
+
     <!-- (平板以上)Navbar login/signup Modal   -->
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -382,23 +384,36 @@
                             </button>
                         </li>
                     </ul>
+
                     <!-- tab-content -->
                     <div class="tab-content" id="myTabContent">
+
                         <!-- login tab content -->
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="wrap">
-                                <form action="form">
+
+                                <form action="@Url.Action("Login", "Members")" method="post" id="logsignform">
                                     <!-- mail login -->
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="maillog logmethod">
-                                        <label for="email" id="email">Email</label><br>
-                                        <input type="email" name="email" class="emailinput ellipsis"
-                                               placeholder="Please enter your email">
-                                        <span class="btn" id="loginmethod">
-                                            <i class="fas fa-mobile logmobile"></i>
-                                        </span>
+                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
+                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:14px" })
+
+                                        @*<label for="email" id="email">Email</label><br>
+                                            <input id="email" type="email" name="email" class="emailinput ellipsis"
+                                                   placeholder="Please enter your email" value="" required="required">*@
+
+                                        @*<div class="valid-feedback">
+                                                Looks good!
+                                            </div>*@
+                                        @*<span class="btn" id="loginmethod">
+                                                <i class="fas fa-mobile logmobile"></i>
+                                            </span>*@
                                     </div>
                                     <!-- phone login -->
-                                    <div class="phonelog logmethod">
+                                    <!--<div class="phonelog logmethod">
                                         <label for="phone" id="email">Phone Number</label>
                                         <select id="phone" class="form-select  phoneselect">
                                             <option selected>+1</option>
@@ -411,40 +426,60 @@
                                         <span class="btn" id="loginmethod">
                                             <i class="far fa-envelope logmail"></i>
                                         </span>
-                                    </div>
+                                    </div>-->
                                     <!-- password -->
-                                    <label for="password" id="password">Password</label><br>
-                                    <input type="password" name="password" class="passwordinput ellipsis"
-                                           placeholder="Please enter your password" value="" id="myinput">
-                                    <input type="button" class="passwordshow" value="show" onclick="Password()"><br>
+                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
+                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", name = "password", placeholder = "Please enter your password" })
+                                    <input type="button" class="passwordshow" value="show"><br>
+
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:14px" })
+
+                                    @*<label for="password" id="password">Password</label><br>
+                                        <input type="password" name="password" class="passwordinput ellipsis"
+                                               placeholder="Please enter your password" value="" id="myinput" required="required">*@
+
+
+                                    @*<div class="valid-feedback">
+                                            Looks good!
+                                        </div>*@
 
                                     <a href="#" id="forgetpass">Forget your password?</a>
+
+                                    @*<input type="submit"  value="Log In" />*@
+                                    <input type="submit" class="btn btn-secondary" data-bs-dismiss="modal" id="loginbutton" value="Log In">
+                                    @ViewBag.Message
                                 </form>
                             </div>
-
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="loginbutton">
-                                Log
-                                In
-                            </button>
                             <!-- contact us用modal -->
                         </div>
+
 
                         <!-- signup tab content -->
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
                             <div class="wrap">
-                                <form action="form">
-                                    <!-- mail login -->
+
+                                @using (Html.BeginForm("Register", "Members", FormMethod.Post))
+                                {
+                                    @*<form action="@Url.Action("Register", "Member")" method="post">*@
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <!-- mail signup -->
                                     <div class="maillog">
-                                        <label for="email" id="email">Email</label><br>
-                                        <input type="email" name="email" class="emailinput ellipsis"
-                                               placeholder="Please enter your email">
-                                        <span class="btn" id="loginmethod">
-                                            <i class="fas fa-mobile signmobile"></i>
-                                        </span>
+                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
+                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", placeholder = "Please enter your email" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:12px" })
+
+                                        @*<label for="email" id="email">Email</label><br>
+                                            <input type="email" name="email" class="emailinput ellipsis"
+                                                   placeholder="Please enter your email">*@
+
+                                        @*<span class="btn" id="loginmethod">
+                                                <i class="fas fa-mobile signmobile"></i>
+                                            </span>*@
                                     </div>
-                                    <!-- phone login -->
-                                    <div class="phonelog">
+                                    <!-- phone signup -->
+                                    <!--<div class="phonelog">
                                         <label for="phone" id="email">Phone Number</label>
                                         <select id="phone" class="form-select  phoneselect">
                                             <option selected>+1</option>
@@ -457,30 +492,39 @@
                                         <span class="btn" id="loginmethod">
                                             <i class="far fa-envelope signmail"></i>
                                         </span>
-                                    </div>
+                                    </div>-->
                                     <!-- password -->
-                                    <label for="password" id="password">Password</label><br>
-                                    <input type="password" name="password" class="passwordinput ellipsis"
-                                           placeholder="Please enter your password" value="" id="myinput">
-                                    <input type="button" class="passwordshow" value="show" onclick="Password()"><br>
+                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
+                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", placeholder = "Please enter your password" })
+                                    <input type="button" class="passwordshow" value="show">
 
-                                    <div class="form-check">
-                                        <input class="form-check-input signchk" type="checkbox" value="" id="signcheck">
-                                        <span class="purplemark"></span>
-                                        <label class="form-check-label signchktxt" for="signcheck">
-                                            After checking, you are indicating that you have read and acknowledge the <a href="#" id="signchklink">E-Pal Platform User Agreement.</a>
-                                        </label>
-                                    </div>
-                                </form>
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:12px" })
+
+                                    @*<label for="password" id="password">Password</label><br>
+                                        <input type="password" name="password" class="passwordinput ellipsis"
+                                               placeholder="Please enter your password" value="" id="myinput">*@
+
+                                    <input type="submit" class="btn btn-secondary mt-5" data-bs-dismiss="modal" id="loginbutton" value="Sign Up">
+
+
+
+                                    @*<div class="form-check">
+                                            <input class="form-check-input signchk" type="checkbox" value="" id="signcheck">
+                                            <span class="purplemark"></span>
+                                            <label class="form-check-label signchktxt" for="signcheck">
+                                                After checking, you are indicating that you have read and acknowledge the <a href="#" id="signchklink">E-Pal Platform User Agreement.</a>
+                                            </label>
+                                        </div>*@
+
+                                    @*</form>*@
+                                }
+
                             </div>
-
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                    id="loginbutton">
-                                Sign Up
-                            </button>
                             <!-- contact us用modal -->
                         </div>
+
                     </div>
+
                 </div>
 
                 <div class="modalfooter">

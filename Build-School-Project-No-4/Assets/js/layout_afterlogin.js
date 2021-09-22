@@ -10,6 +10,7 @@ let phonelog = document.querySelector('.phonelog');
 let mobileicon = document.querySelector('.fa-mobile');
 let mailicon = document.querySelector('.fa-envelope');
 let logsignBtn = document.querySelector('#loginbutton');
+//let signupBtn = document.querySelector('.signupbutton');
 let msgicon = document.querySelectorAll('.message-icon-bk');
 let msgiconCl = document.querySelectorAll('.message-icon-cl');
 let msgListTitle = document.querySelector('#message-list-title');
@@ -41,6 +42,15 @@ let valerror = document.querySelectorAll(".field-validation-error");
 
 window.onload = function () {
 
+    if (localStorage.getItem("loginEmail") == null) {
+        logsignmodalbtn.style.display = "block";
+    } else {
+        logsignmodalbtn.style.display = "none";
+    }
+    //signupBtn.addEventListener('click', function () {
+    //    localStorage.setItem("signupEmail", email.value);
+    //})
+
     //let loginData = {
     //    email: email,
     //    password: password
@@ -53,11 +63,8 @@ window.onload = function () {
         //    loginarray = JSON.parse(localStorage.getItem("login"));    
         //}
     })
-    if (localStorage.getItem("loginEmail") == null) {
-        logsignmodalbtn.style.display = "block";
-    } else {
-        logsignmodalbtn.style.display = "none";
-    }
+
+
 
 
 
@@ -77,10 +84,6 @@ window.onload = function () {
     //login / signup modal
     modalbtn.forEach((btn, idx) => {
         logsigntab[idx].classList.remove('logsign-purple-border');
-
-
-
-
 
         btn.addEventListener('click', function (event) {
 
