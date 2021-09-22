@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Build_School_Project_No_4.DataModels;
+using Build_School_Project_No_4.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +15,20 @@ namespace Build_School_Project_No_4.Controllers
         {
             return View();
         }
+        public ActionResult Orders()
+        {
+            var Orders = new OrderService();
+            var a = Orders.Order();
+            return View(a);
+
+        }
         public ActionResult Order()
         {
-            return View();
+            var Orders = new OrderService();
+            var a = Orders.Order();
+            return View(a);
+
         }
+       
     }
 }
