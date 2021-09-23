@@ -1,29 +1,30 @@
-﻿@model  IEnumerable<Build_School_Project_No_4.ViewModels.MemberViewModel>
+﻿@model  GroupViewModel
+@*@model  IEnumerable<Build_School_Project_No_4.ViewModels.MemberViewModel>*@
 
-    @{
+@{
     ViewBag.Title = "MeetLikes";
-    }
+}
 
-    <h2>MeetLikes</h2>
+<h2>MeetLikes</h2>
 
 
-    <div class="container meet-title">
-        <div class="row">
-            <h3>MyMeet</h3>
-        </div>
+<div class="container meet-title">
+    <div class="row">
+        <h3>MyMeet</h3>
     </div>
+</div>
 
-    <div class="container  meet-pcTopNav">
-        <div class="row meet-title-Select col-md-12">
-            <div class="col-md-1 "> <a href="@Url.Action(" MeetLikes","ChillMeetLike")" class="likesBorder">Likes</a></div>
-            <div class="col-md-1 matchBorder "> <a href="@Url.Action("MeetMatches","ChillMeetLike")">Matches</a></div>
-        </div>
+<div class="container  meet-pcTopNav">
+    <div class="row meet-title-Select col-md-12">
+        <div class="col-md-1 "> <a href="@Url.Action(" MeetLikes","ChillMeetLike")" class="likesBorder">Likes</a></div>
+        <div class="col-md-1 matchBorder "> <a href="@Url.Action("MeetMatches","ChillMeetLike")">Matches</a></div>
     </div>
+</div>
 
-    <div class="container">
-        <div class="container meet-Container">
-            @foreach (var m in Model)
-            {
+<div class="container">
+    <div class="container meet-Container">
+        @foreach (var m in Model.MeetMatches)
+        {
             <div class="row meet-Card ">
                 <div class="meet-card-leftPic col-3 col-md-1">
                     <img src="~/Assets/LiveImages/head3.png" />
@@ -45,16 +46,16 @@
                     <button type="button" class="btn btn-primary">Chat</button>
                 </div>
             </div>
-            }
-        </div>
+        }
     </div>
+</div>
 
 
 
 
 
 
-    @section topCSS{
+@section topCSS{
 
     <style>
 
@@ -166,4 +167,4 @@
         @@media screen and (min-width:1200px) {
         }
     </style>
-    }
+}

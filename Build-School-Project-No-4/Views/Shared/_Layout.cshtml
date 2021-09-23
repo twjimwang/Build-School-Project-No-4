@@ -1,4 +1,4 @@
-﻿@model Member
+﻿@model MemberViewModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -396,9 +396,9 @@
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="maillog logmethod">
-                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:14px" })
+                                        @Html.LabelFor(MemberViewModel => MemberViewModel.Email, new { @class = "maillabel", id = "email" })<br>
+                                        @Html.TextBoxFor(MemberViewModel => MemberViewModel.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
+                                        @Html.ValidationMessageFor(MemberViewModel => MemberViewModel.Email, "", new { @class = "text-danger", style = "font-size:14px" })
 
                                         @*<label for="email" id="email">Email</label><br>
                                         <input id="email" type="email" name="email" class="emailinput ellipsis"

@@ -1,4 +1,4 @@
-﻿@model Member
+﻿@model GroupViewModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +22,7 @@
 
 
     <link rel="stylesheet" href="~/Assets/css/reset.css">
-    <link rel="stylesheet" href="~/Assets/css/layout_afterlogin_nofooter.css?v=<?=time()?>">
+    <link rel="stylesheet" href="~/Assets/css/layout_afterlogin_nofooter.css">
 
 
 
@@ -383,160 +383,6 @@
                             </button>
                         </li>
                     </ul>
-                    <!-- tab-content -->
-                    <div class="tab-content" id="myTabContent">
-                        <!-- login tab content -->
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="wrap">
-                                <form action="form">
-                                    <!-- mail login -->
-                                    <div class="maillog logmethod">
-                                        <label for="email" id="email">Email</label><br>
-                                        <input type="email" name="email" class="emailinput ellipsis"
-                                               placeholder="Please enter your email">
-                                        <span class="btn" id="loginmethod">
-                                            <i class="fas fa-mobile logmobile"></i>
-                                        </span>
-                                    </div>
-                                    <!-- phone login -->
-                                    <div class="phonelog logmethod">
-                                        <label for="phone" id="email">Phone Number</label>
-                                        <select id="phone" class="form-select  phoneselect">
-                                            <option selected>+1</option>
-                                            <option>...</option>
-                                        </select>
-
-                                        <input type="tel" name="phone" class="phoneinput ellipsis"
-                                               placeholder="Please enter your phone number">
-
-                                        <span class="btn" id="loginmethod">
-                                            <i class="far fa-envelope logmail"></i>
-                                        </span>
-                                    </div>
-                                    <!-- password -->
-                                    <label for="password" id="password">Password</label><br>
-                                    <input type="password" name="password" class="passwordinput ellipsis"
-                                           placeholder="Please enter your password" value="" id="myinput">
-                                    <input type="button" class="passwordshow" value="show" onclick="Password()"><br>
-
-                                    <a href="#" id="forgetpass">Forget your password?</a>
-                                </form>
-                            </div>
-
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="loginbutton">
-                                Log
-                                In
-                            </button>
-                            <!-- contact us用modal -->
-                        </div>
-
-                        <!-- signup tab content -->
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-                            <div class="wrap">
-                                <form action="form">
-                                    <!-- mail login -->
-                                    <div class="maillog">
-                                        <label for="email" id="email">Email</label><br>
-                                        <input type="email" name="email" class="emailinput ellipsis"
-                                               placeholder="Please enter your email">
-                                        <span class="btn" id="loginmethod">
-                                            <i class="fas fa-mobile signmobile"></i>
-                                        </span>
-                                    </div>
-                                    <!-- phone login -->
-                                    <div class="phonelog">
-                                        <label for="phone" id="email">Phone Number</label>
-                                        <select id="phone" class="form-select  phoneselect">
-                                            <option selected>+1</option>
-                                            <option>...</option>
-                                        </select>
-
-                                        <input type="tel" name="phone" class="phoneinput ellipsis"
-                                               placeholder="Please enter your phone number">
-
-                                        <span class="btn" id="loginmethod">
-                                            <i class="far fa-envelope signmail"></i>
-                                        </span>
-                                    </div>
-                                    <!-- password -->
-                                    <label for="password" id="password">Password</label><br>
-                                    <input type="password" name="password" class="passwordinput ellipsis"
-                                           placeholder="Please enter your password" value="" id="myinput">
-                                    <input type="button" class="passwordshow" value="show" onclick="Password()"><br>
-
-                                    <div class="form-check">
-                                        <input class="form-check-input signchk" type="checkbox" value="" id="signcheck">
-                                        <span class="purplemark"></span>
-                                        <label class="form-check-label signchktxt" for="signcheck">
-                                            After checking, you are indicating that you have read and acknowledge the <a href="#" id="signchklink">E-Pal Platform User Agreement.</a>
-                                        </label>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                    id="loginbutton">
-                                Sign Up
-                            </button>
-                            <!-- contact us用modal -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modalfooter">
-                    <p>Or log in with</p>
-                    <div class="otherlogin">
-                        <a href="#"><img src="~/Assets/images/layout/googleicon.png" alt="googleicon" id="google"></a>
-                        <a href="#"><i class="fab fa-twitch"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-apple"></i></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- (平板以上)Navbar login/signup Modal   -->
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modalheader">
-                    <div class="item">
-                        <button type="button" class="btn-close btn-close-white modal-btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="item">
-                        <img src="~/Assets/images/layout/login.png" alt="login">
-                    </div>
-                    <div class="item">
-                        <h3 class="modal-title logsign-title">Log in and experience ePal services for free</h3>
-                    </div>
-                </div>
-
-                <div class="modal-body">
-                    <!-- tab -->
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active logsign-tab" id="login-tab" data-bs-toggle="tab"
-                                    data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                                    aria-selected="true">
-                                Log In
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link logsign-tab" id="signup-tab" data-bs-toggle="tab"
-                                    data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
-                                    aria-selected="false">
-                                Sign Up
-                            </button>
-                        </li>
-                    </ul>
 
                     <!-- tab-content -->
                     <div class="tab-content" id="myTabContent">
@@ -550,9 +396,9 @@
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="maillog logmethod">
-                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:14px" })
+                                        @Html.LabelFor(model => model.MemberData.Email, new { @class = "maillabel", id = "email" })<br>
+                                        @Html.TextBoxFor(model => model.MemberData.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
+                                        @Html.ValidationMessageFor(model => model.MemberData.Email, "", new { @class = "text-danger", style = "font-size:14px" })
 
                                         @*<label for="email" id="email">Email</label><br>
                                             <input id="email" type="email" name="email" class="emailinput ellipsis"
@@ -581,11 +427,11 @@
                                         </span>
                                     </div>-->
                                     <!-- password -->
-                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
-                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", name = "password", placeholder = "Please enter your password" })
-                                    <input type="button" class="passwordshow" value="show"><br>
+                                    @Html.LabelFor(model => model.MemberData.Password, new { @id = "password" })<br>
+                                    @Html.PasswordFor(model => model.MemberData.Password, new { @class = "passwordinput ellipsis", id = "myinput", name = "password", placeholder = "Please enter your password" })
+                                    <input type="button" class="passwordshow" value="show" ><br>
 
-                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:14px" })
+                                    @Html.ValidationMessageFor(model => model.MemberData.Password, "", new { @class = "text-danger", style = "font-size:14px" })
 
                                     @*<label for="password" id="password">Password</label><br>
                                         <input type="password" name="password" class="passwordinput ellipsis"
@@ -619,9 +465,9 @@
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <!-- mail signup -->
                                     <div class="maillog">
-                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:12px" })
+                                        @Html.LabelFor(model => model.MemberData.Email, new { @class = "maillabel", id = "email" })<br>
+                                        @Html.TextBoxFor(model => model.MemberData.Email, null, new { @class = "emailinput ellipsis", placeholder = "Please enter your email" })
+                                        @Html.ValidationMessageFor(model => model.MemberData.Email, "", new { @class = "text-danger", style = "font-size:12px" })
 
                                         @*<label for="email" id="email">Email</label><br>
                                             <input type="email" name="email" class="emailinput ellipsis"
@@ -647,11 +493,11 @@
                                         </span>
                                     </div>-->
                                     <!-- password -->
-                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
-                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", placeholder = "Please enter your password" })
+                                    @Html.LabelFor(model => model.MemberData.Password, new { @id = "password" })<br>
+                                    @Html.PasswordFor(model => model.MemberData.Password, new { @class = "passwordinput ellipsis", id = "myinput", placeholder = "Please enter your password" })
                                     <input type="button" class="passwordshow" value="show">
 
-                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:12px" })
+                                    @Html.ValidationMessageFor(model => model.MemberData.Password, "", new { @class = "text-danger", style = "font-size:12px" })
 
                                     @*<label for="password" id="password">Password</label><br>
                                         <input type="password" name="password" class="passwordinput ellipsis"

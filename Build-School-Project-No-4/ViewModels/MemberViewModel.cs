@@ -29,7 +29,7 @@ namespace Build_School_Project_No_4.ViewModels
 
         public string Country { get; set; }
 
-        public int CityId { get; set; }
+        public int? CityId { get; set; }
 
         public int Gender { get; set; }
 
@@ -37,9 +37,9 @@ namespace Build_School_Project_No_4.ViewModels
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime BirthDay { get; set; }
 
-        public int TimeZone { get; set; }
+        public int? TimeZone { get; set; }
 
-        public int LanguageId { get; set; }
+        public int? LanguageId { get; set; }
 
         public string Bio { get; set; }
 

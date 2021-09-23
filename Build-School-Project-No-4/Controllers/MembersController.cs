@@ -58,9 +58,9 @@ namespace Build_School_Project_No_4.Controllers
         [HttpPost]
         public ActionResult Login(string Email, string Password)
         {            
-            var member = db.Members
-                .Where(m => m.Email == Email && m.Password == Password)
-                .FirstOrDefault();
+            var member = _MemberService.GetMember()
+                        .Where(m => m.Email == Email && m.Password == Password)
+                        .FirstOrDefault();
             if (member == null)
             {
                 ViewBag.Message = "帳號密碼錯誤";
@@ -84,18 +84,30 @@ namespace Build_School_Project_No_4.Controllers
         }
         //Post:Members/Register
         [HttpPost]
-        public ActionResult Register(Member newMember)
+        public ActionResult Register([Bind(Include ="Email, Password")] MemberViewModel newMember)
         {
             if (ModelState.IsValid == false)
             {
+                //return View(newMember);
                 return View();
             }
-            var member = db.Members
-                .Where(m => m.Email == newMember.Email)
-                .FirstOrDefault();
+            var member = _MemberService.GetMember()
+                        .Where(m => m.Email == newMember.Email)
+                        .FirstOrDefault();
             if (member == null)
             {
-                db.Members.Add(newMember);
+                //GroupViewModel meetlikes = new GroupViewModel
+                //{
+                //    MeetMatches = members
+                //};
+
+                Member emp = new Member
+                {
+                   Email = newMember.Email,
+                   Password = newMember.Password
+                };
+
+                db.Members.Add(emp);
                 //db.Members.Add(new Member { RegistrationDate = DateTime.Now});
                 db.SaveChanges();
                 //return RedirectToAction("Edit_Profile", "Edit_Profile");
@@ -104,9 +116,69 @@ namespace Build_School_Project_No_4.Controllers
 
             ViewBag.Message = "帳號己有人使用";
             return RedirectToAction("ePal", "ePal");
+
+
+
         }
 
 
+
+
+        ////Get: Members/Login
+        //public ActionResult Login()
+        //{
+        //    return View();
+        //}
+        ////Post: Members/Login
+        //[HttpPost]
+        //public ActionResult Login(string Email, string Password)
+        //{
+        //    var member = db.Members
+        //        .Where(m => m.Email == Email && m.Password == Password)
+        //        .FirstOrDefault();
+        //    if (member == null)
+        //    {
+        //        ViewBag.Message = "帳號密碼錯誤";
+        //        return View();
+        //    }
+        //    Session["loginEmail"] = member.Email;
+        //    //Session["WelCome"] = member.Email + "歡迎光臨";
+        //    FormsAuthentication.RedirectFromLoginPage(Email, true);
+        //    //return RedirectToAction("ePal", "ePal");
+        //    return RedirectToAction("RecommenedController", "Recommend");
+        //    //return RedirectToAction("test");
+        //    //return View();
+        //}
+
+
+        ////Get:Members/Register
+        //public ActionResult Register()
+        //{
+        //    return View();
+        //}
+        ////Post:Members/Register
+        //[HttpPost]
+        //public ActionResult Register(Member newMember)
+        //{
+        //    if (ModelState.IsValid == false)
+        //    {
+        //        return View();
+        //    }
+        //    var member = db.Members
+        //        .Where(m => m.Email == newMember.Email)
+        //        .FirstOrDefault();
+        //    if (member == null)
+        //    {
+        //        db.Members.Add(newMember);
+        //        //db.Members.Add(new Member { RegistrationDate = DateTime.Now});
+        //        db.SaveChanges();
+        //        //return RedirectToAction("Edit_Profile", "Edit_Profile");
+        //        return RedirectToAction("HomePage", "Home");
+        //    }
+
+        //    ViewBag.Message = "帳號己有人使用";
+        //    return RedirectToAction("ePal", "ePal");
+        //}
 
 
 

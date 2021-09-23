@@ -281,6 +281,7 @@
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
@@ -425,6 +426,12 @@
     <Content Include="Assets\images\CreatorProject\CPH_08.png" />
     <Content Include="Assets\images\CreatorProject\CPH_09.jpg" />
     <Content Include="Assets\images\CreatorProject\shadow.png" />
+    <Content Include="Assets\images\detail\availability.png" />
+    <Content Include="Assets\images\detail\bg_LOL_img.png" />
+    <Content Include="Assets\images\detail\currency.png" />
+    <Content Include="Assets\images\detail\details.png" />
+    <Content Include="Assets\images\detail\lol-screenshot.jpg" />
+    <Content Include="Assets\images\detail\profile-eniza.gif" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
     <Content Include="Assets\images\homepageimg\arrow-right.png" />
     <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
