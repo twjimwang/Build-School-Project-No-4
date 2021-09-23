@@ -27,7 +27,7 @@ namespace Build_School_Project_No_4.Services
                 {
                     OrderStatus = item.OrderStatus,
                     OrderId = item.OrderId,
-                    PlayerId = item.PlayerId,
+                    PlayerId = item.CustomerId,
                     OrderDate = item.OrderDate,
                     Quality = item.Quality,
                     UnitPrice = item.UnitPrice,

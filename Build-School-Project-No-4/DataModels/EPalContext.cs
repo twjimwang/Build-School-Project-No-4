@@ -38,10 +38,15 @@ namespace Build_School_Project_No_4.DataModels
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<City>()
-            //    .HasMany(e => e.Members)
-            //    .WithRequired(e => e.City)
-            //    .WillCascadeOnDelete(false);
+            modelBuilder.Entity<City>()
+                .HasMany(e => e.Members)
+                .WithOptional(e => e.City)
+                .HasForeignKey(e => e.CityId);
+
+            modelBuilder.Entity<City>()
+                .HasMany(e => e.Members1)
+                .WithOptional(e => e.City1)
+                .HasForeignKey(e => e.CityId);
 
             modelBuilder.Entity<CommentDetail>()
                 .HasMany(e => e.Comments)
@@ -52,15 +57,6 @@ namespace Build_School_Project_No_4.DataModels
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.GameCategory)
                 .WillCascadeOnDelete(false);
-
-            //modelBuilder.Entity<Language>()
-            //    .HasMany(e => e.Members)
-            //    .WithRequired(e => e.Language)
-            //    .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Member>()
-                .Property(e => e.LineStatus)
-                .IsFixedLength();
 
             modelBuilder.Entity<Member>()
                 .HasMany(e => e.Chatlists)
@@ -118,7 +114,7 @@ namespace Build_School_Project_No_4.DataModels
             modelBuilder.Entity<Member>()
                 .HasMany(e => e.Orders)
                 .WithRequired(e => e.Member)
-                .HasForeignKey(e => e.PlayerId)
+                .HasForeignKey(e => e.CustomerId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Member>()
@@ -188,8 +184,9 @@ namespace Build_School_Project_No_4.DataModels
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
-                .HasOptional(e => e.ProductServer)
-                .WithRequired(e => e.Product);
+                .HasMany(e => e.ProductServers)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.ProductStyles)

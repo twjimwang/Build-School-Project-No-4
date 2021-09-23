@@ -28,58 +28,42 @@ namespace Build_School_Project_No_4.DataModels
 
         public int MemberId { get; set; }
 
-        //[Required]
         [StringLength(50)]
         public string MemberName { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Column(TypeName = "date")]
-        public DateTime RegistrationDate { get; set; }
+        public DateTime? RegistrationDate { get; set; }
 
-        [Required(ErrorMessage = "Please enter your Email")]
+        [Required]
         [StringLength(50)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Please enter your password")]
-        [DataType(DataType.Password)]
+        [Required]
         public string Password { get; set; }
 
-        
         [StringLength(50)]
         public string Phone { get; set; }
-
 
         [StringLength(50)]
         public string Country { get; set; }
 
-
         public int? CityId { get; set; }
 
-        //[Required]
-        public int Gender { get; set; }
+        public int? Gender { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Column(TypeName = "date")]
-        public DateTime BirthDay { get; set; }
+        public DateTime? BirthDay { get; set; }
 
         public int? TimeZone { get; set; }
 
-        //[Required]
         public int? LanguageId { get; set; }
 
-        
         public string Bio { get; set; }
 
-        //[Required]
         public string ProfilePicture { get; set; }
 
-        
         [StringLength(50)]
         public string LineStatus { get; set; }
-
-
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Chatlist> Chatlists { get; set; }
@@ -88,6 +72,8 @@ namespace Build_School_Project_No_4.DataModels
         public virtual ICollection<Chatlist> Chatlists1 { get; set; }
 
         public virtual City City { get; set; }
+
+        public virtual City City1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CommentDetail> CommentDetails { get; set; }

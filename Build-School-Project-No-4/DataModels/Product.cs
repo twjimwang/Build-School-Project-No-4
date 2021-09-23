@@ -15,6 +15,7 @@ namespace Build_School_Project_No_4.DataModels
             Orders = new HashSet<Order>();
             ProductPlans = new HashSet<ProductPlan>();
             ProductPositions = new HashSet<ProductPosition>();
+            ProductServers = new HashSet<ProductServer>();
             ProductStyles = new HashSet<ProductStyle>();
         }
 
@@ -58,7 +59,8 @@ namespace Build_School_Project_No_4.DataModels
 
         public virtual Rank Rank { get; set; }
 
-        public virtual ProductServer ProductServer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductServer> ProductServers { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductStyle> ProductStyles { get; set; }

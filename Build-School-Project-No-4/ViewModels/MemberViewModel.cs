@@ -15,7 +15,7 @@ namespace Build_School_Project_No_4.ViewModels
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime RegistrationDate { get; set; }
+        public DateTime? RegistrationDate { get; set; }
 
         [Required(ErrorMessage = "Please enter your Email")]
         [EmailAddress]
@@ -31,11 +31,11 @@ namespace Build_School_Project_No_4.ViewModels
 
         public int? CityId { get; set; }
 
-        public int Gender { get; set; }
+        public int? Gender { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime BirthDay { get; set; }
+        public DateTime? BirthDay { get; set; }
 
         public int? TimeZone { get; set; }
 

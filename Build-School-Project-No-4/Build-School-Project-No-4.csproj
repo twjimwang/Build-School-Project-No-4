@@ -55,6 +55,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -648,8 +650,6 @@
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
     <Content Include="Views\Subscription\Subscription.cshtml" />
     <Content Include="Views\Detail\DetailPage.cshtml" />
-    <Content Include="Views\Members\Create.cshtml" />
-    <Content Include="Views\Members\CreateSeed.cshtml" />
     <Content Include="Views\Members\Delete.cshtml" />
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
@@ -662,13 +662,10 @@
     <Content Include="Views\ePal\EPalIndex.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\Members\CreateSeed.cshtml" />
-    <Content Include="Views\Members\Delete.cshtml" />
-    <Content Include="Views\Members\Details.cshtml" />
-    <Content Include="Views\Members\Edit.cshtml" />
-    <Content Include="Views\Members\Index.cshtml" />
-    <Content Include="Views\Members\ReadMember.cshtml" />
     <Content Include="Views\Order\Orders.cshtml" />
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
+    <Content Include="Views\Members\Login.cshtml" />
+    <Content Include="Views\Members\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,9 +17,9 @@ namespace Build_School_Project_No_4.DataModels
         [StringLength(50)]
         public string GameAvailableDay { get; set; }
 
-        public TimeSpan GameStartTime { get; set; }
+        public DateTime GameStartTime { get; set; }
 
-        public TimeSpan GameEndTime { get; set; }
+        public DateTime GameEndTime { get; set; }
 
         public virtual Product Product { get; set; }
     }

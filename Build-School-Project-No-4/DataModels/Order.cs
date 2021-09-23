@@ -10,7 +10,7 @@ namespace Build_School_Project_No_4.DataModels
     {
         public int OrderId { get; set; }
 
-        public int PlayerId { get; set; }
+        public int CustomerId { get; set; }
 
         public int ProductId { get; set; }
 
@@ -20,7 +20,6 @@ namespace Build_School_Project_No_4.DataModels
 
         public decimal? Discount { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime OrderDate { get; set; }
 
         public DateTime GameStartDateTime { get; set; }

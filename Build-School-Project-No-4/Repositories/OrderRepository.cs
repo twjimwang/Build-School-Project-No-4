@@ -20,7 +20,7 @@ namespace Build_School_Project_No_4.Repositories
             {
                 List<Order> Order = new List<Order>
                 {
-                   new Order { OrderId = 1, PlayerId = 2,OrderStatus="" ,OrderDate =  DateTime.ParseExact("2021-06-03", "yyyy-MM-dd", null),Quality =1,UnitPrice=30 },
+                   new Order { OrderId = 1, CustomerId = 2,OrderStatus="" ,OrderDate =  DateTime.ParseExact("2021-06-03", "yyyy-MM-dd", null),Quality =1,UnitPrice=30 },
                       
                 };
                 _ctx.Orders.AddRange(Order);
