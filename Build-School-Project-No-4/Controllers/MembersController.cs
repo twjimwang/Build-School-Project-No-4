@@ -61,12 +61,19 @@ namespace Build_School_Project_No_4.Controllers
             var member = _MemberService.GetMember()
                         .Where(m => m.Email == Email && m.Password == Password)
                         .FirstOrDefault();
-            if (member == null)
+
+            GroupViewModel MemberData = new GroupViewModel
+            {
+                MemberData = member
+            };
+
+            if (MemberData == null)
             {
                 ViewBag.Message = "帳號密碼錯誤";
-                return View();
+                //return View();
+                return RedirectToAction("Page404", "Page404");
             }
-            Session["loginEmail"] = member.Email;
+            //Session["loginEmail"] = member.Email;
             //Session["WelCome"] = member.Email + "歡迎光臨";
             FormsAuthentication.RedirectFromLoginPage(Email, true);
             //return RedirectToAction("ePal", "ePal");

@@ -24,7 +24,7 @@ namespace Build_School_Project_No_4.Controllers
 
             GroupViewModel meetlikes = new GroupViewModel
             {
-                MeetMatches = members
+                MeetLikes = members
             };            
             return View(meetlikes);
         }

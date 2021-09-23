@@ -39,8 +39,6 @@ let passerror = document.getElementById('myinput-error');
 let valerror = document.querySelectorAll(".field-validation-error");
 
 
-
-
 window.onload = function () {
 
     if (localStorage.getItem("loginEmail") == null) {
