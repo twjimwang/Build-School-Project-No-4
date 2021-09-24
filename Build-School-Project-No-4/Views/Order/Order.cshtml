@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Build_School_Project_No_4.ViewModels.OrderViewModel>
+﻿@model  GroupViewModel
+@*@model IEnumerable<Build_School_Project_No_4.ViewModels.OrderViewModel>*@
 <div class="sidebar ">
     <input type="checkbox" name="" id="side-menu-switch">
     <div class="side-menu">
@@ -21,7 +22,7 @@
             <h1>Unpaid</h1>
         </div>
         <div>
-            @foreach (var m in Model)
+            @foreach (var m in Model.Order)
             {
                 <div class="wrap row ">
                     <div class=" col-2 col-md-2">
@@ -71,7 +72,7 @@
                     </div>
                 </div>
             }
-            </div>      
+        </div>
     </div>
     <div class="row">
         <div class="footerimg col-12">
@@ -124,6 +125,7 @@
 
         @@media screen and (min-width: 1200px) {
         }
+
         html,
         body {
             font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -132,6 +134,7 @@
             background-color: rgb(18, 14, 27);
             height: 100%;
         }
+
         .borderbottom {
             align-items: center;
             padding: 10px;

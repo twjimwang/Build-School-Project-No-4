@@ -9,6 +9,7 @@ namespace Build_School_Project_No_4.ViewModels
     {
         public IEnumerable<MemberViewModel> MeetLikes { get; set; }
         public IEnumerable<ProductViewModel> EPalIndex { get; set; }
+        public IEnumerable<OrderViewModel> Order { get; set; }
         public MemberViewModel MemberData { get; set; }
     }
 
