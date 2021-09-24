@@ -73,8 +73,6 @@ namespace Build_School_Project_No_4.DataModels
 
         public virtual City City { get; set; }
 
-        public virtual City City1 { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CommentDetail> CommentDetails { get; set; }
 

@@ -38,16 +38,6 @@ namespace Build_School_Project_No_4.DataModels
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<City>()
-                .HasMany(e => e.Members)
-                .WithOptional(e => e.City)
-                .HasForeignKey(e => e.CityId);
-
-            modelBuilder.Entity<City>()
-                .HasMany(e => e.Members1)
-                .WithOptional(e => e.City1)
-                .HasForeignKey(e => e.CityId);
-
             modelBuilder.Entity<CommentDetail>()
                 .HasMany(e => e.Comments)
                 .WithRequired(e => e.CommentDetail)

@@ -12,7 +12,6 @@ namespace Build_School_Project_No_4.DataModels
         public City()
         {
             Members = new HashSet<Member>();
-            Members1 = new HashSet<Member>();
         }
 
         public int CityId { get; set; }
@@ -23,8 +22,5 @@ namespace Build_School_Project_No_4.DataModels
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Member> Members { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Member> Members1 { get; set; }
     }
 }
