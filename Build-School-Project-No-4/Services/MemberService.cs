@@ -39,8 +39,42 @@ namespace Build_School_Project_No_4.Services
                     Bio = item.Bio,
                     ProfilePicture = item.ProfilePicture,
                     LineStatus = item.LineStatus,
+                });
+            }
+            return result;
+        }
 
+        public List<MemberRegisterViewModel> MemberRigister()
+        {
+            List<Member> members = _MemberRepo.ReadMember();
 
+            List<MemberRegisterViewModel> result = new List<MemberRegisterViewModel>();
+            foreach (var item in members)
+            {
+                result.Add(new MemberRegisterViewModel
+                {
+                    MemberId = item.MemberId,
+                    RegistrationDate = item.RegistrationDate,
+                    Email = item.Email,
+                    Password = item.Password
+                });
+            }
+            return result;
+        }
+
+        public List<MemberLoginViewModel> MemberLogin()
+        {
+            List<Member> members = _MemberRepo.ReadMember();
+
+            List<MemberLoginViewModel> result = new List<MemberLoginViewModel>();
+            foreach (var item in members)
+            {
+                result.Add(new MemberLoginViewModel
+                {
+                    MemberId = item.MemberId,
+                    RegistrationDate = item.RegistrationDate,
+                    Email = item.Email,
+                    Password = item.Password
                 });
             }
             return result;

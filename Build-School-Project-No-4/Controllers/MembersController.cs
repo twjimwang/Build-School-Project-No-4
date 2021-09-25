@@ -49,6 +49,8 @@ namespace Build_School_Project_No_4.Controllers
         }
 
 
+
+
         //Get: Members/Login
         public ActionResult Login()
         {
@@ -58,13 +60,13 @@ namespace Build_School_Project_No_4.Controllers
         [HttpPost]
         public ActionResult Login(string Email, string Password)
         {            
-            var member = _MemberService.GetMember()
+            var member = _MemberService.MemberLogin()
                         .Where(m => m.Email == Email && m.Password == Password)
                         .FirstOrDefault();
 
             GroupViewModel MemberData = new GroupViewModel
             {
-                MemberData = member
+                MemberLogin = member
             };
 
             if (MemberData == null)
@@ -91,14 +93,14 @@ namespace Build_School_Project_No_4.Controllers
         }
         //Post:Members/Register
         [HttpPost]
-        public ActionResult Register([Bind(Include ="Email, Password")] MemberViewModel newMember)
+        public ActionResult Register([Bind(Include ="Email, Password")] MemberRegisterViewModel newMember)
         {
             if (ModelState.IsValid == false)
             {
                 //return View(newMember);
                 return View();
             }
-            var member = _MemberService.GetMember()
+            var member = _MemberService.MemberRigister()
                         .Where(m => m.Email == newMember.Email)
                         .FirstOrDefault();
             if (member == null)
@@ -108,6 +110,7 @@ namespace Build_School_Project_No_4.Controllers
                 //    MeetMatches = members
                 //};
 
+                //VM -> DM
                 Member emp = new Member
                 {
                    Email = newMember.Email,

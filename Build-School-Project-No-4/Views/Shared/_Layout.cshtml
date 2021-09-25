@@ -1,4 +1,4 @@
-﻿@model MemberViewModel
+﻿@model GroupViewModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -391,56 +391,56 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="wrap">
 
-                                <form action="@Url.Action("Login", "Members")" method="post" id="logsignform" >
+                                <form action="@Url.Action("Login", "Members")" method="post" id="logsignform">
                                     <!-- mail login -->
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="maillog logmethod">
-                                        @Html.LabelFor(MemberViewModel => MemberViewModel.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(MemberViewModel => MemberViewModel.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(MemberViewModel => MemberViewModel.Email, "", new { @class = "text-danger", style = "font-size:14px" })
+                                        @Html.LabelFor(MemberViewModel => MemberViewModel.MemberLogin.Email, new { @class = "maillabel", id = "email" })<br>
+                                        @Html.TextBoxFor(MemberViewModel => MemberViewModel.MemberLogin.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
+                                        @Html.ValidationMessageFor(MemberViewModel => MemberViewModel.MemberLogin.Email, "", new { @class = "text-danger", style = "font-size:14px" })
 
                                         @*<label for="email" id="email">Email</label><br>
-                                        <input id="email" type="email" name="email" class="emailinput ellipsis"
-                                               placeholder="Please enter your email" value="" required="required">*@
+                                            <input id="email" type="email" name="email" class="emailinput ellipsis"
+                                                   placeholder="Please enter your email" value="" required="required">*@
 
                                         @*<div class="valid-feedback">
-                                            Looks good!
-                                        </div>*@
+                                                Looks good!
+                                            </div>*@
                                         @*<span class="btn" id="loginmethod">
-                                            <i class="fas fa-mobile logmobile"></i>
-                                        </span>*@
+                                                <i class="fas fa-mobile logmobile"></i>
+                                            </span>*@
                                     </div>
                                     <!-- phone login -->
                                     <!--<div class="phonelog logmethod">
-        <label for="phone" id="email">Phone Number</label>
-        <select id="phone" class="form-select  phoneselect">
-            <option selected>+1</option>
-            <option>...</option>
-        </select>
+                                        <label for="phone" id="email">Phone Number</label>
+                                        <select id="phone" class="form-select  phoneselect">
+                                            <option selected>+1</option>
+                                            <option>...</option>
+                                        </select>
 
-        <input type="tel" name="phone" class="phoneinput ellipsis"
-               placeholder="Please enter your phone number">
+                                        <input type="tel" name="phone" class="phoneinput ellipsis"
+                                               placeholder="Please enter your phone number">
 
-        <span class="btn" id="loginmethod">
-            <i class="far fa-envelope logmail"></i>
-        </span>
-    </div>-->
+                                        <span class="btn" id="loginmethod">
+                                            <i class="far fa-envelope logmail"></i>
+                                        </span>
+                                    </div>-->
                                     <!-- password -->
-                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
-                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", name = "password", placeholder = "Please enter your password" })
-                                    <input type="button" class="passwordshow" value="show" ><br>
+                                    @Html.LabelFor(model => model.MemberLogin.Password, new { @id = "password" })<br>
+                                    @Html.PasswordFor(model => model.MemberLogin.Password, new { @class = "passwordinput ellipsis", id = "myinput", name = "password", placeholder = "Please enter your password" })
+                                    <input type="button" class="passwordshow" value="show"><br>
 
-                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:14px" })
+                                    @Html.ValidationMessageFor(model => model.MemberLogin.Password, "", new { @class = "text-danger", style = "font-size:14px" })
 
                                     @*<label for="password" id="password">Password</label><br>
-                                    <input type="password" name="password" class="passwordinput ellipsis"
-                                           placeholder="Please enter your password" value="" id="myinput" required="required">*@
+                                        <input type="password" name="password" class="passwordinput ellipsis"
+                                               placeholder="Please enter your password" value="" id="myinput" required="required">*@
 
 
                                     @*<div class="valid-feedback">
-                                        Looks good!
-                                    </div>*@
+                                            Looks good!
+                                        </div>*@
 
                                     <a href="#" id="forgetpass">Forget your password?</a>
 
@@ -465,9 +465,9 @@
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <!-- mail signup -->
                                     <div class="maillog">
-                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:12px" })
+                                        @Html.LabelFor(model => model.MemberRegister.Email, new { @class = "maillabel", id = "email" })<br>
+                                        @Html.TextBoxFor(model => model.MemberRegister.Email, null, new { @class = "emailinput ellipsis", placeholder = "Please enter your email" })
+                                        @Html.ValidationMessageFor(model => model.MemberRegister.Email, "", new { @class = "text-danger", style = "font-size:12px" })
 
                                         @*<label for="email" id="email">Email</label><br>
                                             <input type="email" name="email" class="emailinput ellipsis"
@@ -493,11 +493,11 @@
                                         </span>
                                     </div>-->
                                     <!-- password -->
-                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
-                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", placeholder = "Please enter your password" })
+                                    @Html.LabelFor(model => model.MemberRegister.Password, new { @id = "password" })<br>
+                                    @Html.PasswordFor(model => model.MemberRegister.Password, new { @class = "passwordinput ellipsis", id = "myinput", placeholder = "Please enter your password" })
                                     <input type="button" class="passwordshow" value="show">
 
-                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:12px" })
+                                    @Html.ValidationMessageFor(model => model.MemberRegister.Password, "", new { @class = "text-danger", style = "font-size:12px" })
 
                                     @*<label for="password" id="password">Password</label><br>
                                         <input type="password" name="password" class="passwordinput ellipsis"
@@ -886,62 +886,69 @@
     @RenderSection("endJS", required: false)
 
 
+    @*前端驗證*@
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+
     @section endJS{
         <script>
 
 
-            //let logsignmodalbtn = document.querySelector('.logsign-modal-button');
-            //window.onload = () => {
-            //    if (localStorage.getItem("loginEmail") != null) {
+                    //let logsignmodalbtn = document.querySelector('.logsign-modal-button');
+                    //window.onload = () => {
+                    //    if (localStorage.getItem("loginEmail") != null) {
 
-            //        logsignmodalbtn.style.display = "none";
+                    //        logsignmodalbtn.style.display = "none";
 
-            //    }
-
-
-                //let email = document.querySelector(".emailinput:first-child").value;
-                //let password = document.querySelector(".passwordinput:first-child").value;
-                //let loginbutton = document.querySelector("#loginbutton:first-child");
-
-                //let loginData = {
-                //    email: email,
-                //    password: password 
-                //}
-
-                //loginbutton.addEventListener('click', function () {
-
-                //    if (localStorage.getItem("login") == null) {
-
-                //        localStorage.setItem("login", JSON.stringify(loginData));
-
-                //    }
-                //    else {
-
-                //        loginarray = JSON.parse(localStorage.getItem("login"));    //localStarsge是文字格式，要轉回array
-
-                //    }
-                //})
+                    //    }
 
 
+                        //let email = document.querySelector(".emailinput:first-child").value;
+                        //let password = document.querySelector(".passwordinput:first-child").value;
+                        //let loginbutton = document.querySelector("#loginbutton:first-child");
 
-/*            }*/
+                        //let loginData = {
+                        //    email: email,
+                        //    password: password
+                        //}
+
+                        //loginbutton.addEventListener('click', function () {
+
+                        //    if (localStorage.getItem("login") == null) {
+
+                        //        localStorage.setItem("login", JSON.stringify(loginData));
+
+                        //    }
+                        //    else {
+
+                        //        loginarray = JSON.parse(localStorage.getItem("login"));    //localStarsge是文字格式，要轉回array
+
+                        //    }
+                        //})
 
 
 
-            //let btn = document.querySelector('.btnClass');
-            //let call = document.querySelector('.callClass');
+            /*            }*/
 
-            //function savename(e) {
-            //    // 撈出輸入鍵的值
-            //    var text = document.querySelector('.textClass').value;
-            //    // 存在Localstoreage
-            //    localStorage.setItem('mylove', text);
 
-            //}
-            //btn.addEventListener('click', savename);
-            //call.addEventListener('click', function () {
-            //    // 撈出Localstoreage的值
-            //    var str = localStorage.getItem('mylove');
+
+                    //let btn = document.querySelector('.btnClass');
+                    //let call = document.querySelector('.callClass');
+
+                    //function savename(e) {
+                    //    // 撈出輸入鍵的值
+                    //    var text = document.querySelector('.textClass').value;
+                    //    // 存在Localstoreage
+                    //    localStorage.setItem('mylove', text);
+
+                    //}
+                    //btn.addEventListener('click', savename);
+                    //call.addEventListener('click', function () {
+                    //    // 撈出Localstoreage的值
+                    //    var str = localStorage.getItem('mylove');
 
         </script>
     }

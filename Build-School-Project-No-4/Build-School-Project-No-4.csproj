@@ -284,6 +284,8 @@
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\MemberLoginViewModel.cs" />
+    <Compile Include="ViewModels\MemberRegisterViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
