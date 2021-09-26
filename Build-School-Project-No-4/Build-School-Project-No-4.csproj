@@ -279,11 +279,13 @@
     <Compile Include="Repositories\DetailRepository.cs" />
     <Compile Include="Repositories\MemberRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Services\DetailServices.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\DetailViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -293,7 +295,6 @@
     <Content Include="Assets\AboutUsImages\about.png" />
     <Content Include="Assets\AboutUsImages\aboutusmark.png" />
     <Content Include="Assets\CouponsImages\Coupons.png" />
-    <Content Include="Assets\css\detail.css" />
     <Content Include="Assets\css\detail_r2.css" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
