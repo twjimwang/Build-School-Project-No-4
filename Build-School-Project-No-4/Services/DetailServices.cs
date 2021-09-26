@@ -25,21 +25,13 @@ namespace Build_School_Project_No_4.Services
             var playerinfo = _repo.GetPlayerInfo();
             var gameInfo = _repo.GetGameInfo();
 
-            //var result = from p in productinfo
-            //             join pl in playerinfo on p.CreatorId equals pl.MemberId
-            //             join g in gameInfo on p.GameCategoryId equals g.GameCategoryId
-            //             where p.ProductId == productId
-            //             select new DetailViewModel
-            //             {
-                            
-            //             };
-
             var result = from p in productinfo
                          join pl in playerinfo on p.CreatorId equals pl.MemberId
-                         select new DetailViewModel
-                         {
-                             sdf
-                         }
+                         join g in gameInfo on p.GameCategoryId equals g.GameCategoryId
+                         where p.ProductId == productId
+                         select new DetailViewModel { Member = pl.MemberName, };
+
+
 
 
 
