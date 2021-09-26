@@ -22,6 +22,7 @@ namespace Build_School_Project_No_4.ViewModels
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Please enter your password")]
+        [StringLength(15, MinimumLength = 6, ErrorMessage = "密碼需大於6個字元")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
@@ -46,6 +47,11 @@ namespace Build_School_Project_No_4.ViewModels
         public string ProfilePicture { get; set; }
 
         public string LineStatus { get; set; }
+
+        [StringLength(10)]
+        public string AuthCode { get; set; }
+
+        public bool? IsAdmin { get; set; }
     }
 
 

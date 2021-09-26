@@ -23,10 +23,12 @@ namespace Build_School_Project_No_4.Controllers
 
         private MemberRepository _MemberRepo;
         private MemberService _MemberService;
+        private MailService _MailService;
         public MembersController()
         {
             _MemberRepo = new MemberRepository();
             _MemberService = new MemberService();
+            _MailService = new MailService();
         }
 
         public ActionResult CreateSeed()
@@ -60,13 +62,13 @@ namespace Build_School_Project_No_4.Controllers
         [HttpPost]
         public ActionResult Login(string Email, string Password)
         {            
-            var member = _MemberService.MemberLogin()
+            var member = _MemberService.MemberLoginData()
                         .Where(m => m.Email == Email && m.Password == Password)
                         .FirstOrDefault();
 
             GroupViewModel MemberData = new GroupViewModel
             {
-                MemberLogin = member
+                MemberData = member
             };
 
             if (MemberData == null)
@@ -86,6 +88,164 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
+        ////Get:Members/Register
+        //public ActionResult Register()
+        //{
+        //    ////判斷使用者是否已經過登入驗證
+        //    //if (User.Identity.IsAuthenticated)
+        //    //    return RedirectToAction("Index", "Guestbooks");
+        //    ////已登入則重新導向
+        //    ////否則進入註冊畫面
+        //    //return View();
+        //    return View();
+        //}
+        ////Post:Members/Register
+        //[HttpPost]
+        //public ActionResult Register([Bind(Include ="Email, Password")] MemberViewModel newMember)
+        //{
+
+        //    //判斷頁面資料是否都經過驗證
+        //    if (ModelState.IsValid)
+        //    {
+        //        //將頁面資料中的密碼欄位填入
+        //        newMember.Password = newMember.Password;
+        //        //取得信箱驗證碼
+        //        string AuthCode = _MailService.GetValidateCode();
+        //        //將信箱驗證碼填入
+        //        newMember.AuthCode = AuthCode;
+
+
+        //        //註冊成為新會員
+        //        var member = _MemberService.MemberRigisterData()
+        //                    .Where(m => m.Email == newMember.Email)
+        //                    .FirstOrDefault();
+        //        if (member == null)
+        //        {
+        //            //將密碼Hash過
+        //            newMember.Password = _MemberService.HashPassword(newMember.Password);
+
+        //            //VM -> DM
+        //            Member emp = new Member
+        //            {
+        //                Email = newMember.Email,
+        //                Password = newMember.Password
+        //            };
+
+        //            using (var tran = db.Database.BeginTransaction())
+        //            {
+        //                try
+        //                {
+        //                    db.Members.Add(emp);
+        //                    //db.Members.Add(new Member { RegistrationDate = DateTime.Now});
+        //                    db.SaveChanges();
+        //                    ViewData["Message"] = "使用者註冊成功";
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                    tran.Rollback();
+        //                    ViewData["Message"] = "使用者註冊失敗" + ex.ToString();
+        //                }
+
+        //                //return RedirectToAction("Edit_Profile", "Edit_Profile");
+        //                //return RedirectToAction("HomePage", "Home");
+
+        //                ////轉向RegisterResult頁面呈現註冊結果，但路由不變動
+        //                //return View("RegisterResult");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            ViewBag.Message = "帳號己有人使用";
+        //            return RedirectToAction("ePal", "ePal");
+        //        }
+
+
+
+        //        //取得寫好的驗證信範本內容
+        //        string TempMail = System.IO.File.ReadAllText(Server.MapPath("~/Views/Shared/RegisterEmailTemplate.html"));
+        //        //宣告Email驗證用的Url
+        //        UriBuilder ValidateUrl = new UriBuilder(Request.Url)
+        //        {
+        //            Path = Url.Action("EmailValidate", "Members", new
+        //            {
+        //                Email = newMember.Email,
+        //                AuthCode = AuthCode
+        //            })
+        //        };
+        //        //藉由Service將使用者資料填入驗證信範本中
+        //        string MailBody = _MailService.GetRegisterMailBody(TempMail, newMember.Email, ValidateUrl.ToString().Replace("%3F", "?"));
+
+        //        //呼叫Service寄出驗證信
+        //        _MailService.SendRegisterMail(MailBody, newMember.Email);
+
+
+        //        //用TempData儲存註冊訊息
+        //        TempData["RegisterState"] = "註冊成功，請去收信以驗證Email";
+        //        //重新導向頁面
+        //        return RedirectToAction("RegisterResult");
+
+        //    }
+
+        //    //未經驗證清空密碼相關欄位
+        //    newMember.Password = null;
+        //    ////將資料回填至view中
+        //    //return view(newmember);
+        //    return RedirectToAction("HomePage", "Home");
+
+        //}
+
+        ////註冊結果
+        //public ActionResult RegisterResult()
+        //{
+        //    return View();
+        //}
+
+        ////接收驗證信連結傳進來的Action
+        //public ActionResult EmailValidate(string Email, string AuthCode)
+        //{
+        //    //用ViewData儲存，使用Service進行信箱驗證後的結果訊息
+        //    ViewData["EmailValidate"] = _MemberService.EmailValidate(Email, AuthCode);
+        //    return View();
+        //}
+
+
+
+        //備份
+        ////Get: Members/Login
+        //public ActionResult Login()
+        //{
+        //    return View();
+        //}
+        ////Post: Members/Login
+        //[HttpPost]
+        //public ActionResult Login(string Email, string Password)
+        //{
+        //    var member = _MemberService.MemberLogin()
+        //                .Where(m => m.Email == Email && m.Password == Password)
+        //                .FirstOrDefault();
+
+        //    GroupViewModel MemberData = new GroupViewModel
+        //    {
+        //        MemberLogin = member
+        //    };
+
+        //    if (MemberData == null)
+        //    {
+        //        ViewBag.Message = "帳號密碼錯誤";
+        //        //return View();
+        //        return RedirectToAction("Page404", "Page404");
+        //    }
+        //    //Session["loginEmail"] = member.Email;
+        //    //Session["WelCome"] = member.Email + "歡迎光臨";
+        //    FormsAuthentication.RedirectFromLoginPage(Email, true);
+        //    //return RedirectToAction("ePal", "ePal");
+        //    return RedirectToAction("RecommenedController", "Recommend");
+        //    //return RedirectToAction("test");
+        //    //return View();
+        //}
+
+
+
         //Get:Members/Register
         public ActionResult Register()
         {
@@ -93,14 +253,14 @@ namespace Build_School_Project_No_4.Controllers
         }
         //Post:Members/Register
         [HttpPost]
-        public ActionResult Register([Bind(Include ="Email, Password")] MemberRegisterViewModel newMember)
+        public ActionResult Register([Bind(Include = "Email, Password")] MemberViewModel newMember)
         {
             if (ModelState.IsValid == false)
             {
                 //return View(newMember);
                 return View();
             }
-            var member = _MemberService.MemberRigister()
+            var member = _MemberService.MemberRigisterData()
                         .Where(m => m.Email == newMember.Email)
                         .FirstOrDefault();
             if (member == null)
@@ -113,8 +273,8 @@ namespace Build_School_Project_No_4.Controllers
                 //VM -> DM
                 Member emp = new Member
                 {
-                   Email = newMember.Email,
-                   Password = newMember.Password
+                    Email = newMember.Email,
+                    Password = newMember.Password
                 };
 
                 db.Members.Add(emp);
@@ -127,70 +287,7 @@ namespace Build_School_Project_No_4.Controllers
             ViewBag.Message = "帳號己有人使用";
             return RedirectToAction("ePal", "ePal");
 
-
-
         }
-
-
-
-
-        ////Get: Members/Login
-        //public ActionResult Login()
-        //{
-        //    return View();
-        //}
-        ////Post: Members/Login
-        //[HttpPost]
-        //public ActionResult Login(string Email, string Password)
-        //{
-        //    var member = db.Members
-        //        .Where(m => m.Email == Email && m.Password == Password)
-        //        .FirstOrDefault();
-        //    if (member == null)
-        //    {
-        //        ViewBag.Message = "帳號密碼錯誤";
-        //        return View();
-        //    }
-        //    Session["loginEmail"] = member.Email;
-        //    //Session["WelCome"] = member.Email + "歡迎光臨";
-        //    FormsAuthentication.RedirectFromLoginPage(Email, true);
-        //    //return RedirectToAction("ePal", "ePal");
-        //    return RedirectToAction("RecommenedController", "Recommend");
-        //    //return RedirectToAction("test");
-        //    //return View();
-        //}
-
-
-        ////Get:Members/Register
-        //public ActionResult Register()
-        //{
-        //    return View();
-        //}
-        ////Post:Members/Register
-        //[HttpPost]
-        //public ActionResult Register(Member newMember)
-        //{
-        //    if (ModelState.IsValid == false)
-        //    {
-        //        return View();
-        //    }
-        //    var member = db.Members
-        //        .Where(m => m.Email == newMember.Email)
-        //        .FirstOrDefault();
-        //    if (member == null)
-        //    {
-        //        db.Members.Add(newMember);
-        //        //db.Members.Add(new Member { RegistrationDate = DateTime.Now});
-        //        db.SaveChanges();
-        //        //return RedirectToAction("Edit_Profile", "Edit_Profile");
-        //        return RedirectToAction("HomePage", "Home");
-        //    }
-
-        //    ViewBag.Message = "帳號己有人使用";
-        //    return RedirectToAction("ePal", "ePal");
-        //}
-
-
 
 
 

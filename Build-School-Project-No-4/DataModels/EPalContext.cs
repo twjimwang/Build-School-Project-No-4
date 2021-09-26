@@ -49,6 +49,10 @@ namespace Build_School_Project_No_4.DataModels
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Member>()
+                .Property(e => e.AuthCode)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Member>()
                 .HasMany(e => e.Chatlists)
                 .WithRequired(e => e.Member)
                 .HasForeignKey(e => e.ReceiverId)
