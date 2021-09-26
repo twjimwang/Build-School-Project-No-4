@@ -1,4 +1,5 @@
 
+
 let html = document.queryCommandValue('html')
 let logbtn = document.querySelector('#loginmodal')
 let signbtn = document.querySelector('#signupmodal')
@@ -8,7 +9,7 @@ let maillog = document.querySelector('.maillog');
 let phonelog = document.querySelector('.phonelog');
 let mobileicon = document.querySelector('.fa-mobile');
 let mailicon = document.querySelector('.fa-envelope');
-let logsignBtn = document.querySelector('#loginbutton');
+let logsignBtn = document.querySelectorAll('.loginbutton');
 let msgicon = document.querySelectorAll('.message-icon-bk');
 let msgiconCl = document.querySelectorAll('.message-icon-cl');
 let msgListTitle = document.querySelector('#message-list-title');
@@ -41,27 +42,30 @@ let valerror = document.querySelectorAll(".field-validation-error");
 
 window.onload = function () {
 
-    if (localStorage.getItem("loginEmail") == null) {
-        logsignmodalbtn.style.display = "block";
-    } else {
-        logsignmodalbtn.style.display = "none";
-    }
-    //signupBtn.addEventListener('click', function () {
-    //    localStorage.setItem("signupEmail", email.value);
+    //if (localStorage.getItem("loginEmail") == null) {
+    //    logsignmodalbtn.style.display = "block";
+    //} else {
+    //    logsignmodalbtn.style.display = "none";
+    //}
+    ////signupBtn.addEventListener('click', function () {
+    ////    localStorage.setItem("signupEmail", email.value);
+    ////})
+
+    ////let loginData = {
+    ////    email: email,
+    ////    password: password
+    ////}
+    //logsignBtn.forEach((btn, idx) => {
+    //    btn.addEventListener('click', function () {
+    //        /*        if (localStorage.getItem("login") == null) {*/
+    //        localStorage.setItem("loginEmail", email.value);
+    //        /*        }*/
+    //        //else {
+    //        //    loginarray = JSON.parse(localStorage.getItem("login"));    
+    //        //}
+    //    })
     //})
 
-    //let loginData = {
-    //    email: email,
-    //    password: password
-    //}
-    logsignBtn.addEventListener('click', function () {
-        /*        if (localStorage.getItem("login") == null) {*/
-        localStorage.setItem("loginEmail", email.value);
-        /*        }*/
-        //else {
-        //    loginarray = JSON.parse(localStorage.getItem("login"));    
-        //}
-    })
 
 
 
@@ -81,21 +85,36 @@ window.onload = function () {
     modalbtn.forEach((btn, idx) => {
         logsigntab[idx].classList.remove('logsign-purple-border');
 
-        btn.addEventListener('click', function (event) {
+        logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
+        //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
+        modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
 
+        if (idx === 0) { logsignBtn[0].value = "Log In"; }
+        else if (idx === 1) { logsignBtn[1].value = "Sign Up";}
+        //logsignBtn[0].value = "Log In";
+        //logsignBtn[1].value = "Sign Up";
+        //logsignBtn[idx].value = idx === 0 ? "Log In" : "Sign Up";
+
+
+        btn.addEventListener('click', function (event) {
             //初始化modal打開樣式
             logsigntab[idx].classList.add('logsign-purple-border');
-            logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign in and experience ePal services for free";
+            logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
             //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
             modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
-            logsignBtn.innerHTML = idx === 0 ? "Log In" : "Sign Up";
+
+            if (idx === 0) { logsignBtn[0].value = "Log In"; }
+            else if (idx === 1) { logsignBtn[1].value = "Sign Up"; }
+            //logsignBtn[0].value = "Log In";
+            //logsignBtn[1].value = "Sign Up";
+            //logsignBtn[idx].value = idx === 0 ? "Log In" : "Sign Up";
+
             maillog.style.display = 'block';
 
-            //登入驗證errormsg清除
-            document.querySelectorAll(".field-validation-error").forEach(item => {
-                item.innerText = "";
-            })
-
+            ////登入驗證errormsg清除
+            //document.querySelectorAll(".field-validation-error").forEach(item => {
+            //    item.innerText = "";
+            //})
 
 
             logsigntab.forEach((item, index) => {
@@ -104,10 +123,10 @@ window.onload = function () {
                 item.addEventListener('click', function (event) {
                     // maillog.style.display = 'block';
 
-                    //登入驗證errormsg清除
-                    document.querySelectorAll(".field-validation-error").forEach(item => {
-                        item.innerText = "";
-                    })
+                    ////登入驗證errormsg清除
+                    //document.querySelectorAll(".field-validation-error").forEach(item => {
+                    //    item.innerText = "";
+                    //})
 
 
 
@@ -117,7 +136,13 @@ window.onload = function () {
                         logsigntitle.innerHTML = index === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
                         //modalfooter.style.display = index === 0 ? 'flex' : 'none';
                         modalfooterP.innerHTML = index === 0 ? 'Or log in with' : 'Or sign up with';
-                        logsignBtn.innerHTML = index === 0 ? "Log In" : "Sign Up";
+
+                        if (idx === 0) { logsignBtn[0].value = "Log In"; }
+                        else if (idx === 1) { logsignBtn[1].value = "Sign Up"; }
+                        //logsignBtn[0].value = "Log In";
+                        //logsignBtn[1].value = "Sign Up";
+                        //logsignBtn[idx].value = idx === 0 ? "Log In" : "Sign Up";
+
                     })
                     event.srcElement.classList.add('logsign-purple-border');
                 })

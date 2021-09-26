@@ -47,14 +47,14 @@ namespace Build_School_Project_No_4.Services
             return result;
         }
 
-        public List<MemberViewModel> MemberRigisterData()
+        public List<GroupViewModel> MemberRigisterData()
         {
             List<Member> members = _MemberRepo.ReadMember();
 
-            List<MemberViewModel> result = new List<MemberViewModel>();
+            List<GroupViewModel> result = new List<GroupViewModel>();
             foreach (var item in members)
             {
-                result.Add(new MemberViewModel
+                result.Add(new GroupViewModel
                 {
                     MemberId = item.MemberId,
                     RegistrationDate = item.RegistrationDate,
@@ -67,14 +67,14 @@ namespace Build_School_Project_No_4.Services
             return result;
         }
 
-        public List<MemberViewModel> MemberLoginData()
+        public List<Member> MemberLoginData()
         {
             List<Member> members = _MemberRepo.ReadMember();
 
-            List<MemberViewModel> result = new List<MemberViewModel>();
+            List<Member> result = new List<Member>();
             foreach (var item in members)
             {
-                result.Add(new MemberViewModel
+                result.Add(new Member
                 {
                     MemberId = item.MemberId,
                     RegistrationDate = item.RegistrationDate,
@@ -133,7 +133,8 @@ namespace Build_School_Project_No_4.Services
 
                 Data.Email = member.Email;
                 Data.Password = member.Password;
-                Data.AuthCode = member.AuthCode;                    
+                Data.AuthCode = member.AuthCode;
+                Data.IsAdmin = member.IsAdmin;
             }
             catch (Exception ex)
             {
@@ -158,21 +159,25 @@ namespace Build_School_Project_No_4.Services
                 //判斷傳入驗證碼與資料庫中是否相同
                 if (ValidateMember.AuthCode == AuthCode)
                 {
-                    //將資料庫的驗證碼設為空
-                    EPalContext _ctx = new EPalContext();
-                    try
+                    
+                    //將資料庫的驗證碼設為空                    
+                    using(EPalContext _ctx = new EPalContext())
                     {
-                        var member = _MemberRepo.ReadMember().Where(m => m.Email == Email).FirstOrDefault();
-                        member.AuthCode = "";
-                        _ctx.SaveChanges();
+                        var m = _ctx.Members.ToList().Find(x => x.Email.Equals(Email));
+                        try
+                        {
+                            //var member = _MemberRepo.ReadMember().Where(m => m.Email == Email).FirstOrDefault();
+                            m.AuthCode = string.Empty;
+                            _ctx.SaveChanges();
 
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message.ToString());
-                    }
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message.ToString());
+                        }
 
-                    ValidateStr = "帳號信箱驗證成功，現在可以登入了";
+                        ValidateStr = "註冊信箱驗證成功，請從Log In登入";
+                    }
                 }
                 else
                 {
@@ -181,7 +186,7 @@ namespace Build_School_Project_No_4.Services
             }
             else
             {
-                ValidateStr = "傳送資料錯誤，請重新確認或再註冊";
+                ValidateStr = "傳送資料有誤，請重新確認或再註冊";
             }
             //回傳驗證訊息
             return ValidateStr;
@@ -189,9 +194,64 @@ namespace Build_School_Project_No_4.Services
         }
 
 
+        //登入帳密確認方法，並回傳驗證後訊息
+        public string LoginCheck(string Email, string Password)
+        {
+            //取得傳入帳號的會員資料
+            Member loginMember = GetDataByAccount(Email);
+            //判斷是否有此會員
+            if (loginMember != null)
+            {
+                //判斷是否有經過信箱驗證，有經驗證驗證碼欄位會被清空
+                if (String.IsNullOrWhiteSpace(loginMember.AuthCode))
+                {
+                    //進行帳號密碼確認
+                    if (PasswordCheck(loginMember, Password))
+                    {
+                        return "";
+                    }
+                    else
+                    {
+                        return "密碼輸入錯誤";
+                    }
+                }
+                else
+                {
+                    return "此帳號尚未經過Email驗證，請去收信";
+                }
+            }
+            else
+            {
+                return "無此會員帳號，請去註冊";
+            }
+        }
+
+        //進行密碼確認
+        public bool PasswordCheck(Member CheckMember, string Password)
+        {
+            //判斷資料庫裡的密碼資料與傳入密碼資料Hash後是否一樣
+            bool result = CheckMember.Password.Equals(HashPassword(Password));
+            //回傳結果
+            return result;
+        }
 
 
+        //會員權限角色資料
+        public string GetRole(string Email)
+        {
+            //宣告初始角色字串
+            string Role = "User";
+            //取得傳入帳號的會員資料
+            Member loginMember = GetDataByAccount(Email);
+            //判斷資料庫欄位，用以確認是否為Admon
+            if (loginMember.IsAdmin != null && loginMember.IsAdmin == true)
+            {
+                Role += ",Admin"; //添加Admin
+                return Role;
+            }
+            return null;
 
+        }
 
     }
 }

@@ -672,6 +672,7 @@
     <Content Include="Views\Members\Register.cshtml" />
     <Content Include="Views\Members\RegisterResult.cshtml" />
     <Content Include="Views\Members\EmailValidate.cshtml" />
+    <Content Include="Views\Members\LoginResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -103,19 +103,25 @@
                         <a href="@Url.Action("BecomeEPalPage","BecomeEPal")">Become an ePal</a>
                     </div>
 
-                    <div class="logsign-modal-button">
-                        <!-- 首頁login/signup -->
-                        <!-- Button trigger modal -->
-                        <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
-                                data-bs-target="#myModal" id="loginmodal">
-                            Log In
-                        </button>
-                        <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
-                                data-bs-target="#myModal" id="signupmodal">
-                            Sign Up
-                        </button>
-                    </div>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
 
+                        <div class="logsign-modal-button">
+                            <!-- 首頁login/signup -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
+                                    data-bs-target="#myModal" id="loginmodal">
+                                Log In
+                            </button>
+                            <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
+                                    data-bs-target="#myModal" id="signupmodal">
+                                Sign Up
+                            </button>
+                        </div>
+
+                    }
+                    else
+                    {
                     <!-- right navbar message dropdown list -->
                     <div class="message dropdown">
                         <i class="far fa-envelope" type="button" id="dropdown-message" data-bs-toggle="dropdown"></i>
@@ -248,19 +254,19 @@
 
                             <div class="money-wrapper">
                                 <div class="money-item" id="order">
-                                    <a href="@Url.Action("Order","Order")">
+                                    <a href="@Url.Action("Order", "Order")">
                                         <img src="~/Assets/images/layout/ordericon.png" alt="order">
                                         <div class="txt">Order</div>
                                     </a>
                                 </div>
                                 <div class="money-item" id="wallet">
-                                    <a href="@Url.Action("Wallet","epalAccount")">
+                                    <a href="@Url.Action("Wallet", "epalAccount")">
                                         <img src="~/Assets/images/layout/walleticon.png" alt="wallet">
                                         <div class="txt">Wallet</div>
                                     </a>
                                 </div>
                                 <div class="money-item" id="coupons">
-                                    <a href="@Url.Action("Coupons","Coupons")">
+                                    <a href="@Url.Action("Coupons", "Coupons")">
                                         <img src="~/Assets/images/layout/couponicon.png" alt="coupon">
                                         <div class="txt">Coupons</div>
                                     </a>
@@ -284,7 +290,7 @@
 
                             <div class="setting-wrappers">
                                 <div class="settingimg">
-                                    <a href="@Url.Action("Edit_Profile","Edit_Profile")">
+                                    <a href="@Url.Action("Edit_Profile", "Edit_Profile")">
                                         <i class="fas fa-cog"></i>Settings
                                         @*<div class="txt">Settings</div>*@
                                     </a>
@@ -292,6 +298,9 @@
                             </div>
                         </div>
                     </div>
+
+                    }
+
                 </div>
             </div>
         </nav>
@@ -396,9 +405,9 @@
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="maillog logmethod">
-                                        @Html.LabelFor(model => model.MemberData.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.MemberData.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.MemberData.Email, "", new { @class = "text-danger", style = "font-size:14px" })
+                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
+                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:14px" })
 
                                         @*<label for="email" id="email">Email</label><br>
                                             <input id="email" type="email" name="email" class="emailinput ellipsis"
@@ -427,11 +436,11 @@
                                         </span>
                                     </div>-->
                                     <!-- password -->
-                                    @Html.LabelFor(model => model.MemberData.Password, new { @id = "password" })<br>
-                                    @Html.PasswordFor(model => model.MemberData.Password, new { @class = "passwordinput ellipsis", id = "myinput", name = "password", placeholder = "Please enter your password" })
+                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
+                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", name = "password", placeholder = "Please enter your password" })
                                     <input type="button" class="passwordshow" value="show"><br>
 
-                                    @Html.ValidationMessageFor(model => model.MemberData.Password, "", new { @class = "text-danger", style = "font-size:14px" })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:14px" })
 
                                     @*<label for="password" id="password">Password</label><br>
                                         <input type="password" name="password" class="passwordinput ellipsis"
@@ -445,7 +454,7 @@
                                     <a href="#" id="forgetpass">Forget your password?</a>
 
                                     @*<input type="submit"  value="Log In" />*@
-                                    <input type="submit" class="btn btn-secondary" data-bs-dismiss="modal" id="loginbutton" value="Log In">
+                                    <input type="submit" class="btn btn-secondary loginbutton" data-bs-dismiss="modal" id="loginbutton" value="Log In">
                                     @ViewBag.Message
                                 </form>
                             </div>
@@ -465,9 +474,9 @@
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <!-- mail signup -->
                                     <div class="maillog">
-                                        @Html.LabelFor(model => model.MemberData.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.MemberData.Email, null, new { @class = "emailinput ellipsis", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.MemberData.Email, "", new { @class = "text-danger", style = "font-size:12px" })
+                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
+                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", placeholder = "Please enter your email" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:12px" })
 
                                         @*<label for="email" id="email">Email</label><br>
                                             <input type="email" name="email" class="emailinput ellipsis"
@@ -493,17 +502,17 @@
                                         </span>
                                     </div>-->
                                     <!-- password -->
-                                    @Html.LabelFor(model => model.MemberData.Password, new { @id = "password" })<br>
-                                    @Html.PasswordFor(model => model.MemberData.Password, new { @class = "passwordinput ellipsis", id = "myinput", placeholder = "Please enter your password" })
+                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
+                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", placeholder = "Please enter your password" })
                                     <input type="button" class="passwordshow" value="show">
 
-                                    @Html.ValidationMessageFor(model => model.MemberData.Password, "", new { @class = "text-danger", style = "font-size:12px" })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:12px" })
 
                                     @*<label for="password" id="password">Password</label><br>
                                         <input type="password" name="password" class="passwordinput ellipsis"
                                                placeholder="Please enter your password" value="" id="myinput">*@
 
-                                    <input type="submit" class="btn btn-secondary mt-5" data-bs-dismiss="modal" id="loginbutton" value="Sign Up">
+                                    <input type="submit" class="btn btn-secondary mt-5 loginbutton" data-bs-dismiss="modal" id="loginbutton" value="Sign Up">
 
 
 
@@ -881,11 +890,28 @@
 
 
     @*前端驗證*@
-    <!--@section Scripts {
+    @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
-    }-->
+    }
 
 
+    @section endJS{
+        <script>
+            window.onload = function() {
+
+                if (!User.Identity.IsAuthenticated) {
+                    document.querySelector('.message.dropdown').style.display = "none";
+                    document.querySelector('.personal-account').style.display = "none";
+                }
+                else {
+                    document.querySelector('.logsign-modal-button').style.display = "none";
+                }
+
+            }
+
+
+        </script>
+        }
 
 
 </body>

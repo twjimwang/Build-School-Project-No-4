@@ -9,9 +9,9 @@ namespace Build_School_Project_No_4.Services
     public class MailService
     {
 
-        private string gmail_account = ""; //Gmail帳號
-        private string gmail_password = ""; //Gmail密碼
-        private string gmail_mail = ""; //Gmail信箱
+        private string gmail_account = "epalmemberservice@gmail.com"; //Gmail帳號
+        private string gmail_password = "epalproject2021"; //Gmail密碼
+        private string gmail_mail = "epalmemberservice@gmail.com"; //Gmail信箱
 
         #region 寄會員驗證信
         //產生驗證碼方法
