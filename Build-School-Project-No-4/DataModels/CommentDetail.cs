@@ -8,17 +8,11 @@ namespace Build_School_Project_No_4.DataModels
 
     public partial class CommentDetail
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CommentDetail()
-        {
-            Comments = new HashSet<Comment>();
-        }
-
         public int CommentDetailId { get; set; }
 
-        public int? ProductId { get; set; }
+        public int ProductId { get; set; }
 
-        public int? MemberId { get; set; }
+        public int MemberId { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime CommentDate { get; set; }
@@ -29,9 +23,6 @@ namespace Build_School_Project_No_4.DataModels
 
         [Column(TypeName = "date")]
         public DateTime CommentUpdateDate { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments { get; set; }
 
         public virtual Member Member { get; set; }
 
