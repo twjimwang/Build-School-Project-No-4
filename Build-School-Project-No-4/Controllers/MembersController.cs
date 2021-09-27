@@ -9,14 +9,13 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Build_School_Project_No_4.DataModels;
-//using Build_School_Project_No_4.Models;
 using Build_School_Project_No_4.Repositories;
 using Build_School_Project_No_4.Services;
 using Build_School_Project_No_4.ViewModels;
 
 namespace Build_School_Project_No_4.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class MembersController : Controller
     {
         private EPalContext db = new EPalContext();
@@ -60,7 +59,7 @@ namespace Build_School_Project_No_4.Controllers
             //判斷使用者是否已經過登入驗證
             if (User.Identity.IsAuthenticated)
                 return RedirectToAction("ePal", "ePal"); //已登入則重新導向
-            return View("HomePage", "Home");//否則進入登入畫面
+            return View("HomePage", "Home");//否則進入首頁
         }
 
         //[AllowAnonymous]
@@ -68,10 +67,10 @@ namespace Build_School_Project_No_4.Controllers
         [HttpPost]
         public ActionResult Login(GroupViewModel loginMember)
         {
-            //使用Service裡的方法來驗證登入的email.密碼
+            //驗證登入email.密碼
             string ValidateStr = _MemberService.LoginCheck(loginMember.Email, loginMember.Password);
 
-            //判斷驗證後結果是否有錯誤訊息
+            //判斷驗證結果是否有錯誤訊息
             if (String.IsNullOrEmpty(ValidateStr))
             {
                 //無錯誤訊息，則登入
@@ -116,7 +115,6 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-
             //var member = _MemberService.MemberLoginData()
             //            .Where(m => m.Email == Email && m.Password == Password)
             //            .FirstOrDefault();
@@ -154,16 +152,11 @@ namespace Build_School_Project_No_4.Controllers
         //Get:Members/Register
         public ActionResult Register()
         {
-            ////判斷使用者是否已經過登入驗證
-            //if (User.Identity.IsAuthenticated)
-            //    return RedirectToAction("Index", "Guestbooks");
-            ////已登入則重新導向
-            ////否則進入註冊畫面
-            //return View();
             return View();
         }
-        [AllowAnonymous]
+
         //Post:Members/Register
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(GroupViewModel newMember)
@@ -186,7 +179,7 @@ namespace Build_School_Project_No_4.Controllers
                             .FirstOrDefault();
                 if (member == null)
                 {
-                    //將密碼Hash過
+                    //將密碼Hash
                     newMember.Password = _MemberService.HashPassword(newMember.Password);
 
                     //GroupViewModel -> DM
@@ -233,7 +226,7 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-                //取得寫好的驗證信範本內容
+                //取得驗證信範本
                 string TempMail = System.IO.File.ReadAllText(Server.MapPath("~/Views/Shared/RegisterEmailTemplate.html"));
                 //宣告Email驗證用的Url
                 UriBuilder ValidateUrl = new UriBuilder(Request.Url)
@@ -243,10 +236,10 @@ namespace Build_School_Project_No_4.Controllers
                         AuthCode = AuthCode
                     })
                 };
-                //藉由Service將使用者資料填入驗證信範本中，使用者收到驗證信後，會自動導向/Members/EmailValidate的view
+                //藉由Service將使用者資料填入驗證信範本，使用者收到驗證信後，會自動導向/Members/EmailValidate的view
                 string MailBody = _MailService.GetRegisterMailBody(TempMail, newMember.Email, ValidateUrl.ToString().Replace("%3F", "?"));
 
-                //呼叫Service寄出驗證信
+                //呼叫Service寄出驗證信的方法
                 _MailService.SendRegisterMail(MailBody, newMember.Email);
 
 
@@ -261,7 +254,11 @@ namespace Build_School_Project_No_4.Controllers
             newMember.Password = null;
             ////將資料回填至view中
             //return view(newmember);
-            return RedirectToAction("HomePage", "Home");
+            //return RedirectToAction("HomePage", "Home");
+            //用TempData儲存註冊訊息
+            TempData["RegisterState"] = "註冊驗證資訊有誤，請重新註冊";
+            //重新導向頁面
+            return RedirectToAction("RegisterResult");
 
         }
 
