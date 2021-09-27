@@ -16,9 +16,9 @@ namespace Build_School_Project_No_4.DataModels
 
         public int CommentDetailId { get; set; }
 
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
 
-        public int MemberId { get; set; }
+        public int? MemberId { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime CommentDate { get; set; }

@@ -9,8 +9,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Build_School_Project_No_4.DataModels;
-//using Build_School_Project_No_4.Models;
-using Build_School_Project_No_4.Repositories;
 using Build_School_Project_No_4.Services;
 using Build_School_Project_No_4.ViewModels;
 
@@ -21,17 +19,17 @@ namespace Build_School_Project_No_4.Controllers
         private EPalContext db = new EPalContext();
 
 
-        private MemberRepository _MemberRepo;
+        //private MemberRepository _MemberRepo;
         private MemberService _MemberService;
         public MembersController()
         {
-            _MemberRepo = new MemberRepository();
+            //_MemberRepo = new MemberRepository();
             _MemberService = new MemberService();
         }
 
         public ActionResult CreateSeed()
         {
-            _MemberRepo.WriteDataToDB();
+            //_MemberRepo.WriteDataToDB();
 
             return Content("寫入資料庫成功!");
         }

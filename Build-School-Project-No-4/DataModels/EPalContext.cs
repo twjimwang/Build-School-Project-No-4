@@ -49,6 +49,10 @@ namespace Build_School_Project_No_4.DataModels
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Member>()
+                .Property(e => e.AuthCode)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Member>()
                 .HasMany(e => e.Chatlists)
                 .WithRequired(e => e.Member)
                 .HasForeignKey(e => e.ReceiverId)
@@ -58,11 +62,6 @@ namespace Build_School_Project_No_4.DataModels
                 .HasMany(e => e.Chatlists1)
                 .WithRequired(e => e.Member1)
                 .HasForeignKey(e => e.SenderId)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Member>()
-                .HasMany(e => e.CommentDetails)
-                .WithRequired(e => e.Member)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Member>()
@@ -152,11 +151,6 @@ namespace Build_School_Project_No_4.DataModels
             modelBuilder.Entity<Product>()
                 .Property(e => e.UnitPrice)
                 .HasPrecision(18, 0);
-
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.CommentDetails)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Orders)
