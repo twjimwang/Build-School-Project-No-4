@@ -62,8 +62,12 @@ namespace Build_School_Project_No_4.DataModels
 
         public string ProfilePicture { get; set; }
 
-        [StringLength(50)]
         public string LineStatus { get; set; }
+
+        [StringLength(10)]
+        public string AuthCode { get; set; }
+
+        public bool? IsAdmin { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Chatlist> Chatlists { get; set; }

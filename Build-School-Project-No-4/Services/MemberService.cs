@@ -1,24 +1,23 @@
 ﻿using Build_School_Project_No_4.DataModels;
-using Build_School_Project_No_4.Repositories;
 using Build_School_Project_No_4.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Build_School_Project_No_4.Services
 {
     public class MemberService
     {
-        private MemberRepository _MemberRepo;
+        //private MemberRepository _MemberRepo;
+        private readonly Repository _Repo;
         public MemberService()
         {
-            _MemberRepo = new MemberRepository();
+            _Repo = new Repository();            
         }
+
 
         public List<MemberViewModel> GetMember()
         {
-            List<Member> members = _MemberRepo.ReadMember();
+            List<Member> members = _Repo.GetAll<Member>().ToList();
 
             List<MemberViewModel> result = new List<MemberViewModel>();
             foreach (var item in members)
@@ -38,9 +37,7 @@ namespace Build_School_Project_No_4.Services
                     LanguageId = item.LanguageId,
                     Bio = item.Bio,
                     ProfilePicture = item.ProfilePicture,
-                    LineStatus = item.LineStatus,
-
-
+                    LineStatus = item.LineStatus
                 });
             }
             return result;

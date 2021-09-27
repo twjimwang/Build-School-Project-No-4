@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Build_School_Project_No_4.Repositories;
 
 
 namespace Build_School_Project_No_4.Services
@@ -43,7 +42,7 @@ namespace Build_School_Project_No_4.Services
     //}
    public class ProductService
    {
-        private readonly ProductRepository _Repo;
+        private readonly Repository _Repo;
 
         private IQueryable<Product> Products;
         private IQueryable<Member> Members;
@@ -56,7 +55,7 @@ namespace Build_School_Project_No_4.Services
 
         public ProductService()
         {
-            _Repo = new ProductRepository();
+            _Repo = new Repository();
             Products = _Repo.GetAll<Product>();
             Members = _Repo.GetAll<Member>();
             Games = _Repo.GetAll<GameCategory>();
