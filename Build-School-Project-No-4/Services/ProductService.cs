@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Build_School_Project_No_4.Repositories;
 
 
 namespace Build_School_Project_No_4.Services
@@ -24,7 +23,14 @@ namespace Build_School_Project_No_4.Services
 
         public ProductService()
         {
-            _repo = new ProductRepository();
+            _Repo = new Repository();
+            Products = _Repo.GetAll<Product>();
+            Members = _Repo.GetAll<Member>();
+            Games = _Repo.GetAll<GameCategory>();
+            Ranks = _Repo.GetAll<Rank>();
+            Positions = _Repo.GetAll<Position>();
+            CommentDetails = _Repo.GetAll<CommentDetail>();
+            ProductPositions = _Repo.GetAll<ProductPosition>();
         }
 
         public List<ProductViewModel> GetProductData()

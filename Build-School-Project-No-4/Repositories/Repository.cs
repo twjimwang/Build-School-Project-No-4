@@ -6,11 +6,11 @@ using System.Linq.Expressions;
 
 namespace Build_School_Project_No_4.Services
 {
-    public class ProductRepository
+    public class Repository
     {
         private readonly DbContext _context;
 
-        public ProductRepository()
+        public Repository()
         {
             _context = new EPalContext();
         }
@@ -30,10 +30,6 @@ namespace Build_School_Project_No_4.Services
         public void Delete<T>(T value) where T : class
         {
             _context.Entry(value).State = EntityState.Deleted;
-        }
-        public IQueryable<T> GetAll<T, Tkey>(Expression<Func<T, Tkey>> keyselector) where T : class
-        {
-            return _context.Set<T>().OrderBy(keyselector);
         }
         public IQueryable<T> GetAll<T>() where T : class
         {
