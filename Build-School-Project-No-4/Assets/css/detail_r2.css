@@ -54,18 +54,18 @@ hr {
 }
 
 .greyish {
-  color: rgb(196, 195, 230);
-  font-size: 12px;
-  font-weight: 500;
+    color: rgb(196, 195, 230);
+    font-size: 12px;
+    font-weight: normal;
 }
 
 .whitish {
   color: white;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: normal;
 }
 
-h1 {
+.heading1 {
   font-size: 28px;
 }
 
@@ -96,12 +96,6 @@ img.buff-img {
   width: 45%;
 }
 
-.price-header img, .buff {
-    width: 17px;
-    height: auto;
-    margin-right: 3px;
-}
-
 .btn-play {
   background-color: rgba(255, 255, 255, 0);
   color: rgb(110, 67, 232);
@@ -122,6 +116,13 @@ img.buff-img {
 .btn-purp:hover {
   background-color: rgb(92, 55, 194);
   transition: all 0.2s ease-out;
+}
+
+.price-header img {
+    width: 17px;
+    height: auto;
+    margin-right: 3px;
+    margin-top: 10px;
 }
 
 .main-profile {
@@ -204,8 +205,8 @@ img.buff-img {
   font-size: 8px;
   text-align: center;
   background: linear-gradient(315deg, #ff894c, #ffd839);
-/*  -webkit-background-clip: text;
-  background-clip: text;*/
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -426,14 +427,13 @@ img.buff-img {
 
 
 
-
 #playModal .modal-footer {
   background-color: rgb(33, 33, 44);
   border-top: none;
 }
 
 @media screen and (min-width: 400px) {
-  h1 {
+  .heading1 {
     font-size: 35px;
   }
 
@@ -455,7 +455,7 @@ img.buff-img {
     font-size: 25px;
   }
 
-  h2 {
+  .heading2 {
     margin-bottom: 3px;
   }
 
@@ -538,6 +538,10 @@ img.buff-img {
 }
 
 @media screen and (min-width: 768px) {
+    .game-backdrop {
+        position: relative;
+        top: 65px;
+    }
   .container {
     padding: 0 10px;
   }
@@ -547,7 +551,7 @@ img.buff-img {
     height: 100%;
   }
 
-  h1 {
+  .heading1 {
     font-size: 38px;
     font-weight: 500;
   }
@@ -560,7 +564,11 @@ img.buff-img {
     font-size: 14px;
   }
 
-
+  .price-header img {
+    width: 17px;
+    height: auto;
+    margin-top: 0px;
+  }
 
   .header-btns {
     padding: 12px 0 0;
@@ -737,7 +745,7 @@ img.buff-img {
 }
 
 @media screen and (min-width: 992px) {
-  h1 {
+  .heading1 {
     font-size: 50px;
     font-weight: 500;
   }
