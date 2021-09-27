@@ -16,32 +16,26 @@ namespace Build_School_Project_No_4.Controllers
         {
             _productService = new ProductService();
         }
-
-        // GET: ePal
-        public ActionResult ePal()
-        {
-            var result = _productService.GetProductAll();
-            
-            return View(result);
-        }
-        public ActionResult EPalIndex()
+      
+        public ActionResult EPal(int? id)
         {
             var productGet = new ProductService();
-            var abc = productGet.GetProductData();
-
-            GroupViewModel EPalIndexItem = new GroupViewModel
+            if (!id.HasValue)
             {
-                EPalIndex = abc
+                return RedirectToAction("ePal");
+            }
+            var ProductCards = productGet.GetProductCardsData(id.Value);
+            var Games = productGet.GetGamesAll();
+
+            GroupViewModel result = new GroupViewModel
+            {
+                GameCategory = Games,
+                ProductCards = ProductCards
             };
 
-            return View(EPalIndexItem);
-
-        }
-        public ActionResult Index()
-        {
-            var result = _productService.GetProductAll();
-
             return View(result);
+
         }
+        
     }
 }

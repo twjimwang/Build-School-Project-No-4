@@ -276,8 +276,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\MemberRepository.cs" />
-    <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\ProductService.cs" />
@@ -638,7 +636,6 @@
     <Content Include="Views\Shared\_Layout_beforelogin_nofooter.cshtml" />
     <Content Include="Views\Coupons\Coupons.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
-    <Content Include="Views\ePal\ePal.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
     <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
@@ -661,14 +658,13 @@
     <Content Include="Views\ChillMeetLike\MeetMatches.cshtml" />
     <Content Include="Views\Members\test.cshtml" />
     <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
-    <Content Include="Views\ePal\EPalIndex.cshtml" />
+    <Content Include="Views\ePal\ePal.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\Members\CreateSeed.cshtml" />
     <Content Include="Views\Order\Orders.cshtml" />
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
-    <Content Include="Views\ePal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

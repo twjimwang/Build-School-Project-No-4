@@ -10,71 +10,48 @@ namespace Build_School_Project_No_4.Services
 {
    public class ProductService
    {
-        private readonly ProductRepository _repo;
-
-        private IQueryable<Product> Products;
-        private IQueryable<Member> Members;
-        private IQueryable<GameCategory> Games;
-        private IQueryable<Rank> Ranks;
-        private IQueryable<Position> Positions;
-        private IQueryable<CommentDetail> CommentDetails;
-        private IQueryable<ProductPosition> ProductPositions;
-
+        private readonly Repository _repo;
 
         public ProductService()
         {
-            _Repo = new Repository();
-            Products = _Repo.GetAll<Product>();
-            Members = _Repo.GetAll<Member>();
-            Games = _Repo.GetAll<GameCategory>();
-            Ranks = _Repo.GetAll<Rank>();
-            Positions = _Repo.GetAll<Position>();
-            CommentDetails = _Repo.GetAll<CommentDetail>();
-            ProductPositions = _Repo.GetAll<ProductPosition>();
+            _repo = new Repository();
         }
 
-        public List<ProductViewModel> GetProductData()
+        public ProductViewModel GetProductCardsData(int categoryId)
         {
-            Products = _repo.GetAll<Product>();
-            Members = _repo.GetAll<Member>();
-            Games = _repo.GetAll<GameCategory>();
-            Ranks = _repo.GetAll<Rank>();
-            Positions = _repo.GetAll<Position>();
-            CommentDetails = _repo.GetAll<CommentDetail>();
-            ProductPositions = _repo.GetAll<ProductPosition>();
-
-            var productsVM = new List<ProductViewModel>()
+            var result = new ProductViewModel()
             {
-              
+                ProductCards = new List<ProductCard>()
             };
-
-            foreach (var item in Products)
+            var category = _repo.GetAll<GameCategory>().FirstOrDefault(x => x.GameCategoryId == categoryId);
+            if (category == null)
             {
-                productsVM.Add(new ProductViewModel
-                {
-                    
-                    //UnitPrice = item.UnitPrice,
-                    //CreatorImg = item.CreatorImg,
-                    //Introduction = item.Introduction,
-                    //RecommendationVoice = item.RecommendationVoice,
-                    //StarLevel = CommentDetails.FirstOrDefault(x => x.ProductId == item.ProductId).StarLevel,
-                    //MemberName = Members.FirstOrDefault(x => x.MemberId == item.CreatorId).MemberName,
-                    //GameName = Games.FirstOrDefault(x => x.GameCategoryId == item.GameCategoryId).GameName,
-                    //GameCoverImg = Games.FirstOrDefault(x => x.GameCategoryId == item.GameCategoryId).GameCoverImg,
-                    //LineStatus = Members.FirstOrDefault(x => x.MemberId == item.CreatorId).LineStatus,
-                    //Position = Positions.FirstOrDefault(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == item.ProductId).PositionId)).PositionName,
-                    //Rank = Ranks.FirstOrDefault(x => x.RankId == item.RankId).RankName
-                });
+                return result;
             }
-            
-            return productsVM;
+            var ProductPosition = _repo.GetAll<ProductPosition>();
+            var products = _repo.GetAll<Product>().Where(x => x.GameCategoryId == categoryId).ToList();
+            var productCards = products.Select(p => new ProductCard {
+                UnitPrice = p.UnitPrice,
+                CreatorImg = p.CreatorImg,
+                Introduction = p.Introduction,
+                RecommendationVoice = p.RecommendationVoice,
+                LineStatus = _repo.GetAll<Member>().First(x=>x.MemberId == p.CreatorId).MemberName,
+                CreatorName = _repo.GetAll<Member>().First(x=>x.MemberId == p.CreatorId).MemberName,
+                StarLevel = _repo.GetAll<CommentDetail>().FirstOrDefault(x=>x.ProductId == p.ProductId).StarLevel,
+                Rank = _repo.GetAll<Rank>().FirstOrDefault(x=>x.RankId == p.RankId).RankName,
+                Position = _repo.GetAll<Position>().FirstOrDefault(y => y.PositionId == (ProductPosition.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName
+            }).ToList();
+
+            result.ProductCards = productCards;
+            result.GameCoverImg = category.GameCoverImg;
+            result.GameTitle = category.GameName;
+            return result;
         }
 
-        public ProductViewModel GetProductAll()
+        public ProductViewModel GetGamesAll()
         {
             var result = new ProductViewModel();
-            var Games = _repo.GetAll<GameCategory>().Select(x=>x.GameName).ToList();
-            result.GameAll = Games;
+            result.GameAll = _repo.GetAll<GameCategory>().Select(x => x.GameName).ToList();
             return result;
         }
     }
