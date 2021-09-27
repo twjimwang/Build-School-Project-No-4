@@ -184,6 +184,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BasicInformationController.cs" />
     <Compile Include="Controllers\BecomeEPalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
@@ -197,6 +198,7 @@
     <Compile Include="Controllers\ePalController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
+    <Compile Include="Controllers\GameInformationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeForPhoneController.cs" />
@@ -300,6 +302,7 @@
     <Content Include="Assets\css\PlusPremium.css" />
     <Content Include="Assets\css\reset.css" />
     <Content Include="Assets\Edit_ProfileImages\avatar.png" />
+    <Content Include="Assets\images\BasicInformation\price.png" />
     <Content Include="Assets\images\becomeEPal\becomebg.png" />
     <Content Include="Assets\images\becomeEPal\flexity.png" />
     <Content Include="Assets\images\becomeEPal\friends.png" />
@@ -434,6 +437,23 @@
     <Content Include="Assets\images\detail\details.png" />
     <Content Include="Assets\images\detail\lol-screenshot.jpg" />
     <Content Include="Assets\images\detail\profile-eniza.gif" />
+    <Content Include="Assets\images\GameInformation\a.png" />
+    <Content Include="Assets\images\GameInformation\addpic.png" />
+    <Content Include="Assets\images\GameInformation\addvideo.jpg" />
+    <Content Include="Assets\images\GameInformation\arrow.jpg" />
+    <Content Include="Assets\images\GameInformation\b.png" />
+    <Content Include="Assets\images\GameInformation\c.png" />
+    <Content Include="Assets\images\GameInformation\d.png" />
+    <Content Include="Assets\images\GameInformation\excellent.png" />
+    <Content Include="Assets\images\GameInformation\good.png" />
+    <Content Include="Assets\images\GameInformation\green.png" />
+    <Content Include="Assets\images\GameInformation\moderate.png" />
+    <Content Include="Assets\images\GameInformation\orange.png" />
+    <Content Include="Assets\images\GameInformation\poor.png" />
+    <Content Include="Assets\images\GameInformation\postAVideoImg.png" />
+    <Content Include="Assets\images\GameInformation\postAVideoImg2.png" />
+    <Content Include="Assets\images\GameInformation\red.png" />
+    <Content Include="Assets\images\GameInformation\warrow.jpg" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
     <Content Include="Assets\images\homepageimg\arrow-right.png" />
     <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
@@ -666,6 +686,11 @@
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
+    <Content Include="Views\BasicInformation\BasicInformation.cshtml" />
+    <Content Include="Views\GameInformation\GameInformation.cshtml" />
+    <Content Include="Views\GameInformation\Rule_VoiceRecord.cshtml" />
+    <Content Include="Views\GameInformation\Rule_ListCover.cshtml" />
+    <Content Include="Views\GameInformation\Rule_ScreenshotRules.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
