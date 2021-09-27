@@ -62,7 +62,6 @@ namespace Build_School_Project_No_4.DataModels
 
         public string ProfilePicture { get; set; }
 
-        [StringLength(50)]
         public string LineStatus { get; set; }
 
         [StringLength(10)]

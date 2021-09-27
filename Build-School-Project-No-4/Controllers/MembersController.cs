@@ -21,19 +21,19 @@ namespace Build_School_Project_No_4.Controllers
         private EPalContext db = new EPalContext();
 
 
-        private MemberRepository _MemberRepo;
+        //private MemberRepository _MemberRepo;
         private MemberService _MemberService;
         private MailService _MailService;
         public MembersController()
         {
-            _MemberRepo = new MemberRepository();
+            //_MemberRepo = new MemberRepository();
             _MemberService = new MemberService();
             _MailService = new MailService();
         }
 
         public ActionResult CreateSeed()
         {
-            _MemberRepo.WriteDataToDB();
+            //_MemberRepo.WriteDataToDB();
 
             return Content("寫入資料庫成功!");
         }
