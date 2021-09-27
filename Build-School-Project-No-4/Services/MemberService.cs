@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Security.Cryptography;
 using System.Text;
-
+using System;
 
 namespace Build_School_Project_No_4.Services
 {
@@ -49,7 +49,7 @@ namespace Build_School_Project_No_4.Services
 
         public List<GroupViewModel> MemberRigisterData()
         {
-            List<Member> members = _MemberRepo.ReadMember();
+            List<Member> members = _Repo.GetAll<Member>().ToList();
 
             List<GroupViewModel> result = new List<GroupViewModel>();
             foreach (var item in members)
@@ -69,7 +69,7 @@ namespace Build_School_Project_No_4.Services
 
         public List<Member> MemberLoginData()
         {
-            List<Member> members = _MemberRepo.ReadMember();
+            List<Member> members = _Repo.GetAll<Member>().ToList();
 
             List<Member> result = new List<Member>();
             foreach (var item in members)
@@ -105,7 +105,7 @@ namespace Build_School_Project_No_4.Services
             Member Data = new Member();
             try
             {
-                var member = _MemberRepo.ReadMember().Where(m => m.Email == Email).FirstOrDefault();
+                var member = _Repo.GetAll<Member>().ToList().Where(m => m.Email == Email).FirstOrDefault();
 
                 Data.Email = member.Email;
                 Data.Password = member.Password;
