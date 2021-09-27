@@ -2,6 +2,7 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Build_School_Project_No_4.Services
 {
@@ -30,10 +31,10 @@ namespace Build_School_Project_No_4.Services
         {
             _context.Entry(value).State = EntityState.Deleted;
         }
-        //public IQueryable<T> GetAll<T, Tkey>(Expression<Func<T, Tkey>> keyselector) where T : class
-        //{
-        //    return _context.Set<T>().OrderBy(keyselector);
-        //}
+        public IQueryable<T> GetAll<T, Tkey>(Expression<Func<T, Tkey>> keyselector) where T : class
+        {
+            return _context.Set<T>().OrderBy(keyselector);
+        }
         public IQueryable<T> GetAll<T>() where T : class
         {
             return _context.Set<T>();

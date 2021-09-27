@@ -7,6 +7,12 @@ namespace Build_School_Project_No_4.ViewModels
 {
     public class ProductViewModel
     {
+        public List<string> GameAll { get; set; }
+        public List<ProductCard> ProductCards { get; set; }
+    }
+
+    public class ProductCard 
+    {
         public string GameName { get; set; }
 
         public string GameCoverImg { get; set; }
@@ -16,9 +22,9 @@ namespace Build_School_Project_No_4.ViewModels
         public string LineStatus { get; set; }
 
         public decimal UnitPrice { get; set; }
-    
+
         public string RecommendationVoice { get; set; }
-   
+
         public string Introduction { get; set; }
 
         public string Rank { get; set; }
@@ -27,8 +33,6 @@ namespace Build_School_Project_No_4.ViewModels
 
         public int StarLevel { get; set; }
 
-        public string PositionName { get; set; }
-
-        public string ProductPlans { get; set; }
+        public string Position { get; set; }
     }
 }

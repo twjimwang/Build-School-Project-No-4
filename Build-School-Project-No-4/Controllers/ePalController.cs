@@ -10,10 +10,19 @@ namespace Build_School_Project_No_4.Controllers
 {
     public class ePalController : Controller
     {
+        private readonly ProductService _productService;
+
+        public ePalController()
+        {
+            _productService = new ProductService();
+        }
+
         // GET: ePal
         public ActionResult ePal()
         {
-            return View();
+            var result = _productService.GetProductAll();
+            
+            return View(result);
         }
         public ActionResult EPalIndex()
         {
@@ -22,11 +31,17 @@ namespace Build_School_Project_No_4.Controllers
 
             GroupViewModel EPalIndexItem = new GroupViewModel
             {
-               EPalIndex  = abc
+                EPalIndex = abc
             };
 
             return View(EPalIndexItem);
-            
+
+        }
+        public ActionResult Index()
+        {
+            var result = _productService.GetProductAll();
+
+            return View(result);
         }
     }
 }
