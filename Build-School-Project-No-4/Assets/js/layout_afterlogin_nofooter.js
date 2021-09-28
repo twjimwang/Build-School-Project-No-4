@@ -15,6 +15,7 @@ let msgiconCl = document.querySelectorAll('.message-icon-cl');
 let msgListTitle = document.querySelector('#message-list-title');
 let msgClose = document.querySelector('.msg-close');
 let msgdropdown = document.querySelector('.dropdown-menu');
+let forgetpass = document.querySelector('.forgetpass');
 
 
 let logsigntab = document.querySelectorAll('.logsign-tab');
@@ -81,6 +82,7 @@ window.onload = function () {
         })
     })
 
+
     //login / signup modal
     modalbtn.forEach((btn, idx) => {
         logsigntab[idx].classList.remove('logsign-purple-border');
@@ -90,7 +92,7 @@ window.onload = function () {
         modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
 
         if (idx === 0) { logsignBtn[0].value = "Log In"; }
-        else if (idx === 1) { logsignBtn[1].value = "Sign Up";}
+        else if (idx === 1) { logsignBtn[1].value = "Sign Up"; }
         //logsignBtn[0].value = "Log In";
         //logsignBtn[1].value = "Sign Up";
         //logsignBtn[idx].value = idx === 0 ? "Log In" : "Sign Up";
@@ -99,6 +101,7 @@ window.onload = function () {
         btn.addEventListener('click', function (event) {
             //初始化modal打開樣式
             logsigntab[idx].classList.add('logsign-purple-border');
+
             logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
             //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
             modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
@@ -154,6 +157,7 @@ window.onload = function () {
         })
     })
     $('#myModal').modal({ backdrop: 'static', keyboard: false });
+
 
 }
 

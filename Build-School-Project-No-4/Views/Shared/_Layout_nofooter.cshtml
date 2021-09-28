@@ -125,7 +125,7 @@
                         @*<div style="color:white">@(User.Identity.Name)</div>*@
                         @*<li>@Html.ActionLink("變更密碼", "ChangePassword", "Members")</li>*@
                         @*<div>@Html.ActionLink("Log out", "Logout", "Members")</div>*@
-                        <input type="button" value="Log out" onclick="location.href='@Url.Action("Logout", "Members")'" />
+                        <input type="button" value="Log out" class="logoutbtn" onclick="location.href='@Url.Action("Logout", "Members")'"/>
 
                         <!-- right navbar message dropdown list -->
                         <div class="message dropdown">

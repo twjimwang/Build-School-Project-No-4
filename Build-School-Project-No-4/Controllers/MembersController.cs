@@ -83,6 +83,7 @@ namespace Build_School_Project_No_4.Controllers
         //[AllowAnonymous]
         public ActionResult Login(string Email)
         {
+            //返回原頁面
             //獲取使用者登錄中的資訊
             string loginName = Request["email"];
             string password = Request["password"];
@@ -390,7 +391,7 @@ namespace Build_School_Project_No_4.Controllers
             //return view(newmember);
             //return RedirectToAction("HomePage", "Home");
             //用TempData儲存註冊訊息
-            TempData["RegisterState"] = "註冊驗證資訊有誤，請重新註冊";
+            TempData["RegisterState"] = "註冊Email或密碼資訊不符要求，請重新註冊";
             //重新導向頁面
             return RedirectToAction("RegisterResult");
 

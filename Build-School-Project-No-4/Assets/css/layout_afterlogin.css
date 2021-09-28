@@ -723,6 +723,20 @@ footer #address {
         font-weight: 600;
     }
 
+    .navbar-right .logoutbtn {
+        width: 80px;
+        margin-left: 24px;
+        border: 1px solid white;
+        /*border:transparent;*/
+        font-size: 14px;
+        font-weight: 600;
+        /*background-color: #7B74E6;*/
+        background-color: transparent;
+        color: white;
+        height: 30px;
+        border-radius: 3px;
+    }
+
     .navbar-right .personal-account {
         display: flex;
         box-sizing: border-box;
