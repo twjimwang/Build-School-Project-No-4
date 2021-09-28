@@ -273,6 +273,10 @@ img.buff-img {
   padding-top: 10px;
 }
 
+.intro-text{
+    line-height: 1.4;
+}
+
 .availability {
   margin-top: 10px;
 }
@@ -549,7 +553,10 @@ img.buff-img {
   .detail-header {
     position: relative;
     height: 100%;
+    margin-top: 30px;
+    padding-bottom: 20px;
   }
+
 
   .heading1 {
     font-size: 38px;
@@ -576,7 +583,7 @@ img.buff-img {
     justify-content: space-evenly;
     background-color: rgba(18, 14, 27, 0);
     position: absolute;
-    bottom: 0;
+    bottom: 30px;
     left: 0;
   }
 
@@ -641,6 +648,10 @@ img.buff-img {
     background-color: rgb(48, 47, 61);
     padding: 10px 10px;
   }
+    .game-price {
+        margin-top: 5px;
+        font-size: 22px;
+    }
 
   .booking .game-price {
     padding-left: 3px;
@@ -649,7 +660,7 @@ img.buff-img {
 
   p {
     font-size: 13px;
-    font-weight: 500;
+    font-weight: normal;
   }
 
   .booking p {
@@ -685,7 +696,7 @@ img.buff-img {
 
   .streamer-info-data {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
   }
 

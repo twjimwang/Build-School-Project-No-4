@@ -12,6 +12,7 @@ namespace Build_School_Project_No_4.ViewModels
         public ProductViewModel GameCategory { get; set; }
         public ProductViewModel ProductCards { get; set; }
         public MemberViewModel MemberData { get; set; }
+        public DetailViewModel Deets { get; set; }
     }
 
 }
