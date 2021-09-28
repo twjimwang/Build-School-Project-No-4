@@ -15,16 +15,20 @@ namespace Build_School_Project_No_4.Controllers
             _detailService = new DetailServices();
         }
         // GET: Detail
-        public ActionResult DetailPage(int? productId)
-        {
-            if (!productId.HasValue)
-            {
-                return RedirectToAction("Index");
-            }
-            var detailvm = _detailService.GetPlayerByProductId(productId.Value);
-            int i2 = 0;
-            return View(detailvm);
-            int i = 0;
-        }
+        //public ActionResult DetailPage(int? productId)
+        //{
+        //    if (!productId.HasValue)
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
+        //    var detailvm = _detailService.GetPlayerByProductId(productId.Value);
+        //    int i2 = 0;
+        //    return View();
+
+        //}
+        //public ActionResult DetailPage()
+        //{
+        //    return View();
+        //}
     }
 }
