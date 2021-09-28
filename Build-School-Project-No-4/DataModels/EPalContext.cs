@@ -38,15 +38,14 @@ namespace Build_School_Project_No_4.DataModels
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CommentDetail>()
-                .HasMany(e => e.Comments)
-                .WithRequired(e => e.CommentDetail)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<GameCategory>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.GameCategory)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Member>()
+                .Property(e => e.AuthCode)
+                .IsFixedLength();
 
             modelBuilder.Entity<Member>()
                 .HasMany(e => e.Chatlists)
