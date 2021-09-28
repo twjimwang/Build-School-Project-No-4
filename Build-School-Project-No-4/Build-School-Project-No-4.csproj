@@ -642,13 +642,11 @@
     <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
     <Content Include="Views\Page404\Page404.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
-    <Content Include="Views\Detail\DetailPage.cshtml" />
     <Content Include="Views\Edit_Profile\Edit_Profile.cshtml" />
     <Content Include="Views\Order\Order.cshtml" />
     <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
     <Content Include="Views\Subscription\Subscription.cshtml" />
-    <Content Include="Views\Detail\DetailPage.cshtml" />
     <Content Include="Views\Members\Delete.cshtml" />
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
@@ -665,6 +663,7 @@
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
+    <Content Include="Views\Detail\DetailPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
