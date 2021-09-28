@@ -121,6 +121,12 @@
                     }
                     else
                     {
+                        @*<div style="color:white">@(User.Identity.Name)</div>*@
+                        @*<li>@Html.ActionLink("變更密碼", "ChangePassword", "Members")</li>*@
+                        @*<div>@Html.ActionLink("Log out", "Logout", "Members")</div>*@
+                        <input type="button" value="Log out" onclick="location.href='@Url.Action("Logout", "Members")'" />
+
+
                         <!-- right navbar message dropdown list -->
                         <div class="message dropdown">
                             <i class="far fa-envelope" type="button" id="dropdown-message" data-bs-toggle="dropdown"></i>
@@ -183,6 +189,7 @@
                         </div>
 
 
+                        //個人帳戶資訊
                         <div class="personal-account">
                             <div class="personal-img">
                                 <img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()">
@@ -195,7 +202,9 @@
                                         </a>
                                     </div>
                                     <div class="uesr-account-name">
-                                        <a href="#">XXX</a>
+                                        <a href="#">
+                                            <div style="color:white">@(User.Identity.Name)</div>
+                                        </a>
                                     </div>
                                     <div class="aside-close">
                                         <button type="button" class="btn-close btn-close-white" aria-label="Close"
@@ -299,7 +308,7 @@
                         </div>
                     }
 
-                    </div>
+                </div>
             </div>
         </nav>
     </header>

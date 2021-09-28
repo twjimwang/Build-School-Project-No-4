@@ -1,15 +1,14 @@
 ﻿
 @{
-    ViewBag.Title = "HomeIndex";
+    ViewBag.Title = "Index";
 }
 
-<h2 class="loginTitle">test</h2>
-<div>
-    測試: <a href="/Test/Index">/Test/Index</a>
-</div>
+<h2>Index</h2>
+
+
 
 @*顯示登入結果訊息*@
-<h3 class="loginMsg">@TempData["LoginState"]</h3>
+<h3 class="loginMsg">測試業面</h3>
 
 @section topCSS{
     <style>
@@ -25,7 +24,7 @@
         }
 
         .loginMsg {
-            padding-top: 20px;
+            padding-top: 100px;
             padding-left: 100px;
             color: white;
             font-size: 24px;
@@ -33,3 +32,4 @@
     </style>
 
 }
+

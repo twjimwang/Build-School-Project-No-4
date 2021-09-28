@@ -52,6 +52,7 @@ namespace Build_School_Project_No_4.ViewModels
         public string AuthCode { get; set; }
 
         public bool? IsAdmin { get; set; }
+
     }
 
 

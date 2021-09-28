@@ -1,15 +1,10 @@
 ﻿
 @{
-    ViewBag.Title = "HomeIndex";
+    ViewBag.Title = "Logout";
 }
 
-<h2 class="loginTitle">test</h2>
-<div>
-    測試: <a href="/Test/Index">/Test/Index</a>
-</div>
-
-@*顯示登入結果訊息*@
-<h3 class="loginMsg">@TempData["LoginState"]</h3>
+<h2 class="logoutTitle">Logout</h2>
+<h3 class="logoutMsg">See You</h3>
 
 @section topCSS{
     <style>
@@ -17,14 +12,14 @@
             background-color: #000000;
         }
 
-        .loginTitle {
+        .logoutTitle {
             padding-top: 100px;
             padding-left: 100px;
             color: white;
             font-size: 28px;
         }
 
-        .loginMsg {
+        .logoutMsg {
             padding-top: 20px;
             padding-left: 100px;
             color: white;

@@ -6,15 +6,16 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Security;
 using Build_School_Project_No_4.DataModels;
+using Build_School_Project_No_4.Security;
 using Build_School_Project_No_4.Services;
 using Build_School_Project_No_4.ViewModels;
 
 namespace Build_School_Project_No_4.Controllers
 {
-    //[Authorize]
     public class MembersController : Controller
     {
         private EPalContext db = new EPalContext();
@@ -51,53 +52,135 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-        //[AllowAnonymous]
-        //Get: Members/Login
-        public ActionResult Login()
+        //登出Action
+        [Authorize] //設定此Action須登入
+        public ActionResult Logout()
         {
-            //判斷使用者是否已經過登入驗證
-            if (User.Identity.IsAuthenticated)
-                return RedirectToAction("ePal", "ePal"); //已登入則重新導向
-            return View("HomePage", "Home");//否則進入首頁
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
+            //return View();
+            ////使用者登出
+            ////Cookie名稱
+            //string cookieName = WebConfigurationManager.AppSettings["CookieName"].ToString();
+            ////清除Cookie
+            //HttpCookie cookie = new HttpCookie(cookieName);
+            //cookie.Expires = DateTime.Now.AddDays(-1);
+            //cookie.Values.Clear();
+            //Response.Cookies.Set(cookie);
+            ////重新導向至登入Action
+            //return RedirectToAction("Login");
         }
 
+
+
+
+
+        //宣告使用者在session的標示
+        public static string LoginUserKey = "UserInfo@CCC";
+
+        //Get: Members/Login
+        //[Authorize]
         //[AllowAnonymous]
+        public ActionResult Login(string Email)
+        {
+            //獲取使用者登錄中的資訊
+            string loginName = Request["email"];
+            string password = Request["password"];
+
+            //把使用者的資訊儲存在session中
+            Session[LoginUserKey] = _MemberService.GetDataByAccount(Email);
+
+            //獲取該頁面url的參數資訊
+            string returnURL = Request.Params["HTTP_REFERER"];
+            int index = returnURL.IndexOf('=');
+            returnURL = returnURL.Substring(index + 1);
+
+            //如果參數為空，則跳轉到首頁，否則切回原頁面
+            if (string.IsNullOrEmpty(returnURL))
+                return Redirect("/Home/HomePage");
+            else
+                return Redirect(returnURL);
+            //return Redirect(Request.QueryString["URL"]);
+
+
+
+            //return View();
+            //return RedirectToAction("ePal", "ePal");
+        }
+
         //Post: Members/Login
+        //[Authorize]
+        //[AllowAnonymous]
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Login(GroupViewModel loginMember)
         {
-            //驗證登入email.密碼
+            //v3
+            //一.未通過Model驗證
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            //驗證登入email.密碼，回傳結果
             string ValidateStr = _MemberService.LoginCheck(loginMember.Email, loginMember.Password);
 
-            //判斷驗證結果是否有錯誤訊息
             if (String.IsNullOrEmpty(ValidateStr))
             {
-                //無錯誤訊息，則登入
-                ////先藉由Service取得登入者角色資料
-                //string RoleData = _MemberService.GetRole(loginMember.Email);
-                ////設定JWT
-                //JwtService jwtService = new JwtService();
-                ////從Web.Config撈出資料
-                ////Cookie名稱
-                //string cookieName = WebConfigurationManager.AppSettings["CookieName"].ToString();
-                //string Token = jwtService.GenerateToken(LoginMember.Account, RoleData);
-                //////產生一個Cookie
-                //HttpCookie cookie = new HttpCookie(cookieName);
-                ////設定單值
-                //cookie.Value = Server.UrlEncode(Token);
-                ////寫到用戶端
-                //Response.Cookies.Add(cookie);
-                ////設定Cookie期限
-                //Response.Cookies[cookieName].Expires = DateTime.Now.AddMinutes(Convert.ToInt32(WebConfigurationManager.AppSettings["ExpireMinutes"]));
+                //二.通過Model驗證後, 使用HtmlEncode將帳密做HTML編碼, 去除有害的字元
+                string email = HttpUtility.HtmlEncode(loginMember.Email);
+                //string password = HashService.MD5Hash(HttpUtility.HtmlEncode(loginVM.Password));
 
-                //重新導向頁面
+                //1.建立FormsAuthenticationTicket
+                var ticket = new FormsAuthenticationTicket(
+                            version: 1,
+                            name: loginMember.Email.ToString(), //可以放使用者Id
+                            issueDate: DateTime.UtcNow,//現在UTC時間
+                            expiration: DateTime.UtcNow.AddMinutes(30),//Cookie有效時間=現在時間往後+30分鐘
+                            isPersistent: loginMember.Remember,// 是否要記住我 true or false
+                            userData: "", //可以放使用者角色名稱
+                            cookiePath: FormsAuthentication.FormsCookiePath);
+
+                //2.加密Ticket
+                var encryptedTicket = FormsAuthentication.Encrypt(ticket);
+
+                //3.Create the cookie.
+                var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                Response.Cookies.Add(cookie);
+
+                ////4.取得original URL.
+                //var url = FormsAuthentication.GetRedirectUrl(email, true);
+
+                ////5.導向original URL
+                //return Redirect(url);
+
                 FormsAuthentication.RedirectFromLoginPage(loginMember.Email, true);
-                //TempData["LoginState"] = User.Identity.Name;
-                TempData["LoginState"] = "成功";
+                //TempData["LoginState"] = "Welcome!";
+                //return RedirectToAction("LoginResult");
 
-                //return Redirect("~/Members/LoginResult");
-                //return RedirectToAction("ePal", "ePal");
-                return RedirectToAction("LoginResult");
+
+
+
+                //獲取使用者登錄中的資訊
+                string loginName = Request["email"];
+                string password = Request["password"];
+
+                //把使用者的資訊儲存在session中
+                Session[LoginUserKey] = loginMember.Email;
+
+                //獲取該頁面url的參數資訊
+                string returnURL = Request.Params["HTTP_REFERER"];
+                int index = returnURL.IndexOf('=');
+                returnURL = returnURL.Substring(index + 1);
+
+                //如果參數為空，則跳轉到首頁，否則切回原頁面
+                if (string.IsNullOrEmpty(returnURL))
+                    return Redirect("/Home/HomePage");
+                else
+                    return Redirect(returnURL);
+                //return Redirect(Request.QueryString["URL"]);
+
+
             }
             else
             {
@@ -105,18 +188,64 @@ namespace Build_School_Project_No_4.Controllers
                 TempData["LoginState"] = "登入資訊有誤，請重新登入";
                 //重新導向頁面
                 return RedirectToAction("LoginResult");
-
-                ////有驗證錯誤訊息，加入頁面模型中
-                //ModelState.AddModelError("", ValidateStr);
-                ////將資料回填至View中
-                //return View(loginMember);
             }
 
 
 
+
+
+
+            //v2
+            ////判斷驗證結果是否有錯誤訊息
+            //if (String.IsNullOrEmpty(ValidateStr))
+            //{
+            //    //無錯誤訊息則登入
+            //    ////先藉由Service取得登入者角色資料
+            //    //string RoleData = _MemberService.GetRole(loginMember.Email);
+            //    //設定JWT
+            //    JwtService jwtService = new JwtService();
+            //    //從Web.Config撈出資料
+            //    //Cookie名稱
+            //    string cookieName = WebConfigurationManager.AppSettings["CookieName"].ToString();
+            //    string Token = jwtService.GenerateToken(loginMember.Email);
+            //    //產生一個Cookie
+            //    HttpCookie cookie = new HttpCookie(cookieName);
+            //    //設定單值
+            //    cookie.Value = Server.UrlEncode(Token);
+            //    //寫到用戶端
+            //    Response.Cookies.Add(cookie);
+            //    //設定Cookie期限
+            //    Response.Cookies[cookieName].Expires = DateTime.Now.AddMinutes(Convert.ToInt32(WebConfigurationManager.AppSettings["ExpireMinutes"]));
+
+            //    //重新導向頁面
+            //    //FormsAuthentication.RedirectFromLoginPage(loginMember.Email, true);
+            //    //TempData["LoginState"] = User.Identity.Name;
+            //    TempData["LoginState"] = "成功";
+
+            //    //return Redirect("~/Members/LoginResult");
+            //    //return RedirectToAction("ePal", "ePal");
+            //    return RedirectToAction("LoginResult");
+            //}
+            //else
+            //{
+            //    //用TempData儲存登入訊息
+            //    TempData["LoginState"] = "登入資訊有誤，請重新登入";
+            //    //重新導向頁面
+            //    return RedirectToAction("LoginResult");
+
+            //    ////有驗證錯誤訊息，加入頁面模型中
+            //    //ModelState.AddModelError("", ValidateStr);
+            //    ////將資料回填至View中
+            //    //return View(loginMember);
+            //}
+
+
+
+
+            //v1
             //var member = _MemberService.MemberLoginData()
-            //            .Where(m => m.Email == Email && m.Password == Password)
-            //            .FirstOrDefault();
+            //.Where(m => m.Email == Email && m.Password == Password)
+            //.FirstOrDefault();
             ////DM -> VM
             //GroupViewModel MemberData = new GroupViewModel
             //{
@@ -135,19 +264,25 @@ namespace Build_School_Project_No_4.Controllers
             //FormsAuthentication.RedirectFromLoginPage(Email, true);
             //return RedirectToAction("RecommenedController", "Recommend");
             ////return View();
+
         }
 
         //[Authorize]
         //登入結果
         public ActionResult LoginResult()
         {
-            //return "<p>" + User.Identity.Name + "您好<p>";
+            
             return View();
         }
 
 
 
-        [AllowAnonymous]
+
+
+
+
+
+        //[AllowAnonymous]
         //Get:Members/Register
         public ActionResult Register()
         {
@@ -155,7 +290,7 @@ namespace Build_School_Project_No_4.Controllers
         }
 
         //Post:Members/Register
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(GroupViewModel newMember)
@@ -355,6 +490,14 @@ namespace Build_School_Project_No_4.Controllers
         //    return RedirectToAction("ePal", "ePal");
 
         //}
+
+
+
+
+
+
+
+
 
 
 

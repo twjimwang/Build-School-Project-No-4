@@ -100,7 +100,7 @@ namespace Build_School_Project_No_4.Services
 
 
         //由email取得單筆資料
-        private Member GetDataByAccount(string Email)
+        public Member GetDataByAccount(string Email)
         {
             Member Data = new Member();
             try

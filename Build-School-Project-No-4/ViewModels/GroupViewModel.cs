@@ -37,6 +37,8 @@ namespace Build_School_Project_No_4.ViewModels
 
         public bool? IsAdmin { get; set; }
 
+        [Display(Name = "記得我")]
+        public bool Remember { get; set; }
 
 
     }
