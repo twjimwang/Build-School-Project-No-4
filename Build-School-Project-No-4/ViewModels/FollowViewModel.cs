@@ -12,5 +12,8 @@ namespace Build_School_Project_No_4.ViewModels
         public string MemberName { get; set; }
         public int? Gender { get; set; }
         public string LineStatus { get; set; }
+        public string ProfilePicture { get; set; }
+
+
     }
 }

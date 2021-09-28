@@ -202,6 +202,7 @@
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\FilterController.cs" />
+    <Compile Include="Controllers\FollowController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeForPhoneController.cs" />
@@ -285,6 +286,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\JwtObject.cs" />
     <Compile Include="Security\JwtService.cs" />
+    <Compile Include="Services\FollowService.cs" />
     <Compile Include="Services\MailService.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -580,6 +582,7 @@
     <Content Include="Assets\OrderImages\order.png" />
     <Content Include="Assets\WalletImages\Income.png" />
     <Content Include="Assets\WalletImages\Money.png" />
+    <Content Include="Assets\WalletImages\nobody.png" />
     <Content Include="Assets\WalletImages\wallet.png" />
     <Content Include="bin\Build-School-Project-No-4.dll" />
     <Content Include="bin\Build-School-Project-No-4.pdb" />
@@ -687,6 +690,7 @@
     <Content Include="Views\Members\Logout.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Profile\ProFile.cshtml" />
+    <Content Include="Views\Follow\Followings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
