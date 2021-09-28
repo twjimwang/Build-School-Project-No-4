@@ -55,6 +55,8 @@ namespace Build_School_Project_No_4.Services
             result.GameAll = _repo.GetAll<GameCategory>().Select(x => x.GameName).ToList();
             return result;
         }
+
+
    }
     
 }
