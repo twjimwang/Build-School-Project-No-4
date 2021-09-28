@@ -343,10 +343,8 @@
                                                                 <span>@m.Position</span>
                                                             </div>
                                                         </div>
-
-
-
                                                         <div class="user-Voice">
+                                                            <audio id="audio" src="@m.RecommendationVoice"></audio>
                                                             <div class="voice-Left">
                                                                 <span class="w-15"></span>
                                                                 <span class="w-10"></span>
@@ -356,8 +354,6 @@
                                                                 <i class="fas fa-play"></i>
                                                             </div>
                                                         </div>
-
-
                                                     </div>
                                                     <div class="card-Footer">
                                                         <div class="footer-Discound">
@@ -1546,6 +1542,7 @@
         let VoiceBtn = document.querySelector('.user-Voice')
         let spanOdd = document.querySelectorAll('.voice-Left span:nth-child(odd)')
         let spanEven = document.querySelectorAll('.voice-Left span:nth-child(even)')
+        let audio = document.getElementById('audio')
         console.log(spanEven[0])
         spanOdd.forEach(item => {
             VoiceBtn.addEventListener('click', () => {
@@ -1553,6 +1550,7 @@
                     item.classList.toggle('w-15')
                     item.classList.toggle('w-10')
                 }, 400)
+                audio.play();
             })
         })
         spanEven.forEach(item => {
@@ -1563,6 +1561,9 @@
                 }, 400)
             })
         })
+        
+        
+        
         // sideBar
         let left = document.querySelector('.left');
         let navBar = document.querySelector('.top_navbar');
