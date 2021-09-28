@@ -7,15 +7,15 @@ namespace Build_School_Project_No_4.ViewModels
 {
     public class DetailViewModel
     {
-        string MemberName { get; set; }
-        string Status { get; set; }
-        double UnitPrice { get; set; }
-        string Recording { get; set; }
-        string Intro { get; set; }
-        string PlayerPic { get; set; }
-        string GameScreenshot { get; set; }
-        string GameName { get; set; }
-        string GameBackdrop { get; set; }
+        public string MemberName { get; set; }
+        public string Status { get; set; }
+        public double UnitPrice { get; set; }
+        public string Recording { get; set; }
+        public string Intro { get; set; }
+        public string PlayerPic { get; set; }
+        public string GameScreenshot { get; set; }
+        public string GameName { get; set; }
+        public string GameBackdrop { get; set; }
 
     }
 }
