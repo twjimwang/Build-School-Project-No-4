@@ -15,8 +15,6 @@ namespace Build_School_Project_No_4.DataModels
 
         public int SatisfyTagId { get; set; }
 
-        public virtual CommentDetail CommentDetail { get; set; }
-
         public virtual SatisfyTag SatisfyTag { get; set; }
     }
 }
