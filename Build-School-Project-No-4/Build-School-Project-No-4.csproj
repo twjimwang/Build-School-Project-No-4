@@ -202,12 +202,14 @@
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\FilterController.cs" />
+    <Compile Include="Controllers\FollowController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeForPhoneController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\Page404Controller.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RecommendController.cs" />
     <Compile Include="Controllers\SettingsAccountController.cs" />
@@ -285,12 +287,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\JwtObject.cs" />
     <Compile Include="Security\JwtService.cs" />
+    <Compile Include="Services\FollowService.cs" />
     <Compile Include="Services\MailService.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\ProfileEpalService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\FollowViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\MemberInfoViewModel.cs" />
     <Compile Include="ViewModels\MemberLoginViewModel.cs" />
@@ -298,6 +303,7 @@
     <Compile Include="ViewModels\MemberViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Compile Include="ViewModels\ProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AboutUsImages\about.png" />
@@ -578,6 +584,7 @@
     <Content Include="Assets\OrderImages\order.png" />
     <Content Include="Assets\WalletImages\Income.png" />
     <Content Include="Assets\WalletImages\Money.png" />
+    <Content Include="Assets\WalletImages\nobody.png" />
     <Content Include="Assets\WalletImages\wallet.png" />
     <Content Include="bin\Build-School-Project-No-4.dll" />
     <Content Include="bin\Build-School-Project-No-4.pdb" />
@@ -684,6 +691,8 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Members\Logout.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Profile\ProFile.cshtml" />
+    <Content Include="Views\Follow\Followings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
