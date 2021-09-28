@@ -1,4 +1,4 @@
-﻿
+﻿@model GroupViewModel
 <div class="Sidebar ">
     <input type="checkbox" name="" id="Side-menu-switch">
     <div class="Side-menu">
@@ -15,6 +15,8 @@
         </label>
     </div>
 </div>
+
+
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-10 col-sm-10">
@@ -26,6 +28,9 @@
                     </div>
                 </div>
             </div>
+
+
+            @*個人頭貼*@
             <div class="container">
                 <div class="row">
                     <div class="wrapper col-12 col-md-2 col-sm-3">
@@ -52,10 +57,39 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-10 col-sm-10">
-                    <h1>Profile Information</h1>
+                    <h1 class="profileinfo">Profile Information</h1>
                 </div>
             </div>
-            <div class="container">
+
+            <div class="panel-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.LabelFor(x => x.MemberData.MemberName)<br />
+                    @Html.EditorFor(x => x.MemberData.MemberName)<br />
+                    @Html.LabelFor(x => x.MemberData.Phone)<br />
+                    @Html.EditorFor(x => x.MemberData.Phone)<br />
+                    @Html.LabelFor(x => x.MemberData.Country)<br />
+                    @Html.EditorFor(x => x.MemberData.Country)<br />
+                    @*@Html.LabelFor(x => x.MemberData.CityId) @Html.EditorFor(x => x.MemberData.CityId)*@
+                    @Html.LabelFor(x => x.MemberData.Gender)<br />
+                    @Html.EditorFor(x => x.MemberData.Gender)<br />
+                    @Html.LabelFor(x => x.MemberData.BirthDay)<br />
+                    @Html.EditorFor(x => x.MemberData.BirthDay)<br />
+                    @Html.LabelFor(x => x.MemberData.TimeZone)<br />
+                    @Html.EditorFor(x => x.MemberData.TimeZone)<br />
+                    @Html.LabelFor(x => x.MemberData.LanguageId)<br />
+                    @Html.EditorFor(x => x.MemberData.LanguageId)<br />
+                    @Html.LabelFor(x => x.MemberData.Bio)<br />
+                    @Html.EditorFor(x => x.MemberData.Bio)<br />
+
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                }
+            </div>
+
+
+
+            @*個人資訊*@
+            <!--<div class="container">
                 <div class="row">
                     <div class="textitem col-12 col-md-9 col-sm-9">
                         <p>Name</p>
@@ -113,9 +147,9 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="buttonnone d-grid gap-2 d-md-flex justify-content-md-end">
-                            <!-- <button class="button button2">Save Change</button> -->
-                            <button type="button" class="button2 btn btn-secondary btn-lg" disabled>Save Change</button>
+                        <div class="buttonnone d-grid gap-2 d-md-flex justify-content-md-end">-->
+            <!-- <button class="button button2">Save Change</button> -->
+            <!--<button type="button" class="button2 btn btn-secondary btn-lg" disabled>Save Change</button>
                         </div>
                     </div>
                     <div class="container">
@@ -145,49 +179,88 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
+
+
+
 @section topCSS{
     <style>
-          header{
-            height:66px;
+        header {
+            height: 66px;
         }
-      
+
         body {
-            margin: auto ;
+            margin: auto;
             padding: 20px;
             color: aliceblue;
             font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
             background-color: rgb(18, 14, 27);
         }
+
+
+        div.panel-body > form > label {
+            width: 100px;
+            text-align: right;
+            margin-right: 0.5em;
+            padding-top: 0.2em;
+            padding-right: 1em;
+            font-weight: bold;
+            /*background-color: lightpink;*/
+            border-radius: 5px;
+        }
+
+
         @@media screen and (max-width: 767px) {
             .Side-menu {
-
                 width: 95%;
             }
-            .wrapper{
+
+            .wrapper {
                 text-align: center;
             }
 
             .buttonnone {
                 display: none !important;
             }
+
             .spancontent {
                 display: none !important;
             }
+
             header {
                 height: 0px;
             }
         }
         /* 手機橫向 md*/
         @@media screen and (min-width: 768px) {
-            .ipadrow{
-               margin: 16px;
+            .ipadrow {
+                margin: 16px;
             }
-            .catlogo{
+
+            .catlogo {
                 margin: 3px;
+            }
+
+            .Profilecenter {
+                padding-top: 30px;
+            }
+
+                .Profilecenter p {
+                    padding-top: 10px;
+                    font-size: 30px;
+                }
+
+            .spancontent {
+                font-size: 14px;
+                font-weight: 300;
+            }
+
+            .profileinfo {
+                padding-bottom: 10px;
+                font-size: 16px;
             }
         }
         /* iPad橫向 lg*/
@@ -195,7 +268,8 @@
             .Side-menu {
                 width: 200px;
             }
-            .catlogo{
+
+            .catlogo {
                 margin: 20px;
             }
             /* .spancontent{
@@ -203,19 +277,24 @@
             } */
         }
         /* iPad Pro橫向 & 桌機 xl*/
-        @@media screen and (min-width: 1200px) {}
+        @@media screen and (min-width: 1200px) {
+        }
+
         .list-group {
             padding: 20px;
             height: 100vh;
             background-color: rgb(33, 33, 44);
         }
+
         .text a {
             font-size: 15px;
             color: white;
         }
+
         .fas {
             color: #fff;
         }
+
         .Side-menu label {
             position: absolute;
             width: 40px;
@@ -223,33 +302,37 @@
             top: 0;
             right: -43px;
         }
+
         .buttonnone {
             padding: 7px;
-
-
             border-radius: 10%;
         }
+
         #Side-menu-switch {
             position: absolute;
             opacity: 0;
         }
-        #Side-menu-switch:checked+.Side-menu {
-            transform: translateX(0);
-        }
 
-        #Side-menu-switch:checked+.Side-menu label .fas {
-            transform: scale(-1);
-        }
+            #Side-menu-switch:checked + .Side-menu {
+                transform: translateX(0);
+            }
+
+                #Side-menu-switch:checked + .Side-menu label .fas {
+                    transform: scale(-1);
+                }
+
         .Sidebar {
             z-index: 10;
             position: fixed;
         }
+
         .imagefile img {
             display: block;
             margin-left: auto;
             margin-right: auto;
             border-radius: 70%;
         }
+
         .Profilecenter {
             text-align: center;
         }
@@ -257,15 +340,17 @@
         html,
         body {
             font-size: 10px;
-            color:white;
+            color: white;
             font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
             height: 100%;
         }
+
         .tab-title a {
             margin: 10px;
             padding: 5px;
             display: block;
         }
+
         .Side-menu {
             z-index: 3;
             position: fixed;
@@ -279,11 +364,12 @@
             display: flex;
             flex-direction: column;
         }
-        .Side-menu a {
-            text-decoration: none;
-            color: #fff;
 
-        }
+            .Side-menu a {
+                text-decoration: none;
+                color: #fff;
+            }
+
         .button1 {
             width: 130px;
             background-color: rgb(110, 67, 232);
@@ -293,6 +379,7 @@
             font-size: 14px;
             padding: 3px 0;
         }
+
         .button2 {
             width: 130px;
             background-color: rgb(33, 33, 44);
@@ -303,11 +390,13 @@
             font-size: 14px;
             padding: 3px 0;
         }
+
         .cameraicon {
             background-color: darkgreen;
             position: absolute;
         }
-       .catlogo label{
+
+        .catlogo label {
             position: relative;
             border-radius: 50%;
             width: 100px;
@@ -315,22 +404,26 @@
             background-image: url(/Assets/Edit_ProfileImages/avatar.png);
             background-position: center;
         }
-        .catlogo .fas{
-         left: 45px;
-         bottom: 40px;
+
+        .catlogo .fas {
+            left: 45px;
+            bottom: 40px;
         }
 
-        label~input {
+        label ~ input {
             overflow: hidden;
             display: none !important;
             opacity: 0;
         }
+
         label .fas {
             position: absolute;
         }
-        .selectcolor{
-           color:  rgba(240, 248, 255, 0.267);
+
+        .selectcolor {
+            color: rgba(240, 248, 255, 0.267);
         }
+
         textarea {
             resize: none;
         }
@@ -340,28 +433,41 @@
             margin-top: -100px;
             margin-right: 50px;
         }
-        .wordcount{
-            color:white;
+
+        .wordcount {
+            color: white;
             position: relative;
         }
-        .wordcountspan{
+
+        .wordcountspan {
             right: -40px;
             bottom: 30px;
             position: absolute;
         }
-        .wordcounttextarea{
 
+        .wordcounttextarea {
             background-color: rgb(33, 33, 44);
         }
-        .title h1{
+
+        .title h1 {
             font-size: 25px;
         }
-        .title p{
+
+        .title p {
             right: 20px;
             font-size: 10px;
         }
-
     </style>
 
 
+}
+
+
+@section endJS{
+    <script>
+        $(function () {
+            $("<br/>").insertAfter("input");
+            $("<br/>").insertAfter("textarea");
+        });
+    </script>
 }

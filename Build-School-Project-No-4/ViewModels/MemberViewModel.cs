@@ -11,6 +11,7 @@ namespace Build_School_Project_No_4.ViewModels
     {
         public int MemberId { get; set; }
         
+        [Display(Name="Name")]
         public string MemberName { get; set; }
 
         [DataType(DataType.Date)]

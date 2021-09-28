@@ -205,6 +205,7 @@
                                         <a href="#">
                                             <div style="color:white">@(User.Identity.Name)</div>
                                         </a>
+                                        @Html.HiddenFor(model => model.MemberId, new { @class = "", id = "memberId" })
                                     </div>
                                     <div class="aside-close">
                                         <button type="button" class="btn-close btn-close-white" aria-label="Close"
