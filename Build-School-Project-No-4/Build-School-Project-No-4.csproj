@@ -241,6 +241,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Utility.cs" />
     <Compile Include="Migrations\202109200332179_InitialCreate.cs" />
     <Compile Include="Migrations\202109200332179_InitialCreate.Designer.cs">
       <DependentUpon>202109200332179_InitialCreate.cs</DependentUpon>
@@ -291,6 +292,7 @@
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\MemberInfoViewModel.cs" />
     <Compile Include="ViewModels\MemberLoginViewModel.cs" />
     <Compile Include="ViewModels\MemberRegisterViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />

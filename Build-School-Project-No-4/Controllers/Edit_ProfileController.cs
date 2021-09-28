@@ -14,7 +14,9 @@ namespace Build_School_Project_No_4.Controllers
             return View();
         }
 
-        [HttpPost]
+
+
+        //[HttpPost]
         public ActionResult Edit_Profile()
         {
             //RegisterDataAnnotations register = new RegisterDataAnnotations
