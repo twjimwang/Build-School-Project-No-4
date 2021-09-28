@@ -35,16 +35,17 @@ namespace Build_School_Project_No_4.Services
                 CreatorImg = p.CreatorImg,
                 Introduction = p.Introduction,
                 RecommendationVoice = p.RecommendationVoice,
-                LineStatus = _repo.GetAll<Member>().First(x=>x.MemberId == p.CreatorId).MemberName,
+                LineStatus = _repo.GetAll<Member>().First(x=>x.MemberId == p.CreatorId).LineStatus,
                 CreatorName = _repo.GetAll<Member>().First(x=>x.MemberId == p.CreatorId).MemberName,
                 StarLevel = _repo.GetAll<CommentDetail>().FirstOrDefault(x=>x.ProductId == p.ProductId).StarLevel,
                 Rank = _repo.GetAll<Rank>().FirstOrDefault(x=>x.RankId == p.RankId).RankName,
-                Position = _repo.GetAll<Position>().FirstOrDefault(y => y.PositionId == (ProductPosition.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName
+                Position = _repo.GetAll<Position>().FirstOrDefault(y => y.PositionId == (ProductPosition.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
             }).ToList();
 
             result.ProductCards = productCards;
             result.GameCoverImg = category.GameCoverImg;
             result.GameTitle = category.GameName;
+            result.CategroyId = categoryId;
             return result;
         }
 

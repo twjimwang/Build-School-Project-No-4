@@ -1,284 +1,249 @@
 ﻿@model GroupViewModel
-
 <div class="wrapper">
-    
-        <div class="section">
-            <div id="root">
-                <div class="main">
-                    <!-- Main-Body -->
-                    <div class="main-Body">
-                        <!-- Main-Body-Header -->
-                        <div class="main-Body-Header">
-                            <!-- Main-Body-Header-Title -->
 
-                            <div class="body-Header-Title">
-                                <div class="title-Text">
-                                    <h1>@Model.ProductCards.GameTitle</h1>
-                                    <div class="start-Icon">
-                                        <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632638187/Independent%20Study/OtherPhoto/star_swl8yv.jpg"
-                                             alt="">
-                                    </div>
-                                </div>
-                                <div class="title-Match">
-                                    <button class="btn" type="button"><span>Matching</span></button>
+    <div class="section">
+        <div id="root">
+            <div class="main">
+                <!-- Main-Body -->
+                <div class="main-Body">
+                    <!-- Main-Body-Header -->
+                    <div class="main-Body-Header">
+                        <!-- Main-Body-Header-Title -->
+
+                        <div class="body-Header-Title">
+                            <div class="title-Text">
+                                <h1>@Model.ProductCards.GameTitle</h1>
+                                <div class="start-Icon">
+                                    <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632638187/Independent%20Study/OtherPhoto/star_swl8yv.jpg"
+                                         alt="">
                                 </div>
                             </div>
+                            <div class="title-Match">
+                                <button class="btn" type="button"><span>Matching</span></button>
+                            </div>
+                        </div>
 
 
-                            <!-- Main-Body-Header-Filter -->
-                            <div class="body-Header-Filter">
-                                <div class="filter-Person">
-                                    <a class="filter-Person-Item" href="#">
-                                        <p>All</p>
-                                    </a>
-                                    <a class="filter-Person-Item" href="#">
-                                        <p>Creator</p>
-                                    </a>
-                                    <a class="filter-Person-Item" href="#">
-                                        <p>Coach</p>
-                                    </a>
-                                </div>
-                                <div class="filter-Game">
-                                    <div class="filter-Game-Left">
-                                        <div class="filter-Game-Text">Filter</div>
-                                        <div class="btn-Box">
-                                            <button id="group-Btn" class="btn" type="button">Click me</button>
-                                        </div>
-                                        <div class="filter-Game-Group">
-                                            <div class="filter-Game-Item">
-                                                <input type="checkbox" id="filter-Item-check-1">
-                                                <label for="filter-Item-check-1">
-                                                    <div class="filter-Item-Text">Server</div>
-                                                    <div class="filter-Icon">
-                                                        <i class="fas fa-caret-down"></i>
-                                                    </div>
-                                                    <div class="gameFilter-Item-SelectWrapper">
-                                                        <div class="selectWrapper-List">
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>OCE</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>NA</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>LAN</p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            <div class="filter-Game-Item">
-                                                <input type="checkbox" id="filter-Item-check-2">
-                                                <label for="filter-Item-check-2">
-                                                    <div class="filter-Item-Text">Language</div>
-                                                    <div class="filter-Icon">
-                                                        <i class="fas fa-caret-down"></i>
-                                                    </div>
-                                                    <div class="gameFilter-Item-SelectWrapper">
-                                                        <div class="selectWrapper-List">
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>OCE</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>NA</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>LAN</p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            <div class="filter-Game-Item">
-                                                <input type="checkbox" id="filter-Item-check-3">
-                                                <label for="filter-Item-check-3">
-                                                    <div class="filter-Item-Text">Gender</div>
-                                                    <div class="filter-Icon">
-                                                        <i class="fas fa-caret-down"></i>
-                                                    </div>
-                                                    <div class="gameFilter-Item-SelectWrapper">
-                                                        <div class="selectWrapper-List">
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>OCE</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>NA</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>LAN</p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            <div class="filter-Game-Item">
-                                                <input type="checkbox" id="filter-Item-check-4">
-                                                <label for="filter-Item-check-4">
-                                                    <div class="filter-Item-Text">All Status</div>
-                                                    <div class="filter-Icon">
-                                                        <i class="fas fa-caret-down"></i>
-                                                    </div>
-                                                    <div class="gameFilter-Item-SelectWrapper">
-                                                        <div class="selectWrapper-List">
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>OCE</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>NA</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>LAN</p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            <div class="filter-Game-Item">
-                                                <input type="checkbox" id="filter-Item-check-5">
-                                                <label for="filter-Item-check-5">
-                                                    <div class="filter-Item-Text">Promotion</div>
-                                                    <div class="filter-Icon">
-                                                        <i class="fas fa-caret-down"></i>
-                                                    </div>
-                                                    <div class="gameFilter-Item-SelectWrapper">
-                                                        <div class="selectWrapper-List">
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>OCE</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>NA</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>LAN</p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            <div class="filter-Game-Item">
-                                                <input type="checkbox" id="filter-Item-check-6">
-                                                <label for="filter-Item-check-6">
-                                                    <div class="filter-Item-Text">Price</div>
-                                                    <div class="filter-Icon">
-                                                        <i class="fas fa-caret-down"></i>
-                                                    </div>
-                                                    <div class="gameFilter-Item-SelectWrapper">
-                                                        <div class="selectWrapper-List">
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>OCE</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>NA</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>LAN</p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            <div class="filter-Game-Item">
-                                                <input type="checkbox" id="filter-Item-check-7">
-                                                <label for="filter-Item-check-7">
-                                                    <div class="filter-Item-Text">Role</div>
-                                                    <div class="filter-Icon">
-                                                        <i class="fas fa-caret-down"></i>
-                                                    </div>
-                                                    <div class="gameFilter-Item-SelectWrapper">
-                                                        <div class="selectWrapper-List">
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>OCE</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>NA</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>LAN</p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            <div class="filter-Game-Item">
-                                                <input type="checkbox" id="filter-Item-check-8">
-                                                <label for="filter-Item-check-8">
-                                                    <div class="filter-Item-Text">Age</div>
-                                                    <div class="filter-Icon">
-                                                        <i class="fas fa-caret-down"></i>
-                                                    </div>
-                                                    <div class="gameFilter-Item-SelectWrapper">
-                                                        <div class="selectWrapper-List">
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>OCE</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>NA</p>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="list-Item">
-                                                                    <p>LAN</p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                        </div>
+                        <!-- Main-Body-Header-Filter -->
+                        <div class="body-Header-Filter">
+                            <div class="filter-Person">
+                                <a class="filter-Person-Item" href="#">
+                                    <p>All</p>
+                                </a>
+                                <a class="filter-Person-Item" href="#">
+                                    <p>Creator</p>
+                                </a>
+                                <a class="filter-Person-Item" href="#">
+                                    <p>Coach</p>
+                                </a>
+                            </div>
+                            <div class="filter-Game">
+                                <div class="filter-Game-Left">
+                                    <div class="filter-Game-Text">Filter</div>
+                                    <div class="btn-Box">
+                                        <button id="group-Btn" class="btn" type="button">Click me</button>
                                     </div>
-                                    <div class="filter-Game-Right">
-                                        <div class="filter-Game-Text">
-                                            Sort by
+                                    <div class="filter-Game-Group">
+                                        <div class="filter-Game-Item">
+                                            <input type="checkbox" id="filter-Item-check-1">
+                                            <label for="filter-Item-check-1">
+                                                <div class="filter-Item-Text">Server</div>
+                                                <div class="filter-Icon">
+                                                    <i class="fas fa-caret-down"></i>
+                                                </div>
+                                                <div class="gameFilter-Item-SelectWrapper">
+                                                    <div class="selectWrapper-List">
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>OCE</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>NA</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>LAN</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </label>
                                         </div>
                                         <div class="filter-Game-Item">
-                                            <input type="checkbox" id="filter-Item-check-10">
-                                            <label for="filter-Item-check-10">
-                                                <div class="filter-Item-Text">General</div>
+                                            <input type="checkbox" id="filter-Item-check-2">
+                                            <label for="filter-Item-check-2">
+                                                <div class="filter-Item-Text">Language</div>
+                                                <div class="filter-Icon">
+                                                    <i class="fas fa-caret-down"></i>
+                                                </div>
+                                                <div class="gameFilter-Item-SelectWrapper">
+                                                    <div class="selectWrapper-List">
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>OCE</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>NA</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>LAN</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="filter-Game-Item">
+                                            <input type="checkbox" id="filter-Item-check-3">
+                                            <label for="filter-Item-check-3">
+                                                <div class="filter-Item-Text">Gender</div>
+                                                <div class="filter-Icon">
+                                                    <i class="fas fa-caret-down"></i>
+                                                </div>
+                                                <div class="gameFilter-Item-SelectWrapper">
+                                                    <div class="selectWrapper-List">
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>OCE</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>NA</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>LAN</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="filter-Game-Item">
+                                            <input type="checkbox" id="filter-Item-check-4">
+                                            <label for="filter-Item-check-4">
+                                                <div class="filter-Item-Text">All Status</div>
+                                                <div class="filter-Icon">
+                                                    <i class="fas fa-caret-down"></i>
+                                                </div>
+                                                <div class="gameFilter-Item-SelectWrapper">
+                                                    <div class="selectWrapper-List">
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>OCE</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>NA</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>LAN</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="filter-Game-Item">
+                                            <input type="checkbox" id="filter-Item-check-5">
+                                            <label for="filter-Item-check-5">
+                                                <div class="filter-Item-Text">Promotion</div>
+                                                <div class="filter-Icon">
+                                                    <i class="fas fa-caret-down"></i>
+                                                </div>
+                                                <div class="gameFilter-Item-SelectWrapper">
+                                                    <div class="selectWrapper-List">
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>OCE</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>NA</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>LAN</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="filter-Game-Item">
+                                            <input type="checkbox" id="filter-Item-check-6">
+                                            <label for="filter-Item-check-6">
+                                                <div class="filter-Item-Text">Price</div>
+                                                <div class="filter-Icon">
+                                                    <i class="fas fa-caret-down"></i>
+                                                </div>
+                                                <div class="gameFilter-Item-SelectWrapper">
+                                                    <div class="selectWrapper-List">
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>OCE</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>NA</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>LAN</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="filter-Game-Item">
+                                            <input type="checkbox" id="filter-Item-check-7">
+                                            <label for="filter-Item-check-7">
+                                                <div class="filter-Item-Text">Role</div>
+                                                <div class="filter-Icon">
+                                                    <i class="fas fa-caret-down"></i>
+                                                </div>
+                                                <div class="gameFilter-Item-SelectWrapper">
+                                                    <div class="selectWrapper-List">
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>OCE</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>NA</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="list-Item">
+                                                                <p>LAN</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="filter-Game-Item">
+                                            <input type="checkbox" id="filter-Item-check-8">
+                                            <label for="filter-Item-check-8">
+                                                <div class="filter-Item-Text">Age</div>
                                                 <div class="filter-Icon">
                                                     <i class="fas fa-caret-down"></i>
                                                 </div>
@@ -305,138 +270,171 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="filter-Game-Right">
+                                    <div class="filter-Game-Text">
+                                        Sort by
+                                    </div>
+                                    <div class="filter-Game-Item">
+                                        <input type="checkbox" id="filter-Item-check-10">
+                                        <label for="filter-Item-check-10">
+                                            <div class="filter-Item-Text">General</div>
+                                            <div class="filter-Icon">
+                                                <i class="fas fa-caret-down"></i>
+                                            </div>
+                                            <div class="gameFilter-Item-SelectWrapper">
+                                                <div class="selectWrapper-List">
+                                                    <a href="#">
+                                                        <div class="list-Item">
+                                                            <p>OCE</p>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="list-Item">
+                                                            <p>NA</p>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="list-Item">
+                                                            <p>LAN</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!-- Main-Body-cardArea -->
-                        <div class="main-Body-CardArea">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    @foreach (var m in Model.ProductCards.ProductCards)
-                                    {
-                                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 my-3">
-                                            <div class="item-Card">
-                                                <a href="#" id="card">
-                                                    <div class="card">
-                                                        <div class="card-Head">
-                                                            <div class="head-Person-Pic">
-                                                                <img src=@m.CreatorImg alt="">
-                                                                <div class="head-Status">
-                                                                    <div class="status-Pic">
-                                                                        <img src=@m.LineStatus
-                                                                             alt="">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-Body">
-                                                            <div class="user-Info">
-                                                                <div class="user-Info-Name">
-                                                                    <span>@m.CreatorName</span>
-                                                                </div>
-                                                                <div class="uesr-Info-Icon">
-                                                                    <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632637505/Independent%20Study/OtherPhoto/Level_db9q6b.jpg"
+                    </div>
+                    <!-- Main-Body-cardArea -->
+                    <div class="main-Body-CardArea">
+                        <div class="container-fluid">
+                            <div class="row">
+                                @foreach (var m in Model.ProductCards.ProductCards)
+                                {
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 my-3">
+                                        <div class="item-Card">
+                                            <a href="#" id="card">
+                                                <div class="card">
+                                                    <div class="card-Head">
+                                                        <div class="head-Person-Pic">
+                                                            <img src=@m.CreatorImg alt="">
+                                                            <div class="head-Status">
+                                                                <div class="status-Pic">
+                                                                    <img src=@m.LineStatus
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            <div class="user-Title">
-                                                                <div class="user-Title-Item">
-                                                                    <span>@m.Rank</span>
-                                                                    <span>@m.Position</span>
-                                                                </div>
-                                                            </div>
-
-
-
-                                                            <div class="user-Voice">
-                                                                <div class="voice-Left">
-                                                                    <span class="w-15"></span>
-                                                                    <span class="w-10"></span>
-                                                                    <span class="w-15"></span>
-                                                                </div>
-                                                                <div class="voice-Right">
-                                                                    <i class="fas fa-play"></i>
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-                                                        <div class="card-Footer">
-                                                            <div class="footer-Discound">
-                                                                <p>1st ORDER FREE</p>
-                                                            </div>
-                                                            <div class="footer-Price">
-                                                                <div class="price">
-                                                                    <div class="price-Icon">
-                                                                        <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632637598/Independent%20Study/OtherPhoto/Icon2_w7mcnt.jpg"
-                                                                             alt="">
-                                                                    </div>
-                                                                    <div class="price-Text">
-                                                                        <p>
-                                                                            <span>@m.UnitPrice</span>.00/G
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="rate">
-                                                                    <div class="rate-Icon">
-                                                                        <i class="fas fa-star"></i>
-                                                                    </div>
-                                                                    <div class="rate-Text">
-                                                                        <p>
-                                                                            @m.StarLevel.0
-                                                                            <span>(85)</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
                                                         </div>
                                                     </div>
-                                                </a>
+                                                    <div class="card-Body">
+                                                        <div class="user-Info">
+                                                            <div class="user-Info-Name">
+                                                                <span>@m.CreatorName</span>
+                                                            </div>
+                                                            <div class="uesr-Info-Icon">
+                                                                <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632637505/Independent%20Study/OtherPhoto/Level_db9q6b.jpg"
+                                                                     alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="user-Title">
+                                                            <div class="user-Title-Item">
+                                                                <span>@m.Rank</span>
+                                                                <span>@m.Position</span>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="user-Voice">
+                                                            <div class="voice-Left">
+                                                                <span class="w-15"></span>
+                                                                <span class="w-10"></span>
+                                                                <span class="w-15"></span>
+                                                            </div>
+                                                            <div class="voice-Right">
+                                                                <i class="fas fa-play"></i>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="card-Footer">
+                                                        <div class="footer-Discound">
+                                                            <p>1st ORDER FREE</p>
+                                                        </div>
+                                                        <div class="footer-Price">
+                                                            <div class="price">
+                                                                <div class="price-Icon">
+                                                                    <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632637598/Independent%20Study/OtherPhoto/Icon2_w7mcnt.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="price-Text">
+                                                                    <p>
+                                                                        <span>@m.UnitPrice</span>.00/G
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rate">
+                                                                <div class="rate-Icon">
+                                                                    <i class="fas fa-star"></i>
+                                                                </div>
+                                                                <div class="rate-Text">
+                                                                    <p>
+                                                                        @m.StarLevel.0
+                                                                        <span>(85)</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                            <div class="row">
+                                <div class="recommendWapper col-12">
+                                    <img src="https://g.epal.gg/entry/us/static/discount.281516f8.png" alt="">
+                                    <div class="wrapper">
+                                        <div class="recommendWapper-Left">
+                                            <div class="left-Title">
+                                                <h3>Discounts</h3>
+                                            </div>
+                                            <div class="left-Text">
+                                                <span>Play League of Legends for up to 50% off</span>
                                             </div>
                                         </div>
-                                    }
-
-                                    </div>
-                                <div class="row">
-                                    <div class="recommendWapper col-12">
-                                        <img src="https://g.epal.gg/entry/us/static/discount.281516f8.png" alt="">
-                                        <div class="wrapper">
-                                            <div class="recommendWapper-Left">
-                                                <div class="left-Title">
-                                                    <h3>Discounts</h3>
+                                        <div class="recommendWapper-Right">
+                                            <div class="right-Picture">
+                                                <div class="right-Picture-Item">
+                                                    <div class="picture-Box">
+                                                        <img src="https://global-oss.epal.gg/image/ablum/1614962220058.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
+                                                    </div>
                                                 </div>
-                                                <div class="left-Text">
-                                                    <span>Play League of Legends for up to 50% off</span>
+                                                <div class="right-Picture-Item">
+                                                    <div class="picture-Box">
+                                                        <img src="https://global-oss.epal.gg/image/ablum/16298435163538972.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="right-Picture-Item">
+                                                    <div class="picture-Box">
+                                                        <img src="https://global-oss.epal.gg/image/ablum/1605602087572.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="recommendWapper-Right">
-                                                <div class="right-Picture">
-                                                    <div class="right-Picture-Item">
-                                                        <div class="picture-Box">
-                                                            <img src="https://global-oss.epal.gg/image/ablum/1614962220058.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-Picture-Item">
-                                                        <div class="picture-Box">
-                                                            <img src="https://global-oss.epal.gg/image/ablum/16298435163538972.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-Picture-Item">
-                                                        <div class="picture-Box">
-                                                            <img src="https://global-oss.epal.gg/image/ablum/1605602087572.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
-                                                        </div>
-                                                    </div>
+                                            <div class="right-More">
+                                                <div class="right-More-text">
+                                                    <p>More</p>
                                                 </div>
-                                                <div class="right-More">
-                                                    <div class="right-More-text">
-                                                        <p>More</p>
-                                                    </div>
-                                                    <i class="fas fa-angle-right"></i>
-                                                </div>
+                                                <i class="fas fa-angle-right"></i>
                                             </div>
                                         </div>
-
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -444,83 +442,85 @@
                 </div>
             </div>
         </div>
-    
-   
-        <div class="sidebar">
-            <div class="top_navbar">
-                <div class="left">
-                    <a href="#">
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
-                </div>
+    </div>
+
+    <!-- SideBar -->
+    <div class="sidebar">
+        <div class="top_navbar">
+            <div class="left">
+                <a href="#">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
             </div>
-            <div class="profile">
-                <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                <div class="accordion-item-pic">
-                                    <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632646411/Independent%20Study/OtherPhoto/1_qkwgt9.jpg"
-                                         alt="">
-                                </div>
-                                <span>Games</span>
-                            </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-
-
-
-                            <div class="accordion-body">
-                             @foreach(var item in Model.GameCategory.GameAll)
-                             {
-                              <a href="#">
-                                <span>
-                              @item
-                               <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632638187/Independent%20Study/OtherPhoto/star_swl8yv.jpg" alt="">
-                                </span>
-                               </a>
-                             }
+        </div>
+        <div class="profile">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <div class="accordion-item-pic">
+                                <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632646411/Independent%20Study/OtherPhoto/1_qkwgt9.jpg"
+                                     alt="">
                             </div>
+                            <span>Games</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 
+
+
+                        <div class="accordion-body">
+                            
+                            @for (var i = 0; i< Model.GameCategory.GameAll.Count();i++)
+                            {
+                                <a href="@Url.Action("ePal","ePal",new {id = i+1})">
+                                    <span>
+                                        @Model.GameCategory.GameAll[i]
+                                        <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632638187/Independent%20Study/OtherPhoto/star_swl8yv.jpg" alt="">
+                                    </span>
+                                </a>
+                            }
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <div class="accordion-item-pic">
+                                <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632646409/Independent%20Study/OtherPhoto/2_bthgpi.jpg"
+                                     alt="">
+                            </div>
+                            <span>Interactive Entertainment</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
 
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                <div class="accordion-item-pic">
-                                    <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632646409/Independent%20Study/OtherPhoto/2_bthgpi.jpg"
-                                         alt="">
-                                </div>
-                                <span>Interactive Entertainment</span>
-                            </button>
-                        </h2>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            <div class="accordion-item-pic">
+                                <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632646407/Independent%20Study/OtherPhoto/3_corens.jpg"
+                                     alt="">
                             </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                <div class="accordion-item-pic">
-                                    <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632646407/Independent%20Study/OtherPhoto/3_corens.jpg"
-                                         alt="">
-                                </div>
-                                <span>More Lifestyles</span>
-                            </button>
-                        </h2>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
+                            <span>More Lifestyles</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
 
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
+    </div>
+
 </div>
 
  @section topCSS
