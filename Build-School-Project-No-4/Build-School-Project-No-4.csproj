@@ -279,7 +279,6 @@
     <Compile Include="Repositories\DetailRepository.cs" />
     <Compile Include="Repositories\MemberRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
-    <Compile Include="Services\DetailServices.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\ProductService.cs" />
