@@ -47,6 +47,37 @@ namespace Build_School_Project_No_4.Services
             return result;
         }
 
+        //public List<MemberInfoViewModel> EditMemberInfo()
+        //{
+        //    List<Member> members = _Repo.GetAll<Member>().ToList();
+
+        //    List<MemberInfoViewModel> result = new List<MemberInfoViewModel>();
+        //    foreach (var item in members)
+        //    {
+        //        result.Add(new MemberInfoViewModel
+        //        {
+        //            MemberId = item.MemberId,
+        //            MemberName = item.MemberName,
+        //            RegistrationDate = item.RegistrationDate,
+        //            Email = item.Email,
+        //            Password = item.Password,
+        //            Phone = item.Phone,
+        //            Country = item.Country,
+        //            CityId = item.CityId,
+        //            Gender = item.Gender,
+        //            BirthDay = item.BirthDay,
+        //            TimeZone = item.TimeZone,
+        //            LanguageId = item.LanguageId,
+        //            Bio = item.Bio,
+        //            ProfilePicture = item.ProfilePicture,
+        //            LineStatus = item.LineStatus,
+        //        });
+        //    }
+        //    return result;
+        //}
+
+
+
         public List<GroupViewModel> MemberRigisterData()
         {
             List<Member> members = _Repo.GetAll<Member>().ToList();

@@ -44,7 +44,7 @@ namespace Build_School_Project_No_4.ViewModels
         public int TimeZone { get; set; }
 
         [Display(Name = "Language")]
-        public Language? LanguageId { get; set; }
+        public LanguageCategories? LanguageId { get; set; }
 
         [DataType(DataType.MultilineText)]
         public string Bio { get; set; }
@@ -68,7 +68,7 @@ namespace Build_School_Project_No_4.ViewModels
         Other = 2
     }
 
-    public enum Language
+    public enum LanguageCategories
     {
         MandarinChinese = 1,
         Spanish = 2,
