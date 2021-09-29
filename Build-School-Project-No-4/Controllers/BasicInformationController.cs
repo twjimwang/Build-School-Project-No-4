@@ -41,7 +41,7 @@ namespace Build_School_Project_No_4.Controllers
             if(ModelState.IsValid)
             {
 
-                
+
 
                 Member memnber = new Member
                 {
@@ -71,32 +71,33 @@ namespace Build_School_Project_No_4.Controllers
 
             
                     try
-                    {
-                        _ctx.Members.Add(memnber);
-                    _ctx.SaveChanges();
+                {
+                    //_ctx.Configuration.ValidateOnSaveEnabled = false;
+                    _ctx.Members.Add(memnber);
+                   
                     _ctx.Products.Add(product);
-                    _ctx.SaveChanges();
+  
                     _ctx.ProductPlans.Add(productPlan);
                     _ctx.SaveChanges();
                     //tran.Commit();
-                    ViewData["Message"] = "使用者儲存成功";
+                    //ViewData["Message"] = "使用者儲存成功";
                         return Content("儲存成功");
                     }
                     catch(Exception ex)
                     {
-                       
-                        ViewData["Message"] = "使用者儲存失敗" + ex.ToString();
-                    }
+
+                    ViewData["Message"] = "使用者儲存失敗" + ex.ToString();
+                }
                    
                        
             }
 
-            //GroupViewModel result = new GroupViewModel()
-            //{
-            //    BasicInformation = registerVM
-            //};
-            //return View(registerVM);
-            return Content("儲存師掰");
+            GroupViewModel result = new GroupViewModel()
+            {
+                BasicInformation = registerVM
+            };
+            return View(result);
+            //return Content("儲存師掰");
         }
       }
 }
