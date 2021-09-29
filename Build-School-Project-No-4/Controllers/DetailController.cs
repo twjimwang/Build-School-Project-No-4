@@ -17,7 +17,34 @@ namespace Build_School_Project_No_4.Controllers
         {
             _detailService = new DetailServices();
         }
-        // GET: Detail
+        [HttpGet]
+        public ActionResult DetailPage(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var playerListing = _detailService.FindPlayerListing(id);
+            //if (playerListing == null)
+            //{
+            //    return RedirectToAction("Index");
+            //}
+            int i2 = 0;
+            GroupViewModel groupVM = new GroupViewModel
+            {
+                Deets = playerListing
+            };
+            int i = 0;
+            return View(groupVM);
+        }
+        [HttpPost]
+        public ActionResult DetailPage()
+        {
+
+            return View();
+
+        }
         //public ActionResult DetailPage(int? productId)
         //{
         //    if (!productId.HasValue)
