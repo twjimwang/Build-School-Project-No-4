@@ -3,6 +3,7 @@ using Build_School_Project_No_4.Services;
 using Build_School_Project_No_4.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -29,23 +30,28 @@ namespace Build_School_Project_No_4.Controllers
         }
 
 
+        //public ActionResult Edit_Profile()
+        //{
+        //    return View();
+        //}
 
 
-        
+        [HttpGet]
         public ActionResult Edit_Profile(int? Id)
-        {
-            //檢查是否有員工Id的判斷
+        {            
             if (Id == null)
             {
                 return Content("查無此資料, 請提供會員ID!");
             }
-            //以Id找尋員工資料
+            
             Member emp = _ctx.Members.Find(Id);
-            //如果沒有找到員工，回傳HttpNotFound
+            //如果沒有，回傳HttpNotFound
             if (emp == null)
             {
                 return HttpNotFound();
             }
+
+
             return View(emp);
 
             //RegisterDataAnnotations register = new RegisterDataAnnotations
@@ -68,34 +74,74 @@ namespace Build_School_Project_No_4.Controllers
         }
 
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit_Profile([Bind(Include = "Id,Name,Mobile,Email,Department,Title")] MemberInfoViewModel MemberInfo)
-        //{
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        //public ActionResult Edit_Profile(MemberInfoViewModel MemberInfo)
+        public ActionResult Edit_Profile(GroupViewModel EditMember)
+        {
+            //GroupViewModel -> DM
+            //MemberInfoViewModel -> DM
+            Member emp = new Member
+            {
+                MemberName = EditMember.MemberInfo.MemberName,
+                Phone = EditMember.MemberInfo.Phone,
+                Country = EditMember.MemberInfo.Country,
+                Gender = EditMember.MemberInfo.Gender, 
+                BirthDay = EditMember.MemberInfo.BirthDay,
+                TimeZone = EditMember.MemberInfo.TimeZone,
+                LanguageId = EditMember.MemberInfo.LanguageId,
+                Bio = EditMember.MemberInfo.Bio,
+                Password = EditMember.MemberInfo.Password
+            };
 
-        //    //GroupViewModel -> DM
-        //    //MemberInfoViewModel -> DM
-        //    Member emp = new Member
-        //    {
-        //        Email = MemberInfo.Email,
-        //        Password = newMember.Password,
-        //        AuthCode = AuthCode
-        //    };
-        //    db.Members.Add(emp);
-        //    db.SaveChanges();
+            //emp.MemberName = HttpUtility.HtmlEncode(emp.MemberName);
+            //emp.Phone = HttpUtility.HtmlEncode(emp.Phone);
+            //emp.Country = HttpUtility.HtmlEncode(emp.Country);
+            //emp.Gender = Convert.ToInt32(HttpUtility.HtmlEncode(emp.Gender));
+            //emp.BirthDay = Convert.ToDateTime(HttpUtility.HtmlEncode(emp.BirthDay));
+            //emp.TimeZone = Convert.ToInt32(HttpUtility.HtmlEncode(emp.TimeZone));
+            //emp.LanguageId = Convert.ToInt32(HttpUtility.HtmlEncode(emp.LanguageId));
+            //emp.Bio = HttpUtility.HtmlEncode(emp.Bio);
+            //emp.Password = HttpUtility.HtmlEncode(emp.Password);
 
 
-        //    //用ModelState.IsValid判斷資料是否通過驗證
-        //    if (ModelState.IsValid)
-        //    {
-        //        //將emp這個Entity狀態設為Modified,
-        //        //當SaveChanges()執行時,會向SQL Server發出Update陳述式命令
-        //        db.Entry(emp).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
+            using (var tran = _ctx.Database.BeginTransaction())
+            {
+                try
+                {
+                    _ctx.Entry(emp).State = EntityState.Modified;
+                    _ctx.SaveChanges();
+                    tran.Commit();
 
-        //    return View(emp);
-        //}
+                    return Content("寫入資料庫成功");
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+
+                    return Content("寫入資料庫失敗:" + ex.ToString());
+                }
+            }
+
+
+
+
+            //_ctx.Members.Add(emp);
+            //_ctx.SaveChanges();
+
+
+            ////用ModelState.IsValid判斷資料是否通過驗證
+            //if (ModelState.IsValid)
+            //{
+            //    //將emp這個Entity狀態設為Modified,
+            //    //當SaveChanges()執行時,會向SQL Server發出Update陳述式命令
+            //    db.Entry(emp).State = EntityState.Modified;
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+
+            //return View(emp);
+
+        }
     }
 }

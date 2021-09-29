@@ -33,7 +33,7 @@ namespace Build_School_Project_No_4.ViewModels
 
         public int? CityId { get; set; }
 
-        public Gender? Gender { get; set; }
+        public int? Gender { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -44,7 +44,7 @@ namespace Build_School_Project_No_4.ViewModels
         public int TimeZone { get; set; }
 
         [Display(Name = "Language")]
-        public LanguageCategories? LanguageId { get; set; }
+        public int? LanguageId { get; set; }
 
         [DataType(DataType.MultilineText)]
         public string Bio { get; set; }
@@ -61,31 +61,31 @@ namespace Build_School_Project_No_4.ViewModels
         public bool? IsAdmin { get; set; }
     }
 
-    public enum Gender
-    {
-        Female = 0,
-        Male = 1,
-        Other = 2
-    }
+    //public enum Gender
+    //{
+    //    Female = 0,
+    //    Male = 1,
+    //    Other = 2
+    //}
 
-    public enum LanguageCategories
-    {
-        MandarinChinese = 1,
-        Spanish = 2,
-        English = 3,
-        Hindi = 4,
-        Arabic = 5,
-        Bengali = 6,
-        Portuguese = 7,
-        Russian = 8,
-        Japanese = 9,
-        Turkish = 10,
-        Korean = 11,
-        French = 12,
-        German = 13,
-        Vietnamese = 14,
-        Italian = 15,
-        YueChinese = 16,
-        Others = 17
-    }
+    //public enum LanguageCategories
+    //{
+    //    MandarinChinese = 1,
+    //    Spanish = 2,
+    //    English = 3,
+    //    Hindi = 4,
+    //    Arabic = 5,
+    //    Bengali = 6,
+    //    Portuguese = 7,
+    //    Russian = 8,
+    //    Japanese = 9,
+    //    Turkish = 10,
+    //    Korean = 11,
+    //    French = 12,
+    //    German = 13,
+    //    Vietnamese = 14,
+    //    Italian = 15,
+    //    YueChinese = 16,
+    //    Others = 17
+    //}
 }

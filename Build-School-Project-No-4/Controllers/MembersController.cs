@@ -139,7 +139,7 @@ namespace Build_School_Project_No_4.Controllers
                             issueDate: DateTime.UtcNow,//現在UTC時間
                             expiration: DateTime.UtcNow.AddMinutes(30),//Cookie有效時間=現在時間往後+30分鐘
                             isPersistent: loginMember.Remember,// 是否要記住我 true or false
-                            userData: "", //可以放使用者角色名稱
+                            userData: loginMember.MemberId.ToString(), //可以放使用者角色名稱
                             cookiePath: FormsAuthentication.FormsCookiePath);
 
                 //2.加密Ticket
@@ -325,6 +325,7 @@ namespace Build_School_Project_No_4.Controllers
                         AuthCode = AuthCode
                     };
                     db.Members.Add(emp);
+
                     db.SaveChanges();
                     //using (var tran = db.Database.BeginTransaction())
                     //{

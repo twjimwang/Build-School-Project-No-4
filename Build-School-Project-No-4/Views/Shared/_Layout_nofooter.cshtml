@@ -25,6 +25,19 @@
     <link rel="stylesheet" href="~/Assets/css/layout_afterlogin_nofooter.css">
 
 
+    @*抓到使用者登入的cookie資訊*@
+    @{
+        HttpCookie cookie = HttpContext.Current.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
+
+        string userid = "";
+        if (cookie != null)
+        {
+            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+            userid = ticket.UserData;
+        }
+    }
+
+
 
 </head>
 <body>
@@ -298,7 +311,7 @@
 
                                 <div class="setting-wrappers">
                                     <div class="settingimg">
-                                        <a href="@Url.Action("Edit_Profile", "Edit_Profile")">
+                                        <a href="~/Edit_Profile/Edit_Profile/@userid">
                                             <i class="fas fa-cog"></i>Settings
                                             @*<div class="txt">Settings</div>*@
                                         </a>
