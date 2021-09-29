@@ -16,6 +16,17 @@ namespace Build_School_Project_No_4.ViewModels
         public DateTime GameStartTime { get; set; }
 
         public DateTime GameEndTime { get; set; }
+        public int MemberId { get; set; }
+        public int ProductId { get; set; }
+        public int GameCategoryId { get; set; }
+
+        public int CreatorId { get; set; }
+
+        public string ProductImg { get; set; }
+
+        public string Introduction { get; set; }
+
+        public string CreatorImg { get; set; }
 
         //public List<ProductPlans> ProductPlans { get; set; }
     }
