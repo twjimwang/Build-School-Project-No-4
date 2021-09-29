@@ -14,7 +14,7 @@ namespace Build_School_Project_No_4.Repositories
             _ctx = new EPalContext();
         }
 
-        public EPalContext GetAll()
+        public EPalContext GetAlla()
         {
             return _ctx;
         }

@@ -2,16 +2,25 @@
 
 @{
     ViewBag.Title = "DetailPage";
+    var prod = Model.Deets;
 }
 @section topCSS{
+
     <link href="~/Assets/css/detail_r2.css" rel="stylesheet" />
+    <style>
+
+    .game-backdrop{
+    background-image: url('@prod.GameBackdrop');
+    }
+    </style>
+    
 }
 
 <div class="container game-backdrop">
     <div class="row">
         <div class="col-12 col-md-8">
             <div class="detail-header detail-title">
-                <h1 class="heading1">League of Legends</h1>
+                <h1 class="heading1">@prod.GameName</h1>
                 <div class="price-header">
                     <img src="~/Assets/images/detail/currency.png" />
                     <span class="game-price">2.00</span>/Game
