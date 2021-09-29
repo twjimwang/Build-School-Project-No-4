@@ -16,15 +16,16 @@ namespace Build_School_Project_No_4.Services
             _Repo = new Repository();
         }
 
-        public List<ProfileViewModel> GetProfiles()
+
+
+
+        public List<ProfileViewModel> GetProfiles(int? assignMemberId)
         {
 
             List<Member> memberAll = _Repo.GetAll<Member>().ToList();
             List<Following> followAll = _Repo.GetAll<Following>().ToList();
             List<RecentVistor> vistorAll = _Repo.GetAll<RecentVistor>().ToList();
             List<Language> languages = _Repo.GetAll<Language>().ToList();
-
-            int assignMemberId = 1;
 
             var selectMemberLanguage = memberAll.Where(x => x.MemberId == assignMemberId).FirstOrDefault();
             var selectlanguage = languages.Where(x => x.LanguageId == selectMemberLanguage.LanguageId).FirstOrDefault();
