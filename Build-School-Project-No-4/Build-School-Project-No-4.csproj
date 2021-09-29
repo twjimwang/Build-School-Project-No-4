@@ -281,11 +281,13 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BasicInformation.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\BasicInformationViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -700,6 +702,7 @@
     <Content Include="Views\GameInformation\Rule_VoiceRecord.cshtml" />
     <Content Include="Views\GameInformation\Rule_ListCover.cshtml" />
     <Content Include="Views\GameInformation\Rule_ScreenshotRules.cshtml" />
+    <Content Include="Views\BasicInformation\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
