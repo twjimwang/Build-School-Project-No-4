@@ -17,19 +17,27 @@ namespace Build_School_Project_No_4.Controllers
         {
             _detailService = new DetailServices();
         }
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult NotFound()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult DetailPage(int? id)
         {
             if (id == null)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("NotFound");
             }
 
             var playerListing = _detailService.FindPlayerListing(id);
-            //if (playerListing == null)
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            if (playerListing == null)
+            {
+                return RedirectToAction("NotFound");
+            }
             int i2 = 0;
             GroupViewModel groupVM = new GroupViewModel
             {
@@ -45,14 +53,6 @@ namespace Build_School_Project_No_4.Controllers
             return View();
 
         }
-        //public ActionResult DetailPage(int? productId)
-        //{
-        //    if (!productId.HasValue)
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-        //    var detailvm = _detailService.GetPlayerByProductId(productId.Value);
-        //    return View(detailvm);
-        //}
+
     }
 }
