@@ -10,7 +10,7 @@ namespace Build_School_Project_No_4.Controllers
     public class DetailController : Controller
     {
         private readonly DetailServices _detailService;
-            public DetailController()
+        public DetailController()
         {
             _detailService = new DetailServices();
         }
@@ -22,13 +22,7 @@ namespace Build_School_Project_No_4.Controllers
         //        return RedirectToAction("Index");
         //    }
         //    var detailvm = _detailService.GetPlayerByProductId(productId.Value);
-        //    int i2 = 0;
-        //    return View();
-
-        //}
-        //public ActionResult DetailPage()
-        //{
-        //    return View();
+        //    return View(detailvm);
         //}
     }
 }
