@@ -138,6 +138,8 @@ namespace Build_School_Project_No_4.Services
             {
                 var member = _Repo.GetAll<Member>().ToList().Where(m => m.Email == Email).FirstOrDefault();
 
+                Data.MemberId = member.MemberId;
+                Data.MemberName = member.MemberName;
                 Data.Email = member.Email;
                 Data.Password = member.Password;
                 Data.AuthCode = member.AuthCode;

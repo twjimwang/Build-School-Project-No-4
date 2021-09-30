@@ -24,6 +24,12 @@
     <link rel="stylesheet" href="~/Assets/css/reset.css">
     <link rel="stylesheet" href="~/Assets/css/layout_afterlogin.css">
 
+
+
+
+
+</head>
+<body>
     @*抓到使用者登入的cookie資訊*@
     @{
         HttpCookie cookie = HttpContext.Current.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
@@ -35,12 +41,6 @@
             userid = ticket.UserData;
         }
     }
-
-
-
-</head>
-<body>
-
     @*<div class="layout-wrapper">*@
 
     <header>
@@ -926,37 +926,37 @@
         <script>
 
 
-                    //let logsignmodalbtn = document.querySelector('.logsign-modal-button');
-                    //window.onload = () => {
-                    //    if (localStorage.getItem("loginEmail") != null) {
+                            //let logsignmodalbtn = document.querySelector('.logsign-modal-button');
+                            //window.onload = () => {
+                            //    if (localStorage.getItem("loginEmail") != null) {
 
-                    //        logsignmodalbtn.style.display = "none";
+                            //        logsignmodalbtn.style.display = "none";
 
-                    //    }
+                            //    }
 
 
-                        //let email = document.querySelector(".emailinput:first-child").value;
-                        //let password = document.querySelector(".passwordinput:first-child").value;
-                        //let loginbutton = document.querySelector("#loginbutton:first-child");
+                                //let email = document.querySelector(".emailinput:first-child").value;
+                                //let password = document.querySelector(".passwordinput:first-child").value;
+                                //let loginbutton = document.querySelector("#loginbutton:first-child");
 
-                        //let loginData = {
-                        //    email: email,
-                        //    password: password
-                        //}
+                                //let loginData = {
+                                //    email: email,
+                                //    password: password
+                                //}
 
-                        //loginbutton.addEventListener('click', function () {
+                                //loginbutton.addEventListener('click', function () {
 
-                        //    if (localStorage.getItem("login") == null) {
+                                //    if (localStorage.getItem("login") == null) {
 
-                        //        localStorage.setItem("login", JSON.stringify(loginData));
+                                //        localStorage.setItem("login", JSON.stringify(loginData));
 
-                        //    }
-                        //    else {
+                                //    }
+                                //    else {
 
-                        //        loginarray = JSON.parse(localStorage.getItem("login"));    //localStarsge是文字格式，要轉回array
+                                //        loginarray = JSON.parse(localStorage.getItem("login"));    //localStarsge是文字格式，要轉回array
 
-                        //    }
-                        //})
+                                //    }
+                                //})
 
 
 
@@ -964,20 +964,20 @@
 
 
 
-                    //let btn = document.querySelector('.btnClass');
-                    //let call = document.querySelector('.callClass');
+                            //let btn = document.querySelector('.btnClass');
+                            //let call = document.querySelector('.callClass');
 
-                    //function savename(e) {
-                    //    // 撈出輸入鍵的值
-                    //    var text = document.querySelector('.textClass').value;
-                    //    // 存在Localstoreage
-                    //    localStorage.setItem('mylove', text);
+                            //function savename(e) {
+                            //    // 撈出輸入鍵的值
+                            //    var text = document.querySelector('.textClass').value;
+                            //    // 存在Localstoreage
+                            //    localStorage.setItem('mylove', text);
 
-                    //}
-                    //btn.addEventListener('click', savename);
-                    //call.addEventListener('click', function () {
-                    //    // 撈出Localstoreage的值
-                    //    var str = localStorage.getItem('mylove');
+                            //}
+                            //btn.addEventListener('click', savename);
+                            //call.addEventListener('click', function () {
+                            //    // 撈出Localstoreage的值
+                            //    var str = localStorage.getItem('mylove');
 
         </script>
     }
