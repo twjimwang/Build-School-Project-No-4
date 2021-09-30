@@ -27,5 +27,18 @@ namespace Build_School_Project_No_4.Controllers
         //    var detailvm = _detailService.GetPlayerByProductId(productId.Value);
         //    return View(detailvm);
         //}
+        public ActionResult DetailPage(int id)
+        {
+            var productGet = new DetailServices();
+         
+            var detail = productGet.GetPlayerInfo(id);
+            
+
+            GroupViewModel result = new GroupViewModel
+            {
+                Deets = detail
+            };
+            return View(result);
+        }
     }
 }
