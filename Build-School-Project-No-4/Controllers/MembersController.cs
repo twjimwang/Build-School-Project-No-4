@@ -122,9 +122,12 @@ namespace Build_School_Project_No_4.Controllers
             {
                 return View();
             }
+                        
 
             //驗證登入email.密碼，回傳結果
             string ValidateStr = _MemberService.LoginCheck(loginMember.Email, loginMember.Password);
+
+            Member user = _MemberService.GetDataByAccount(loginMember.Email);
 
             if (String.IsNullOrEmpty(ValidateStr))
             {
@@ -135,11 +138,11 @@ namespace Build_School_Project_No_4.Controllers
                 //1.建立FormsAuthenticationTicket
                 var ticket = new FormsAuthenticationTicket(
                             version: 1,
-                            name: loginMember.Email.ToString(), //可以放使用者Id
+                            name: user.Email.ToString(), //可以放使用者Id
                             issueDate: DateTime.UtcNow,//現在UTC時間
                             expiration: DateTime.UtcNow.AddMinutes(30),//Cookie有效時間=現在時間往後+30分鐘
                             isPersistent: loginMember.Remember,// 是否要記住我 true or false
-                            userData: loginMember.MemberId.ToString(), //可以放使用者角色名稱
+                            userData: user.MemberId.ToString(), //可以放使用者角色名稱
                             cookiePath: FormsAuthentication.FormsCookiePath);
 
                 //2.加密Ticket

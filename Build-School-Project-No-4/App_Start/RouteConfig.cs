@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Security;
 
 namespace Build_School_Project_No_4
 {
@@ -13,16 +14,18 @@ namespace Build_School_Project_No_4
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+
             //routes.MapRoute(
             //    name: "MyDetail",
             //    url: "Detail/{id}",
             //    defaults: new { controller = "Products", action = "Detail", id = UrlParameter.Optional }
             //);            
-            
+
             //routes.MapRoute(
-            //    name: "MyDetail",
-            //    url: "Members/Register",
-            //    defaults: new { controller = "Members", action = "Register", id = UrlParameter.Optional }
+            //    name: "MemberProfile",
+            //    url: "Edit_Profile/Edit_Profile/{userid}",
+            //    defaults: new { controller = "Edit_Profile", action = "Edit_Profile", id = UrlParameter.Optional }
             //);
 
             routes.MapRoute(

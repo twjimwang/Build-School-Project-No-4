@@ -37,6 +37,7 @@ namespace Build_School_Project_No_4.Controllers
 
 
         [HttpGet]
+        //public ActionResult Edit_Profile(int? Id)
         public ActionResult Edit_Profile(int? Id)
         {            
             if (Id == null)
@@ -51,26 +52,43 @@ namespace Build_School_Project_No_4.Controllers
                 return HttpNotFound();
             }
 
+            //DM -> GroupViewModel
+            GroupViewModel groupMember = new GroupViewModel()
+            {
+                MemberId = emp.MemberId,
+                MemberName = emp.MemberName,
+                Country = emp.Country,
+                Gender = emp.Gender,
+                BirthDay = emp.BirthDay,
+                TimeZone = emp.TimeZone,
+                LanguageId = emp.LanguageId,
+                Bio = emp.Bio,
+                Password = emp.Password
+            };
+            
 
-            return View(emp);
+            return View(groupMember);
 
-            //RegisterDataAnnotations register = new RegisterDataAnnotations
+
+            ////初始化
+            //GroupViewModel groupMember = new GroupViewModel()
             //{
-            //    Id = 1,
-            //    Name = "聖殿祭司",
-            //    Password = "myPassword",
-            //    Email = "kevin@gmail.com",
-            //    HomePage = "http://blog.sina.com.tw",
-            //    Gender = Gender.Male,
-            //    Birthday = new DateTime(1980, 6, 16),
-            //    Birthday2 = new DateTime(1980, 6, 16),
-            //    City = 4,
-            //    Commutermode = "1",
-            //    Comment = "請留下您的意見",
-            //    Terms = true
+            //    MemberInfo = new MemberInfoViewModel()
             //};
-            //return View(register);
-            //return View();
+            ////DM -> MemberInfoViewModel
+            //MemberInfoViewModel memberInfo = new MemberInfoViewModel()
+            //{
+            //    MemberId = emp.MemberId,
+            //    MemberName = emp.MemberName,
+            //    Country = emp.Country,
+            //    Gender = emp.Gender,
+            //    BirthDay = emp.BirthDay,
+            //    TimeZone = emp.TimeZone,
+            //    LanguageId = emp.LanguageId,
+            //    Bio = emp.Bio,
+            //    Password = emp.Password
+            //};
+
         }
 
 
@@ -80,18 +98,20 @@ namespace Build_School_Project_No_4.Controllers
         public ActionResult Edit_Profile(GroupViewModel EditMember)
         {
             //GroupViewModel -> DM
-            //MemberInfoViewModel -> DM
+            //GroupViewModel -> MemberInfoViewModel -> DM
             Member emp = new Member
             {
-                MemberName = EditMember.MemberInfo.MemberName,
-                Phone = EditMember.MemberInfo.Phone,
-                Country = EditMember.MemberInfo.Country,
-                Gender = EditMember.MemberInfo.Gender, 
-                BirthDay = EditMember.MemberInfo.BirthDay,
-                TimeZone = EditMember.MemberInfo.TimeZone,
-                LanguageId = EditMember.MemberInfo.LanguageId,
-                Bio = EditMember.MemberInfo.Bio,
-                Password = EditMember.MemberInfo.Password
+                MemberName = EditMember.MemberName,
+                Phone = EditMember.Phone,
+                Country = EditMember.Country,
+                //Gender = EditMember.Gender, 
+                BirthDay = EditMember.BirthDay,
+                TimeZone = EditMember.TimeZone,
+                //LanguageId = EditMember.LanguageId,
+                Bio = EditMember.Bio,
+                Password = EditMember.Password,
+                Email = EditMember.Email
+
             };
 
             //emp.MemberName = HttpUtility.HtmlEncode(emp.MemberName);

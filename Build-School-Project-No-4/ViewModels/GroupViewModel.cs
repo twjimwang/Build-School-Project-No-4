@@ -19,10 +19,13 @@ namespace Build_School_Project_No_4.ViewModels
 
 
 
-        //以下註冊登入使用
+        //以下註冊、登入使用
         public Member MemberDM { get; set; }
 
         public int MemberId { get; set; }
+
+        [Display(Name = "Name")]
+        public string MemberName { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -44,6 +47,32 @@ namespace Build_School_Project_No_4.ViewModels
 
         [Display(Name = "記得我")]
         public bool Remember { get; set; }
+
+        public string Phone { get; set; }
+
+        public string Country { get; set; }
+
+        public int? CityId { get; set; }
+
+        public int? Gender { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? BirthDay { get; set; }
+
+        [Display(Name = "TimeZone(UTC)")]
+        [Range((-11), 11)]
+        public int? TimeZone { get; set; }
+
+        [Display(Name = "Language")]
+        public int? LanguageId { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        public string Bio { get; set; }
+
+        [Display(Name = "Avatar")]
+        [DataType(DataType.ImageUrl)]
+        public string ProfilePicture { get; set; }
 
 
     }

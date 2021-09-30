@@ -41,7 +41,7 @@ namespace Build_School_Project_No_4.ViewModels
 
         [Display(Name = "TimeZone(UTC)")]
         [Range((-11),11)]
-        public int TimeZone { get; set; }
+        public int? TimeZone { get; set; }
 
         [Display(Name = "Language")]
         public int? LanguageId { get; set; }
@@ -53,12 +53,12 @@ namespace Build_School_Project_No_4.ViewModels
         [DataType(DataType.ImageUrl)]
         public string ProfilePicture { get; set; }
 
-        public string LineStatus { get; set; }
+        //public string LineStatus { get; set; }
 
-        [StringLength(10)]
-        public string AuthCode { get; set; }
+        //[StringLength(10)]
+        //public string AuthCode { get; set; }
 
-        public bool? IsAdmin { get; set; }
+        //public bool? IsAdmin { get; set; }
     }
 
     //public enum Gender
