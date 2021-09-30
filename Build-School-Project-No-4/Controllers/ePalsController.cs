@@ -43,24 +43,5 @@ namespace Build_School_Project_No_4.Controllers
             var abc = name;
             return View();
         }
-
-
-        //[HttpGet]
-        //public ActionResult FindRankProduct()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult FindRankProduct(int categoryId,string name)
-        //{
-            
-        //    return View();
-        //}
-
-
-
-
-
     }
 }
