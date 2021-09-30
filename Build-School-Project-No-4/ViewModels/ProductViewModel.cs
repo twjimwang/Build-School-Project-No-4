@@ -81,5 +81,10 @@ namespace Build_School_Project_No_4.ViewModels
         /// 星星評價
         /// </summary>
         public int StarLevel { get; set; }
+
+        /// <summary>
+        /// ProductId
+        /// </summary>
+        public int ProductId { get; set; }
     }
 }

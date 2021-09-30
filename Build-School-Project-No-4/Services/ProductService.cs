@@ -40,6 +40,7 @@ namespace Build_School_Project_No_4.Services
                 StarLevel = _repo.GetAll<CommentDetail>().FirstOrDefault(x=>x.ProductId == p.ProductId).StarLevel,
                 Rank = _repo.GetAll<Rank>().FirstOrDefault(x=>x.RankId == p.RankId).RankName,
                 Position = _repo.GetAll<Position>().FirstOrDefault(y => y.PositionId == (ProductPosition.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
+                ProductId = p.ProductId
             }).ToList();
 
             result.ProductCards = productCards;
