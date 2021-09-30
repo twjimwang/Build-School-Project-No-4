@@ -8,22 +8,22 @@ using Build_School_Project_No_4.ViewModels;
 
 namespace Build_School_Project_No_4.Controllers
 {
-    public class ePalController : Controller
+    public class ePalsController : Controller
     {
         private readonly ProductService _productService;
 
-        public ePalController()
+        public ePalsController()
         {
             _productService = new ProductService();
         }
 
         [HttpGet]
-        public ActionResult EPal(int? id)
+        public ActionResult ePal(int? id)
         {
             var productGet = new ProductService();
             if (!id.HasValue)
             {
-                return RedirectToAction("ePal", "ePal", new { id = 1});
+                return RedirectToAction("ePal", "ePals", new { id = 1});
             }
             var ProductCards = productGet.GetProductCardsData(id.Value);
             var Games = productGet.GetGamesAll();
@@ -34,33 +34,14 @@ namespace Build_School_Project_No_4.Controllers
                 ProductCards = ProductCards
             };
 
-            return View(result);
+            return View("ePal",result);
         }
 
         [HttpPost]
-        public ActionResult Epal(string name)
+        public ActionResult ePal(string name)
         {
             var abc = name;
             return View();
         }
-
-
-        //[HttpGet]
-        //public ActionResult FindRankProduct()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult FindRankProduct(int categoryId,string name)
-        //{
-            
-        //    return View();
-        //}
-
-
-
-
-
     }
 }

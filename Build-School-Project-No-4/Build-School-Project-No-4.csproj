@@ -194,7 +194,7 @@
     <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\Edit_ProfileController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
-    <Compile Include="Controllers\ePalController.cs" />
+    <Compile Include="Controllers\ePalsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -659,7 +659,6 @@
     <Content Include="Views\ChillMeetLike\MeetMatches.cshtml" />
     <Content Include="Views\Members\test.cshtml" />
     <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
-    <Content Include="Views\ePal\ePal.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\Members\CreateSeed.cshtml" />
     <Content Include="Views\Order\Orders.cshtml" />
@@ -669,6 +668,7 @@
     <Content Include="Views\Detail\DetailPage.cshtml" />
     <Content Include="Views\Detail\NotFound.cshtml" />
     <Content Include="Views\Detail\Index.cshtml" />
+    <Content Include="Views\ePals\ePal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
