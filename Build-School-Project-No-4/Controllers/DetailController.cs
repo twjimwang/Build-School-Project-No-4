@@ -30,7 +30,7 @@ namespace Build_School_Project_No_4.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("NotFound");
+                return RedirectToAction("Index");
             }
 
             var playerListing = _detailService.FindPlayerListing(id);
@@ -38,12 +38,10 @@ namespace Build_School_Project_No_4.Controllers
             {
                 return RedirectToAction("NotFound");
             }
-            int i2 = 0;
             GroupViewModel groupVM = new GroupViewModel
             {
                 Deets = playerListing
             };
-            int i = 0;
             return View(groupVM);
         }
         [HttpPost]
@@ -54,28 +52,5 @@ namespace Build_School_Project_No_4.Controllers
 
         }
 
-        // GET: Detail
-        //public ActionResult DetailPage(int? productId)
-        //{
-        //    if (!productId.HasValue)
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-        //    var detailvm = _detailService.GetPlayerByProductId(productId.Value);
-        //    return View(detailvm);
-        //}
-        //public ActionResult DetailPage(int id)
-        //{
-        //    var productGet = new DetailServices();
-         
-        //    var detail = productGet.GetPlayerInfo(id);
-            
-
-        //    GroupViewModel result = new GroupViewModel
-        //    {
-        //        Deets = detail
-        //    };
-        //    return View(result);
-        //}
     }
 }
