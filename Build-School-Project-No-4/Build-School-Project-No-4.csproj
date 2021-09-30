@@ -664,8 +664,8 @@
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
     <Content Include="Views\Detail\DetailPage.cshtml" />
+    <Content Include="Views\Detail\NotFound.cshtml" />
     <Content Include="Views\Detail\Index.cshtml" />
-    <Content Include="Views\Detail\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

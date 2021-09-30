@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "DetailPage";
     var prod = Model.Deets;
+    var price = prod.UnitPrice.ToString("N2");
 }
 @section topCSS{
 
@@ -12,22 +13,25 @@
     .game-backdrop{
     background-image: url('@prod.GameBackdrop');
     }
+    .main-profile-img {
+        background-image: url('@prod.PlayerPic');
+    }
     </style>
     
 }
 
 <div class="container game-backdrop">
     <div class="row">
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-9">
             <div class="detail-header detail-title">
                 <h1 class="heading1">@prod.GameName</h1>
                 <div class="price-header">
                     <img src="~/Assets/images/detail/currency.png" />
-                    <span class="game-price">2.00</span>/Game
+                    <span class="game-price">@price</span>/Game
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-3">
             <div class="detail-header">
                 <div class="header-btns">
                     <button class="btn-play" data-bs-toggle="modal" data-bs-target="#playModal">Play</button>
@@ -38,16 +42,16 @@
     </div>
     <!-- REVIEW, INFO, PROFILE -->
     <div class="row reverse">
-        <div class="col-12 col-md-4 col-lg-4">
+        <div class="col-12 col-md-3 col-lg-3">
             <div class="row main-profile-row">
                 <div class="col-6 col-md-12">
                     <div class="main-profile main-profile-img"></div>
                 </div>
                 <div class="col-6 col-md-12">
                     <div class="main-profile basic-info">
-                        <h2 class="name heading2">Eniza</h2>
+                        <h2 class="name heading2">@prod.MemberName</h2>
                         <div class="language">
-                            <span class="language-label">Language: </span>Filipino/English
+                            <span class="language-label">Language: </span>@prod.LanguageName
                         </div>
                         <div class="status">ONLINE</div>
                     </div>
@@ -59,7 +63,7 @@
                         <p class="greyish">Book this ePal for</p>
                         <div class="ppg">
                             <img src="~/Assets/images/detail/currency.png" />
-                            <div class="game-price">2.00</div>
+                            <div class="game-price">@price</div>
                             /Game
                         </div>
                         <div class="ppg-btns">
@@ -71,7 +75,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-md-8 col-lg-8">
+        <div class="col-12 col-md-9 col-lg-9">
             <div class="streamer-info">
                 <div class="row">
                     <div class="col-3 review-score">
@@ -106,7 +110,7 @@
             </div>
             <div class="row">
                 <div class="game-screenshot">
-                    <img src="~/Assets/images/detail/lol-screenshot.jpg" />
+                    <img src="@prod.GameScreenshot" />
                 </div>
             </div>
             <div class="row">
@@ -119,12 +123,12 @@
 
                         <div class="detail-entry">
                             <div class="detail-name rank whitish">Rank</div>
-                            <div class="detail-value greyish">Platinum</div>
+                            <div class="detail-value greyish">@prod.RankName</div>
 
                         </div>
                         <div class="detail-entry">
                             <div class="detail-name server whitish">Server(s)</div>
-                            <div class="detail-value greyish">EU West</div>
+                            <div class="detail-value greyish">@prod.ServerName</div>
                         </div>
                         <div class="detail-entry">
                             <div class="detail-name platform whitish">Platform(s)</div>
@@ -134,9 +138,7 @@
                             Introduction
                         </div>
                         <div class="intro-text greyish">
-                            Hi! Im Ace! I'm 22, female from the netherlands. Im a plat nami/lulu main. I prefer playing ranked or
-                            flex, but draft is alright too. On EUW i can play any elo, on NA/EUNE i can play in gold. I'm mainly on
-                            here to make friends, so don't ask for lewd content please.
+                            @prod.Intro
                         </div>
                     </div>
                 </div>
@@ -207,11 +209,11 @@
                                 </div>
                                 <div class="col-9 ">
                                     <div class="game-user-price">
-                                        <div class="game-name">League of Legends</div>
-                                        <div class="player-name">Eniza</div>
+                                        <div class="game-name">@prod.GameName</div>
+                                        <div class="player-name">@prod.MemberName</div>
                                         <div class="price-per-game">
                                             <img src="~/Assets/images/detail/currency.png" />
-                                            3.50/Game
+                                            @price/Game
                                         </div>
                                     </div>
                                 </div>
@@ -240,7 +242,7 @@
                                         <span>Subtotal</span>
                                         <div class="subtotal-div2">
                                             <img src="~/Assets/images/detail/currency.png" />
-                                            <span class="subtotal">3.50</span>/Game
+                                            <span class="subtotal">@price</span>/Game
                                         </div>
                                     </div>
 
@@ -259,7 +261,7 @@
 
                                             <span class="rounds-final">1</span> Round(s) total
                                             <img src="~/Assets/images/detail/currency.png" />
-                                            <span class="final-amount">3.50</span>
+                                            <span class="final-amount">@price</span>
                                         </div>
                                     </div>
 

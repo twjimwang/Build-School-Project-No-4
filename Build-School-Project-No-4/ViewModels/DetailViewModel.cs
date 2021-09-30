@@ -16,6 +16,8 @@ namespace Build_School_Project_No_4.ViewModels
         public string GameScreenshot { get; set; }
         public string GameName { get; set; }
         public string GameBackdrop { get; set; }
-
+        public string ServerName { get; set; }
+        public string RankName { get; set; }
+        public string LanguageName { get; set; }
     }
 }

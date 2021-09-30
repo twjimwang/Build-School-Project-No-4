@@ -15,7 +15,7 @@ namespace Build_School_Project_No_4.Services
         {
             _repo = new Repository();
         }
-        public DetailViewModel GetPlayerInfo(int? productId)
+        public DetailViewModel FindPlayerListing(int? id)
         {
             var playerData = new DetailViewModel();
 
@@ -23,17 +23,24 @@ namespace Build_School_Project_No_4.Services
             var products = _repo.GetAll<Product>();
             var gameInfo = _repo.GetAll<GameCategory>();
             var playerInfo = _repo.GetAll<Member>();
+            var productServer = _repo.GetAll<ProductServer>();
+            var server = _repo.GetAll<Server>();
+            var rank = _repo.GetAll<Rank>();
+            var lang = _repo.GetAll<Language>();
 
-            var prodId = products.Where(x => x.ProductId == productId).FirstOrDefault();
-            if (prodId == null)
+            if (id == null)
             {
-                return playerData;
+                return null ;
             }
 
             var result = (from p in products
                           join pl in playerInfo on p.CreatorId equals pl.MemberId
                           join g in gameInfo on p.GameCategoryId equals g.GameCategoryId
-                          where p.ProductId == productId
+                          join pserv in productServer on p.ProductId equals pserv.ProductId
+                          join serv in server on pserv.ServerId equals serv.ServerId
+                          join r in rank on p.RankId equals r.RankId
+                          join l in lang on pl.LanguageId equals l.LanguageId
+                          where p.ProductId == id
                           select new DetailViewModel
                           {
                               MemberName = pl.MemberName,
@@ -43,38 +50,16 @@ namespace Build_School_Project_No_4.Services
                               PlayerPic = p.CreatorImg,
                               GameScreenshot = p.ProductImg,
                               GameName = g.GameName,
-                              GameBackdrop = g.GameCoverImg
-                          }).FirstOrDefault();
+                              GameBackdrop = g.GameCoverImg,
+                              ServerName = serv.ServerName,
+                              RankName = r.RankName,
+                              LanguageName = l.LanguageName
+
+                              
+                          }).SingleOrDefault();
 
             return result;
         }
-        //public DetailViewModel GetPlayerByProductId(int productId)
-        //{
-        //    var playerData = new DetailViewModel();
 
-        //    var product = _repo.GetProductByProductId(productId);
-        //    var productinfo = _repo.GetProductInfo();
-
-        //    var playerinfo = _repo.GetPlayerInfo();
-        //    var gameInfo = _repo.GetGameInfo();
-
-        //    var result = (from p in productinfo
-        //                 join pl in playerinfo on p.CreatorId equals pl.MemberId
-        //                 join g in gameInfo on p.GameCategoryId equals g.GameCategoryId
-        //                 where p.ProductId == productId
-        //                 select new DetailViewModel
-        //                 {
-        //                     MemberName = pl.MemberName,
-        //                     UnitPrice = (double)p.UnitPrice,
-        //                     Recording = p.RecommendationVoice,
-        //                     Intro = p.Introduction,
-        //                     PlayerPic = p.CreatorImg,
-        //                     GameScreenshot = p.ProductImg,
-        //                     GameName = g.GameName,
-        //                     GameBackdrop = g.GameCoverImg
-        //                 }).FirstOrDefault();
-
-        //    return result;
-        //}
     }
 }
