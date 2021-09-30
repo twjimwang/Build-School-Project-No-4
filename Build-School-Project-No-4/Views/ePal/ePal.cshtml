@@ -12,8 +12,7 @@
                             <div class="title-Text">
                                 <h1>@Model.ProductCards.GameTitle</h1>
                                 <div class="start-Icon">
-                                    <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632638187/Independent%20Study/OtherPhoto/star_swl8yv.jpg"
-                                         alt="">
+                                    <i class="fas fa-star gold-star"></i>
                                 </div>
                             </div>
                             <div class="title-Match">
@@ -479,8 +478,7 @@
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             <div class="accordion-item-pic">
-                                <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632646411/Independent%20Study/OtherPhoto/1_qkwgt9.jpg"
-                                     alt="">
+                                <img src="~/Assets/images/epalPage/games.png" />
                             </div>
                             <span>Games</span>
                         </button>
@@ -496,7 +494,7 @@
                                 <a href="@Url.Action("ePal","ePal",new {id = i+1})">
                                     <span>
                                         @Model.GameCategory.GameAll[i]
-                                        <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632638187/Independent%20Study/OtherPhoto/star_swl8yv.jpg" alt="">
+                                        <i class="fas fa-star gold-star"></i>
                                     </span>
                                 </a>
                             }
@@ -509,8 +507,7 @@
                     <h2 class="accordion-header" id="flush-headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                             <div class="accordion-item-pic">
-                                <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632646409/Independent%20Study/OtherPhoto/2_bthgpi.jpg"
-                                     alt="">
+                                <img src="~/Assets/images/epalPage/trending.png" />
                             </div>
                             <span>Interactive Entertainment</span>
                         </button>
@@ -525,8 +522,7 @@
                     <h2 class="accordion-header" id="flush-headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                             <div class="accordion-item-pic">
-                                <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632646407/Independent%20Study/OtherPhoto/3_corens.jpg"
-                                     alt="">
+                                <img src="~/Assets/images/epalPage/lifestyle.png" />
                             </div>
                             <span>More Lifestyles</span>
                         </button>
@@ -548,6 +544,13 @@
     <style>
         * {
             font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+        }
+        .gold-star {
+            font-size: 17px;
+            background: linear-gradient(315deg, #ff894c, #ffd839);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
 
