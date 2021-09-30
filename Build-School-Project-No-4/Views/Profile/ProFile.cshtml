@@ -66,24 +66,25 @@
                             <span class="dots">• • •</span>
                             </butt>
                     </div><div class="a-col">
-                        @foreach (var item in Model.Profiles)
-                        {
+    @foreach (var item in Model.Profiles)
+    {
 
-                            <a href="#" class="a-title">
-                                <span class="followers-count">@item.FollowsNumber</span> Followers <i class="fas fa-chevron-right"></i>
-                            </a>
-                            <a href="#" class="a-title">
-                                <span class="following-count">@item.FollingsNumber</span> Following <i class="fas fa-chevron-right"></i>
-                            </a>
-                            <a href="#" class="a-title">
-                                <span class="visitors-count">@item.VistorsNumber</span> Visitors <i class="fas fa-chevron-right"></i>
-                            </a>
-                            <a href="#" class="a-title">
-                                <span class="medals-count">0</span> Medals <i class="fas fa-chevron-right"></i>
-                            </a>
-                        }
+        @*<a href="@Url.Action("Followings","FollowController")" class="a-title">*@
+        <a href="@Url.Action("Followings","Follow")" class="a-title">
+        <span class="followers-count">@item.FollowsNumber</span> Followers <i class="fas fa-chevron-right"></i>
+</a>
+<a href="#" class="a-title">
+    <span class="following-count">@item.FollingsNumber</span> Following <i class="fas fa-chevron-right"></i>
+</a>
+<a href="#" class="a-title">
+    <span class="visitors-count">@item.VistorsNumber</span> Visitors <i class="fas fa-chevron-right"></i>
+</a>
+<a href="#" class="a-title">
+    <span class="medals-count">0</span> Medals <i class="fas fa-chevron-right"></i>
+</a>
+}
 
-                    </div><div class="profile-details greyish">
+</div><div class="profile-details greyish">
                         @foreach (var item in Model.Profiles)
                         {
                             <div class="profile-id">ID: <span class="id-num">@item.MemberId</span></div>
