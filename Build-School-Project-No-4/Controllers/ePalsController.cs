@@ -8,11 +8,11 @@ using Build_School_Project_No_4.ViewModels;
 
 namespace Build_School_Project_No_4.Controllers
 {
-    public class ePalController : Controller
+    public class ePalsController : Controller
     {
         private readonly ProductService _productService;
 
-        public ePalController()
+        public ePalsController()
         {
             _productService = new ProductService();
         }

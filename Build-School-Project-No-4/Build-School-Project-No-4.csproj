@@ -194,7 +194,7 @@
     <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\Edit_ProfileController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
-    <Compile Include="Controllers\ePalController.cs" />
+    <Compile Include="Controllers\ePalsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
