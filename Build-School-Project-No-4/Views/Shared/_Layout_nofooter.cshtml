@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="~/Assets/css/reset.css">
     <link rel="stylesheet" href="~/Assets/css/layout_afterlogin_nofooter.css">
 
-
     @*抓到使用者登入的cookie資訊*@
     @{
         HttpCookie cookie = HttpContext.Current.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
@@ -36,7 +35,6 @@
             userid = ticket.UserData;
         }
     }
-
 
 
 </head>
@@ -58,8 +56,8 @@
                         <a class="nav-link text-white navItem" href="@Url.Action("Meet","ChillMeet")">Chill</a>
                     </li>
                     <!-- <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="#">Posts</a>
-                    </li> -->
+            <a class="nav-link text-white navItem" href="#">Posts</a>
+        </li> -->
                     <li class="nav-item">
                         <a class="nav-link text-white navItem" href="@Url.Action("CreatorProject","CreatorProject")">Creator Project</a>
                     </li>
@@ -105,6 +103,8 @@
                     </li>
                 </ul>
 
+
+
                 <!-- right navbar -->
                 <div class="navbar-right d-flex">
                     <div class="search">
@@ -138,7 +138,7 @@
                         @*<div style="color:white">@(User.Identity.Name)</div>*@
                         @*<li>@Html.ActionLink("變更密碼", "ChangePassword", "Members")</li>*@
                         @*<div>@Html.ActionLink("Log out", "Logout", "Members")</div>*@
-                        <input type="button" value="Log out" class="logoutbtn" onclick="location.href='@Url.Action("Logout", "Members")'"/>
+                        <input type="button" value="Log out" class="logoutbtn" onclick="location.href='@Url.Action("Logout", "Members")'" />
 
                         <!-- right navbar message dropdown list -->
                         <div class="message dropdown">
@@ -311,7 +311,7 @@
 
                                 <div class="setting-wrappers">
                                     <div class="settingimg">
-                                        <a href="~/Edit_Profile/Edit_Profile/@userid">
+                                        <a href="~/Members/EditProfile/@userid">
                                             <i class="fas fa-cog"></i>Settings
                                             @*<div class="txt">Settings</div>*@
                                         </a>
@@ -399,7 +399,7 @@
                     <!-- tab -->
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active logsign-tab" id="login-tab" data-bs-toggle="tab"
+                            <button class="nav-link logsign-tab" id="login-tab" data-bs-toggle="tab"
                                     data-bs-target="#home" type="button" role="tab" aria-controls="home"
                                     aria-selected="true">
                                 Log In
@@ -418,7 +418,7 @@
                     <div class="tab-content" id="myTabContent">
 
                         <!-- login tab content -->
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade logsignTabContent" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="wrap">
 
                                 <form action="@Url.Action("Login", "Members")" method="post" id="logsignform">
@@ -484,7 +484,7 @@
 
 
                         <!-- signup tab content -->
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="tab-pane fade logsignTabContent" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
                             <div class="wrap">
 
