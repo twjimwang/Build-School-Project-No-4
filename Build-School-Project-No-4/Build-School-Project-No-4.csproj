@@ -530,6 +530,7 @@
     <Content Include="Assets\images\layout\resting.png" />
     <Content Include="Assets\images\layout\walleticon.png" />
     <Content Include="Assets\images\Page404\404.png" />
+    <Content Include="Assets\js\detail.js" />
     <Content Include="Assets\js\layout.js" />
     <Content Include="Assets\js\layout_afterlogin_nofooter.js" />
     <Content Include="Assets\js\layout_afterlogin.js" />

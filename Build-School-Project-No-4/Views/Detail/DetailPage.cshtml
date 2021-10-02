@@ -17,7 +17,7 @@
         background-image: url('@prod.PlayerPic');
     }
     </style>
-    
+
 }
 
 <div class="container game-backdrop">
@@ -213,7 +213,8 @@
                                         <div class="player-name">@prod.MemberName</div>
                                         <div class="price-per-game">
                                             <img src="~/Assets/images/detail/currency.png" />
-                                            @price/Game
+                                            <span id="price">@price</span>
+                                            /Game
                                         </div>
                                     </div>
                                 </div>
@@ -224,7 +225,7 @@
                                         <span>Rounds</span>
                                         <div class="rounds-div">
                                             <button class="round-subtract"><span>-</span></button>
-                                            <button class="round-number"><span class="round-set">1</span></button>
+                                            <input class="round-number" value="1" onfocus="setOldVal(this.value)" onkeyup="PriceChange(undefined, this.value)">
                                             <button class="round-add"><span>+</span></button>
                                         </div>
                                     </div>
@@ -233,7 +234,7 @@
                                         <span>Start Time</span>
                                         <div class="start-time-settings">
                                             <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local -->
-                                            <input type="datetime-local" id="start-time" name="start-time" class="whitish">
+                                            <input type="datetime-local" id="start-time" name="start-time" class="whitish" onblur="DateCheck(this.value)">
                                             <button class="time-now"><span>Now</span></button>
                                         </div>
                                     </div>
@@ -242,7 +243,7 @@
                                         <span>Subtotal</span>
                                         <div class="subtotal-div2">
                                             <img src="~/Assets/images/detail/currency.png" />
-                                            <span class="subtotal">@price</span>/Game
+                                            <span class="subtotal">@price</span>
                                         </div>
                                     </div>
 
@@ -283,7 +284,12 @@
 
 <div class="div whitespace"></div>
 
+
+
+
 @section endJS{
+    <script src="~/Assets/js/detail.js"></script>
 
 }
+
 
