@@ -11,7 +11,7 @@ body {
 
 button {
   border: none;
-  border-radius: 15px;
+  border-radius: 17px;
 }
 
 input {
@@ -51,7 +51,7 @@ hr {
 
 .game-backdrop button {
   font-size: 14px;
-  padding: 5px 0;
+  padding: 8px 0;
 }
 
 .detail-title {
@@ -88,7 +88,7 @@ img.buff-img {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 12px 15px;
+  padding: 20px 15px;
   background-color: rgb(18, 14, 27);
 }
 
@@ -444,12 +444,29 @@ img.buff-img {
     margin-top: 3px;
 }
 
+#playModal .modal-header {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
 
 
 #playModal .modal-footer {
-  background-color: rgb(33, 33, 44);
-  border-top: none;
+    background-color: rgb(33, 33, 44);
+    border-top: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
+  .rounds-div {
+    display: flex;
+
+  }
+    .rounds-div button {
+    padding: 5px 18px;
+  }
+    .rounds input {
+        margin: 0 5px;
+    }
+
 
 @media screen and (min-width: 400px) {
   .heading1 {
@@ -543,17 +560,14 @@ img.buff-img {
     margin-top: 0;
     align-self: initial;
   }
-
+  .rounds{
+      display: flex;
+  }
   .rounds-div span,
   .time-now span {
     font-size: 15px;
   }
-  .rounds-div button {
-    padding: 5px 18px;
-  }
-    .rounds input {
-        margin: 0 5px;
-    }
+
 }
 
 @media screen and (min-width: 768px) {
