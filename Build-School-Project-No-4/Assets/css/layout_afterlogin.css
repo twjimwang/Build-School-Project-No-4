@@ -297,7 +297,7 @@ body {
     border: 0;
 }
 
-.modal .modal-body #password {
+.modal .modal-body .passTitle {
     padding-top: 20px;
     font-weight: 100;
     font-size: 14px;
@@ -318,12 +318,24 @@ body {
     font-size: 14px;
     padding-left: 8px;
 }
-
-.modal .modal-body .passwordshow {
+.modal .modal-body #logsignform {
+    position: relative;
+}
+.modal .modal-body .passwordshowLogin {
     position: absolute;
-    z-index:100;
-    bottom: 110px;
-    left: 390px;
+    top: 50%;
+    left: 380px;
+    color: #7041e6;
+    background-color: transparent;
+    outline: none;
+    border: transparent;
+    font-size: 16px;
+}
+
+.modal .modal-body .passwordshowSignup {
+    position: absolute;
+    top: 51%;
+    left: 380px;
     color: #7041e6;
     background-color: transparent;
     outline: none;

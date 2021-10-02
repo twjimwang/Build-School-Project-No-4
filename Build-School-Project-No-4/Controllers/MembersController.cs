@@ -216,28 +216,6 @@ namespace Build_School_Project_No_4.Controllers
         //public ActionResult Login(string Email)
         public ActionResult Login()
         {
-            ////返回原頁面
-            ////獲取使用者登錄中的資訊
-            //string loginName = Request["email"];
-            //string password = Request["password"];
-
-            ////把使用者的資訊儲存在session中
-            //Session[LoginUserKey] = _MemberService.GetDataByAccount(Email);
-
-            ////獲取該頁面url的參數資訊
-            //string returnURL = Request.Params["HTTP_REFERER"];
-            //int index = returnURL.IndexOf('=');
-            //returnURL = returnURL.Substring(index + 1);
-
-            ////如果參數為空，則跳轉到首頁，否則切回原頁面
-            //if (string.IsNullOrEmpty(returnURL))
-            //    return Redirect("/Home/HomePage");
-            //else
-            //    return Redirect(returnURL);
-            ////return Redirect(Request.QueryString["URL"]);
-
-
-
             return View();
             //return RedirectToAction("ePal", "ePal");
         }
@@ -255,7 +233,7 @@ namespace Build_School_Project_No_4.Controllers
             {
                 return View();
             }
-                        
+
 
             //驗證登入email.密碼，回傳結果
             string ValidateStr = _MemberService.LoginCheck(loginMember.Email, loginMember.Password);
@@ -527,10 +505,29 @@ namespace Build_School_Project_No_4.Controllers
             ////將資料回填至view中
             //return view(newmember);
             //return RedirectToAction("HomePage", "Home");
-            //用TempData儲存註冊訊息
-            TempData["RegisterState"] = "註冊Email或密碼資訊不符要求，請重新註冊";
-            //重新導向頁面
-            return RedirectToAction("RegisterResult");
+            ////用TempData儲存註冊訊息
+            //TempData["RegisterState"] = "註冊Email或密碼資訊不符要求，請重新註冊";
+            ////重新導向頁面
+            //return RedirectToAction("RegisterResult");
+
+            //返回原頁面
+            //獲取使用者登錄中的資訊
+            string loginName = Request["email"];
+            string password = Request["password"];
+
+            ////把使用者的資訊儲存在session中
+            //Session[LoginUserKey] = newMember.Email;
+
+            //獲取該頁面url的參數資訊
+            string returnURL = Request.Params["HTTP_REFERER"];
+            int index = returnURL.IndexOf('=');
+            returnURL = returnURL.Substring(index + 1);
+
+            //如果參數為空，則跳轉到首頁，否則切回原頁面
+            if (string.IsNullOrEmpty(returnURL))
+                return Redirect("/Home/HomePage");
+            else
+                return Redirect(returnURL);
 
         }
 

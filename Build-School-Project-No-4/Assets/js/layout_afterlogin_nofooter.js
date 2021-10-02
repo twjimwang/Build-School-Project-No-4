@@ -19,13 +19,14 @@ let forgetpass = document.querySelector('.forgetpass');
 let logsignTabContent = document.querySelectorAll('.logsignTabContent');
 let hometab = document.querySelector('#home');
 let profiletab = document.querySelector('#profile');
+let validate = document.querySelectorAll('.form-group span');
 
 
 let logsigntab = document.querySelectorAll('.logsign-tab');
 let logsigntitle = document.querySelector('.logsign-title');
 let modalfooter = document.querySelector('.modalfooter');
 let modalfooterP = document.querySelector('.modalfooter>p');
-let passinput = document.querySelectorAll('#myinput');
+let passinput = document.querySelectorAll('#password');
 let passshow = document.querySelectorAll('.passwordshow');
 
 
@@ -45,30 +46,50 @@ let valerror = document.querySelectorAll(".field-validation-error");
 
 
 window.onload = function () {
+    ////BS validation
+    //// Example starter JavaScript for disabling form submissions if there are invalid fields
+    //(function () {
+    //    'use strict'
 
-    //if (localStorage.getItem("loginEmail") == null) {
-    //    logsignmodalbtn.style.display = "block";
-    //} else {
-    //    logsignmodalbtn.style.display = "none";
-    //}
-    ////signupBtn.addEventListener('click', function () {
-    ////    localStorage.setItem("signupEmail", email.value);
-    ////})
+    //    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //    var forms = document.querySelectorAll('.needs-validation')
 
-    ////let loginData = {
-    ////    email: email,
-    ////    password: password
-    ////}
-    //logsignBtn.forEach((btn, idx) => {
-    //    btn.addEventListener('click', function () {
-    //        /*        if (localStorage.getItem("login") == null) {*/
-    //        localStorage.setItem("loginEmail", email.value);
-    //        /*        }*/
-    //        //else {
-    //        //    loginarray = JSON.parse(localStorage.getItem("login"));    
-    //        //}
-    //    })
+    //    // Loop over them and prevent submission
+    //    Array.prototype.slice.call(forms)
+    //        .forEach(function (form) {
+    //            form.addEventListener('submit', function (event) {
+    //                if (!form.checkValidity()) {
+    //                    event.preventDefault()
+    //                    event.stopPropagation()
+    //                }
+
+    //                form.classList.add('was-validated')
+    //            }, false)
+    //        })
+    //})()
+
+
+
+    //// Validate Email
+    //const email = document.getElementById('email');
+    //email.addEventListener('blur', () => {
+    //    let regex =
+    //        /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+    //    let s = email.value;
+    //    if (regex.test(s)) {
+    //        email.classList.remove(
+    //            'is-invalid');
+    //        emailError = true;
+    //    }
+    //    else {
+    //        email.classList.add(
+    //            'is-invalid');
+    //        emailError = false;
+    //    }
     //})
+
+
+
 
 
     let navItems = document.querySelectorAll('.navItem');
@@ -81,7 +102,6 @@ window.onload = function () {
             event.srcElement.classList.add('purple-text-border');
         })
     })
-
 
 
 
@@ -102,6 +122,16 @@ window.onload = function () {
         //if (idx === 0) { logsignBtn[0].value = "Log In"; }
         //else if (idx === 1) { logsignBtn[1].value = "Sign Up"; }
 
+        //if (idx == 0) {
+        //    validate[0].innerHTML = "";
+        //    validate[1].innerHTML = "";
+        //}
+        //else if (idx == 1) {
+        //    validate[2].innerHTML = "";
+        //    validate[3].innerHTML = "";
+        //}
+
+
 
         btn.addEventListener('click', function (event) {
             //初始化modal打開樣式
@@ -120,10 +150,15 @@ window.onload = function () {
 
             //maillog.style.display = 'block';
 
-            ////登入驗證errormsg清除
-            //document.querySelectorAll(".field-validation-error").forEach(item => {
-            //    item.innerText = "";
-            //})
+            //if (idx == 0) {
+            //    validate[0].innerHTML = "";
+            //    validate[1].innerHTML = "";
+            //}
+            //else if (idx == 1) {
+            //    validate[2].innerHTML = "";
+            //    validate[3].innerHTML = "";
+            //}
+
 
 
             logsigntab.forEach((item, index) => {
@@ -181,6 +216,9 @@ window.onload = function () {
                         logsigntab[index].classList.remove('active');
                         //idx == "";
                         //index == "";
+                        //validate.forEach(item => {
+                        //    item.innerHTML = "";
+                        //})
                     })
 
                 })
@@ -198,18 +236,10 @@ window.onload = function () {
 
 
 
-////modal password hide/show
-//function Password() {
-//    passinput.forEach((input, idx) => {
-//        if (input.type === "password") {
-//            input.type = "text";
-//            passshow[idx].value = "hide";
-//        } else {
-//            input.type = "password";
-//            passshow[idx].value = "show";
-//        }
-//    })
-//}
+
+
+
+
 
 
 //modal password hide/show
@@ -326,4 +356,5 @@ statuslistbtn.forEach((stabtn, idx) => {
 
     })
 })
+
 

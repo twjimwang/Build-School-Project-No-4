@@ -19,6 +19,7 @@ let forgetpass = document.querySelector('.forgetpass');
 let logsignTabContent = document.querySelectorAll('.logsignTabContent');
 let hometab = document.querySelector('#home');
 let profiletab = document.querySelector('#profile');
+let validate = document.querySelectorAll('.form-group span');
 
 
 let logsigntab = document.querySelectorAll('.logsign-tab');
@@ -45,28 +46,28 @@ let valerror = document.querySelectorAll(".field-validation-error");
 
 
 window.onload = function () {
+    ////BS validation
+    //// Example starter JavaScript for disabling form submissions if there are invalid fields
+    //(function () {
+    //    'use strict'
 
-    //    if (localStorage.getItem("loginEmail") == null) {
-    //        logsignmodalbtn.style.display = "block";
-    //    } else {
-    //        logsignmodalbtn.style.display = "none";
-    //    }
-    //    //signupBtn.addEventListener('click', function () {
-    //    //    localStorage.setItem("signupEmail", email.value);
-    //    //})
+    //    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //    var forms = document.querySelectorAll('.needs-validation')
 
-    //    //let loginData = {
-    //    //    email: email,
-    //    //    password: password
-    //    //}
-    //    logsignBtn.addEventListener('click', function () {
-    ///*        if (localStorage.getItem("login") == null) {*/
-    //        localStorage.setItem("loginEmail", email.value);
-    ///*        }*/
-    //        //else {
-    //        //    loginarray = JSON.parse(localStorage.getItem("login"));    
-    //        //}
-    //    })
+    //    // Loop over them and prevent submission
+    //    Array.prototype.slice.call(forms)
+    //        .forEach(function (form) {
+    //            form.addEventListener('submit', function (event) {
+    //                if (!form.checkValidity()) {
+    //                    event.preventDefault()
+    //                    event.stopPropagation()
+    //                }
+
+    //                form.classList.add('was-validated')
+    //            }, false)
+    //        })
+    //})()
+
 
 
     let navItems = document.querySelectorAll('.navItem');
@@ -178,6 +179,9 @@ window.onload = function () {
                         logsigntab[index].classList.remove('active');
                         //idx == "";
                         //index == "";
+                        //validate.forEach(item => {
+                        //    item.innerHTML = "";
+                        //})
                     })
 
                 })
@@ -273,18 +277,6 @@ window.onload = function () {
 
 
 
-////modal password hide/show
-//function Password() {
-//    passinput.forEach((input, idx) => {
-//        if (input.type === "password") {
-//            input.type = "text";
-//            passshow[idx].value = "hide";
-//        } else {
-//            input.type = "password";
-//            passshow[idx].value = "show";
-//        }
-//    })
-//}
 
 //modal password hide/show
 passinput.forEach((input, idx) => {

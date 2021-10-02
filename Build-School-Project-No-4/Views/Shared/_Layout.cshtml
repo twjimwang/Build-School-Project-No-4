@@ -416,143 +416,80 @@
                     <!-- tab-content -->
                     <div class="tab-content" id="myTabContent">
 
-                        <!-- login tab content -->
+                        @*login tab content*@
                         <div class="tab-pane fade logsignTabContent" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="wrap">
 
-                                <form action="@Url.Action("Login", "Members")" method="post" id="logsignform">
-                                    <!-- mail login -->
+                                @using (Html.BeginForm("Login", "Members", FormMethod.Post, new { id = "logsignform", @class = "needs-validation", novalidate = "true" }))
+                                {
+
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <div class="maillog logmethod">
-                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:14px" })
-
-                                        @*<label for="email" id="email">Email</label><br>
-                                            <input id="email" type="email" name="email" class="emailinput ellipsis"
-                                                   placeholder="Please enter your email" value="" required="required">*@
-
-                                        @*<div class="valid-feedback">
-                                                Looks good!
+                                    //mail
+                                    <div class="maillog logmethod form-group">
+                                        @*<label for="email" class="maillabel">@Model.Email</label>
+                                            <input type="text" class="emailinput ellipsis form-control" id="email" name = "email" placeholder = "Please enter your email" required value="@Model.Email">
+                                            <div class="invalid-feedback">
+                                              Please provide a valid city.
                                             </div>*@
-                                        @*<span class="btn" id="loginmethod">
-                                                <i class="fas fa-mobile logmobile"></i>
-                                            </span>*@
+                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", @for = "email" })<br>
+                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis form-control", id = "email", name = "email", placeholder = "Please enter your email", required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:14px" })
                                     </div>
-                                    <!-- phone login -->
-                                    <!--<div class="phonelog logmethod">
-                                        <label for="phone" id="email">Phone Number</label>
-                                        <select id="phone" class="form-select  phoneselect">
-                                            <option selected>+1</option>
-                                            <option>...</option>
-                                        </select>
 
-                                        <input type="tel" name="phone" class="phoneinput ellipsis"
-                                               placeholder="Please enter your phone number">
-
-                                        <span class="btn" id="loginmethod">
-                                            <i class="far fa-envelope logmail"></i>
-                                        </span>
-                                    </div>-->
-                                    <!-- password -->
-                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
-                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", name = "password", placeholder = "Please enter your password" })
-                                    <input type="button" class="passwordshow" value="show"><br>
-
-                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:14px" })
-
-                                    @*<label for="password" id="password">Password</label><br>
-                                        <input type="password" name="password" class="passwordinput ellipsis"
-                                               placeholder="Please enter your password" value="" id="myinput" required="required">*@
-
-
-                                    @*<div class="valid-feedback">
-                                            Looks good!
-                                        </div>*@
+                                    //password
+                                    <div class="form-group ">
+                                        @*<label for="password" class="maillabel">@Model.Password</label>
+                                            <input type="text" class="passwordinput ellipsis form-control" id="password" name = "password" placeholder = "Please enter your password" required value="@Model.Password">
+                                            <div class="invalid-feedback">
+                                              Please provide a valid city.
+                                            </div>*@
+                                        @Html.LabelFor(model => model.Password, new { @for = "password", @class = "passTitle" })<br>
+                                        @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis form-control", id = "password", name = "password", placeholder = "Please enter your password", required = "required" })
+                                        <input type="button" class="passwordshow passwordshowLogin" value="show">
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:14px" })
+                                    </div>
 
                                     <a href="#" id="forgetpass">Forget your password?</a>
 
-                                    @*<input type="submit"  value="Log In" />*@
-                                    <input type="submit" class="btn btn-secondary loginbutton" data-bs-dismiss="modal" id="loginbutton" value="">
-                                    @ViewBag.Message
-                                </form>
+                                    <input type="submit" class="btn btn-secondary loginbutton" id="loginbutton" value="Log In">
+                                }
+
                             </div>
-                            <!-- contact us用modal -->
                         </div>
 
 
-                        <!-- signup tab content -->
+                        @*signup tab content*@
                         <div class="tab-pane fade logsignTabContent" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
                             <div class="wrap">
 
-                                @using (Html.BeginForm("Register", "Members", FormMethod.Post))
+                                @using (Html.BeginForm("Register", "Members", FormMethod.Post, new { id = "logsignform", @class = "needs-validation", novalidate = "true" }))
                                 {
-                                    @*<form action="@Url.Action("Register", "Member")" method="post">*@
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <!-- mail signup -->
-                                    <div class="maillog">
-                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:12px" })
-
-                                        @*<label for="email" id="email">Email</label><br>
-                                            <input type="email" name="email" class="emailinput ellipsis"
-                                                   placeholder="Please enter your email">*@
-
-                                        @*<span class="btn" id="loginmethod">
-                                                <i class="fas fa-mobile signmobile"></i>
-                                            </span>*@
+                                    //mail
+                                    <div class="maillog form-group">
+                                        @Html.LabelFor(model => model.Email, new { @class = "maillabel", @for = "email" })<br>
+                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "emailinput ellipsis form-control", id = "email", name = "email", placeholder = "Please enter your email", required = "required" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", style = "font-size:14px" })
                                     </div>
-                                    <!-- phone signup -->
-                                    <!--<div class="phonelog">
-                                        <label for="phone" id="email">Phone Number</label>
-                                        <select id="phone" class="form-select  phoneselect">
-                                            <option selected>+1</option>
-                                            <option>...</option>
-                                        </select>
 
-                                        <input type="tel" name="phone" class="phoneinput ellipsis"
-                                               placeholder="Please enter your phone number">
+                                    //password
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Password, new { @for = "password", @class = "passTitle" })<br>
+                                        @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis form-control", id = "password", name = "password", placeholder = "Please enter your password", required = "required" })
+                                        <input type="button" class="passwordshow passwordshowSignup" value="show">
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:14px" })
+                                    </div>
 
-                                        <span class="btn" id="loginmethod">
-                                            <i class="far fa-envelope signmail"></i>
-                                        </span>
-                                    </div>-->
-                                    <!-- password -->
-                                    @Html.LabelFor(model => model.Password, new { @id = "password" })<br>
-                                    @Html.PasswordFor(model => model.Password, new { @class = "passwordinput ellipsis", id = "myinput", placeholder = "Please enter your password" })
-                                    <input type="button" class="passwordshow" value="show">
-
-                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger", style = "font-size:12px" })
-
-                                    @*<label for="password" id="password">Password</label><br>
-                                        <input type="password" name="password" class="passwordinput ellipsis"
-                                               placeholder="Please enter your password" value="" id="myinput">*@
-
-                                    <input type="submit" class="btn btn-secondary mt-5 signupbutton loginbutton" data-bs-dismiss="modal" id="loginbutton" value="">
-
-
-
-                                    @*<div class="form-check">
-                                            <input class="form-check-input signchk" type="checkbox" value="" id="signcheck">
-                                            <span class="purplemark"></span>
-                                            <label class="form-check-label signchktxt" for="signcheck">
-                                                After checking, you are indicating that you have read and acknowledge the <a href="#" id="signchklink">E-Pal Platform User Agreement.</a>
-                                            </label>
-                                        </div>*@
-
-                                    @*</form>*@
+                                    <input type="submit" class="btn btn-secondary mt-5 loginbutton" id="loginbutton" value="Sign Up">
                                 }
 
                             </div>
-                            <!-- contact us用modal -->
                         </div>
 
                     </div>
-
                 </div>
 
                 <div class="modalfooter">
@@ -885,6 +822,7 @@
 
 
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
             integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -896,11 +834,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
 
     <script type="text/javascript" src="~/Assets/js/layout_afterlogin.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 
 
@@ -918,68 +856,6 @@
     @*前端驗證*@
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
-    }
-
-
-
-    @section endJS{
-        <script>
-
-
-                            //let logsignmodalbtn = document.querySelector('.logsign-modal-button');
-                            //window.onload = () => {
-                            //    if (localStorage.getItem("loginEmail") != null) {
-
-                            //        logsignmodalbtn.style.display = "none";
-
-                            //    }
-
-
-                                //let email = document.querySelector(".emailinput:first-child").value;
-                                //let password = document.querySelector(".passwordinput:first-child").value;
-                                //let loginbutton = document.querySelector("#loginbutton:first-child");
-
-                                //let loginData = {
-                                //    email: email,
-                                //    password: password
-                                //}
-
-                                //loginbutton.addEventListener('click', function () {
-
-                                //    if (localStorage.getItem("login") == null) {
-
-                                //        localStorage.setItem("login", JSON.stringify(loginData));
-
-                                //    }
-                                //    else {
-
-                                //        loginarray = JSON.parse(localStorage.getItem("login"));    //localStarsge是文字格式，要轉回array
-
-                                //    }
-                                //})
-
-
-
-            /*            }*/
-
-
-
-                            //let btn = document.querySelector('.btnClass');
-                            //let call = document.querySelector('.callClass');
-
-                            //function savename(e) {
-                            //    // 撈出輸入鍵的值
-                            //    var text = document.querySelector('.textClass').value;
-                            //    // 存在Localstoreage
-                            //    localStorage.setItem('mylove', text);
-
-                            //}
-                            //btn.addEventListener('click', savename);
-                            //call.addEventListener('click', function () {
-                            //    // 撈出Localstoreage的值
-                            //    var str = localStorage.getItem('mylove');
-
-        </script>
     }
 
 
