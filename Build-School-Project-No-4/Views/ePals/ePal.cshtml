@@ -493,7 +493,7 @@
 
                             @for (var i = 0; i < Model.GameCategory.GameAll.Count(); i++)
                             {
-                                <a href="@Url.Action("ePal","ePal",new {id = i+1})">
+                                <a href="@Url.Action("ePal","ePals",new {id = i+1})">
                                     <span>
                                         @Model.GameCategory.GameAll[i]
                                         <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632638187/Independent%20Study/OtherPhoto/star_swl8yv.jpg" alt="">

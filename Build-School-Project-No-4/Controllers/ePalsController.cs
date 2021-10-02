@@ -23,7 +23,7 @@ namespace Build_School_Project_No_4.Controllers
             var productGet = new ProductService();
             if (!id.HasValue)
             {
-                return RedirectToAction("ePal", "ePals", new { id = 1});
+                return RedirectToAction("ePal", "ePals", new { id = 1 });
             }
             var ProductCards = productGet.GetProductCardsData(id.Value);
             var Games = productGet.GetGamesAll();
@@ -37,11 +37,11 @@ namespace Build_School_Project_No_4.Controllers
             return View("ePal",result);
         }
 
-        [HttpPost]
-        public ActionResult ePal(string name)
-        {
-            var abc = name;
-            return View();
-        }
+        //[HttpPost]
+        //public ActionResult ePal(string name)
+        //{
+        //    var abc = name;
+        //    return View();
+        //}
     }
 }

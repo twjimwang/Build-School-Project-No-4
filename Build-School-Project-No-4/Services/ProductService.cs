@@ -29,7 +29,7 @@ namespace Build_School_Project_No_4.Services
                 return result;
             }
             var ProductPosition = _repo.GetAll<ProductPosition>();
-            var products = _repo.GetAll<Product>().Where(x => x.GameCategoryId == categoryId).ToList();
+            var products = _repo.GetAll<Product>().Where(x => x.GameCategoryId == category.GameCategoryId).ToList();
             var productCards = products.Select(p => new ProductCard {
                 UnitPrice = p.UnitPrice,
                 CreatorImg = p.CreatorImg,
@@ -46,7 +46,7 @@ namespace Build_School_Project_No_4.Services
             result.ProductCards = productCards;
             result.GameCoverImg = category.GameCoverImg;
             result.GameTitle = category.GameName;
-            result.CategroyId = categoryId;
+            result.CategroyId = category.GameCategoryId;
             return result;
         }
 
@@ -89,7 +89,6 @@ namespace Build_School_Project_No_4.Services
             result.ProductCards = productCards;
             result.GameCoverImg = GameCategory.GameCoverImg;
             result.GameTitle = GameCategory.GameName;
-            result.CategroyId = GameCategoryId;
             return result;
         }
         
