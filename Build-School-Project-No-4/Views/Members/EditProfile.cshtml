@@ -6,6 +6,17 @@
     var GenderList = Utility.getGenderList();
     var LanguageList = Utility.getLanguageList();
 }
+@*抓到使用者登入的cookie資訊*@
+@{
+    HttpCookie cookie = HttpContext.Current.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
+
+    string userid = "";
+    if (cookie != null)
+    {
+        FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+        userid = ticket.UserData;
+    }
+}
 
 <div class="Sidebar ">
     <input type="checkbox" name="" id="Side-menu-switch">
@@ -80,6 +91,7 @@
                         @*@Html.ValidationMessageFor(model => Model.Name, "", new { @class = "text-danger" })*@
                         <!--</div>
                         </div>-->
+
                         <div class="form-group catlogo col-md-9">
                             <h3 class="avatartitle">Avatar</h3>
                             <label for="formFileMultiple" class="aa orm-label"><i class="fas fa-camera"></i></label>
@@ -87,8 +99,9 @@
                         </div>
 
                         <hr class="col-md-10" />
+
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @Html.HiddenFor(model => Model.MemberId)
+                        @Html.HiddenFor(model => Model.MemberId, new { @value = @userid })
 
                         <div class="form-group">
                             @Html.LabelFor(model => Model.MemberName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -115,17 +128,20 @@
                         </div>
 
                         <!--Radio, Gender-->
-                        <!--<div class="form-group">
+                        <div class="form-group">
                             @Html.LabelFor(m => m.Gender, htmlAttributes: new { @class = "col-md-2 control-label" })
                             <div class="col-md-10">
                                 <div class="radio">
-                                    @foreach (var item in (List<SelectListItem>)GenderList)
+                                    @*@foreach (var item in (List<SelectListItem>)GenderList)
                                     {
                                         <label>@Html.RadioButton("Gender", item.Value) @item.Text</label>
-                                    }
+                                    }*@
+                                    <label>@Html.RadioButtonFor(model => Model.Gender, "Male")</label>
+                                    <label>@Html.RadioButtonFor(model => Model.Gender, "Female")</label>
+                                    <label>@Html.RadioButtonFor(model => Model.Gender, "Other")</label>
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => Model.BirthDay, htmlAttributes: new { @class = "control-label col-md-2" })

@@ -24,6 +24,8 @@ namespace Build_School_Project_No_4.ViewModels
 
         public int MemberId { get; set; }
 
+        [Required]
+        [StringLength(20, MinimumLength = 1, ErrorMessage = "最少需1個位元")]
         [Display(Name = "Name")]
         public string MemberName { get; set; }
 
@@ -76,5 +78,14 @@ namespace Build_School_Project_No_4.ViewModels
 
 
     }
+
+
+    public enum Gender
+    {
+        Female = 0,
+        Male = 1,
+        Other = 2
+    }
+
 
 }

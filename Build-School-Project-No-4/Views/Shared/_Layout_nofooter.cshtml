@@ -23,7 +23,6 @@
 
     <link rel="stylesheet" href="~/Assets/css/reset.css">
     <link rel="stylesheet" href="~/Assets/css/layout_afterlogin_nofooter.css">
-    <script src="//oss.maxcdn.com/bootbox/4.2.0/bootbox.min.js"></script>
 
     @*抓到使用者登入的cookie資訊*@
     @{
@@ -312,7 +311,7 @@
 
                                 <div class="setting-wrappers">
                                     <div class="settingimg">
-                                        <a href="~/Members/EditProfile/@userid">
+                                        <a href="~/Members/EditProfile/@userid" data-MemberId=@userid>
                                             <i class="fas fa-cog"></i>Settings
                                             @*<div class="txt">Settings</div>*@
                                         </a>

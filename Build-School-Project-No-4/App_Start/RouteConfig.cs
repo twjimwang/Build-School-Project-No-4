@@ -24,7 +24,7 @@ namespace Build_School_Project_No_4
 
             //routes.MapRoute(
             //    name: "MemberProfile",
-            //    url: "Members/EditProfile/{userid}",
+            //    url: "Members/EditProfile",
             //    defaults: new { controller = "Members", action = "EditProfile", id = UrlParameter.Optional }
             //);
 

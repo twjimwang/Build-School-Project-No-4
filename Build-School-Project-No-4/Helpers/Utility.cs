@@ -12,8 +12,8 @@ namespace Build_School_Project_No_4.Helpers
         {
             List<SelectListItem> GenderList = new List<SelectListItem>
             {
-                new SelectListItem { Text = "Female", Value = "0" },
-                new SelectListItem { Text = "Male", Value = "1" },
+                new SelectListItem { Text = "Male", Value = "0" },
+                new SelectListItem { Text = "Female", Value = "1" },
                 new SelectListItem { Text = "Other", Value = "2" }
             };
 

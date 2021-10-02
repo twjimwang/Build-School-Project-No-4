@@ -52,7 +52,7 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-
+        [Authorize]
         [HttpGet]
         //public ActionResult Edit_Profile(int? Id)
         public ActionResult EditProfile(int? Id)
@@ -74,8 +74,9 @@ namespace Build_School_Project_No_4.Controllers
             {
                 MemberId = emp.MemberId,
                 MemberName = emp.MemberName,
+                Phone = emp.Phone,
                 Country = emp.Country,
-                Gender = emp.Gender,
+                //Gender = (Gender)emp.Gender,
                 BirthDay = emp.BirthDay,
                 TimeZone = emp.TimeZone,
                 LanguageId = emp.LanguageId,
@@ -84,7 +85,8 @@ namespace Build_School_Project_No_4.Controllers
             };
 
 
-            return View(groupMember);
+            return View("EditProfile", groupMember);
+            //return RedirectToRoute(new { Controller = "Members", action = "MemberProfile", id = 1});
 
 
             ////初始化
@@ -108,7 +110,7 @@ namespace Build_School_Project_No_4.Controllers
 
         }
 
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         //public ActionResult Edit_Profile(MemberInfoViewModel MemberInfo)
@@ -121,7 +123,7 @@ namespace Build_School_Project_No_4.Controllers
                 MemberName = EditMember.MemberName,
                 Phone = EditMember.Phone,
                 Country = EditMember.Country,
-                //Gender = EditMember.Gender, 
+                //Gender = (int)EditMember.Gender,
                 BirthDay = EditMember.BirthDay,
                 TimeZone = EditMember.TimeZone,
                 //LanguageId = EditMember.LanguageId,

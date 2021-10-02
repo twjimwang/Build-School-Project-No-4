@@ -58,7 +58,7 @@ namespace Build_School_Project_No_4.Controllers
                 MemberId = emp.MemberId,
                 MemberName = emp.MemberName,
                 Country = emp.Country,
-                Gender = emp.Gender,
+                //Gender = emp.Gender,
                 BirthDay = emp.BirthDay,
                 TimeZone = emp.TimeZone,
                 LanguageId = emp.LanguageId,
