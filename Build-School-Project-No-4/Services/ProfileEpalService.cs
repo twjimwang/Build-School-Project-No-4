@@ -26,6 +26,8 @@ namespace Build_School_Project_No_4.Services
             List<Following> followAll = _Repo.GetAll<Following>().ToList();
             List<RecentVistor> vistorAll = _Repo.GetAll<RecentVistor>().ToList();
             List<Language> languages = _Repo.GetAll<Language>().ToList();
+            List<CommentDetail> commentAll = _Repo.GetAll<CommentDetail>().ToList();
+            List<Product> products = _Repo.GetAll<Product>().ToList();
 
             var selectMemberLanguage = memberAll.Where(x => x.MemberId == assignMemberId).FirstOrDefault();
             var selectlanguage = languages.Where(x => x.LanguageId == selectMemberLanguage.LanguageId).FirstOrDefault();
@@ -33,11 +35,18 @@ namespace Build_School_Project_No_4.Services
             var selectfollowId = followAll.Where(x => x.MemberId == assignMemberId).ToList();
             var selectfollwersTotal = followAll.Where(x => x.FollowingId == assignMemberId).ToList();
             var selectVistor = vistorAll.Where(x => x.MemberId == assignMemberId).ToList();
+            var selectServers = products.Where(x => x.CreatorId == assignMemberId).ToList();
+            var selectRecommend = commentAll.Where(x => x.MemberId == assignMemberId).ToList();
+            var RecommendList = commentAll.Where(x => x.MemberId == assignMemberId).ToList();
 
             int follingCal = selectfollowId.Count;
             int vistorCal = selectVistor.Count;
             int followersCal = selectfollwersTotal.Count;
             string languageNames = selectlanguage.LanguageName;
+            int serversCal = selectServers.Count;
+            int commentCal = selectRecommend.Count;
+            decimal avgStar = 0;
+            avgStar = starAvgMethod(selectRecommend);
 
             List<ProfileViewModel> result = new List<ProfileViewModel>();
             foreach (var item in selectmemberId)
@@ -51,11 +60,26 @@ namespace Build_School_Project_No_4.Services
                     FollingsNumber = follingCal,
                     FollowsNumber = followersCal,
                     LanguageName = languageNames,
-                    VistorsNumber = vistorCal
+                    VistorsNumber = vistorCal,
+                    serverNumber = serversCal,
+                    commentNumber = commentCal,
+                    StarAvg = avgStar
                 });
             }
 
             return result;
+        }
+
+        private static decimal starAvgMethod(List<CommentDetail> selectRecommend)
+        {
+            decimal avgStar;
+            decimal y = 0;
+            foreach (var item in selectRecommend)
+            {
+                y = item.StarLevel + y;
+            }
+            avgStar = y / selectRecommend.Count();
+            return avgStar;
         }
 
     }

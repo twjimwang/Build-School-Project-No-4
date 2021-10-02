@@ -5,308 +5,296 @@
 }
 
 
-@*<!doctype html>
-<html lang="en">
-
-<head>*@
-    @*<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />*@
-    @*<link rel="stylesheet" href="ProfileHome1.css">*@
-
-    @*<title>EPAL</title>
-</head>
-<body class="bodyMVC">*@
+<div class="container-fluid p-0 mobile-hide">
+    <div class="mobile-space-top">
+    </div>
+    <div class="mobile-head-top"></div>
+</div>
 
 
 
-    <div class="container-fluid p-0 mobile-hide">
-        <div class="mobile-space-top">
+<div class="container profile-pos">
+
+
+    <div class="row">
+        @foreach (var item in Model.Profiles)
+        {
+            <div class="col-12 col-md-3">
+                <div class="profile-pic">
+                    @*<img src="img/default_avatar.png" alt="avatar">*@
+                    @*<img src=" https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632809097/Profile/default_avatar_f231pc.png" alt="avatar">*@
+                    <img src="@item.ProfilePicture" alt="avatar">
+                </div>
+            </div>
+
+        }
+
+        @*@foreach (var item in Model.Profiles)
+            {*@
+        <div class="col-12 col-md-9">
+            <div class="profile-info">
+                <div class="profile-top">
+                    @foreach (var item in Model.Profiles)
+                    {<span class="profile-name">@item.MemberName</span>
+                    if (@item.Gender == 0)
+                    { <div class="gender"><img class="gender" src="https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632833966/Profile/gender-m_msytvi.png" alt=""></div>}
+                    else
+                    { <div class="gender"><img class="gender" src="https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632833966/Profile/gender-f_ia8gbh.png" alt=""></div>}
+                    <div class="status">ONLINE</div>}
+                    @*<div class="status">@item.LineStatus</div>}*@
+                    <button class="edit-profile-dropdown" id="dropwdown-btn">
+                        <span class="dots">• • •</span>
+                        </butt>
+                </div><div class="a-col">
+                    @foreach (var item in Model.Profiles)
+                    {
+
+                        @*<a href="@Url.Action("Followings","FollowController")" class="a-title">*@
+                        <a href="@Url.Action("Followings","Follow")" class="a-title">
+                            <span class="followers-count">@item.FollowsNumber</span> Followers <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="#" class="a-title">
+                            <span class="following-count">@item.FollingsNumber</span> Following <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="#" class="a-title">
+                            <span class="visitors-count">@item.VistorsNumber</span> Visitors <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="#" class="a-title">
+                            <span class="medals-count">0</span> Medals <i class="fas fa-chevron-right"></i>
+                        </a>
+                    }
+
+                </div><div class="profile-details greyish">
+                    @foreach (var item in Model.Profiles)
+                    {
+                        <div class="profile-id">ID: <span class="id-num">@item.MemberId</span></div>
+                        <div class="profile-language">Language: <span class="lang-name">@item.LanguageName</span></div>
+                        <div class="profile-bio">
+                            Hii my name is @item.MemberName :)
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
-        <div class="mobile-head-top"></div>
     </div>
 
 
 
-    <div class="container profile-pos">
+    <div class="row edit-profile-mobile" id="edit-profile-mobiles">
+        <div class="col-12">
+            <div class="edit-btn-div">
+                <button class="edit-mobile-btn" data-bs-toggle="modal"
+                        data-bs-target="#editProfileModal">
+                    Edit Profile
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <a href="#">Edit profile</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#changeAvatarModal">Edit avatar</a>
+                    <a data-bs-dismiss="modal">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-        <div class="row">
-            @foreach (var item in Model.Profiles)
-            {
-                <div class="col-12 col-md-3">
-                    <div class="profile-pic">
+    <div class="modal fade" id="changeAvatarModal" tabindex="-1" aria-labelledby="changeAvatarLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changeAvatarLabel">Avatar</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="avatar-img">
                         @*<img src="img/default_avatar.png" alt="avatar">*@
-                        @*<img src=" https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632809097/Profile/default_avatar_f231pc.png" alt="avatar">*@
-                        <img src="@item.ProfilePicture" alt="avatar">
-                    </div>
-                </div>
-
-            }
-
-            @*@foreach (var item in Model.Profiles)
-                {*@
-            <div class="col-12 col-md-9">
-                <div class="profile-info">
-                    <div class="profile-top">
+                        @*<img src="https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632809097/Profile/default_avatar_f231pc.png" alt="avatar">*@
                         @foreach (var item in Model.Profiles)
-                        {<span class="profile-name">@item.MemberName</span>
-                        if (@item.Gender == 0)
-                        { <div class="gender"><img class="gender" src="https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632833966/Profile/gender-m_msytvi.png" alt=""></div>}
-                        else
-                        { <div class="gender"><img class="gender" src="https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632833966/Profile/gender-f_ia8gbh.png" alt=""></div>}
-                        <div class="status">ONLINE</div>}
-                        @*<div class="status">@item.LineStatus</div>}*@
-                        <button class="edit-profile-dropdown" id="dropwdown-btn">
-                            <span class="dots">• • •</span>
-                            </butt>
-                    </div><div class="a-col">
-    @foreach (var item in Model.Profiles)
-    {
+                        {<img src="@item.ProfilePicture" alt="avatar">}
 
-        @*<a href="@Url.Action("Followings","FollowController")" class="a-title">*@
-        <a href="@Url.Action("Followings","Follow")" class="a-title">
-        <span class="followers-count">@item.FollowsNumber</span> Followers <i class="fas fa-chevron-right"></i>
-</a>
-<a href="#" class="a-title">
-    <span class="following-count">@item.FollingsNumber</span> Following <i class="fas fa-chevron-right"></i>
-</a>
-<a href="#" class="a-title">
-    <span class="visitors-count">@item.VistorsNumber</span> Visitors <i class="fas fa-chevron-right"></i>
-</a>
-<a href="#" class="a-title">
-    <span class="medals-count">0</span> Medals <i class="fas fa-chevron-right"></i>
-</a>
-}
-
-</div><div class="profile-details greyish">
-                        @foreach (var item in Model.Profiles)
-                        {
-                            <div class="profile-id">ID: <span class="id-num">@item.MemberId</span></div>
-                            <div class="profile-language">Language: <span class="lang-name">@item.LanguageName</span></div>
-                            <div class="profile-bio">
-                                Hii my name is @item.MemberName :)
-                            </div>
-                        }
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="avatar-size-req">
+                        *Avatar must be JPG, GPEG, GIF, or PNG and cannot exceed 5MB
+                    </div>
+
+                    <button type="button" class="btn change-avatar-btn">Change Avatar</button>
                 </div>
             </div>
         </div>
-
-
-
-        <div class="row edit-profile-mobile" id="edit-profile-mobiles">
-            <div class="col-12">
-                <div class="edit-btn-div">
-                    <button class="edit-mobile-btn" data-bs-toggle="modal"
-                            data-bs-target="#editProfileModal">
-                        Edit Profile
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- modal -->
-        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body p-0">
-                        <a href="#">Edit profile</a>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#changeAvatarModal">Edit avatar</a>
-                        <a data-bs-dismiss="modal">Cancel</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="changeAvatarModal" tabindex="-1" aria-labelledby="changeAvatarLabel" aria-hidden="true">
-            <div class="modal-dialog ">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="changeAvatarLabel">Avatar</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="avatar-img">
-                            @*<img src="img/default_avatar.png" alt="avatar">*@
-                            <img src="https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632809097/Profile/default_avatar_f231pc.png" alt="avatar">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="avatar-size-req">
-                            *Avatar must be JPG, GPEG, GIF, or PNG and cannot exceed 5MB
-                        </div>
-
-                        <button type="button" class="btn change-avatar-btn">Change Avatar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
 
-                <div class="swiper-container">
-                    <div class="swiper-pagination2"></div>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide" data-name="Services">
-                            <button>Service Setting</button>
-                            <div class="services-container">
-                                <div class="row">
-                                    <div class="col-12 col-md-7 col-lg-6">
-                                        <div class="services-overview">
-                                            <div class="average">
-                                                <div class="overview-title greyish">Average Score</div>
-                                                <div class="average-score services-txt">
-                                                    <i class="fas fa-star gold-star"></i>
-                                                    <span class="service-score">4.6</span>
-                                                    /5.0
-                                                </div>
+
+
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <div class="swiper-container">
+                <div class="swiper-pagination2"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-name="Services">
+                        <button>Service Setting</button>
+                        <div class="services-container">
+                            <div class="row">
+                                <div class="col-12 col-md-7 col-lg-6">
+                                    <div class="services-overview">
+                                        <div class="average">
+                                            <div class="overview-title greyish">Average Score</div>
+                                            <div class="average-score services-txt">
+                                                <i class="fas fa-star gold-star"></i>
+                                                @*<span class="service-score">4.6</span>*@
+                                                @foreach (var item in Model.Profiles)
+                                                {<span class="service-score">@item.StarAvg</span>}
+                                                /5.0
                                             </div>
-                                            <div class="served-div">
-                                                <div class="overview-title greyish">Served</div>
-                                                <div class="number-served service-score">8</div>
-                                            </div>
-                                            <div class="recommended-div">
-                                                <div class="overview-title greyish">Recommended</div>
-                                                <div class="number-recommended service-score">8</div>
-                                            </div>
+                                        </div>
+                                        <div class="served-div">
+                                            <div class="overview-title greyish">Served</div>
+                                            @foreach (var item in Model.Profiles)
+                                            {<div class="number-served service-score">@item.serverNumber</div>}
+                                            @*<div class="number-served service-score">8</div>*@
+                                        </div>
+                                        <div class="recommended-div">
+                                            <div class="overview-title greyish">Recommended</div>
+                                            @foreach (var item in Model.Profiles)
+                                            {<div class="number-served service-score">@item.commentNumber</div>}
+                                            @*<div class="number-recommended service-score">8</div>*@
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-5 col-lg-6">
-                                        <div class="tags-div">
-                                            <div class="tag carry">Carry in Game(<span>6</span>)</div>
-                                            <div class="tag sweet-voice">Sweet Voice(<span>4</span>)</div>
-                                            <div class="tag fast-response">Fast Response(<span>3</span>)</div>
-                                            <div class="tag interactive">Interactive(<span>3</span>)</div>
-                                            <div class="tag cooperative">Cooperative(<span>3</span>)</div>
-                                            <div class="tag humorous">Humorous(<span>2</span>)</div>
-                                        </div>
+                                </div>
+                                <div class="col-12 col-md-5 col-lg-6">
+                                    <div class="tags-div">
+                                        <div class="tag carry">Carry in Game(<span>6</span>)</div>
+                                        <div class="tag sweet-voice">Sweet Voice(<span>4</span>)</div>
+                                        <div class="tag fast-response">Fast Response(<span>3</span>)</div>
+                                        <div class="tag interactive">Interactive(<span>3</span>)</div>
+                                        <div class="tag cooperative">Cooperative(<span>3</span>)</div>
+                                        <div class="tag humorous">Humorous(<span>2</span>)</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="swiper-slide" data-name="Album">
-                            <button>Upload</button>
-                            <div class="album-div">
-                                <img src="img/effb.jpeg" alt="">
-                                <img src="img/insta.jpeg" alt="">
-                                <img src="img/insta.jpeg" alt="">
-                                <img src="img/insta.jpeg" alt="">
-                                <img src="img/insta.jpeg" alt="">
-                            </div>
+                    <div class="swiper-slide" data-name="Album">
+                        <button>Upload</button>
+                        <div class="album-div">
+                            <img src="img/effb.jpeg" alt="">
+                            <img src="img/insta.jpeg" alt="">
+                            <img src="img/insta.jpeg" alt="">
+                            <img src="img/insta.jpeg" alt="">
+                            <img src="img/insta.jpeg" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
     </div>
+</div>
 
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 
-    <script>
-        var names = [];
-        $(".swiper-wrapper .swiper-slide").each(function (i) {
-            names.push($(this).data("name"));
-        });
 
-        var swiper = new Swiper(".swiper-container", {
-            pagination: {
-                el: ".swiper-pagination2",
-                clickable: true,
-                paginationClickable: true,
-                type: "custom",
 
-                renderCustom: function (swiper, current, total) {
-                    var text =
-                        "<span class='pContainer' style='background-color:transperent;text-align: left;width:100%; font-weight: 500; display:block; font-size: 12px;'>";
-                    for (let i = 1; i <= total; i++) {
-                        //alert(total);
-                        if (current == i) {
-                            text +=
-                                "<span class=' purp-underline ' style='display:inline-block;border-bottom:3px solid rgb(112,65,230);text-align:left;width: auto;color:white;  z-index: 5;' >" +
-                                names[i - 1] +
-                                "</span>";
-                        } else {
-                            text +=
-                                "<span class='swiper-pagination-bullet p-span' style='display:inline-block;text-align:center; width: auto; color:rgb(196,195,230);'>" +
-                                names[i - 1] +
-                                "</span>";
-                        }
-                    }
-                    text += "</span>";
-                    return text;
-                },
-            },
-            direction: "horizontal",
-            slidesPerView: 1,
-            paginationClickable: true,
-            spaceBetween: 30,
-            loop: true,
-            paginationHide: true,
+<script>
+    var names = [];
+    $(".swiper-wrapper .swiper-slide").each(function (i) {
+        names.push($(this).data("name"));
+    });
+
+    var swiper = new Swiper(".swiper-container", {
+        pagination: {
+            el: ".swiper-pagination2",
             clickable: true,
-            breakpoints: {
-                300: {
-                    allowTouchMove: true,
-                },
-                768: {
-                    allowTouchMove: false
-                },
-            }
-        });
-    </script>
+            paginationClickable: true,
+            type: "custom",
 
-    <script>
-        $(document).ready(function () {
-            $("#dropwdown-btn").hover(function (event) {
-                $('#editProfileModal').modal('show');
-                event.stopPropagation();
+            renderCustom: function (swiper, current, total) {
+                var text =
+                    "<span class='pContainer' style='background-color:transperent;text-align: left;width:100%; font-weight: 500; display:block; font-size: 12px;'>";
+                for (let i = 1; i <= total; i++) {
+                    //alert(total);
+                    if (current == i) {
+                        text +=
+                            "<span class=' purp-underline ' style='display:inline-block;border-bottom:3px solid rgb(112,65,230);text-align:left;width: auto;color:white;  z-index: 5;' >" +
+                            names[i - 1] +
+                            "</span>";
+                    } else {
+                        text +=
+                            "<span class='swiper-pagination-bullet p-span' style='display:inline-block;text-align:center; width: auto; color:rgb(196,195,230);'>" +
+                            names[i - 1] +
+                            "</span>";
+                    }
+                }
+                text += "</span>";
+                return text;
+            },
+        },
+        direction: "horizontal",
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        paginationHide: true,
+        clickable: true,
+        breakpoints: {
+            300: {
+                allowTouchMove: true,
+            },
+            768: {
+                allowTouchMove: false
+            },
+        }
+    });
+</script>
 
-            }, function (e) {
-                $('#editProfileModal').modal('hide');
-                e.stopPropagation();
-            });
+<script>
+    $(document).ready(function () {
+        $("#dropwdown-btn").hover(function (event) {
+            $('#editProfileModal').modal('show');
+            event.stopPropagation();
+
+        }, function (e) {
+            $('#editProfileModal').modal('hide');
+            e.stopPropagation();
         });
-    </script>
+    });
+</script>
 @*</body>
 
-</html>*@
+    </html>*@
 
 
 @section topCSS{
     <style>
         body {
-
-          background-color: rgb(18, 14, 27);
-        background-color: black;
+            background-color: rgb(18, 14, 27);
+            background-color: black;
             color: white;
             font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
         }
 
-       /* .bodyMVC {
+        /* .bodyMVC {
             background-color: rgb(18, 14, 27);
             color: white;
             font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -728,7 +716,6 @@
 
             .swiper-container {
                 margin: 0 0;
-
             }
 
                 .swiper-container button {
@@ -1012,15 +999,16 @@
                 background-color: rgb(48, 47, 61);
                 height: 500px;
             }
+
             .swiper-container {
                 margin-top: 125px;
             }
 
-            .swiper-container button {
-                left: 83%;
-                padding: 5px 17px;
-                font-size: 16.5px;
-            }
+                .swiper-container button {
+                    left: 83%;
+                    padding: 5px 17px;
+                    font-size: 16.5px;
+                }
 
             .services-container {
                 display: flex;

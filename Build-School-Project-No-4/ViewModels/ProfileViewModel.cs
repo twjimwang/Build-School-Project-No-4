@@ -17,11 +17,19 @@ namespace Build_School_Project_No_4.ViewModels
         public string LanguageName { get; set; }
         public int RecentVistorId { get; set; }
         public string ProfilePicture { get; set; }
-        public int StarLevel { get; set; }
 
         public int FollowsNumber { get; set; }
         public int FollingsNumber { get; set; }
         public int VistorsNumber { get; set; }
+
+        public string RecommendContent { get; set; }
+        public int ProductId { get; set; }
+        public int ServerId { get; set; }
+        public int StarLevel { get; set; }
+
+        public decimal StarAvg { get; set; }
+        public int serverNumber { get; set; }
+        public int commentNumber { get; set; }
 
     }
 }
