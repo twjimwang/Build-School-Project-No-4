@@ -76,14 +76,17 @@ namespace Build_School_Project_No_4.Controllers
                 MemberName = emp.MemberName,
                 Phone = emp.Phone,
                 Country = emp.Country,
-                //Gender = (Gender)emp.Gender,
+                Gender = (Genders)emp.Gender,                
                 BirthDay = emp.BirthDay,
                 TimeZone = emp.TimeZone,
                 LanguageId = emp.LanguageId,
                 Bio = emp.Bio,
-                Password = emp.Password
+                Password = emp.Password,
+                Email = emp.Email
             };
 
+            //CommonServiceReference.ViewUserGroup user = clientObj.getUserById(id);
+            ViewBag.UserObj = groupMember.Gender;
 
             return View("EditProfile", groupMember);
             //return RedirectToRoute(new { Controller = "Members", action = "MemberProfile", id = 1});
@@ -123,7 +126,7 @@ namespace Build_School_Project_No_4.Controllers
                 MemberName = EditMember.MemberName,
                 Phone = EditMember.Phone,
                 Country = EditMember.Country,
-                //Gender = (int)EditMember.Gender,
+                Gender = (int)EditMember.Gender,
                 BirthDay = EditMember.BirthDay,
                 TimeZone = EditMember.TimeZone,
                 //LanguageId = EditMember.LanguageId,
@@ -234,6 +237,7 @@ namespace Build_School_Project_No_4.Controllers
             if (!ModelState.IsValid)
             {
                 return View();
+                //return Content("失敗");
             }
 
 

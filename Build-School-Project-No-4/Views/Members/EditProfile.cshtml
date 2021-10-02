@@ -128,18 +128,38 @@
                         </div>
 
                         <!--Radio, Gender-->
-                        <div class="form-group">
+                        @*<div class="form-group">
                             @Html.LabelFor(m => m.Gender, htmlAttributes: new { @class = "col-md-2 control-label" })
                             <div class="col-md-10">
-                                <div class="radio">
+                                <div class="radio">*@
                                     @*@foreach (var item in (List<SelectListItem>)GenderList)
                                     {
                                         <label>@Html.RadioButton("Gender", item.Value) @item.Text</label>
                                     }*@
-                                    <label>@Html.RadioButtonFor(model => Model.Gender, "Male")</label>
-                                    <label>@Html.RadioButtonFor(model => Model.Gender, "Female")</label>
-                                    <label>@Html.RadioButtonFor(model => Model.Gender, "Other")</label>
-                                </div>
+
+                                    @*<label>@Html.RadioButtonFor(model => Model.Gender,0, new { id = "Male" }) Male</label>
+                                    <label>@Html.RadioButtonFor(model => Model.Gender,1, new { id = "Female" }) Female</label>
+                                    <label>@Html.RadioButtonFor(model => Model.Gender,2, new { id = "Other" }) Other</label>*@
+
+                                    @*<input type="radio" id="rdbtnGender0" name="rdbtnGender" value="Male" @(ViewBag.UserObj == "Male" ? "checked='true'" : "") required>
+                                    <label for="rdbtnGender0">Male</label>
+
+                                    <input type="radio" id="rdbtnGender1" name="rdbtnGender" value="Female" @(ViewBag.UserObj == "Female" ? "checked='true'" : "") required>
+                                    <label for="rdbtnGender1">Female</label>
+
+                                    <input type="radio" id="rdbtnGender2" name="rdbtnGender" value="Other" @(ViewBag.UserObj == "Other" ? "checked='true'" : "") required>
+                                    <label for="rdbtnGender2">Other</label>*@
+
+                                @*</div>
+                            </div>
+                        </div>*@
+
+                        <!--DropDownList, Gender-->
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Gender, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EnumDropDownListFor(model => model.Gender, new { required = "required" })
+                                @Html.ValidationMessageFor(model => model.Gender)
                             </div>
                         </div>
 

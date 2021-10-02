@@ -9,6 +9,11 @@ namespace Build_School_Project_No_4.ViewModels
 {
     public class GroupViewModel
     {
+        public GroupViewModel()
+        {
+            //Gender = "Male";
+        }
+
         public IEnumerable<MemberViewModel> MeetLikes { get; set; }
         public IEnumerable<ProductViewModel> EPalIndex { get; set; }
         public IEnumerable<FollowViewModel> FollowMembers { get; set; }
@@ -24,8 +29,6 @@ namespace Build_School_Project_No_4.ViewModels
 
         public int MemberId { get; set; }
 
-        [Required]
-        [StringLength(20, MinimumLength = 1, ErrorMessage = "最少需1個位元")]
         [Display(Name = "Name")]
         public string MemberName { get; set; }
 
@@ -56,7 +59,7 @@ namespace Build_School_Project_No_4.ViewModels
 
         public int? CityId { get; set; }
 
-        public int? Gender { get; set; }
+        public Genders? Gender { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -80,10 +83,10 @@ namespace Build_School_Project_No_4.ViewModels
     }
 
 
-    public enum Gender
+    public enum Genders
     {
-        Female = 0,
-        Male = 1,
+        Male = 0,
+        Female = 1,
         Other = 2
     }
 
