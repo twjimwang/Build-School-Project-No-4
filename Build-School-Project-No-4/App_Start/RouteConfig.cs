@@ -22,11 +22,11 @@ namespace Build_School_Project_No_4
             //    defaults: new { controller = "Products", action = "Detail", id = UrlParameter.Optional }
             //);            
 
-            //routes.MapRoute(
-            //    name: "MemberProfile",
-            //    url: "Members/EditProfile",
-            //    defaults: new { controller = "Members", action = "EditProfile", id = UrlParameter.Optional }
-            //);
+            routes.MapRoute(
+                name: "MemberProfile",
+                url: "Members/EditProfile",
+                defaults: new { controller = "Members", action = "SaveImageToServer", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
                 name: "Default",

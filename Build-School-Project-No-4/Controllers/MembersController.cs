@@ -13,6 +13,12 @@ using Build_School_Project_No_4.DataModels;
 using Build_School_Project_No_4.Security;
 using Build_School_Project_No_4.Services;
 using Build_School_Project_No_4.ViewModels;
+using System.Configuration;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using System.Text.RegularExpressions;
+using System.Drawing;
+using System.IO;
 
 namespace Build_School_Project_No_4.Controllers
 {
@@ -52,7 +58,82 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-        [Authorize]
+        // GET: Cloudinary
+        public ActionResult ImageUpload()
+        {
+            return PartialView("_AvatarPartial");
+            //return View();
+        }
+        [HttpPost]
+        public bool SaveImageToServer()
+        {
+            try
+            {
+                HttpFileCollectionBase files = Request.Files;
+                HttpPostedFileBase file = files[0];
+                string _apiKey = ConfigurationManager.AppSettings["CloudinaryAPIKey"];
+                string _apiSecret = ConfigurationManager.AppSettings["CloudinarySecretKey"];
+                string _cloud = ConfigurationManager.AppSettings["CloudinaryAccount"];
+                string uploadedImageUrl = string.Empty;
+                string fname = string.Empty;
+                var myAccount = new Account { ApiKey = _apiKey, ApiSecret = _apiSecret, Cloud = _cloud };
+                Cloudinary _cloudinary = new Cloudinary(myAccount);
+
+                // Checking for Internet Explorer  
+                if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
+                {
+                    string[] testfiles = file.FileName.Split(new char[] { '\\' });
+                    fname = testfiles[testfiles.Length - 1];
+                }
+                else
+                {
+                    fname = Regex.Replace(file.FileName.Trim(), @"[^0-9a-zA-Z.]+", "_");
+                }
+                using (Image img = Image.FromStream(file.InputStream))
+                {
+                    int imageHeight = 0;
+                    int imageWidth = 0;
+                    if (img.Height > 320)
+                    {
+                        var ratio = (double)img.Height / 320;
+                        imageHeight = (int)(img.Height / ratio);
+                        imageWidth = (int)(img.Width / ratio);
+                    }
+                    else
+                    {
+                        imageHeight = img.Height;
+                        imageWidth = img.Width;
+                    }
+                    var uploadParams = new ImageUploadParams()
+                    {
+                        File = new FileDescription(file.FileName, file.InputStream),
+                        Folder = "MyImages",
+                        Transformation = new Transformation().Width(imageWidth).Height(imageHeight).Crop("thumb").Gravity("face")
+                    };
+                    var uploadResult = _cloudinary.UploadLarge(uploadParams);
+                    //uploadedImageUrl = uploadResult?.SecureUri?.AbsoluteUri;
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        //[Authorize]
         [HttpGet]
         //public ActionResult Edit_Profile(int? Id)
         public ActionResult EditProfile(int? Id)
@@ -69,104 +150,94 @@ namespace Build_School_Project_No_4.Controllers
                 return HttpNotFound();
             }
 
-            //DM -> GroupViewModel
+            if(emp.Gender == null)
+            {
+                emp.Gender = 0;
+            }
+            if (emp.LanguageId == null)
+            {
+                emp.LanguageId = 0;
+            }
+
             GroupViewModel groupMember = new GroupViewModel()
+            {
+                MemberInfo = new MemberInfoViewModel()
+            };
+
+            //DM -> MemberInfoViewModel -> GroupViewModel
+            MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
             {
                 MemberId = emp.MemberId,
                 MemberName = emp.MemberName,
                 Phone = emp.Phone,
                 Country = emp.Country,
-                Gender = (Genders)emp.Gender,                
+                Gender = (Genders)emp.Gender,
                 BirthDay = emp.BirthDay,
                 TimeZone = emp.TimeZone,
-                LanguageId = emp.LanguageId,
+                LanguageId = (LanguageCategories)emp.LanguageId,
                 Bio = emp.Bio,
-                Password = emp.Password,
-                Email = emp.Email
+                Email = emp.Email,
+                Password = emp.Password
             };
 
-            //CommonServiceReference.ViewUserGroup user = clientObj.getUserById(id);
-            ViewBag.UserObj = groupMember.Gender;
+            groupMember.MemberInfo = MemberInfo;
+                        
 
             return View("EditProfile", groupMember);
             //return RedirectToRoute(new { Controller = "Members", action = "MemberProfile", id = 1});
 
-
-            ////初始化
-            //GroupViewModel groupMember = new GroupViewModel()
-            //{
-            //    MemberInfo = new MemberInfoViewModel()
-            //};
-            ////DM -> MemberInfoViewModel
-            //MemberInfoViewModel memberInfo = new MemberInfoViewModel()
-            //{
-            //    MemberId = emp.MemberId,
-            //    MemberName = emp.MemberName,
-            //    Country = emp.Country,
-            //    Gender = emp.Gender,
-            //    BirthDay = emp.BirthDay,
-            //    TimeZone = emp.TimeZone,
-            //    LanguageId = emp.LanguageId,
-            //    Bio = emp.Bio,
-            //    Password = emp.Password
-            //};
-
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         //public ActionResult Edit_Profile(MemberInfoViewModel MemberInfo)
-        public ActionResult EditProfile(GroupViewModel EditMember)
-        {
-            //GroupViewModel -> DM
+        public ActionResult EditProfile([Bind(Include = "MemberInfo")] GroupViewModel EditMember)
+        {   
+            //將密碼Hash
+            EditMember.MemberInfo.Password = _MemberService.HashPassword(EditMember.MemberInfo.Password);
+
             //GroupViewModel -> MemberInfoViewModel -> DM
             Member emp = new Member
             {
-                MemberName = EditMember.MemberName,
-                Phone = EditMember.Phone,
-                Country = EditMember.Country,
-                Gender = (int)EditMember.Gender,
-                BirthDay = EditMember.BirthDay,
-                TimeZone = EditMember.TimeZone,
-                //LanguageId = EditMember.LanguageId,
-                Bio = EditMember.Bio,
-                Password = EditMember.Password,
-                Email = EditMember.Email
-
+                MemberId = EditMember.MemberInfo.MemberId,
+                MemberName = EditMember.MemberInfo.MemberName,
+                Phone = EditMember.MemberInfo.Phone,
+                Country = EditMember.MemberInfo.Country,
+                Gender = (int)EditMember.MemberInfo.Gender,
+                BirthDay = EditMember.MemberInfo.BirthDay,
+                TimeZone = EditMember.MemberInfo.TimeZone,
+                LanguageId = (int)EditMember.MemberInfo.LanguageId,
+                Bio = EditMember.MemberInfo.Bio,
+                Email = EditMember.MemberInfo.Email,
+                Password = EditMember.MemberInfo.Password
             };
 
-            //emp.MemberName = HttpUtility.HtmlEncode(emp.MemberName);
-            //emp.Phone = HttpUtility.HtmlEncode(emp.Phone);
-            //emp.Country = HttpUtility.HtmlEncode(emp.Country);
-            //emp.Gender = Convert.ToInt32(HttpUtility.HtmlEncode(emp.Gender));
-            //emp.BirthDay = Convert.ToDateTime(HttpUtility.HtmlEncode(emp.BirthDay));
-            //emp.TimeZone = Convert.ToInt32(HttpUtility.HtmlEncode(emp.TimeZone));
-            //emp.LanguageId = Convert.ToInt32(HttpUtility.HtmlEncode(emp.LanguageId));
-            //emp.Bio = HttpUtility.HtmlEncode(emp.Bio);
-            //emp.Password = HttpUtility.HtmlEncode(emp.Password);
 
-
-            using (var tran = db.Database.BeginTransaction())
-            {
-                try
+            if (ModelState.IsValid)
+            {            
+                using (var tran = db.Database.BeginTransaction())
                 {
-                    db.Entry(emp).State = EntityState.Modified;
-                    db.SaveChanges();
-                    tran.Commit();
+                    try
+                    {
+                        db.Entry(emp).State = EntityState.Modified;
+                        db.SaveChanges();
+                        tran.Commit();
 
-                    return Content("寫入資料庫成功");
-                }
-                catch (Exception ex)
-                {
-                    tran.Rollback();
+                        return Content("寫入資料庫成功");
+                    }
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
 
-                    return Content("寫入資料庫失敗:" + ex.ToString());
+                        return Content("寫入資料庫失敗:" + ex.ToString());
+                    }
                 }
+
             }
-
-
-
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            //return Content("驗證失敗");
+            return View(EditMember);
 
             //_ctx.Members.Add(emp);
             //_ctx.SaveChanges();
@@ -242,14 +313,14 @@ namespace Build_School_Project_No_4.Controllers
 
 
             //驗證登入email.密碼，回傳結果
-            string ValidateStr = _MemberService.LoginCheck(loginMember.Email, loginMember.Password);
+            string ValidateStr = _MemberService.LoginCheck(loginMember.MemberLogin.Email, loginMember.MemberLogin.Password);
 
-            Member user = _MemberService.GetDataByAccount(loginMember.Email);
+            Member user = _MemberService.GetDataByAccount(loginMember.MemberLogin.Email);
 
             if (String.IsNullOrEmpty(ValidateStr))
             {
                 //二.通過Model驗證後, 使用HtmlEncode將帳密做HTML編碼, 去除有害的字元
-                string email = HttpUtility.HtmlEncode(loginMember.Email);
+                string email = HttpUtility.HtmlEncode(loginMember.MemberLogin.Email);
                 //string password = HashService.MD5Hash(HttpUtility.HtmlEncode(loginVM.Password));
 
                 //1.建立FormsAuthenticationTicket
@@ -258,7 +329,7 @@ namespace Build_School_Project_No_4.Controllers
                             name: user.Email.ToString(), //可以放使用者Id
                             issueDate: DateTime.UtcNow,//現在UTC時間
                             expiration: DateTime.UtcNow.AddMinutes(30),//Cookie有效時間=現在時間往後+30分鐘
-                            isPersistent: loginMember.Remember,// 是否要記住我 true or false
+                            isPersistent: loginMember.MemberLogin.Remember,// 是否要記住我 true or false
                             userData: user.MemberId.ToString(), //可以放使用者角色名稱
                             cookiePath: FormsAuthentication.FormsCookiePath);
 
@@ -287,7 +358,7 @@ namespace Build_School_Project_No_4.Controllers
                 string password = Request["password"];
 
                 //把使用者的資訊儲存在session中
-                Session[LoginUserKey] = loginMember.Email;
+                Session[LoginUserKey] = loginMember.MemberLogin.Email;
 
                 //獲取該頁面url的參數資訊
                 string returnURL = Request.Params["HTTP_REFERER"];
@@ -416,7 +487,7 @@ namespace Build_School_Project_No_4.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(GroupViewModel newMember)
         {
-            MemberViewModel mem = new MemberViewModel();
+            //MemberViewModel mem = new MemberViewModel();
             //判斷頁面資料是否都經過驗證
             if (ModelState.IsValid)
             {
@@ -430,18 +501,18 @@ namespace Build_School_Project_No_4.Controllers
 
                 //註冊成為新會員
                 var member = _MemberService.MemberRigisterData()
-                            .Where(m => m.Email == newMember.Email)
+                            .Where(m => m.Email == newMember.MemberRegister.Email)
                             .FirstOrDefault();
                 if (member == null)
                 {
                     //將密碼Hash
-                    newMember.Password = _MemberService.HashPassword(newMember.Password);
+                    newMember.MemberRegister.Password = _MemberService.HashPassword(newMember.MemberRegister.Password);
 
                     //GroupViewModel -> DM
                     Member emp = new Member
                     {
-                        Email = newMember.Email,
-                        Password = newMember.Password,
+                        Email = newMember.MemberRegister.Email,
+                        Password = newMember.MemberRegister.Password,
                         AuthCode = AuthCode
                     };
                     db.Members.Add(emp);
@@ -488,15 +559,15 @@ namespace Build_School_Project_No_4.Controllers
                 UriBuilder ValidateUrl = new UriBuilder(Request.Url)
                 {
                     Path = Url.Action("EmailValidate", "Members", new{
-                        Email = newMember.Email,
+                        Email = newMember.MemberRegister.Email,
                         AuthCode = AuthCode
                     })
                 };
                 //藉由Service將使用者資料填入驗證信範本，使用者收到驗證信後，會自動導向/Members/EmailValidate的view
-                string MailBody = _MailService.GetRegisterMailBody(TempMail, newMember.Email, ValidateUrl.ToString().Replace("%3F", "?"));
+                string MailBody = _MailService.GetRegisterMailBody(TempMail, newMember.MemberRegister.Email, ValidateUrl.ToString().Replace("%3F", "?"));
 
                 //呼叫Service寄出驗證信的方法
-                _MailService.SendRegisterMail(MailBody, newMember.Email);
+                _MailService.SendRegisterMail(MailBody, newMember.MemberRegister.Email);
 
 
                 //用TempData儲存註冊訊息
@@ -507,7 +578,7 @@ namespace Build_School_Project_No_4.Controllers
             }
 
             //未經驗證清空密碼相關欄位
-            newMember.Password = null;
+            newMember.MemberRegister.Password = null;
             ////將資料回填至view中
             //return view(newmember);
             //return RedirectToAction("HomePage", "Home");

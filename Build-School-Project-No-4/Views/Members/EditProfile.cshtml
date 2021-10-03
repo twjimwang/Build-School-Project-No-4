@@ -1,11 +1,11 @@
 ﻿@using Build_School_Project_No_4.Helpers
 @model GroupViewModel
 
-@{
-    //從公用Utility類別取得SelectListItem集合
-    var GenderList = Utility.getGenderList();
-    var LanguageList = Utility.getLanguageList();
-}
+@*@{
+        //從公用Utility類別取得SelectListItem集合
+        var GenderList = Utility.getGenderList();
+        var LanguageList = Utility.getLanguageList();
+    }*@
 @*抓到使用者登入的cookie資訊*@
 @{
     HttpCookie cookie = HttpContext.Current.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
@@ -38,12 +38,11 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-10 col-sm-10">
+        <div class="col-md-12 col-sm-10">
             <div class="container">
                 <div class="row">
-                    <div class="title tab-inner Profilecenter col-md-10">
+                    <div class="title tab-inner Profilecenter col-md-12">
                         <h1 class="col-md-12">Profile Information</h1>
-
                     </div>
                 </div>
             </div>
@@ -51,169 +50,219 @@
 
             @*個人頭貼*@
             <!--<div class="container">
-                <div class="row">
-                    <div class="wrapper col-12 col-md-2 col-sm-3">-->
+    <div class="row">
+        <div class="wrapper col-12 col-md-6 col-sm-3">-->
             <!-- <input type="file" class="my_file">
-            <div class="cameraicon">
-                <i class="fas fa-camera"></i>
-            </div> -->
+    <div class="cameraicon">
+        <i class="fas fa-camera"></i>
+    </div> -->
             <!--<div class="catlogo">
-                            <label for="formFileMultiple" class="aa orm-label"><i class="fas fa-camera"></i></label>
-                            <input class="form-control" type="file" id="formFileMultiple" multiple>
-                        </div>
-                    </div>
-                    <div class="ipadrow col-md-7 col-sm-9">
-                        <div class="spancontent col-md-11 col-sm-3">
-                            <span>
-                                Avatar must be .JPG,.JPEG or.PNG and cannot exceed
-                                5M.Premium members can use GIF profile photoGo
-                                Subscribe
-                            </span>
-                        </div>
-                        <div class="buttonnone col-md-4 col-sm-4">
-                            <button class="button button1">Change Avatar</button>
-                        </div>
-                    </div>
+                    <label for="formFileMultiple" class="aa orm-label"><i class="fas fa-camera"></i></label>
+                    <input class="form-control" type="file" id="formFileMultiple" multiple>
                 </div>
-            </div>-->
+            </div>
+            <div class="ipadrow col-md-7 col-sm-9">
+                <div class="spancontent col-md-11 col-sm-3">
+                    <span>
+                        Avatar must be .JPG,.JPEG or.PNG and cannot exceed
+                        5M.Premium members can use GIF profile photoGo
+                        Subscribe
+                    </span>
+                </div>
+                <div class="buttonnone col-md-4 col-sm-4">
+                    <button class="button button1">Change Avatar</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+            @Html.Partial("_AvatarPartial")
+            @*@RenderPage("~/Views/Members/ImageUpload.cshtml")*@
+
+
+            <!--<div class="form-group catlogo">-->
+            @*@Html.LabelFor(model => Model.MemberInfo.ProfilePicture, htmlAttributes: new { @class = "control-label col-md-6 aa orm-label" })*@
+            <!--<i class="fas fa-camera"></i>
+    <div class="col-md-6">-->
+            @*@Html.EditorFor(model => Model.MemberInfo.ProfilePicture, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+        @Html.ValidationMessageFor(model => Model.Name, "", new { @class = "text-danger" })*@
+            <!--</div>
+    </div>-->
+
+
 
             <div class="panel-body">
-                @using (Html.BeginForm("Edit_Profile", "Edit_Profile", FormMethod.Post))
+
+                @using (Html.BeginForm("EditProfile", "Members", FormMethod.Post, new { @class = "needs-validation", novalidate = "true" }))
                 {
                     @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-horizontal form-body">
 
-                    <div class="form-horizontal">
-                        <!--<div class="form-group catlogo">
-                            @Html.LabelFor(model => Model.ProfilePicture, htmlAttributes: new { @class = "control-label col-md-2 aa orm-label" })
-                            <i class="fas fa-camera"></i>
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => Model.ProfilePicture, new { htmlAttributes = new { @class = "form-control", type = "file" } })-->
-                        @*@Html.ValidationMessageFor(model => Model.Name, "", new { @class = "text-danger" })*@
-                        <!--</div>
-                        </div>-->
 
-                        <div class="form-group catlogo col-md-9">
-                            <h3 class="avatartitle">Avatar</h3>
-                            <label for="formFileMultiple" class="aa orm-label"><i class="fas fa-camera"></i></label>
-                            <input class="form-control" type="file" id="formFileMultiple">
-                        </div>
-
-                        <hr class="col-md-10" />
+                        <hr class="col-md-12" /><br />
 
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @Html.HiddenFor(model => Model.MemberId, new { @value = @userid })
+                        @Html.HiddenFor(model => Model.MemberInfo.MemberId, new { @value = @userid })
 
                         <div class="form-group">
-                            @Html.LabelFor(model => Model.MemberName, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => Model.MemberName, new { htmlAttributes = new { @class = "form-control" } })
-                                @*@Html.ValidationMessageFor(model => Model.Name, "", new { @class = "text-danger" })*@
+                            <div class="row justify-content-center">
+                                @Html.LabelFor(model => Model.MemberInfo.MemberName, htmlAttributes: new { @class = "control-label col-md-6" })
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => Model.MemberInfo.MemberName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => Model.MemberInfo.MemberName, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => Model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => Model.Phone, new { htmlAttributes = new { @class = "form-control" } })
-                                @*@Html.ValidationMessageFor(model => Model.Mobile, "", new { @class = "text-danger" })*@
+                            <div class="row justify-content-center">
+                                @Html.LabelFor(model => Model.MemberInfo.Phone, htmlAttributes: new { @class = "control-label col-md-6" })
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => Model.MemberInfo.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => Model.MemberInfo.Phone, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => Model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => Model.Country, new { htmlAttributes = new { @class = "form-control" } })
-                                @*@Html.ValidationMessageFor(model => Model.Email, "", new { @class = "text-danger" })*@
+                            <div class="row justify-content-center">
+                                @Html.LabelFor(model => Model.MemberInfo.Country, htmlAttributes: new { @class = "control-label col-md-6" })
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => Model.MemberInfo.Country, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => Model.MemberInfo.Country, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
 
                         <!--Radio, Gender-->
                         @*<div class="form-group">
-                            @Html.LabelFor(m => m.Gender, htmlAttributes: new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                <div class="radio">*@
-                                    @*@foreach (var item in (List<SelectListItem>)GenderList)
-                                    {
-                                        <label>@Html.RadioButton("Gender", item.Value) @item.Text</label>
-                                    }*@
+                    @Html.LabelFor(m => m.Gender, htmlAttributes: new { @class = "col-md-6 control-label" })
+                    <div class="col-md-6">
+                        <div class="radio">*@
+                        @*@foreach (var item in (List<SelectListItem>)GenderList)
+                    {
+                        <label>@Html.RadioButton("Gender", item.Value) @item.Text</label>
+                    }*@
 
-                                    @*<label>@Html.RadioButtonFor(model => Model.Gender,0, new { id = "Male" }) Male</label>
-                                    <label>@Html.RadioButtonFor(model => Model.Gender,1, new { id = "Female" }) Female</label>
-                                    <label>@Html.RadioButtonFor(model => Model.Gender,2, new { id = "Other" }) Other</label>*@
+                        @*<label>@Html.RadioButtonFor(model => Model.Gender,0, new { id = "Male" }) Male</label>
+                    <label>@Html.RadioButtonFor(model => Model.Gender,1, new { id = "Female" }) Female</label>
+                    <label>@Html.RadioButtonFor(model => Model.Gender,2, new { id = "Other" }) Other</label>*@
 
-                                    @*<input type="radio" id="rdbtnGender0" name="rdbtnGender" value="Male" @(ViewBag.UserObj == "Male" ? "checked='true'" : "") required>
-                                    <label for="rdbtnGender0">Male</label>
+                        @*<input type="radio" id="rdbtnGender0" name="rdbtnGender" value="Male" @(ViewBag.UserObj == "Male" ? "checked='true'" : "") required>
+                    <label for="rdbtnGender0">Male</label>
 
-                                    <input type="radio" id="rdbtnGender1" name="rdbtnGender" value="Female" @(ViewBag.UserObj == "Female" ? "checked='true'" : "") required>
-                                    <label for="rdbtnGender1">Female</label>
+                    <input type="radio" id="rdbtnGender1" name="rdbtnGender" value="Female" @(ViewBag.UserObj == "Female" ? "checked='true'" : "") required>
+                    <label for="rdbtnGender1">Female</label>
 
-                                    <input type="radio" id="rdbtnGender2" name="rdbtnGender" value="Other" @(ViewBag.UserObj == "Other" ? "checked='true'" : "") required>
-                                    <label for="rdbtnGender2">Other</label>*@
+                    <input type="radio" id="rdbtnGender2" name="rdbtnGender" value="Other" @(ViewBag.UserObj == "Other" ? "checked='true'" : "") required>
+                    <label for="rdbtnGender2">Other</label>*@
 
-                                @*</div>
-                            </div>
-                        </div>*@
+                        @*</div>
+                        </div>
+                    </div>*@
+
 
                         <!--DropDownList, Gender-->
                         <div class="form-group">
-                            @Html.LabelFor(m => m.Gender, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EnumDropDownListFor(model => model.Gender, new { required = "required" })
-                                @Html.ValidationMessageFor(model => model.Gender)
+                            <div class="row justify-content-center">
+                                @Html.LabelFor(m => m.MemberInfo.Gender, new { @class = "control-label col-md-6" })
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    @Html.EnumDropDownListFor(model => model.MemberInfo.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MemberInfo.Gender, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => Model.BirthDay, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => Model.BirthDay, new { htmlAttributes = new { @class = "form-control" } })
-                                @*@Html.ValidationMessageFor(model => Model.Department, "", new { @class = "text-danger" })*@
+                            <div class="row justify-content-center">
+                                @Html.LabelFor(model => Model.MemberInfo.BirthDay, htmlAttributes: new { @class = "control-label col-md-6" })
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => Model.MemberInfo.BirthDay, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => Model.MemberInfo.BirthDay, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => Model.TimeZone, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => Model.TimeZone, new { htmlAttributes = new { @class = "form-control" } })
-                                @*@Html.ValidationMessageFor(model => Model.Department, "", new { @class = "text-danger" })*@
+                            <div class="row justify-content-center">
+                                @Html.LabelFor(model => Model.MemberInfo.TimeZone, htmlAttributes: new { @class = "control-label col-md-6" })
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => Model.MemberInfo.TimeZone, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
                             </div>
                         </div>
 
                         <!--DropDownList, LanguageList-->
-                        <!--<div class="form-group">
-                            @Html.LabelFor(model => Model.LanguageId, htmlAttributes: new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.DropDownList("Language", (List<SelectListItem>)LanguageList, "Select Language", new { @class = "form-control" })
+                        <div class="form-group">
+                            <div class="row justify-content-center">
+                                @Html.LabelFor(model => Model.MemberInfo.LanguageId, htmlAttributes: new { @class = "col-md-6 control-label" })
                             </div>
-                        </div>-->
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    @Html.EnumDropDownListFor(model => model.MemberInfo.LanguageId, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MemberInfo.LanguageId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+
 
                         <div class="form-group">
-                            @Html.LabelFor(model => Model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => Model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => Model.Email, "", new { @class = "text-danger" })
+                            <div class="row justify-content-center">
+                                @Html.LabelFor(model => Model.MemberInfo.Bio, htmlAttributes: new { @class = "control-label col-md-6" })
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => Model.MemberInfo.Bio, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="row justify-content-center">
+                                @Html.LabelFor(model => Model.MemberInfo.Email, htmlAttributes: new { @class = "control-label col-md-6" })
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => Model.MemberInfo.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => Model.MemberInfo.Email, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => Model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => Model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => Model.Password, "", new { @class = "text-danger" })
+                            <div class="row justify-content-center">
+                                @Html.LabelFor(model => Model.MemberInfo.Password, htmlAttributes: new { @class = "control-label col-md-6" })
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => Model.MemberInfo.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => Model.MemberInfo.Password, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => Model.Bio, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => Model.Bio, new { htmlAttributes = new { @class = "form-control" } })
-                                @*@Html.ValidationMessageFor(model => Model.Department, "", new { @class = "text-danger" })*@
-                            </div>
-                        </div>
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Save" class="btn btn-default profilesave" />
+                            <div class="row justify-content-center">
+                                <div class="col-md-offset-2 col-md-6">
+                                    <input type="submit" value="Save" class="btn btn-default profilesave" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -226,99 +275,103 @@
 
             @*個人資訊*@
             <!--<div class="container">
-                <div class="row">
-                    <div class="textitem col-12 col-md-9 col-sm-9">
-                        <p>Name</p>
-                        <input class="text-light  form-control" style="background-color:rgb(33,33,44);" type="text"
-                               placeholder="Default input" aria-label="default input example"><br>
-                        <p>Time Zone</p>
-                        <select class="selectcolor text-light form-select form-select-sm"
-                                style="background-color:rgb(33,33,44);" aria-label=".form-select-sm example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">GMT-11:00</option>
-                            <option value="2">GMT-10:00</option>
-                            <option value="3">GMT-09:00</option>
-                            <option value="4">GMT-08:00</option>
-                            <option value="5">GMT-07:00</option>
-                            <option value="6">GMT-06:00</option>
-                            <option value="7">GMT-05:00</option>
-                            <option value="8">GMT-04:00</option>
-                            <option value="9">GMT-03:00</option>
-                            <option value="10">GMT-02:00</option>
-                            <option value="11">GMT-01:00</option>
-                            <option value="12">GMT+00:00</option>
-                            <option value="13">GMT+01:00</option>
-                            <option value="14">GMT+02:00</option>
-                            <option value="15">GMT+03:00</option>
-                            <option value="16">GMT+04:00</option>
-                            <option value="17">GMT+05:00</option>
-                            <option value="18">GMT+06:00</option>
-                            <option value="19">GMT+07:00</option>
-                            <option value="20">GMT+08:00</option>
-                            <option value="21">GMT+09:00</option>
-                            <option value="22">GMT+10:00</option>
-                            <option value="23">GMT+11:00</option>
-                            <option value="24">GMT+12:00</option>
-                            <option value="25">GMT+13:00</option>
-                            <option value="26">GMT+14:00</option>
-                        </select><br>
-                        <div>
-                            <p>Language</p>
-                            <select class="selectcolor text-light  form-select form-select-sm"
-                                    style="background-color:rgb(33,33,44);" aria-label=".form-select-sm example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">English</option>
-                                <option value="2">Norsk</option>
-                                <option value="3">繁體中文</option>
-                            </select>
-                        </div><br>
-                        <div class="wordcount">
-                            <p>Bio</p>
-                            <div class="col-md-12 well">
-                                <form accept-charset="UTF-8" action="" method="POST">
-                                    <textarea class="wordcounttextarea text-light  form-control" style="background-color:rgb(33,33,44);" id="text" name="text" maxlength="200"
-                                              placeholder="Type in your message" rows="5"></textarea>
-                                    <span class="wordcountspan pull-right label label-default" id="count_message"></span>
-                                    <br>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="buttonnone d-grid gap-2 d-md-flex justify-content-md-end">-->
+    <div class="row">
+        <div class="textitem col-12 col-md-9 col-sm-9">
+            <p>Name</p>
+            <input class="text-light  form-control" style="background-color:rgb(33,33,44);" type="text"
+                   placeholder="Default input" aria-label="default input example"><br>
+            <p>Time Zone</p>
+            <select class="selectcolor text-light form-select form-select-sm"
+                    style="background-color:rgb(33,33,44);" aria-label=".form-select-sm example">
+                <option selected>Open this select menu</option>
+                <option value="1">GMT-11:00</option>
+                <option value="2">GMT-10:00</option>
+                <option value="3">GMT-09:00</option>
+                <option value="4">GMT-08:00</option>
+                <option value="5">GMT-07:00</option>
+                <option value="6">GMT-06:00</option>
+                <option value="7">GMT-05:00</option>
+                <option value="8">GMT-04:00</option>
+                <option value="9">GMT-03:00</option>
+                <option value="10">GMT-02:00</option>
+                <option value="11">GMT-01:00</option>
+                <option value="12">GMT+00:00</option>
+                <option value="13">GMT+01:00</option>
+                <option value="14">GMT+02:00</option>
+                <option value="15">GMT+03:00</option>
+                <option value="16">GMT+04:00</option>
+                <option value="17">GMT+05:00</option>
+                <option value="18">GMT+06:00</option>
+                <option value="19">GMT+07:00</option>
+                <option value="20">GMT+08:00</option>
+                <option value="21">GMT+09:00</option>
+                <option value="22">GMT+10:00</option>
+                <option value="23">GMT+11:00</option>
+                <option value="24">GMT+12:00</option>
+                <option value="25">GMT+13:00</option>
+                <option value="26">GMT+14:00</option>
+            </select><br>
+            <div>
+                <p>Language</p>
+                <select class="selectcolor text-light  form-select form-select-sm"
+                        style="background-color:rgb(33,33,44);" aria-label=".form-select-sm example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">English</option>
+                    <option value="2">Norsk</option>
+                    <option value="3">繁體中文</option>
+                </select>
+            </div><br>
+            <div class="wordcount">
+                <p>Bio</p>
+                <div class="col-md-12 well">
+                    <form accept-charset="UTF-8" action="" method="POST">
+                        <textarea class="wordcounttextarea text-light  form-control" style="background-color:rgb(33,33,44);" id="text" name="text" maxlength="200"
+                                  placeholder="Type in your message" rows="5"></textarea>
+                        <span class="wordcountspan pull-right label label-default" id="count_message"></span>
+                        <br>
+                    </form>
+                </div>
+            </div>
+            <div class="buttonnone d-grid gap-2 d-md-flex justify-content-md-end">-->
             <!-- <button class="button button2">Save Change</button> -->
             <!--<button type="button" class="button2 btn btn-secondary btn-lg" disabled>Save Change</button>
-                        </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row col-12 col-md-12 col-sm-12">
+                    <div class="col-6 col-md-3 col-sm-3">
+                        country
                     </div>
-                    <div class="container">
-                        <div class="row col-12 col-md-12 col-sm-12">
-                            <div class="col-6 col-md-3 col-sm-3">
-                                country
-                            </div>
-                            <div class="col-6 col-md-3 col-sm-10 col-sm-3">
-                                Taiwan,Taipei City
-                            </div>
-                        </div>
-                        <div class="row col-12 col-md-12 col-sm-12">
-                            <div class="col-6 col-md-3 col-sm-3">
-                                Gender
-                            </div>
-                            <div class="col-6 col-md-3 col-sm-3">
-                                Male
-                            </div>
-                        </div>
-                        <div class="row col-12 col-md-12 col-sm-12">
-                            <div class="col-6 col-md-3 col-sm-3">
-                                Bitrhday
-                            </div>
-                            <div class="col-6 col-md-3 col-sm-3">
-                                Sep 28,1991
-                            </div>
-                        </div>
+                    <div class="col-6 col-md-3 col-sm-10 col-sm-3">
+                        Taiwan,Taipei City
                     </div>
                 </div>
-            </div>-->
+                <div class="row col-12 col-md-12 col-sm-12">
+                    <div class="col-6 col-md-3 col-sm-3">
+                        Gender
+                    </div>
+                    <div class="col-6 col-md-3 col-sm-3">
+                        Male
+                    </div>
+                </div>
+                <div class="row col-12 col-md-12 col-sm-12">
+                    <div class="col-6 col-md-3 col-sm-3">
+                        Bitrhday
+                    </div>
+                    <div class="col-6 col-md-3 col-sm-3">
+                        Sep 28,1991
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
         </div>
     </div>
 </div>
+@*前端驗證*@
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
 
 
@@ -356,7 +409,7 @@
             font-size: 16px;
             cursor: pointer;
         }
-        /*        label.col-md-2 {
+        /*        label.col-md-6 {
             padding-top: 0px !important;
             background-color: aquamarine;
             border-radius: 5px;
@@ -377,6 +430,107 @@
         .avatartitle {
             padding: 10px 0;
         }
+
+
+
+
+
+        .avatar-upload {
+            position: relative;
+            max-width: 205px;
+            margin: 50px auto;
+        }
+
+            .avatar-upload .avatar-edit {
+                position: absolute;
+                right: 12px;
+                z-index: 1;
+                top: 10px;
+            }
+
+                .avatar-upload .avatar-edit input {
+                    display: none;
+                }
+
+                    .avatar-upload .avatar-edit input + label {
+                        display: inline-block;
+                        width: 34px;
+                        height: 34px;
+                        margin-bottom: 0;
+                        border-radius: 100%;
+                        background: #FFFFFF;
+                        border: 1px solid transparent;
+                        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+                        cursor: pointer;
+                        font-weight: normal;
+                        transition: all 0.2s ease-in-out;
+                    }
+
+                        .avatar-upload .avatar-edit input + label:hover {
+                            background: #f1f1f1;
+                            border-color: #d6d6d6;
+                        }
+
+                        .avatar-upload .avatar-edit input + label:after {
+                            content: " ";
+                            font-family: 'FontAwesome';
+                            color: #757575;
+                            position: absolute;
+                            top: 10px;
+                            left: 0;
+                            right: 0;
+                            text-align: center;
+                            margin: auto;
+                        }
+
+                .avatar-upload .avatar-edit label .fa-camera {
+                    color: black;
+                    position: absolute;
+                    left: 8px;
+                    top: 7px;
+                }
+
+            .avatar-upload .avatar-preview {
+                width: 192px;
+                height: 192px;
+                position: relative;
+                border-radius: 100%;
+                border: 6px solid #F8F8F8;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+            }
+
+                .avatar-upload .avatar-preview > div {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+        .container2 .btn {
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .avatar-upload {
+            padding-bottom: 30px;
+        }
+
+
+
+
+
+
 
         @@media screen and (max-width: 767px) {
             .Side-menu {
@@ -631,7 +785,59 @@
 
 
 @section endJS{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        $("#btnSubmit").click(function () {
+            var fileUpload = $("#imageUpload").get(0);
+            var files = fileUpload.files;
+            // Create FormData object
+            var fileData = new FormData();
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+            var geturl = "Members/SaveImageToServer";
+            $.ajax({
+                url: geturl,
+                type: "POST",
+                data: fileData,
+                async: false,
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                success: function (IsImageUploaded) {
+                    if (IsImageUploaded == "True") {
+                        $("#imageUpload").val('');
+                        $("#ShowMsg").text("Image Uploaded Successfully...!").css("color", "green")
+                    }
+                    else {
+                        $("#imageUpload").val('');
+                        $("#ShowMsg").text("Image Not Uploaded...!").css("color", "red")
+                    }
+                }
+            });
+        })
+
+
+
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imageUpload").change(function () {
+            readURL(this);
+        });
+
+
+
+
         $(function () {
             //$("<br/>").insertAfter("input");
             //$("<br/>").insertAfter("textarea");

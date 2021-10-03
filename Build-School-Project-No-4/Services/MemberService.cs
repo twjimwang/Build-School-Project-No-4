@@ -78,14 +78,16 @@ namespace Build_School_Project_No_4.Services
 
 
 
-        public List<GroupViewModel> MemberRigisterData()
+
+        public List<MemberRegisterViewModel> MemberRigisterData()
         {
             List<Member> members = _Repo.GetAll<Member>().ToList();
 
-            List<GroupViewModel> result = new List<GroupViewModel>();
+            List<MemberRegisterViewModel> result = new List<MemberRegisterViewModel>();
+
             foreach (var item in members)
             {
-                result.Add(new GroupViewModel
+                result.Add(new MemberRegisterViewModel
                 {
                     MemberId = item.MemberId,
                     RegistrationDate = item.RegistrationDate,

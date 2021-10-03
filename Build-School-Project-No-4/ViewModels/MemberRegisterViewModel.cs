@@ -11,6 +11,7 @@ namespace Build_School_Project_No_4.ViewModels
     {
         public int MemberId { get; set; }
 
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? RegistrationDate { get; set; }
@@ -23,5 +24,13 @@ namespace Build_School_Project_No_4.ViewModels
         [StringLength(15, MinimumLength = 6, ErrorMessage = "密碼需大於6個字元")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [StringLength(10)]
+        public string AuthCode { get; set; }
+
+        public bool? IsAdmin { get; set; }
+
+        [Display(Name = "記得我")]
+        public bool Remember { get; set; }
     }
 }
