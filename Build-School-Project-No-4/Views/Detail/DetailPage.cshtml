@@ -1,9 +1,8 @@
 ﻿@model Build_School_Project_No_4.ViewModels.GroupViewModel
-
 @{
     ViewBag.Title = "DetailPage";
-    var prod = Model.Deets;
-    var price = prod.UnitPrice.ToString("N2");
+    //var prod = Model.Deets;
+    //var price = Model.Deets.UnitPrice.ToString("N2");
 }
 @section topCSS{
 
@@ -11,10 +10,10 @@
     <style>
 
     .game-backdrop{
-    background-image: url('@prod.GameBackdrop');
+    background-image: url('@Model.Deets.GameBackdrop');
     }
     .main-profile-img {
-        background-image: url('@prod.PlayerPic');
+        background-image: url('@Model.Deets.PlayerPic');
     }
     </style>
 
@@ -24,18 +23,18 @@
     <div class="row">
         <div class="col-12 col-md-9">
             <div class="detail-header detail-title">
-                <h1 class="heading1">@prod.GameName</h1>
+                <h1 class="heading1">@Model.Deets.GameName</h1>
                 <div class="price-header">
                     <img src="~/Assets/images/detail/currency.png" />
-                    <span class="game-price">@price</span>/Game
+                    <span class="game-price">@Model.Deets.UnitPrice.ToString("N2")</span>/Game
                 </div>
             </div>
         </div>
         <div class="col-12 col-md-3">
             <div class="detail-header">
                 <div class="header-btns">
-                    <button class="btn-play" data-bs-toggle="modal" data-bs-target="#playModal">Play</button>
-                    <button class="btn-purp">Chat</button>
+                    <button type="button" class="btn-play" data-bs-toggle="modal" data-bs-target="#playModal">Play</button>
+                    <button type="button" class="btn-purp">Chat</button>
                 </div>
             </div>
         </div>
@@ -49,9 +48,9 @@
                 </div>
                 <div class="col-6 col-md-12">
                     <div class="main-profile basic-info">
-                        <h2 class="name heading2">@prod.MemberName</h2>
+                        <h2 class="name heading2">@Model.Deets.MemberName</h2>
                         <div class="language">
-                            <span class="language-label">Language: </span>@prod.LanguageName
+                            <span class="language-label">Language: </span>@Model.Deets.LanguageName
                         </div>
                         <div class="status">ONLINE</div>
                     </div>
@@ -63,12 +62,12 @@
                         <p class="greyish">Book this ePal for</p>
                         <div class="ppg">
                             <img src="~/Assets/images/detail/currency.png" />
-                            <div class="game-price">@price</div>
+                            <div class="game-price">@Model.Deets.UnitPrice.ToString("N2")</div>
                             /Game
                         </div>
                         <div class="ppg-btns">
-                            <button class="btn-play" data-bs-toggle="modal" data-bs-target="#playModal">Play</button>
-                            <button class="btn-purp">Chat</button>
+                            <button type="button" class="btn-play" data-bs-toggle="modal" data-bs-target="#playModal">Play</button>
+                            <button type="button" class="btn-purp">Chat</button>
                         </div>
                     </div>
                 </div>
@@ -110,7 +109,7 @@
             </div>
             <div class="row">
                 <div class="game-screenshot">
-                    <img src="@prod.GameScreenshot" />
+                    <img src="@Model.Deets.GameScreenshot" />
                 </div>
             </div>
             <div class="row">
@@ -123,12 +122,12 @@
 
                         <div class="detail-entry">
                             <div class="detail-name rank whitish">Rank</div>
-                            <div class="detail-value greyish">@prod.RankName</div>
+                            <div class="detail-value greyish">@Model.Deets.RankName</div>
 
                         </div>
                         <div class="detail-entry">
                             <div class="detail-name server whitish">Server(s)</div>
-                            <div class="detail-value greyish">@prod.ServerName</div>
+                            <div class="detail-value greyish">@Model.Deets.ServerName</div>
                         </div>
                         <div class="detail-entry">
                             <div class="detail-name platform whitish">Platform(s)</div>
@@ -138,7 +137,7 @@
                             Introduction
                         </div>
                         <div class="intro-text greyish">
-                            @prod.Intro
+                            @Model.Deets.Intro
                         </div>
                     </div>
                 </div>
@@ -191,92 +190,107 @@
         </div>
 
 
-        <div class="modal fade" id="playModal" tabindex="-1" aria-labelledby="playModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="playModalLabel">Confirm Order</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container whitish">
-                            <div class="row">
-                                <div class="col-3 ">
-                                    <div class="game-img">
-                                        <img src="~/Assets/images/detail/card_lol_m@2x.png" />
-                                    </div>
+        @using (Html.BeginForm())
+        {
+            var prod = Model.Deets;
+            @Html.AntiForgeryToken()
+    <div class="modal fade" id="playModal" tabindex="-1" aria-labelledby="playModalLabel" aria-hidden="true">
+        @Html.EditorFor(model => model.AddCart.PlayerId, new { htmlAttributes = new { @class = "form-control", Value = Model.Deets.PlayerId, type = "hidden" } })
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="playModalLabel">Confirm Order</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container whitish">
+                        <div class="row">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="col-3 ">
+                                <div class="game-img">
+                                    <img src="~/Assets/images/detail/card_lol_m@2x.png" />
                                 </div>
-                                <div class="col-9 ">
-                                    <div class="game-user-price">
-                                        <div class="game-name">@prod.GameName</div>
-                                        <div class="player-name">@prod.MemberName</div>
-                                        <div class="price-per-game">
-                                            <img src="~/Assets/images/detail/currency.png" />
-                                            <span id="price">@price</span>
-                                            /Game
-                                        </div>
+                            </div>
+                            <div class="col-9 ">
+                                <div class="game-user-price">
+                                    <div class="game-name">@prod.GameName</div>
+                                    <div class="player-name">@prod.MemberName</div>
+                                    <div class="price-per-game">
+                                        <img src="~/Assets/images/detail/currency.png" />
+                                        <span id="price">@prod.UnitPrice.ToString("N2")</span>
+                                        @Html.EditorFor(model => model.AddCart.UnitPrice, new { htmlAttributes = new { @class = "form-control", Value = Model.Deets.UnitPrice, type = "hidden" } })
+                                        /Game
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12">
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
                                     <div class="rounds">
-                                        <span>Rounds</span>
+                                        <span>@Html.LabelFor(x => x.AddCart.Rounds)</span>
                                         <div class="rounds-div">
-                                            <button class="round-subtract"><span>-</span></button>
-                                            <input class="round-number" value="1" onfocus="setOldVal(this.value)" onkeyup="PriceChange(undefined, this.value)">
-                                            <button class="round-add"><span>+</span></button>
+                                            <button type="button" class="round-subtract"><span>-</span></button>
+                                            @*<input class="round-number" value="1" onfocus="setOldVal(this.value)" onkeyup="PriceChange(undefined, this.value)">*@
+                                            @Html.EditorFor(x => x.AddCart.Rounds, new { htmlAttributes = new { @class = "round-number", Value = "1", onfocus = "setOldVal(this.value)", onkeyup = "PriceChange(undefined, this.value)" } })
+                                            @Html.ValidationMessageFor(x => x.AddCart.Rounds, "", new { @class = "text-danger" })
+                                            <button type="button" class="round-add"><span>+</span></button>
                                         </div>
                                     </div>
-
+                                </div>
+                                <div class="form-group">
                                     <div class="start-time-div">
                                         <span>Start Time</span>
                                         <div class="start-time-settings">
                                             <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local -->
-                                            <input type="datetime-local" id="start-time" name="start-time" class="whitish" onblur="DateCheck(this.value)">
-                                            <button class="time-now"><span>Now</span></button>
+                                            <input type="datetime-local" id="start-time" name="startTime" class="whitish" onblur="DateCheck(this.value)">
+                                            <button type="button" class="time-now"><span>Now</span></button>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="subtotal-div">
-                                        <span>Subtotal</span>
-                                        <div class="subtotal-div2">
-                                            <img src="~/Assets/images/detail/currency.png" />
-                                            <span class="subtotal">@price</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="promo-code-div">
-                                        <span>Promo code</span>
-                                        <div class="enter-code">
-                                            <input placeholder="Enter your promo code" type="text">
-                                        </div>
-                                    </div>
-
-                                    <hr>
-
-                                    <div class="final-price-div">
-                                        <span>Final Price</span>
-                                        <div class="final-price">
-
-                                            <span class="rounds-final">1</span> Round(s) total
-                                            <img src="~/Assets/images/detail/currency.png" />
-                                            <span class="final-amount">@price</span>
-                                        </div>
-                                    </div>
-
                                 </div>
+                                <hr>
+                                <div class="subtotal-div">
+                                    <span>Subtotal</span>
+                                    <div class="subtotal-div2">
+                                        <img src="~/Assets/images/detail/currency.png" />
+                                        <span class="subtotal">@Model.Deets.UnitPrice.ToString("N2")</span>
+                                    </div>
+                                </div>
+
+                                <div class="promo-code-div">
+                                    <span>Promo code</span>
+                                    <div class="enter-code">
+                                        <input placeholder="Enter your promo code" type="text" disabled>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="final-price-div">
+                                    <span>Final Price</span>
+                                    <div class="final-price">
+
+                                        <span class="rounds-final">1</span> Round(s) total
+                                        <img src="~/Assets/images/detail/currency.png" />
+                                        <span class="final-amount">@Model.Deets.UnitPrice.ToString("N2")</span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn-cancel" data-bs-dismiss="modal">Close</button>
-                        <button class="btn-purp btn-confirm">Confirm</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" data-bs-dismiss="modal">Close</button>
+                    <button class="btn-purp btn-confirm">Confirm</button>
                 </div>
             </div>
         </div>
+    </div>
+        }
 
     </div>
 </div>
@@ -290,6 +304,9 @@
 @section endJS{
     <script src="~/Assets/js/detail.js"></script>
 
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
 }
 
 
