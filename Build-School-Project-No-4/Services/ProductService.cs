@@ -80,7 +80,7 @@ namespace Build_School_Project_No_4.Services
                     MemberName = Members.FirstOrDefault(x => x.MemberId == item.CreatorId).MemberName,
                     GameName = Games.FirstOrDefault(x => x.GameCategoryId == item.GameCategoryId).GameName,
                     GameCoverImg = Games.FirstOrDefault(x => x.GameCategoryId == item.GameCategoryId).GameCoverImg,
-                    LineStatus = Members.FirstOrDefault(x => x.MemberId == item.CreatorId).LineStatus,
+                    //LineStatus = Members.FirstOrDefault(x => x.MemberId == item.CreatorId).LineStatusId,
                     PositionName = Positions.FirstOrDefault(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == item.ProductId).ProductPositionId)).PositionName,
                     Rank = Ranks.FirstOrDefault(x => x.RankId == 3).RankName
                 }) ;

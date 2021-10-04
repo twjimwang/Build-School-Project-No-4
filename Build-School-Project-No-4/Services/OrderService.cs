@@ -26,13 +26,13 @@ namespace Build_School_Project_No_4.Services
             {
                 result.Add(new OrderViewModel
                 {
-                    OrderStatus = item.OrderStatus,
+                    //OrderStatus = item.OrderStatus,
                     OrderId = item.OrderId,
                     PlayerId = item.CustomerId,
                     OrderDate = item.OrderDate,
-                    Quality = item.Quality,
+                    Quality = item.Quantity,
                     UnitPrice = item.UnitPrice,
-                    TotalPrice = item.Quality * item.UnitPrice
+                    TotalPrice = item.Quantity * item.UnitPrice
                 });
             }
             return result;
