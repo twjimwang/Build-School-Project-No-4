@@ -7,36 +7,12 @@ namespace Build_School_Project_No_4.ViewModels
 {
     public class ProductViewModel
     {
-        /// <summary>
-        /// 此遊戲類別名稱封面照片
-        /// </summary>
-        public string GameCoverImg { get; set; }
-
-        /// <summary>
-        /// 此遊戲類別名稱
-        /// </summary>
-        public string GameTitle { get; set; }
-
-        /// <summary>
-        /// 類別ID
-        /// </summary>
-        public int CategroyId { get; set; }
-
-        /// <summary>
-        /// 全部遊戲
-        /// </summary>
-        public List<string> GameAll { get; set; }
-
+        public int CategoryId { get; set; }
         public List<ProductCard> ProductCards { get; set; }
     }
 
     public class ProductCard 
     {
-        /// <summary>
-        /// 卡片遊戲名稱
-        /// </summary>
-        public string GameName { get; set; }
-
         /// <summary>
         /// 卡片名字(人)
         /// </summary>
@@ -86,5 +62,25 @@ namespace Build_School_Project_No_4.ViewModels
         /// ProductId
         /// </summary>
         public int ProductId { get; set; }
+
+        /// <summary>
+        /// RankId
+        /// </summary>
+        public int RankId { get; set; }
+
+        /// <summary>
+        /// LanguageId 
+        /// </summary>
+        public int LanguageId { get; set; }
+
+        /// <summary>
+        /// ServerId
+        /// </summary>
+        public int ServerId { get; set; }
+
+        /// <summary>
+        /// ServerId
+        /// </summary>
+        public int GenderId { get; set; }
     }
 }

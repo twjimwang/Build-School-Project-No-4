@@ -1,5 +1,6 @@
 ﻿using Build_School_Project_No_4.DataModels;
 using Build_School_Project_No_4.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,70 +29,87 @@ namespace Build_School_Project_No_4.Services
             {
                 return result;
             }
-            var ProductPosition = _repo.GetAll<ProductPosition>();
             var products = _repo.GetAll<Product>().Where(x => x.GameCategoryId == category.GameCategoryId).ToList();
+            var CommentDetails = _repo.GetAll<CommentDetail>().ToList();
+            var ProductPositions = _repo.GetAll<ProductPosition>().ToList();
+            var Positions = _repo.GetAll<Position>().ToList();
+            var Ranks = _repo.GetAll<Rank>().ToList();
+            var Members = _repo.GetAll<Member>().ToList();
+
             var productCards = products.Select(p => new ProductCard {
                 UnitPrice = p.UnitPrice,
                 CreatorImg = p.CreatorImg,
                 Introduction = p.Introduction,
                 RecommendationVoice = p.RecommendationVoice,
-                LineStatus = _repo.GetAll<Member>().First(x=>x.MemberId == p.CreatorId).LineStatus,
-                CreatorName = _repo.GetAll<Member>().First(x=>x.MemberId == p.CreatorId).MemberName,
-                StarLevel = _repo.GetAll<CommentDetail>().FirstOrDefault(x=>x.ProductId == p.ProductId).StarLevel,
-                Rank = _repo.GetAll<Rank>().FirstOrDefault(x=>x.RankId == p.RankId).RankName,
-                Position = _repo.GetAll<Position>().FirstOrDefault(y => y.PositionId == (ProductPosition.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
+                LineStatus = Members.First(x=>x.MemberId == p.CreatorId).LineStatus,
+                CreatorName = Members.First(x=>x.MemberId == p.CreatorId).MemberName,
+                StarLevel = CommentDetails.First(x => x.ProductId == p.ProductId).StarLevel,
+                Rank = Ranks.FirstOrDefault(x=>x.RankId == p.RankId)==null?"No Rank": Ranks.First(x => x.RankId == p.RankId).RankName,
+                Position = Positions.First(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
                 ProductId = p.ProductId
             }).ToList();
 
             result.ProductCards = productCards;
+            result.CategoryId = categoryId;
+            return result;
+        }
+
+        public CategoryViewModel GetGamesAllAndDeatils(int categoryId)
+        {
+            var result = new CategoryViewModel();
+            var category = _repo.GetAll<GameCategory>().FirstOrDefault(x => x.GameCategoryId == categoryId);
+            if (category == null)
+            {
+                return result;
+            }
+            var Games = _repo.GetAll<GameCategory>().ToList();
+            result.GameAllName = Games.Select(x => x.GameName).ToList();
+            result.CategroyId = categoryId;
             result.GameCoverImg = category.GameCoverImg;
             result.GameTitle = category.GameName;
-            result.CategroyId = category.GameCategoryId;
             return result;
         }
 
-        public ProductViewModel GetGamesAll()
-        {
-            var result = new ProductViewModel();
-            result.GameAll = _repo.GetAll<GameCategory>().Select(x => x.GameName).ToList();
-            return result;
-        }
-
-        public ProductViewModel FindRankProduct(int GameCategoryId,int RankCategoryId)
+        public string GetProductCardsJson(int categoryId)
         {
             var result = new ProductViewModel()
             {
                 ProductCards = new List<ProductCard>()
             };
-            //取出選擇的遊戲種類
-            var GameCategory = _repo.GetAll<GameCategory>().FirstOrDefault(x => x.GameCategoryId == GameCategoryId);
-            if (GameCategory == null)
+            var category = _repo.GetAll<GameCategory>().FirstOrDefault(x => x.GameCategoryId == categoryId);
+            if (category == null)
             {
-                return result;
+                return result.ToString();
             }
-            //取出所有遊戲路線
-            var ProductPosition = _repo.GetAll<ProductPosition>();
-            //取出所有商品卡片符合遊戲種類的 Rank分類
-            var products = _repo.GetAll<Product>().Where(x => x.GameCategoryId == GameCategoryId && x.RankId == RankCategoryId).ToList();
+            var products = _repo.GetAll<Product>().Where(x => x.GameCategoryId == category.GameCategoryId).ToList();
+            var CommentDetails = _repo.GetAll<CommentDetail>().ToList();
+            var ProductPositions = _repo.GetAll<ProductPosition>().ToList();
+            var Positions = _repo.GetAll<Position>().ToList();
+            var Ranks = _repo.GetAll<Rank>().ToList();
+            var Members = _repo.GetAll<Member>().ToList();
+            var Servers = _repo.GetAll<ProductServer>().ToList();
+
             var productCards = products.Select(p => new ProductCard
             {
                 UnitPrice = p.UnitPrice,
                 CreatorImg = p.CreatorImg,
                 Introduction = p.Introduction,
                 RecommendationVoice = p.RecommendationVoice,
-                LineStatus = _repo.GetAll<Member>().First(x => x.MemberId == p.CreatorId).LineStatus,
-                CreatorName = _repo.GetAll<Member>().First(x => x.MemberId == p.CreatorId).MemberName,
-                StarLevel = _repo.GetAll<CommentDetail>().FirstOrDefault(x => x.ProductId == p.ProductId).StarLevel,
-                Rank = _repo.GetAll<Rank>().FirstOrDefault(x => x.RankId == p.RankId).RankName,
-                Position = _repo.GetAll<Position>().FirstOrDefault(y => y.PositionId == (ProductPosition.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
+                LineStatus = Members.First(x => x.MemberId == p.CreatorId).LineStatus,
+                CreatorName = Members.First(x => x.MemberId == p.CreatorId).MemberName,
+                StarLevel = CommentDetails.First(x => x.ProductId == p.ProductId).StarLevel,
+                Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.First(x => x.RankId == p.RankId).RankName,
+                Position = Positions.First(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
+                ProductId = p.ProductId,
+                RankId = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? 0 : Ranks.First(x => x.RankId == p.RankId).RankId,
+                ServerId = Servers.First(x=> x.ProductId == p.ProductId).ServerId,
+                LanguageId = (int)Members.First(x => x.MemberId == p.CreatorId).LanguageId,
+                GenderId = (int)Members.First(x => x.MemberId == p.CreatorId).Gender
             }).ToList();
-
+            result.CategoryId = categoryId;
             result.ProductCards = productCards;
-            result.GameCoverImg = GameCategory.GameCoverImg;
-            result.GameTitle = GameCategory.GameName;
-            return result;
+            return JsonConvert.SerializeObject(result);
         }
-        
    }
     
 }

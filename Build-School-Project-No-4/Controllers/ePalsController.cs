@@ -20,28 +20,27 @@ namespace Build_School_Project_No_4.Controllers
         [HttpGet]
         public ActionResult ePal(int? id)
         {
-            var productGet = new ProductService();
             if (!id.HasValue)
             {
                 return RedirectToAction("ePal", "ePals", new { id = 1 });
             }
-            var ProductCards = productGet.GetProductCardsData(id.Value);
-            var Games = productGet.GetGamesAll();
+            var ProductCards = _productService.GetProductCardsData(id.Value);
+            var GamesDeatils = _productService.GetGamesAllAndDeatils(id.Value);
 
             GroupViewModel result = new GroupViewModel
             {
-                GameCategory = Games,
+                GamesDetails = GamesDeatils,
                 ProductCards = ProductCards
             };
-
+            ViewBag.ProductCard = _productService.GetProductCardsJson(id.Value);
             return View("ePal",result);
         }
 
-        //[HttpPost]
-        //public ActionResult ePal(string name)
-        //{
-        //    var abc = name;
-        //    return View();
-        //}
+        public ActionResult GamesJson(int id)
+        {
+            ViewBag.ProductCard = _productService.GetProductCardsJson(id);
+
+            return View();
+        }
     }
 }
