@@ -723,7 +723,7 @@ namespace Build_School_Project_No_4.Controllers
         // GET: Members
         public ActionResult Index()
         {
-            var members = db.Members.Include(m => m.City).Include(m => m.Language);
+            var members = db.Members.Include(m => m.CityId).Include(m => m.Language);
             return View(members.ToList());
         }
 
@@ -734,7 +734,7 @@ namespace Build_School_Project_No_4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Member member = db.Members.Find(id);
+            Members member = db.Members.Find(id);
             if (member == null)
             {
                 return HttpNotFound();
@@ -746,7 +746,7 @@ namespace Build_School_Project_No_4.Controllers
         public ActionResult Create()
         {
             ViewBag.CityId = new SelectList(db.Cities, "CityId", "CityName");
-            ViewBag.LanguageId = new SelectList(db.Languages, "LanguageId", "LanguageName");
+            ViewBag.LanguageId = new SelectList(db.Language, "LanguageId", "LanguageName");
             return View();
         }
 
@@ -755,7 +755,7 @@ namespace Build_School_Project_No_4.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MemberId,MemberName,RegistrationDate,Email,Password,Phone,Country,CityId,Gender,BirthDay,TimeZone,LanguageId,Bio,ProfilePicture,LineStatus")] Member member)
+        public ActionResult Create([Bind(Include = "MemberId,MemberName,RegistrationDate,Email,Password,Phone,Country,CityId,Gender,BirthDay,TimeZone,LanguageId,Bio,ProfilePicture,LineStatus")] Members member)
         {
             if (ModelState.IsValid)
             {
@@ -765,7 +765,7 @@ namespace Build_School_Project_No_4.Controllers
             }
 
             ViewBag.CityId = new SelectList(db.Cities, "CityId", "CityName", member.CityId);
-            ViewBag.LanguageId = new SelectList(db.Languages, "LanguageId", "LanguageName", member.LanguageId);
+            ViewBag.LanguageId = new SelectList(db.Language, "LanguageId", "LanguageName", member.LanguageId);
             return View(member);
         }
 
@@ -776,13 +776,13 @@ namespace Build_School_Project_No_4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Member member = db.Members.Find(id);
+            Members member = db.Members.Find(id);
             if (member == null)
             {
                 return HttpNotFound();
             }
             ViewBag.CityId = new SelectList(db.Cities, "CityId", "CityName", member.CityId);
-            ViewBag.LanguageId = new SelectList(db.Languages, "LanguageId", "LanguageName", member.LanguageId);
+            ViewBag.LanguageId = new SelectList(db.Language, "LanguageId", "LanguageName", member.LanguageId);
             return View(member);
         }
 
@@ -791,7 +791,7 @@ namespace Build_School_Project_No_4.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MemberId,MemberName,RegistrationDate,Email,Password,Phone,Country,CityId,Gender,BirthDay,TimeZone,LanguageId,Bio,ProfilePicture,LineStatus")] Member member)
+        public ActionResult Edit([Bind(Include = "MemberId,MemberName,RegistrationDate,Email,Password,Phone,Country,CityId,Gender,BirthDay,TimeZone,LanguageId,Bio,ProfilePicture,LineStatus")] Members member)
         {
             if (ModelState.IsValid)
             {
@@ -800,7 +800,7 @@ namespace Build_School_Project_No_4.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CityId = new SelectList(db.Cities, "CityId", "CityName", member.CityId);
-            ViewBag.LanguageId = new SelectList(db.Languages, "LanguageId", "LanguageName", member.LanguageId);
+            ViewBag.LanguageId = new SelectList(db.Language, "LanguageId", "LanguageName", member.LanguageId);
             return View(member);
         }
 
@@ -811,7 +811,7 @@ namespace Build_School_Project_No_4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Member member = db.Members.Find(id);
+            Members member = db.Members.Find(id);
             if (member == null)
             {
                 return HttpNotFound();
@@ -824,7 +824,7 @@ namespace Build_School_Project_No_4.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Member member = db.Members.Find(id);
+            Members member = db.Members.Find(id);
             db.Members.Remove(member);
             db.SaveChanges();
             return RedirectToAction("Index");

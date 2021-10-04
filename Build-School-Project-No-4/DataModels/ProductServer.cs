@@ -15,7 +15,7 @@ namespace Build_School_Project_No_4.DataModels
 
         public int ServerId { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual Products Products { get; set; }
 
         public virtual Server Server { get; set; }
     }

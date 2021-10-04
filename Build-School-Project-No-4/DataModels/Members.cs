@@ -6,26 +6,27 @@ namespace Build_School_Project_No_4.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Member
+    public partial class Members
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Member()
+        public Members()
         {
-            Chatlists = new HashSet<Chatlist>();
-            Chatlists1 = new HashSet<Chatlist>();
-            CommentDetails = new HashSet<CommentDetail>();
-            Followings = new HashSet<Following>();
-            Followings1 = new HashSet<Following>();
-            LiveChats = new HashSet<LiveChat>();
-            LiveChats1 = new HashSet<LiveChat>();
-            MeetLikes = new HashSet<MeetLike>();
-            MeetLikes1 = new HashSet<MeetLike>();
-            Orders = new HashSet<Order>();
-            Products = new HashSet<Product>();
-            RecentVistors = new HashSet<RecentVistor>();
-            RecentVistors1 = new HashSet<RecentVistor>();
+            Chatlist = new HashSet<Chatlist>();
+            Chatlist1 = new HashSet<Chatlist>();
+            CommentDetails = new HashSet<CommentDetails>();
+            Followings = new HashSet<Followings>();
+            Followings1 = new HashSet<Followings>();
+            LiveChat = new HashSet<LiveChat>();
+            LiveChat1 = new HashSet<LiveChat>();
+            MeetLikes = new HashSet<MeetLikes>();
+            MeetLikes1 = new HashSet<MeetLikes>();
+            Orders = new HashSet<Orders>();
+            Products = new HashSet<Products>();
+            RecentVistors = new HashSet<RecentVistors>();
+            RecentVistors1 = new HashSet<RecentVistors>();
         }
 
+        [Key]
         public int MemberId { get; set; }
 
         [StringLength(50)]
@@ -70,48 +71,48 @@ namespace Build_School_Project_No_4.DataModels
         public bool? IsAdmin { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Chatlist> Chatlists { get; set; }
+        public virtual ICollection<Chatlist> Chatlist { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Chatlist> Chatlists1 { get; set; }
+        public virtual ICollection<Chatlist> Chatlist1 { get; set; }
 
-        public virtual City City { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CommentDetail> CommentDetails { get; set; }
+        public virtual Cities Cities { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Following> Followings { get; set; }
+        public virtual ICollection<CommentDetails> CommentDetails { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Following> Followings1 { get; set; }
+        public virtual ICollection<Followings> Followings { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Followings> Followings1 { get; set; }
 
         public virtual Language Language { get; set; }
 
-        public virtual LineStatu LineStatu { get; set; }
+        public virtual LineStatus LineStatus { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LiveChat> LiveChats { get; set; }
+        public virtual ICollection<LiveChat> LiveChat { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LiveChat> LiveChats1 { get; set; }
+        public virtual ICollection<LiveChat> LiveChat1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MeetLike> MeetLikes { get; set; }
+        public virtual ICollection<MeetLikes> MeetLikes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MeetLike> MeetLikes1 { get; set; }
+        public virtual ICollection<MeetLikes> MeetLikes1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Products> Products { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RecentVistor> RecentVistors { get; set; }
+        public virtual ICollection<RecentVistors> RecentVistors { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RecentVistor> RecentVistors1 { get; set; }
+        public virtual ICollection<RecentVistors> RecentVistors1 { get; set; }
     }
 }

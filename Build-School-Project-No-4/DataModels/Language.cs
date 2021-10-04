@@ -12,7 +12,7 @@ namespace Build_School_Project_No_4.DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Language()
         {
-            Members = new HashSet<Member>();
+            Members = new HashSet<Members>();
         }
 
         public int LanguageId { get; set; }
@@ -22,6 +22,6 @@ namespace Build_School_Project_No_4.DataModels
         public string LanguageName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Member> Members { get; set; }
+        public virtual ICollection<Members> Members { get; set; }
     }
 }

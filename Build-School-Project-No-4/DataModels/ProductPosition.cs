@@ -17,6 +17,6 @@ namespace Build_School_Project_No_4.DataModels
 
         public virtual Position Position { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual Products Products { get; set; }
     }
 }

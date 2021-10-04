@@ -6,8 +6,9 @@ namespace Build_School_Project_No_4.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Order
+    public partial class Orders
     {
+        [Key]
         public int OrderId { get; set; }
 
         public int CustomerId { get; set; }
@@ -30,10 +31,16 @@ namespace Build_School_Project_No_4.DataModels
 
         public DateTime? UpdateDateTime { get; set; }
 
-        public virtual Member Member { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string OrderConfirmation { get; set; }
 
-        public virtual OrderStatu OrderStatu { get; set; }
+        public virtual Members Members { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual OrderStatuses OrderStatuses { get; set; }
+
+        public virtual OrderStatuses OrderStatuses1 { get; set; }
+
+        public virtual Products Products { get; set; }
     }
 }

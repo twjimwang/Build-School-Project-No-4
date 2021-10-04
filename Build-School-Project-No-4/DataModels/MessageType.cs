@@ -12,8 +12,8 @@ namespace Build_School_Project_No_4.DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MessageType()
         {
-            Chatlists = new HashSet<Chatlist>();
-            LiveChats = new HashSet<LiveChat>();
+            Chatlist = new HashSet<Chatlist>();
+            LiveChat = new HashSet<LiveChat>();
         }
 
         public int MessageTypeId { get; set; }
@@ -23,9 +23,9 @@ namespace Build_School_Project_No_4.DataModels
         public string MessageTypeName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Chatlist> Chatlists { get; set; }
+        public virtual ICollection<Chatlist> Chatlist { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LiveChat> LiveChats { get; set; }
+        public virtual ICollection<LiveChat> LiveChat { get; set; }
     }
 }
