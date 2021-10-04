@@ -54,14 +54,14 @@ namespace Build_School_Project_No_4.Controllers
             var gameStartTime = Convert.ToDateTime(startTime);
             Order unpaid = new Order()
             {
-                Quality = AddCartVM.AddCart.Rounds,
+                Quantity = AddCartVM.AddCart.Rounds,
                 UnitPrice = AddCartVM.AddCart.UnitPrice,
                 CustomerId = 1,
                 ProductId = AddCartVM.AddCart.PlayerId,
                 OrderDate = DateTime.Now,
                 GameStartDateTime = gameStartTime,
                 GameEndDateTime = new DateTime(2000,1,1,1,1,1),
-                OrderStatus = "unpaid",
+                OrderStatusId = 1,
                 UpdateDateTime = new DateTime(2000, 1, 1, 1, 1, 1),
                
             };

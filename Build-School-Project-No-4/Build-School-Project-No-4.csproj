@@ -674,6 +674,10 @@
     <Content Include="Views\Detail\NotFound.cshtml" />
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\ePals\ePal.cshtml" />
+    <Content Include="Views\ePals\GamesJson.cshtml" />
+    <Content Include="Views\Shared\_Layout_customMobile.cshtml" />
+    <Content Include="Views\Detail\Order.cshtml" />
+    <Content Include="Views\Detail\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
