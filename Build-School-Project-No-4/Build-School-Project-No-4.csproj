@@ -673,6 +673,7 @@
     <Content Include="Views\ePals\ePal.cshtml" />
     <Content Include="Views\Detail\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout_customMobile.cshtml" />
+    <Content Include="Views\Detail\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -48,8 +48,9 @@ namespace Build_School_Project_No_4.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DetailPage(GroupViewModel AddCartVM, string startTime)
+        public ActionResult DetailPage(GroupViewModel AddCartVM, string startTime, int id)
         {
+            var xxx = id;
             var gameStartTime = Convert.ToDateTime(startTime);
             Order unpaid = new Order()
             {
