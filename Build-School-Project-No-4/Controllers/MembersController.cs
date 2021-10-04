@@ -26,13 +26,10 @@ namespace Build_School_Project_No_4.Controllers
     {
         private EPalContext db = new EPalContext();
 
-
-        //private MemberRepository _MemberRepo;
         private MemberService _MemberService;
         private MailService _MailService;
         public MembersController()
         {
-            //_MemberRepo = new MemberRepository();
             _MemberService = new MemberService();
             _MailService = new MailService();
         }
@@ -51,18 +48,14 @@ namespace Build_School_Project_No_4.Controllers
             return View(MemberData);
         }
 
-        public string test()
-        {
-            return "<p>" + User.Identity.Name + "您好<p>";
-        }
 
 
 
         // GET: Cloudinary
         public ActionResult ImageUpload()
         {
-            return PartialView("_AvatarPartial");
-            //return View();
+            //return PartialView("_AvatarPartial");
+            return View();
         }
         [HttpPost]
         public bool SaveImageToServer()
@@ -192,6 +185,7 @@ namespace Build_School_Project_No_4.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         //public ActionResult Edit_Profile(MemberInfoViewModel MemberInfo)
+        [Route("EditProfile")]
         public ActionResult EditProfile([Bind(Include = "MemberInfo")] GroupViewModel EditMember)
         {   
             //將密碼Hash

@@ -734,7 +734,6 @@
     <Content Include="Views\Members\ReadMember.cshtml" />
     <Content Include="Views\ChillMeetLike\MeetLikes.cshtml" />
     <Content Include="Views\ChillMeetLike\MeetMatches.cshtml" />
-    <Content Include="Views\Members\test.cshtml" />
     <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
     <Content Include="Views\ePal\EPalIndex.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
