@@ -19,11 +19,13 @@ namespace Build_School_Project_No_4.DataModels
         public virtual DbSet<Following> Followings { get; set; }
         public virtual DbSet<GameCategory> GameCategories { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
+        public virtual DbSet<LineStatu> LineStatus { get; set; }
         public virtual DbSet<LiveChat> LiveChats { get; set; }
         public virtual DbSet<MeetLike> MeetLikes { get; set; }
         public virtual DbSet<Member> Members { get; set; }
         public virtual DbSet<MessageType> MessageTypes { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderStatu> OrderStatus { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<ProductPlan> ProductPlans { get; set; }
         public virtual DbSet<ProductPosition> ProductPositions { get; set; }
@@ -38,10 +40,19 @@ namespace Build_School_Project_No_4.DataModels
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CommentDetail>()
+                .HasMany(e => e.Comments)
+                .WithRequired(e => e.CommentDetail)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<GameCategory>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.GameCategory)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<LineStatu>()
+                .Property(e => e.LineStatusName)
+                .IsFixedLength();
 
             modelBuilder.Entity<Member>()
                 .Property(e => e.AuthCode)
@@ -142,6 +153,11 @@ namespace Build_School_Project_No_4.DataModels
             modelBuilder.Entity<Order>()
                 .Property(e => e.Discount)
                 .HasPrecision(18, 0);
+
+            modelBuilder.Entity<OrderStatu>()
+                .HasMany(e => e.Orders)
+                .WithRequired(e => e.OrderStatu)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Position>()
                 .HasMany(e => e.ProductPositions)
