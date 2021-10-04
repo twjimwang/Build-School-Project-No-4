@@ -62,7 +62,7 @@ namespace Build_School_Project_No_4.DataModels
 
         public string ProfilePicture { get; set; }
 
-        public string LineStatus { get; set; }
+        public int? LineStatusId { get; set; }
 
         [StringLength(10)]
         public string AuthCode { get; set; }
@@ -87,6 +87,8 @@ namespace Build_School_Project_No_4.DataModels
         public virtual ICollection<Following> Followings1 { get; set; }
 
         public virtual Language Language { get; set; }
+
+        public virtual LineStatu LineStatu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LiveChat> LiveChats { get; set; }

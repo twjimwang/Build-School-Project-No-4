@@ -35,19 +35,21 @@ namespace Build_School_Project_No_4.Services
             var Positions = _repo.GetAll<Position>().ToList();
             var Ranks = _repo.GetAll<Rank>().ToList();
             var Members = _repo.GetAll<Member>().ToList();
+            var LineStatus = _repo.GetAll<LineStatu>().ToList();
 
             var productCards = products.Select(p => new ProductCard {
                 UnitPrice = p.UnitPrice,
                 CreatorImg = p.CreatorImg,
                 Introduction = p.Introduction,
                 RecommendationVoice = p.RecommendationVoice,
-                LineStatus = Members.First(x=>x.MemberId == p.CreatorId).LineStatus,
-                CreatorName = Members.First(x=>x.MemberId == p.CreatorId).MemberName,
+                LineStatus = LineStatus.First(y => y.LineStatusId == (Members.First(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName,
+                CreatorName = Members.First(x => x.MemberId == p.CreatorId).MemberName,
                 StarLevel = CommentDetails.First(x => x.ProductId == p.ProductId).StarLevel,
-                Rank = Ranks.FirstOrDefault(x=>x.RankId == p.RankId)==null?"No Rank": Ranks.First(x => x.RankId == p.RankId).RankName,
+                Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.First(x => x.RankId == p.RankId).RankName,
                 Position = Positions.First(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
                 ProductId = p.ProductId
             }).ToList();
+     
 
             result.ProductCards = productCards;
             result.CategoryId = categoryId;
@@ -88,6 +90,7 @@ namespace Build_School_Project_No_4.Services
             var Ranks = _repo.GetAll<Rank>().ToList();
             var Members = _repo.GetAll<Member>().ToList();
             var Servers = _repo.GetAll<ProductServer>().ToList();
+            var LineStatus = _repo.GetAll<LineStatu>().ToList();
 
             var productCards = products.Select(p => new ProductCard
             {
@@ -95,7 +98,7 @@ namespace Build_School_Project_No_4.Services
                 CreatorImg = p.CreatorImg,
                 Introduction = p.Introduction,
                 RecommendationVoice = p.RecommendationVoice,
-                LineStatus = Members.First(x => x.MemberId == p.CreatorId).LineStatus,
+                LineStatus = LineStatus.First(y => y.LineStatusId == (Members.First(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName,
                 CreatorName = Members.First(x => x.MemberId == p.CreatorId).MemberName,
                 StarLevel = CommentDetails.First(x => x.ProductId == p.ProductId).StarLevel,
                 Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.First(x => x.RankId == p.RankId).RankName,

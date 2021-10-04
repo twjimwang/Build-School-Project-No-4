@@ -14,7 +14,7 @@ namespace Build_School_Project_No_4.DataModels
 
         public int ProductId { get; set; }
 
-        public int Quality { get; set; }
+        public int Quantity { get; set; }
 
         public decimal UnitPrice { get; set; }
 
@@ -24,15 +24,15 @@ namespace Build_School_Project_No_4.DataModels
 
         public DateTime GameStartDateTime { get; set; }
 
-        public DateTime GameEndDateTime { get; set; }
+        public DateTime? GameEndDateTime { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string OrderStatus { get; set; }
+        public int OrderStatusId { get; set; }
 
-        public DateTime UpdateDateTime { get; set; }
+        public DateTime? UpdateDateTime { get; set; }
 
         public virtual Member Member { get; set; }
+
+        public virtual OrderStatu OrderStatu { get; set; }
 
         public virtual Product Product { get; set; }
     }
