@@ -6,7 +6,7 @@ namespace Build_School_Project_No_4.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class ProductPlan
+    public partial class ProductPlans
     {
         [Key]
         public int PlanId { get; set; }
@@ -20,6 +20,6 @@ namespace Build_School_Project_No_4.DataModels
 
         public DateTime? GameEndTime { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual Products Products { get; set; }
     }
 }

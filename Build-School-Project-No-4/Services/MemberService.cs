@@ -17,7 +17,7 @@ namespace Build_School_Project_No_4.Services
 
         public List<MemberViewModel> GetMember()
         {
-            List<Member> members = _Repo.GetAll<Member>().ToList();
+            List<Members> members = _Repo.GetAll<Members>().ToList();
 
             List<MemberViewModel> result = new List<MemberViewModel>();
             foreach (var item in members)

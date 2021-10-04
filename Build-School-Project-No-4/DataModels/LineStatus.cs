@@ -6,26 +6,22 @@ namespace Build_School_Project_No_4.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("OrderStatuses")]
-    public partial class OrderStatus
+    public partial class LineStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderStatus()
+        public LineStatus()
         {
-            Orders = new HashSet<Order>();
-            Orders1 = new HashSet<Order>();
+            Members = new HashSet<Members>();
         }
 
-        public int OrderStatusId { get; set; }
+        public int LineStatusId { get; set; }
 
-        [Required]
         [StringLength(50)]
-        public string OrderStatusName { get; set; }
+        public string LineStatusName { get; set; }
+
+        public string LineStatusImg { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders1 { get; set; }
+        public virtual ICollection<Members> Members { get; set; }
     }
 }

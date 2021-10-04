@@ -44,24 +44,24 @@ namespace Build_School_Project_No_4.Services
    {
         private readonly Repository _Repo;
 
-        private IQueryable<Product> Products;
-        private IQueryable<Member> Members;
-        private IQueryable<GameCategory> Games;
+        private IQueryable<Products> Products;
+        private IQueryable<Members> Members;
+        private IQueryable<GameCategories> Games;
         private IQueryable<Rank> Ranks;
         private IQueryable<Position> Positions;
-        private IQueryable<CommentDetail> CommentDetails;
+        private IQueryable<CommentDetails> CommentDetails;
         private IQueryable<ProductPosition> ProductPositions;
 
 
         public ProductService()
         {
             _Repo = new Repository();
-            Products = _Repo.GetAll<Product>();
-            Members = _Repo.GetAll<Member>();
-            Games = _Repo.GetAll<GameCategory>();
+            Products = _Repo.GetAll<Products>();
+            Members = _Repo.GetAll<Members>();
+            Games = _Repo.GetAll<GameCategories>();
             Ranks = _Repo.GetAll<Rank>();
             Positions = _Repo.GetAll<Position>();
-            CommentDetails = _Repo.GetAll<CommentDetail>();
+            CommentDetails = _Repo.GetAll<CommentDetails>();
             ProductPositions = _Repo.GetAll<ProductPosition>();
         }
 
