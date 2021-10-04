@@ -30,6 +30,7 @@ namespace Build_School_Project_No_4.DataModels
         [Required]
         public string ProductImg { get; set; }
 
+        [Required]
         public string RecommendationVoice { get; set; }
 
         [Required]

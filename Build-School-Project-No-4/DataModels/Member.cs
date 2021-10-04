@@ -28,11 +28,12 @@ namespace Build_School_Project_No_4.DataModels
 
         public int MemberId { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string MemberName { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? RegistrationDate { get; set; }
+        public DateTime RegistrationDate { get; set; }
 
         [Required]
         [StringLength(50)]
