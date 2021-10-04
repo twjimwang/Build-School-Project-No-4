@@ -81,7 +81,7 @@ namespace Build_School_Project_No_4.Services
 
         public List<MemberRegisterViewModel> MemberRigisterData()
         {
-            List<Member> members = _Repo.GetAll<Member>().ToList();
+            List<Members> members = _Repo.GetAll<Members>().ToList();
 
             List<MemberRegisterViewModel> result = new List<MemberRegisterViewModel>();
 
@@ -100,14 +100,14 @@ namespace Build_School_Project_No_4.Services
             return result;
         }
 
-        public List<Member> MemberLoginData()
+        public List<Members> MemberLoginData()
         {
-            List<Member> members = _Repo.GetAll<Member>().ToList();
+            List<Members> members = _Repo.GetAll<Members>().ToList();
 
-            List<Member> result = new List<Member>();
+            List<Members> result = new List<Members>();
             foreach (var item in members)
             {
-                result.Add(new Member
+                result.Add(new Members
                 {
                     MemberId = item.MemberId,
                     RegistrationDate = item.RegistrationDate,
@@ -133,12 +133,12 @@ namespace Build_School_Project_No_4.Services
 
 
         //由email取得單筆資料
-        public Member GetDataByAccount(string Email)
+        public Members GetDataByAccount(string Email)
         {
-            Member Data = new Member();
+            Members Data = new Members();
             try
             {
-                var member = _Repo.GetAll<Member>().ToList().Where(m => m.Email == Email).FirstOrDefault();
+                var member = _Repo.GetAll<Members>().ToList().Where(m => m.Email == Email).FirstOrDefault();
 
                 Data.MemberId = member.MemberId;
                 Data.MemberName = member.MemberName;
@@ -159,7 +159,7 @@ namespace Build_School_Project_No_4.Services
         public string EmailValidate(string Email, string AuthCode)
         {
             //取得傳入email的會員資料
-            Member ValidateMember = GetDataByAccount(Email);
+            Members ValidateMember = GetDataByAccount(Email);
 
             //宣告驗證後訊息字串
             string ValidateStr = string.Empty;
@@ -204,7 +204,7 @@ namespace Build_School_Project_No_4.Services
         public string LoginCheck(string Email, string Password)
         {
             //取得傳入帳號的會員資料
-            Member loginMember = GetDataByAccount(Email);
+            Members loginMember = GetDataByAccount(Email);
             //判斷是否有此會員
             if (loginMember != null)
             {
@@ -233,7 +233,7 @@ namespace Build_School_Project_No_4.Services
         }
 
         //密碼確認
-        public bool PasswordCheck(Member CheckMember, string Password)
+        public bool PasswordCheck(Members CheckMember, string Password)
         {
             //判斷資料庫裡的密碼資料與傳入密碼資料Hash後是否一樣
             bool result = CheckMember.Password.Equals(HashPassword(Password));
@@ -245,7 +245,7 @@ namespace Build_School_Project_No_4.Services
         public string GetRole(string Email)
         {
             string Role = "User";
-            Member loginMember = GetDataByAccount(Email);
+            Members loginMember = GetDataByAccount(Email);
             //判斷資料庫欄位，用以確認是否為Admin
             if (loginMember.IsAdmin != null && loginMember.IsAdmin == true)
             {

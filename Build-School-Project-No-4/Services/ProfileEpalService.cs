@@ -22,12 +22,12 @@ namespace Build_School_Project_No_4.Services
         public List<ProfileViewModel> GetProfiles(int? assignMemberId)
         {
 
-            List<Member> memberAll = _Repo.GetAll<Member>().ToList();
-            List<Following> followAll = _Repo.GetAll<Following>().ToList();
-            List<RecentVistor> vistorAll = _Repo.GetAll<RecentVistor>().ToList();
+            List<Members> memberAll = _Repo.GetAll<Members>().ToList();
+            List<Followings> followAll = _Repo.GetAll<Followings>().ToList();
+            List<RecentVistors> vistorAll = _Repo.GetAll<RecentVistors>().ToList();
             List<Language> languages = _Repo.GetAll<Language>().ToList();
-            List<CommentDetail> commentAll = _Repo.GetAll<CommentDetail>().ToList();
-            List<Product> products = _Repo.GetAll<Product>().ToList();
+            List<CommentDetails> commentAll = _Repo.GetAll<CommentDetails>().ToList();
+            List<Products> products = _Repo.GetAll<Products>().ToList();
 
             var selectMemberLanguage = memberAll.Where(x => x.MemberId == assignMemberId).FirstOrDefault();
             var selectlanguage = languages.Where(x => x.LanguageId == selectMemberLanguage.LanguageId).FirstOrDefault();
@@ -70,7 +70,7 @@ namespace Build_School_Project_No_4.Services
             return result;
         }
 
-        private static decimal starAvgMethod(List<CommentDetail> selectRecommend)
+        private static decimal starAvgMethod(List<CommentDetails> selectRecommend)
         {
             decimal avgStar;
             decimal y = 0;

@@ -45,7 +45,7 @@ namespace Build_School_Project_No_4.Controllers
                 return Content("查無此資料, 請提供會員ID!");
             }
             
-            Member emp = _ctx.Members.Find(Id);
+            Members emp = _ctx.Members.Find(Id);
             //如果沒有，回傳HttpNotFound
             if (emp == null)
             {

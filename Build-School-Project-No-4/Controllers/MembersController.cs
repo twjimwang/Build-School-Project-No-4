@@ -136,7 +136,7 @@ namespace Build_School_Project_No_4.Controllers
                 return Content("查無此資料, 請提供會員ID!");
             }
 
-            Member emp = db.Members.Find(Id);
+            Members emp = db.Members.Find(Id);
             //如果沒有，回傳HttpNotFound
             if (emp == null)
             {
@@ -192,7 +192,7 @@ namespace Build_School_Project_No_4.Controllers
             EditMember.MemberInfo.Password = _MemberService.HashPassword(EditMember.MemberInfo.Password);
 
             //GroupViewModel -> MemberInfoViewModel -> DM
-            Member emp = new Member
+            Members emp = new Members
             {
                 MemberId = EditMember.MemberInfo.MemberId,
                 MemberName = EditMember.MemberInfo.MemberName,
@@ -309,7 +309,7 @@ namespace Build_School_Project_No_4.Controllers
             //驗證登入email.密碼，回傳結果
             string ValidateStr = _MemberService.LoginCheck(loginMember.MemberLogin.Email, loginMember.MemberLogin.Password);
 
-            Member user = _MemberService.GetDataByAccount(loginMember.MemberLogin.Email);
+            Members user = _MemberService.GetDataByAccount(loginMember.MemberLogin.Email);
 
             if (String.IsNullOrEmpty(ValidateStr))
             {
@@ -503,7 +503,7 @@ namespace Build_School_Project_No_4.Controllers
                     newMember.MemberRegister.Password = _MemberService.HashPassword(newMember.MemberRegister.Password);
 
                     //GroupViewModel -> DM
-                    Member emp = new Member
+                    Members emp = new Members
                     {
                         Email = newMember.MemberRegister.Email,
                         Password = newMember.MemberRegister.Password,

@@ -19,8 +19,8 @@ namespace Build_School_Project_No_4.Services
         public List<FollowViewModel> GetFollowMember()
         {
 
-            List<Member> membersAll = _Repo.GetAll<Member>().ToList();
-            List<Following> follows = _Repo.GetAll<Following>().ToList();
+            List<Members> membersAll = _Repo.GetAll<Members>().ToList();
+            List<Followings> follows = _Repo.GetAll<Followings>().ToList();
 
             int testFollowID = 1;
             int testFollowID2 = 16;
