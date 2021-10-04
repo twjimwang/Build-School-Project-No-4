@@ -7,7 +7,7 @@ namespace Build_School_Project_No_4.ViewModels
 {
     public class BasicInformationViewModel
     {
-        public string LineStatus { get; set; }
+        //public  int PlanId { get; set; }
 
         public decimal UnitPrice { get; set; }
 
@@ -27,6 +27,13 @@ namespace Build_School_Project_No_4.ViewModels
         public string Introduction { get; set; }
 
         public string CreatorImg { get; set; }
+
+        public string ServerName { get; set; }
+        public string StyleName { get; set; }
+
+        public string PositionName { get; set; }
+
+
 
         //public List<ProductPlans> ProductPlans { get; set; }
     }
