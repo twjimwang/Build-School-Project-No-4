@@ -6,26 +6,22 @@ namespace Build_School_Project_No_4.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class GameCategory
+    public partial class OrderStatu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GameCategory()
+        public OrderStatu()
         {
-            Products = new HashSet<Product>();
+            Orders = new HashSet<Order>();
         }
 
-        public int GameCategoryId { get; set; }
+        [Key]
+        public int OrderStatusId { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string GameName { get; set; }
-
-        [Required]
-        public string GameCoverImg { get; set; }
-
-        public string GameCoverImgMini { get; set; }
+        [StringLength(50)]
+        public string OrderStatusName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
