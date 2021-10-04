@@ -215,11 +215,13 @@
     <Compile Include="DataModels\Following.cs" />
     <Compile Include="DataModels\GameCategory.cs" />
     <Compile Include="DataModels\Language.cs" />
+    <Compile Include="DataModels\LineStatu.cs" />
     <Compile Include="DataModels\LiveChat.cs" />
     <Compile Include="DataModels\MeetLike.cs" />
     <Compile Include="DataModels\Member.cs" />
     <Compile Include="DataModels\MessageType.cs" />
     <Compile Include="DataModels\Order.cs" />
+    <Compile Include="DataModels\OrderStatu.cs" />
     <Compile Include="DataModels\Position.cs" />
     <Compile Include="DataModels\Product.cs" />
     <Compile Include="DataModels\ProductPlan.cs" />
