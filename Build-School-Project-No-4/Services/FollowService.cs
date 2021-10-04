@@ -34,7 +34,7 @@ namespace Build_School_Project_No_4.Services
                     MemberId = item.MemberId,
                     MemberName = item.MemberName,
                     Gender = item.Gender,
-                    LineStatus = item.LineStatus,
+                    //LineStatus = item.LineStatus,
                     ProfilePicture = item.ProfilePicture
                 });
             }

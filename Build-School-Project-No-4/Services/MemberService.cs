@@ -41,7 +41,7 @@ namespace Build_School_Project_No_4.Services
                     LanguageId = item.LanguageId,
                     Bio = item.Bio,
                     ProfilePicture = item.ProfilePicture,
-                    LineStatus = item.LineStatus,
+                    //LineStatus = item.LineStatus,
                 });
             }
             return result;
