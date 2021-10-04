@@ -283,6 +283,7 @@
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\AddToCartViewModel.cs" />
     <Compile Include="ViewModels\DetailViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
@@ -531,6 +532,7 @@
     <Content Include="Assets\images\layout\resting.png" />
     <Content Include="Assets\images\layout\walleticon.png" />
     <Content Include="Assets\images\Page404\404.png" />
+    <Content Include="Assets\js\detail.js" />
     <Content Include="Assets\js\layout.js" />
     <Content Include="Assets\js\layout_afterlogin_nofooter.js" />
     <Content Include="Assets\js\layout_afterlogin.js" />
@@ -670,7 +672,6 @@
     <Content Include="Views\Detail\NotFound.cshtml" />
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\ePals\ePal.cshtml" />
-    <Content Include="Views\ePals\GamesJson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

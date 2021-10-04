@@ -13,6 +13,7 @@ namespace Build_School_Project_No_4.ViewModels
         public CategoryViewModel GamesDetails{ get; set; }
         public MemberViewModel MemberData { get; set; }
         public DetailViewModel Deets { get; set; }
+        public AddToCartViewModel AddCart { get; set; }
     }
 
 }

@@ -11,7 +11,7 @@ body {
 
 button {
   border: none;
-  border-radius: 15px;
+  border-radius: 17px;
 }
 
 input {
@@ -20,6 +20,11 @@ input {
   color: white;
   border: 1px solid transparent;
   border-radius: 3px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type=datetime-local]:focus {
@@ -46,7 +51,7 @@ hr {
 
 .game-backdrop button {
   font-size: 14px;
-  padding: 5px 0;
+  padding: 8px 0;
 }
 
 .detail-title {
@@ -83,7 +88,7 @@ img.buff-img {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 12px 15px;
+  padding: 20px 15px;
   background-color: rgb(18, 14, 27);
 }
 
@@ -354,19 +359,23 @@ img.buff-img {
 }
 
 .modal-body button {
-  background-color: rgb(33, 33, 44);
-  padding: 3px 12px;
-  border-radius: 4px;
-  color: white;
+    background-color: rgb(33, 33, 44);
+    padding: 0px 8px;
+    border-radius: 4px;
+    color: white;
+    height: 33px;
 }
 
-.modal-body button:nth-of-type(2) {
-  padding: 3px 15px;
+.rounds input {
+    padding: 0 5px;
+    width: 45px;
+    height: 33px;
+    text-align: center;
 }
 
 .rounds-div span,
 .time-now span {
-  font-size: 13px;
+    font-size: 13px;
 }
 
 .start-time-div {
@@ -428,13 +437,36 @@ img.buff-img {
   padding: 0 25px;
 }
 
+.game-name {
+    font-size: 16px;
+}
+.player-name {
+    margin-top: 3px;
+}
 
+#playModal .modal-header {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
 
 
 #playModal .modal-footer {
-  background-color: rgb(33, 33, 44);
-  border-top: none;
+    background-color: rgb(33, 33, 44);
+    border-top: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
+  .rounds-div {
+    display: flex;
+
+  }
+    .rounds-div button {
+    padding: 5px 18px;
+  }
+    .rounds input {
+        margin: 0 5px;
+    }
+
 
 @media screen and (min-width: 400px) {
   .heading1 {
@@ -528,17 +560,14 @@ img.buff-img {
     margin-top: 0;
     align-self: initial;
   }
-
+  .rounds{
+      display: flex;
+  }
   .rounds-div span,
   .time-now span {
     font-size: 15px;
   }
-  .rounds-div button {
-    padding: 5px 18px;
-  }
-  .modal-body button:nth-of-type(2) {
-    padding: 5px 18px;
-  }
+
 }
 
 @media screen and (min-width: 768px) {

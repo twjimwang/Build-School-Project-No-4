@@ -53,7 +53,8 @@ namespace Build_School_Project_No_4.Services
                               GameBackdrop = g.GameCoverImg,
                               ServerName = serv.ServerName,
                               RankName = r.RankName,
-                              LanguageName = l.LanguageName
+                              LanguageName = l.LanguageName,
+                              PlayerId = p.ProductId
 
                               
                           }).SingleOrDefault();
