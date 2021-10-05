@@ -35,7 +35,6 @@ namespace Build_School_Project_No_4.Controllers
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(GroupViewModel registerVM)
@@ -53,37 +52,35 @@ namespace Build_School_Project_No_4.Controllers
                     CreatorImg = registerVM.BasicInformation.CreatorImg
                 };
 
-
-
-
                 ProductPlan productPlan = new ProductPlan
                 {
                     GameAvailableDay = registerVM.BasicInformation.GameAvailableDay,
                     GameStartTime = registerVM.BasicInformation.GameStartTime,
                     GameEndTime = registerVM.BasicInformation.GameEndTime
                 };
-                List<Server> serverName = new List<Server>
+
+                List<ProductServer> serverName = new List<ProductServer>
                 {
-                    new Server
+                    new ProductServer
                     {
-                        ServerName = registerVM.BasicInformation.ServerName
+                        ServerId =(int)registerVM.BasicInformation.ServerId
 
                     }
                 };
 
-                List<Style> styleName = new List<Style>
+                List<ProductStyle> styleName = new List<ProductStyle>
                 {
-                    new Style
+                    new ProductStyle
                     {
-                        StyleName = registerVM.BasicInformation. StyleName
+                        StyleId = (int)registerVM.BasicInformation.StyleId
 
                     }
                 };
-                List<Position> positionName = new List<Position>
+                List<ProductPosition> positionName = new List<ProductPosition>
                 {
-                    new Position
+                    new ProductPosition
                     {
-                       PositionName = registerVM.BasicInformation.PositionName
+                       PositionId = (int)registerVM.BasicInformation.PositionId
 
                     }
                 };
@@ -96,9 +93,9 @@ namespace Build_School_Project_No_4.Controllers
                         //_ctx.SaveChanges();
                         _ctx.Products.Add(product);
                         _ctx.ProductPlans.Add(productPlan);
-                        _ctx.Servers.AddRange(serverName);
-                        _ctx.Styles.AddRange(styleName);
-                        _ctx.Positions.AddRange(positionName);
+                        _ctx.ProductServers.AddRange(serverName);
+                        _ctx.ProductStyles.AddRange(styleName);
+                        _ctx.ProductPositions.AddRange(positionName);
                         //_ctx.SaveChanges();                    
                         _ctx.SaveChanges();
                         tran.Commit();

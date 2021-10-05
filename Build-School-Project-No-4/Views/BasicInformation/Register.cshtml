@@ -102,28 +102,44 @@
             @Html.ValidationMessageFor(model => model.BasicInformation.GameEndTime, "", new { @class = "text-danger" })
         </div>
     </div>
-    
+
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.ServerName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.ServerName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.ServerName, "", new { @class = "text-danger" })
+        <div class="row justify-content-center">
+            @Html.LabelFor(model => Model.BasicInformation.ServerId, htmlAttributes: new { @class = "col-md-6 control-label" })
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                @Html.EnumDropDownListFor(model => model.BasicInformation.ServerId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BasicInformation.ServerId, "", new { @class = "text-danger" })
+            </div>
         </div>
     </div>
+
+
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.StyleName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.StyleName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.StyleName, "", new { @class = "text-danger" })
+        <div class="row justify-content-center">
+            @Html.LabelFor(model => Model.BasicInformation.StyleId, htmlAttributes: new { @class = "col-md-6 control-label" })
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                @Html.EnumDropDownListFor(model => model.BasicInformation.StyleId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BasicInformation.StyleId, "", new { @class = "text-danger" })
+            </div>
         </div>
     </div>
+
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.PositionName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.PositionName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.PositionName, "", new { @class = "text-danger" })
+        <div class="row justify-content-center">
+            @Html.LabelFor(model => Model.BasicInformation.PositionId, htmlAttributes: new { @class = "col-md-6 control-label" })
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                @Html.EnumDropDownListFor(model => model.BasicInformation.PositionId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BasicInformation.PositionId, "", new { @class = "text-danger" })
+            </div>
         </div>
     </div>
+
 
 
     <div class="form-group">
@@ -144,4 +160,4 @@
         }
     </style>
 
-<div>
+}
