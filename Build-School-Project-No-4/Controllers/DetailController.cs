@@ -14,10 +14,12 @@ namespace Build_School_Project_No_4.Controllers
     {
         private readonly EPalContext _ctx;
         private readonly DetailServices _detailService;
+        private readonly AddToCartService _cartService;
         public DetailController()
         {
             _detailService = new DetailServices();
             _ctx = new EPalContext();
+            _cartService = new AddToCartService();
         }
         public ActionResult Index()
         {
@@ -50,7 +52,8 @@ namespace Build_School_Project_No_4.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DetailPage(GroupViewModel AddCartVM, string startTime, int id)
         {
-            var xxx = id;
+
+            //var unpaid = _cartService.CreateUnpaidOrder(AddCartVM, startTime, int id);
             var gameStartTime = Convert.ToDateTime(startTime);
             Order unpaid = new Order()
             {
@@ -60,10 +63,9 @@ namespace Build_School_Project_No_4.Controllers
                 ProductId = AddCartVM.AddCart.PlayerId,
                 OrderDate = DateTime.Now,
                 GameStartDateTime = gameStartTime,
-                GameEndDateTime = new DateTime(2000,1,1,1,1,1),
                 OrderStatusId = 1,
-                UpdateDateTime = new DateTime(2000, 1, 1, 1, 1, 1),
-               
+
+
             };
             using (var tran = _ctx.Database.BeginTransaction())
             {
@@ -72,7 +74,7 @@ namespace Build_School_Project_No_4.Controllers
                     _ctx.Orders.Add(unpaid);
                     _ctx.SaveChanges();
                     tran.Commit();
-                    return Content("add success");
+                    return RedirectToAction("Checkout");
                 }
                 catch (Exception ex)
                 {
@@ -80,10 +82,12 @@ namespace Build_School_Project_No_4.Controllers
                     return Content("add failed" + ex.ToString());
                 }
             }
-            //var gamePrice = _detailService.FindPlayerListing(id).UnitPrice;
-            //return View(AddCartVM);
-            
-            //return ("hi");
+
+        }
+
+        public ActionResult Checkout()
+        {
+            return View();
         }
 
     }
