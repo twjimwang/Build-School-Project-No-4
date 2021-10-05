@@ -198,6 +198,7 @@
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JsonApiController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeForPhoneController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
@@ -683,6 +684,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="obj\Release\" />
+    <Folder Include="Views\Api\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

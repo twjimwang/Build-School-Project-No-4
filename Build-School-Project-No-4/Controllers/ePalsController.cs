@@ -17,7 +17,6 @@ namespace Build_School_Project_No_4.Controllers
             _productService = new ProductService();
         }
 
-        [HttpGet]
         public ActionResult ePal(int? id)
         {
             if (!id.HasValue)
