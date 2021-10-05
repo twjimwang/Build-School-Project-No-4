@@ -30,9 +30,15 @@ namespace Build_School_Project_No_4.DataModels
 
         public DateTime? UpdateDateTime { get; set; }
 
+        [Required]
+        [StringLength(50)]
+        public string OrderConfirmation { get; set; }
+
         public virtual Member Member { get; set; }
 
-        public virtual OrderStatu OrderStatu { get; set; }
+        public virtual OrderStatus OrderStatus { get; set; }
+
+        public virtual OrderStatus OrderStatus1 { get; set; }
 
         public virtual Product Product { get; set; }
     }

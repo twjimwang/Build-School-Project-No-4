@@ -20,8 +20,12 @@ namespace Build_School_Project_No_4.Services
         public List<OrderViewModel> Order()
         {
             List<Order> Orders = _Repo.GetAll<Order>().ToList();
+            List<OrderStatus> OrderStatus = _Repo.GetAll<OrderStatus>().ToList();
 
             List<OrderViewModel> result = new List<OrderViewModel>();
+
+            //var result = (from o in Orders
+            //              join os in OrderStatus on o.OrderStatusId equals os.OrderStatusId)
             foreach (var item in Orders)
             {
                 result.Add(new OrderViewModel
@@ -30,7 +34,7 @@ namespace Build_School_Project_No_4.Services
                     OrderId = item.OrderId,
                     PlayerId = item.CustomerId,
                     OrderDate = item.OrderDate,
-                    Quality = item.Quantity,
+                    Quantity = item.Quantity,
                     UnitPrice = item.UnitPrice,
                     TotalPrice = item.Quantity * item.UnitPrice
                 });

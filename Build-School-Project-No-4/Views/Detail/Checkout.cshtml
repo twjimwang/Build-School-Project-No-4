@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+}
+@section topCSS{
+    <link href="~/Assets/css/checkout.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <div class="checkout-container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="checkout-header">Checkout</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="cart-summary">
+                    <div class="order-info">
+                        <div class="order-id greyish">OrderID:</div>
+                        <div class="order-id-value greyish">2021100501355036241764</div>
+                    </div>
+                    <hr>
+
+                    <div class="game-info">
+                        <div class="game-play">Play League of Legends with IG: Heyhinaa</div>
+                        <img src="img/heyhinaa.jpg" alt="">
+                    </div>
+
+                    <div class="start-info">
+                        <div class="greyish">Start Time:</div>
+                        <div class="start-time desc">Oct 5, 2:02 AM</div>
+                    </div>
+
+                    <div class="unit-price">
+                        <div class="greyish">Unit Price:</div>
+                        <div class="price desc">$3.00/G</div>
+                    </div>
+
+                    <div class="rounds-info">
+                        <div class="greyish">Rounds:</div>
+                        <div class="rounds-value desc">1</div>
+                    </div>
+                    <hr>
+                    <div class="subtotal-info">
+                        <div class="greyish">Subtotal:</div>
+                        <div class="subtotal desc">$3.00</div>
+                    </div>
+                    <div class="promotion">
+                        <div class="greyish">ePal Promotion: </div>
+                        <div class="discount desc"></div>
+                    </div>
+                    <hr>
+                    <div class="final-price-div">
+                        <div class="greyish">Final Price:</div>
+                        <div class="rounds-total greyish">1 Round(s) total</div>
+                        <div class="price-total price-summary">$8.20</div>
+                    </div>
+                    <div class="timer-div greyish">
+                        Please complete the payment within <span class="time-left" id="counter"></span>, otherwise the order will be cancelled automatically
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-8">
+                <div class="payment">
+
+                    <div class="payment-label">
+                        <label class="payment-check-label" for="paymentRadio">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="paymentRadio" checked>
+                            <span>Paypal</span>
+                            <div class="paypal-img">
+                                <img src="img/paypal.png" alt="">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="total-div">
+                    <div class="total-price">Total Price</div>
+                    <div class="price-total price-total-txt">$8.20</div>
+                    <div class="checkout-btn-div">
+                        <button class="checkout-btn">Checkout</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section endJS{
+    
+    <script src="~/Assets/js/checkout.js"></script>
+}

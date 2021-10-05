@@ -222,7 +222,7 @@
     <Compile Include="DataModels\Member.cs" />
     <Compile Include="DataModels\MessageType.cs" />
     <Compile Include="DataModels\Order.cs" />
-    <Compile Include="DataModels\OrderStatu.cs" />
+    <Compile Include="DataModels\OrderStatus.cs" />
     <Compile Include="DataModels\Position.cs" />
     <Compile Include="DataModels\Product.cs" />
     <Compile Include="DataModels\ProductPlan.cs" />
@@ -279,6 +279,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DetailRepository.cs" />
+    <Compile Include="Services\AddToCartService.cs" />
     <Compile Include="Services\DetailServices.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -297,6 +298,7 @@
     <Content Include="Assets\AboutUsImages\about.png" />
     <Content Include="Assets\AboutUsImages\aboutusmark.png" />
     <Content Include="Assets\CouponsImages\Coupons.png" />
+    <Content Include="Assets\css\checkout.css" />
     <Content Include="Assets\css\detail_r2.css" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
@@ -312,6 +314,10 @@
     <Content Include="Assets\images\becomeEPal\whatsEpal.png" />
     <Content Include="Assets\images\becomeEPal\who.png" />
     <Content Include="Assets\images\becomeEPal\zero.png" />
+    <Content Include="Assets\images\checkout\buff-charge.png" />
+    <Content Include="Assets\images\checkout\check.png" />
+    <Content Include="Assets\images\checkout\heyhinaa.jpg" />
+    <Content Include="Assets\images\checkout\paypal.png" />
     <Content Include="Assets\images\ChooseAService\CAS01.jpg" />
     <Content Include="Assets\images\ChooseAService\CAS01c.jpg" />
     <Content Include="Assets\images\ChooseAService\CAS02.jpg" />
@@ -535,6 +541,7 @@
     <Content Include="Assets\images\layout\resting.png" />
     <Content Include="Assets\images\layout\walleticon.png" />
     <Content Include="Assets\images\Page404\404.png" />
+    <Content Include="Assets\js\checkout.js" />
     <Content Include="Assets\js\detail.js" />
     <Content Include="Assets\js\layout.js" />
     <Content Include="Assets\js\layout_afterlogin_nofooter.js" />
@@ -679,6 +686,7 @@
     <Content Include="Views\Shared\_Layout_customMobile.cshtml" />
     <Content Include="Views\Detail\Order.cshtml" />
     <Content Include="Views\Detail\_ViewStart.cshtml" />
+    <Content Include="Views\Detail\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
