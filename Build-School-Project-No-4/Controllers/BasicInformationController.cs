@@ -9,23 +9,23 @@ using System.Web.Mvc;
 
 namespace Build_School_Project_No_4.Controllers
 {
-    public class BasicInformationController : Controller
+    public class BasicInfomationController : Controller
     {
         private readonly EPalContext _ctx;
 
-        public BasicInformationController()
+        public BasicInfomationController()
         {
             _ctx = new EPalContext();
         }
 
-        // GET: BasicInformation
+        // GET: addgame
         public ActionResult Index()
         {
             return View();
         }
 
 
-        public ActionResult BasicInformation()
+        public ActionResult addgame()
         {
             return View();
         }
@@ -44,26 +44,26 @@ namespace Build_School_Project_No_4.Controllers
             {
                 Product product = new Product
                 {
-                    GameCategoryId = registerVM.BasicInformation.GameCategoryId,
+                    GameCategoryId = registerVM.addgame.GameCategoryId,
                     CreatorId = 1,
-                    UnitPrice = registerVM.BasicInformation.UnitPrice,
-                    ProductImg = registerVM.BasicInformation.ProductImg,
-                    Introduction = registerVM.BasicInformation.Introduction,
-                    CreatorImg = registerVM.BasicInformation.CreatorImg
+                    UnitPrice = registerVM.addgame.UnitPrice,
+                    ProductImg = registerVM.addgame.ProductImg,
+                    Introduction = registerVM.addgame.Introduction,
+                    CreatorImg = registerVM.addgame.CreatorImg
                 };
 
                 ProductPlan productPlan = new ProductPlan
                 {
-                    GameAvailableDay = registerVM.BasicInformation.GameAvailableDay,
-                    GameStartTime = registerVM.BasicInformation.GameStartTime,
-                    GameEndTime = registerVM.BasicInformation.GameEndTime
+                    GameAvailableDay = registerVM.addgame.GameAvailableDay,
+                    GameStartTime = registerVM.addgame.GameStartTime,
+                    GameEndTime = registerVM.addgame.GameEndTime
                 };
 
                 List<ProductServer> serverName = new List<ProductServer>
                 {
                     new ProductServer
                     {
-                        ServerId =(int)registerVM.BasicInformation.ServerId
+                        ServerId =(int)registerVM.addgame.ServerId
 
                     }
                 };
@@ -72,7 +72,7 @@ namespace Build_School_Project_No_4.Controllers
                 {
                     new ProductStyle
                     {
-                        StyleId = (int)registerVM.BasicInformation.StyleId
+                        StyleId = (int)registerVM.addgame.StyleId
 
                     }
                 };
@@ -80,7 +80,7 @@ namespace Build_School_Project_No_4.Controllers
                 {
                     new ProductPosition
                     {
-                       PositionId = (int)registerVM.BasicInformation.PositionId
+                       PositionId = (int)registerVM.addgame.PositionId
 
                     }
                 };
