@@ -188,7 +188,7 @@
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasicInformationController.cs" />
-    <Compile Include="Controllers\BecomeEPalController.cs" />
+    <Compile Include="Controllers\becomeepalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillLiveController.cs" />
     <Compile Include="Controllers\ChillMeetLikeController.cs" />
@@ -708,11 +708,13 @@
     <Content Include="Views\GameInformation\Rule_ScreenshotRules.cshtml" />
     <Content Include="Views\BasicInformation\Register.cshtml" />
     <Content Include="Views\BecomeEPal\addgame.cshtml" />
+    <Content Include="Views\BecomeEPal\addgame - 複製.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="obj\Release\" />
+    <Folder Include="Views\Filter\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -9,11 +9,11 @@ using System.Web.Mvc;
 
 namespace Build_School_Project_No_4.Controllers
 {
-    public class BasicInfomationController : Controller
+    public class BasicInformationController : Controller
     {
         private readonly EPalContext _ctx;
 
-        public BasicInfomationController()
+        public BasicInformationController()
         {
             _ctx = new EPalContext();
         }
@@ -25,7 +25,7 @@ namespace Build_School_Project_No_4.Controllers
         }
 
 
-        public ActionResult addgame()
+        public ActionResult BasicInformation()
         {
             return View();
         }

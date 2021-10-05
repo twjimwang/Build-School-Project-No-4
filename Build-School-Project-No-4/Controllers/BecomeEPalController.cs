@@ -8,11 +8,11 @@ using System.Web.Mvc;
 
 namespace Build_School_Project_No_4.Controllers
 {
-    public class BecomeEPalController : Controller
+    public class becomeepalController : Controller
     {
         private readonly EPalContext _ctx;
 
-        public BecomeEPalController()
+        public becomeepalController()
         {
             _ctx = new EPalContext();
         }
