@@ -11,9 +11,11 @@ namespace Build_School_Project_No_4.Services
     public class AddToCartService
     {
         private readonly Repository _repo;
+        private readonly EPalContext _ctx;
         public AddToCartService()
         {
             _repo = new Repository();
+            _ctx = new EPalContext();
         }
 
         public Orders CreateUnpaidOrder(GroupViewModel AddCartVM, string startTime, int id)
@@ -37,6 +39,29 @@ namespace Build_School_Project_No_4.Services
             };
             return order;
         }
+
+        public bool AddCartSuccess(Orders unpaid)
+        {
+            using (var tran = _ctx.Database.BeginTransaction())
+            {
+                try
+                {
+                    _ctx.Orders.Add(unpaid);
+                    _ctx.SaveChanges();
+                    tran.Commit();
+                    var confirmation = unpaid.OrderConfirmation;
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    var err = ex.ToString();
+                    return false;
+                }
+            }
+        }
+
+
         static long UtcDateTimeToUnix(DateTime x)
         {
             DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
