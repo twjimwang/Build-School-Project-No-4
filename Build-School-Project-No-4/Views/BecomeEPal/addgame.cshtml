@@ -1,4 +1,36 @@
 ﻿@model GroupViewModel
+@{ 
+        List<SelectListItem> ServerList = new List<SelectListItem>
+    {
+        new SelectListItem{ Text="OCE", Value="1", Selected = false},
+        new SelectListItem{ Text="NA", Value="2", Selected = false},
+        new SelectListItem{ Text="LAN", Value="3", Selected = false},
+        new SelectListItem{ Text="BR", Value="4", Selected = false},
+        new SelectListItem{ Text="EU_West", Value="5", Selected = false},
+        new SelectListItem{ Text="EU_NorthEast", Value="6", Selected = false}
+
+    };
+        List<SelectListItem> PositionList = new List<SelectListItem>
+    {
+        new SelectListItem{ Text="Top", Value="1", Selected = false},
+        new SelectListItem{ Text="Jungler", Value="2", Selected = false},
+        new SelectListItem{ Text="ADC", Value="3", Selected = false},
+        new SelectListItem{ Text="Support", Value="4", Selected = false},
+        new SelectListItem{ Text="Middle", Value="5", Selected = false},
+
+    };
+        List<SelectListItem> StyleList = new List<SelectListItem>
+    {
+        new SelectListItem{ Text="Love_Inting", Value="1", Selected = false},
+        new SelectListItem{ Text="Try_Hard", Value="2", Selected = false},
+        new SelectListItem{ Text="Hard_Stuck", Value="3", Selected = false},
+        new SelectListItem{ Text="Sneaky", Value="4", Selected = false},
+        new SelectListItem{ Text="Global_Presence", Value="5", Selected = false},
+        new SelectListItem{ Text="One_Shot", Value="6", Selected = false}
+
+    };
+
+}
 
 <head>
     <!-- font-family -->
@@ -1792,87 +1824,155 @@
                             <div class="formWrapper">
                                 <div class="formMain">
 
+                                    <!--DropDownList, Rank-->
+                                    <div class="form-group">
+                                        <div class="row">
+                                            @Html.LabelFor(model => Model.addgame.RankId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                @Html.EnumDropDownListFor(model => model.addgame.RankId, new { htmlAttributes = new { @class = "form-control", @style = "color: black; background-color:yellow;" } })
+                                                @Html.ValidationMessageFor(model => model.addgame.RankId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <!-- Rank -->
-                                    <p>Rank</p>
-                                    <select autocomplete=off class="form-select" aria-label="Default select example">
-                                        <option selected class="stateSelect">Please select rank</option>
-                                        <option value="1">Iron</option>
-                                        <option value="2">Bronze</option>
-                                        <option value="3">Silver</option>
-                                        <option value="4">Gold</option>
-                                        <option value="5">Platinum</option>
-                                        <option value="6">Diamond</option>
-                                    </select>
+                                    <!--<p>Rank</p>
+    <select autocomplete=off class="form-select" aria-label="Default select example">
+        <option selected class="stateSelect">Please select rank</option>
+        <option value="1">Iron</option>
+        <option value="2">Bronze</option>
+        <option value="3">Silver</option>
+        <option value="4">Gold</option>
+        <option value="5">Platinum</option>
+        <option value="6">Diamond</option>
+    </select>-->
+                                    <!--Listbox, Server-->
+                                    <div class="form-group">
+                                        <div class="row">
+                                            @Html.LabelFor(model => Model.addgame.ServerId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                @Html.ListBoxFor(model => model.addgame.ServerId, ServerList, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.addgame.ServerId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <!-- Server(s) -->
-                                    <p>Server(s)</p>
-                                    <div class="row d-flex justify-content-center mt-100">
-                                        <div class="col-md-6">
-                                            <select id="choices-multiple-remove-button" placeholder="Please select servers"
-                                                    multiple>
-                                                <option value="1">OCE</option>
-                                                <option value="2">NA</option>
-                                                <option value="3">LAN</option>
-                                                <option value="4">BR</option>
-                                                <option value="5">EU West</option>
-                                                <option value="6">EU North East</option>
-                                                <option value="7">RU</option>
-                                                <option value="8">TR</option>
-                                                <option value="9">CN</option>
-                                                <option value="10">TW</option>
-                                                <option value="11">JP</option>
-                                                <option value="12">KR</option>
-                                                <option value="13">SG</option>
-                                                <option value="14">VN</option>
-                                                <option value="15">TH</option>
-                                                <option value="16">PH</option>
-                                                <option value="17">LAS</option>
-                                            </select>
+                                    <!--<p>Server(s)</p>
+    <div class="row d-flex justify-content-center mt-100">
+        <div class="col-md-6">
+            <select id="choices-multiple-remove-button" placeholder="Please select servers"
+                    multiple>
+                <option value="1">OCE</option>
+                <option value="2">NA</option>
+                <option value="3">LAN</option>
+                <option value="4">BR</option>
+                <option value="5">EU West</option>
+                <option value="6">EU North East</option>
+                <option value="7">RU</option>
+                <option value="8">TR</option>
+                <option value="9">CN</option>
+                <option value="10">TW</option>
+                <option value="11">JP</option>
+                <option value="12">KR</option>
+                <option value="13">SG</option>
+                <option value="14">VN</option>
+                <option value="15">TH</option>
+                <option value="16">PH</option>
+                <option value="17">LAS</option>
+            </select>
+        </div>
+    </div>-->
+                                    <!--Listbox, Position-->
+                                    <div class="form-group">
+                                        <div class="row">
+                                            @Html.LabelFor(model => Model.addgame.PositionId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                @Html.ListBoxFor(model => model.addgame.PositionId, PositionList, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.addgame.PositionId, "", new { @class = "text-danger" })
+                                            </div>
                                         </div>
                                     </div>
+
 
                                     <!-- Position(s) -->
-                                    <p>Position(s)</p>
-                                    <div class="row d-flex justify-content-center mt-100">
-                                        <div class="col-md-6">
-                                            <select id="choices-multiple-remove-button" placeholder="Please select positions"
-                                                    multiple>
-                                                <option value="1">Top</option>
-                                                <option value="2">Jungle</option>
-                                                <option value="3">Mid</option>
-                                                <option value="4">ADC</option>
-                                                <option value="5">Support</option>
-                                            </select>
+                                    <!--<p>Position(s)</p>
+    <div class="row d-flex justify-content-center mt-100">
+        <div class="col-md-6">
+            <select id="choices-multiple-remove-button" placeholder="Please select positions"
+                    multiple>
+                <option value="1">Top</option>
+                <option value="2">Jungle</option>
+                <option value="3">Mid</option>
+                <option value="4">ADC</option>
+                <option value="5">Support</option>
+            </select>
+        </div>
+    </div>-->
+                                    <!--Listbox, Style-->
+                                    <div class="form-group">
+                                        <div class="row">
+                                            @Html.LabelFor(model => Model.addgame.StyleId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                @Html.ListBoxFor(model => model.addgame.StyleId, StyleList, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.addgame.StyleId, "", new { @class = "text-danger" })
+                                            </div>
                                         </div>
                                     </div>
+
 
                                     <!-- Style(s) -->
-                                    <p>Style(s)</p>
-                                    <div class="row d-flex justify-content-center mt-100">
-                                        <div class="col-md-6">
-                                            <select id="choices-multiple-remove-button" placeholder="Please select styles" multiple>
-                                                <option value="1">Love inting</option>
-                                                <option value="2">Try hard</option>
-                                                <option value="3">Hard stuck</option>
-                                                <option value="4">Sneaky</option>
-                                                <option value="5">Global Presence</option>
-                                                <option value="6">One Shot</option>
-                                                <option value="7">Pueler</option>
-                                                <option value="8">Mobility</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
+                                    <!--<p>Style(s)</p>
+    <div class="row d-flex justify-content-center mt-100">
+        <div class="col-md-6">
+            <select id="choices-multiple-remove-button" placeholder="Please select styles" multiple>
+                <option value="1">Love inting</option>
+                <option value="2">Try hard</option>
+                <option value="3">Hard stuck</option>
+                <option value="4">Sneaky</option>
+                <option value="5">Global Presence</option>
+                <option value="6">One Shot</option>
+                <option value="7">Pueler</option>
+                <option value="8">Mobility</option>
+            </select>
+        </div>
+    </div>-->
                                     <!-- Platform(s) -->
-                                    <p>Platform(s)</p>
-                                    <select autocomplete=off class="form-select" aria-label="Default select example">
-                                        <option selected class="stateSelect">Please select platforms</option>
-                                        <option value="1">PC</option>
-                                    </select>
+                                    <!--<p>Platform(s)</p>
+    <select autocomplete=off class="form-select" aria-label="Default select example">
+        <option selected class="stateSelect">Please select platforms</option>
+        <option value="1">PC</option>
+    </select>-->
 
                                     <div class="formLine"></div>
 
-                                    <div class="intro">
+
+                                    @*intro*@
+                                    <div class="form-group">
+                                        <div class="row">
+                                            @Html.LabelFor(model => Model.addgame.Introduction, htmlAttributes: new { @class = "control-label col-md-6" })
+                                            <p class="introDesc">
+                                                The first 1 or 2 sentences of your introduction will be displayed on your ePal cover card.
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => Model.addgame.Introduction, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.addgame.Introduction, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    @*<div class="intro">
                                         <div class="introTitle">Introduction</div>
                                         <p class="introDesc">
                                             The first 1 or 2 sentences of your introduction will be displayed on
@@ -1887,7 +1987,9 @@
 [WoW] Let's run across the map on barefoot at level 1. NO CHEATING
 [Fortnite] Let's build the tallest building in the world" id="floatingTextarea2"></textarea>
                                         </div>
-                                    </div>
+                                    </div>*@
+
+
 
                                     <div class="voiceRecord">
                                         <div style="display: flex;
@@ -1900,6 +2002,8 @@
                                             <br>We will rate your Voice Recording based on what the clients prefer.
                                         </p>
                                     </div>
+
+
 
                                     <div class="listCover">
                                         <div style="display: flex;
@@ -1925,6 +2029,8 @@
                                         </div>
                                         <br>
                                     </div>
+
+
 
                                     <div class="screenVideos">
 
@@ -1998,29 +2104,29 @@
 
                                     <!-- footer -->
                                     <!--<div class="footer">
-                                    <div class="buttonWrapper">
-                                        <div class="preButtonWrapper">
-                                            <button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("addgame","addgame")'">Previous</button>
-                                        </div>
-                                        <div class="nextButtonWrapper">
-                                            <button type="button" class="btn btn-outline-dark" onclick="location.href='@Url.Action("CreatorProject","CreatorProject")'">Submit</button>
-                                        </div>
-                                    </div>
+        <div class="buttonWrapper">
+            <div class="preButtonWrapper">
+                <button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("addgame","addgame")'">Previous</button>
+            </div>
+            <div class="nextButtonWrapper">
+                <button type="button" class="btn btn-outline-dark" onclick="location.href='@Url.Action("CreatorProject","CreatorProject")'">Submit</button>
+            </div>
+        </div>
 
-                                    <div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                                   checked>
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                By clicking submit button, you are indicating that you have read and
-                                                acknowledge
-                                                the <a href="https://policies.epal.gg/epal.html?theme=dark">
-                                                    E-Pal Platform Agreement
-                                                </a> .
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>-->
+        <div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                       checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                    By clicking submit button, you are indicating that you have read and
+                    acknowledge
+                    the <a href="https://policies.epal.gg/epal.html?theme=dark">
+                        E-Pal Platform Agreement
+                    </a> .
+                </label>
+            </div>
+        </div>
+    </div>-->
 
                                 </div>
                             </div>
@@ -2088,6 +2194,7 @@
 
 
         }
+
 
 
         @*</div>
@@ -2212,7 +2319,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            color: white;
+            /*color: white;*/
         }
         /*        .container {
             display: block;

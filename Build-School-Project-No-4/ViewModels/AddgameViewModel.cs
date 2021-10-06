@@ -31,12 +31,14 @@ namespace Build_School_Project_No_4.ViewModels
 
         public string CreatorImg { get; set; }
 
-
+        [Display(Name ="Server")]
         public ServerEum ServerId { get; set; }
-
+        [Display(Name = "Style")]
         public StyleIdEum  StyleId { get; set; }
-
+        [Display(Name = "Position")]
         public PositionEum PositionId { get; set; }
+        [Display(Name = "Rank")]
+        public RankEum RankId { get; set; }
 
     }
 
@@ -47,7 +49,7 @@ namespace Build_School_Project_No_4.ViewModels
         LAN=3,
         BR=4,
         EU_West=5,
-        EU_NorthEast
+        EU_NorthEast =6
     }
      
     public enum StyleIdEum
@@ -67,5 +69,15 @@ namespace Build_School_Project_No_4.ViewModels
         ADC=3,
         Support=4,
         Middle=5,    
+    }
+
+    public enum RankEum
+    {
+        Iron = 1,
+        Bronze = 2,
+        Silver = 3,
+        Gold = 4,
+        Platinum = 5,
+        Diamond = 6
     }
 }
