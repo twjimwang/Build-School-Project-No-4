@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -10,10 +11,13 @@ namespace Build_School_Project_No_4.ViewModels
 
         public decimal UnitPrice { get; set; }
 
+        
         public string GameAvailableDay { get; set; }
 
+        [DataType(DataType.Time)]
         public DateTime GameStartTime { get; set; }
 
+        [DataType(DataType.Time)]
         public DateTime GameEndTime { get; set; }
         public int MemberId { get; set; }
         public int ProductId { get; set; }
