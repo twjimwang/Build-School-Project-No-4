@@ -34,6 +34,24 @@ namespace Build_School_Project_No_4.Controllers
             return Content("寫入資料庫成功!");
         }
 
+
+        //public ActionResult Wallet()
+        //{
+
+        //    //return View(MemberData);
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
         public ActionResult ReadMember()
         {
             List<MemberViewModel> MemberData = _MemberService.GetMember();
