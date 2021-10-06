@@ -6,16 +6,15 @@ namespace Build_School_Project_No_4.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class OrderStatuses
+    public partial class OrderStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderStatuses()
+        public OrderStatus()
         {
             Orders = new HashSet<Orders>();
             Orders1 = new HashSet<Orders>();
         }
 
-        [Key]
         public int OrderStatusId { get; set; }
 
         [Required]

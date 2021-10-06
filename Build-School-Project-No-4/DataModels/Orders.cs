@@ -37,9 +37,9 @@ namespace Build_School_Project_No_4.DataModels
 
         public virtual Members Members { get; set; }
 
-        public virtual OrderStatuses OrderStatuses { get; set; }
+        public virtual OrderStatus OrderStatus { get; set; }
 
-        public virtual OrderStatuses OrderStatuses1 { get; set; }
+        public virtual OrderStatus OrderStatus1 { get; set; }
 
         public virtual Products Products { get; set; }
     }

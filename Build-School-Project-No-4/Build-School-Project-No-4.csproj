@@ -222,7 +222,7 @@
     <Compile Include="DataModels\Members.cs" />
     <Compile Include="DataModels\MessageType.cs" />
     <Compile Include="DataModels\Orders.cs" />
-    <Compile Include="DataModels\OrderStatuses.cs" />
+    <Compile Include="DataModels\OrderStatus.cs" />
     <Compile Include="DataModels\Position.cs" />
     <Compile Include="DataModels\ProductPlans.cs" />
     <Compile Include="DataModels\ProductPosition.cs" />
