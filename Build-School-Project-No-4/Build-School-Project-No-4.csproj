@@ -709,6 +709,12 @@
     <Content Include="Views\BasicInformation\Register.cshtml" />
     <Content Include="Views\BecomeEPal\addgame.cshtml" />
     <Content Include="Views\BecomeEPal\addgame - 複製.cshtml" />
+    <Content Include="Views\CreatorProject\ChooseAService.cshtml" />
+    <Content Include="Views\CreatorProject\BasicInformation.cshtml" />
+    <Content Include="Views\CreatorProject\GameInformation.cshtml" />
+    <Content Include="Views\CreatorProject\Rule_VoiceRecord.cshtml" />
+    <Content Include="Views\CreatorProject\Rule_ListCover.cshtml" />
+    <Content Include="Views\CreatorProject\Rule_ScreenshotRules.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
