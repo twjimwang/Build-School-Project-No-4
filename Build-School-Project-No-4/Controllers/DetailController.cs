@@ -68,7 +68,7 @@ namespace Build_School_Project_No_4.Controllers
                     _ctx.SaveChanges();
                     tran.Commit();
                     var confirmation = unpaid.OrderConfirmation;
-                    return RedirectToAction("Checkout" ,new { Confirmation = confirmation, AA = 123});
+                    return RedirectToAction("Checkout" ,new { Confirmation = confirmation});
                 }
                 catch (Exception ex)
                 {
@@ -79,7 +79,7 @@ namespace Build_School_Project_No_4.Controllers
 
         }
         [HttpGet]
-        public ActionResult Checkout(string confirmation, int aa)
+        public ActionResult Checkout(string confirmation)
         {
 
             int i = 0;

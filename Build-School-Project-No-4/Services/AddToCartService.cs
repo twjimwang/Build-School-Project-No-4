@@ -19,21 +19,39 @@ namespace Build_School_Project_No_4.Services
         public Orders CreateUnpaidOrder(GroupViewModel AddCartVM, string startTime, int id)
         {
             var cart = AddCartVM.AddCart;
-            var timeNow = DateTime.UtcNow;
-            //get timestamp + identifier EP-12873472834
+            var timeNow = DateTime.Now;
+            var utcTimeNow = timeNow.ToUniversalTime();
+            var timestamp = UtcDateTimeToUnix(utcTimeNow);
+            var dummyCustomerId = 1;
+            var formattedTimestamp = $"GLHF-{dummyCustomerId}{timestamp}";
             Orders order = new Orders()
             {
-                CustomerId = 1,
+                CustomerId = dummyCustomerId,
                 ProductId = id,
                 Quantity = cart.Rounds,
                 UnitPrice = cart.UnitPrice,
-                OrderDate = timeNow,
+                OrderDate = utcTimeNow,
                 GameStartDateTime = Convert.ToDateTime(startTime),
                 OrderStatusId = 1,
-                //add customerid to end when can get customerid
-                OrderConfirmation = timeNow.ToString("yyyyMMddHHmmssfffffff")
+                OrderConfirmation = formattedTimestamp
             };
             return order;
+        }
+        static long UtcDateTimeToUnix(DateTime x)
+        {
+            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            long result = (x.ToUniversalTime() - unixStart).Ticks;
+            return result;
+        }
+        static DateTime UnixToDateTime(long datestamp)
+        {
+            DateTime result = DateTimeOffset.FromUnixTimeMilliseconds(datestamp).DateTime;
+            return result;
+        }
+        static DateTime UnixToLocalDateTime(long datestamp)
+        {
+            DateTime result = DateTimeOffset.FromUnixTimeMilliseconds(datestamp).DateTime.ToLocalTime();
+            return result;
         }
 
     }
