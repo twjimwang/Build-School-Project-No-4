@@ -27,9 +27,12 @@ namespace Build_School_Project_No_4.ViewModels
 
         public string ProductImg { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public string Introduction { get; set; }
 
         public string CreatorImg { get; set; }
+
+        public string RecommendationVoice { get; set; }
 
         [Display(Name ="Server")]
         public ServerEum ServerId { get; set; }

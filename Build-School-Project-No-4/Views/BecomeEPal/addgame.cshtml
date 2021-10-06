@@ -1,7 +1,7 @@
 ﻿@model GroupViewModel
-@{ 
-        List<SelectListItem> ServerList = new List<SelectListItem>
-    {
+@{
+    List<SelectListItem> ServerList = new List<SelectListItem>
+{
         new SelectListItem{ Text="OCE", Value="1", Selected = false},
         new SelectListItem{ Text="NA", Value="2", Selected = false},
         new SelectListItem{ Text="LAN", Value="3", Selected = false},
@@ -10,8 +10,8 @@
         new SelectListItem{ Text="EU_NorthEast", Value="6", Selected = false}
 
     };
-        List<SelectListItem> PositionList = new List<SelectListItem>
-    {
+    List<SelectListItem> PositionList = new List<SelectListItem>
+{
         new SelectListItem{ Text="Top", Value="1", Selected = false},
         new SelectListItem{ Text="Jungler", Value="2", Selected = false},
         new SelectListItem{ Text="ADC", Value="3", Selected = false},
@@ -19,8 +19,8 @@
         new SelectListItem{ Text="Middle", Value="5", Selected = false},
 
     };
-        List<SelectListItem> StyleList = new List<SelectListItem>
-    {
+    List<SelectListItem> StyleList = new List<SelectListItem>
+{
         new SelectListItem{ Text="Love_Inting", Value="1", Selected = false},
         new SelectListItem{ Text="Try_Hard", Value="2", Selected = false},
         new SelectListItem{ Text="Hard_Stuck", Value="3", Selected = false},
@@ -63,15 +63,23 @@
         {
 
             @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => Model.addgame.CreatorId, new { @value = @userid })*@
+
+
             @*<form id="regForm">*@
 
-            @*<h1 id="register">Donate</h1>*@
+
             <div class="all-steps" id="all-steps">
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
-                @*<span class="step"></span>*@
             </div>
+
+
 
             <div class="tab">
                 <!-- epalPage -->
@@ -668,7 +676,7 @@
 
                                             <!-- Games(32) -->
                                             <!--<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                            <div class="list">-->
+                                        <div class="list">-->
                                             <!-- Apex Legends -->
                                             <!--<div class="gameCard">
                                             <div class="gameActive activeNow" onclick="changeStyle(this)">
@@ -1345,7 +1353,7 @@
                                         </div>-->
                                             <!-- Lifestyles(10) -->
                                             <!--<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                            <div class="list">-->
+                                        <div class="list">-->
                                             <!-- E-Chat -->
                                             <!--<div class="gameCard">
                                             <div class="gameActive activeNow" onclick="changeStyle(this)">
@@ -1575,6 +1583,8 @@
                         </div>
                     </div>
                 </div>
+                @*<button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>*@
+                @*<button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>*@
             </div>
 
 
@@ -1603,51 +1613,51 @@
                                 <div class="formMain">
                                     <!-- State -->
                                     <!--<p>State</p>
-    <select autocomplete=off class="form-select" aria-label="Default select example">
-        <option value="1" selected>Set yourself to Online (ready to take orders)</option>
-        <option value="2">Set yourself to Offline (not ready to take orders)</option>
-    </select>-->
+                                <select autocomplete=off class="form-select" aria-label="Default select example">
+                                    <option value="1" selected>Set yourself to Online (ready to take orders)</option>
+                                    <option value="2">Set yourself to Offline (not ready to take orders)</option>
+                                </select>-->
                                     <!-- Price -->
                                     <!--<p>Price</p>
-    <div class="priceSelect">
-        <form class="row row-cols-lg-auto g-3 align-items-center">
-            <div class="col-12-1">
-                <label class="visually-hidden" for="inlineFormInputGroupUsername">2</label>
-                <div class="input-group">
-                    <div class="input-group-text">
-                        <img src="~/Assets/images/addgame/price.png"
-                             alt="priceIcon">
-                    </div>
-                    <input type="text" class="form-control" id="inlineFormInputGroupUsername"
-                           placeholder="2">
-                </div>
-            </div>
+                                <div class="priceSelect">
+                                    <form class="row row-cols-lg-auto g-3 align-items-center">
+                                        <div class="col-12-1">
+                                            <label class="visually-hidden" for="inlineFormInputGroupUsername">2</label>
+                                            <div class="input-group">
+                                                <div class="input-group-text">
+                                                    <img src="~/Assets/images/addgame/price.png"
+                                                         alt="priceIcon">
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroupUsername"
+                                                       placeholder="2">
+                                            </div>
+                                        </div>
 
-            <div class="col-12-2">
-                <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-                <select class="form-select" id="inlineFormSelectPref">
-                    <option value="1">/Game</option>
-                    <option value="2">/15Min</option>
-                    <option value="3">/30Min</option>
-                    <option value="4">/Hour</option>
-                    <option value="5">/Time</option>
-                </select>
-            </div>
+                                        <div class="col-12-2">
+                                            <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+                                            <select class="form-select" id="inlineFormSelectPref">
+                                                <option value="1">/Game</option>
+                                                <option value="2">/15Min</option>
+                                                <option value="3">/30Min</option>
+                                                <option value="4">/Hour</option>
+                                                <option value="5">/Time</option>
+                                            </select>
+                                        </div>
 
-            <div class="servicePriceQue">
-                <div class="icon">
-                    ?
-                    <span class="tooltiptext">
-                        You can filter based on price per game, hour. and half
-                        hour.
-                        <br>
-                        <br> Price breakdown:
-                        <br> The price range is between 2.00 to 999.99.
-                    </span>
-                </div>
-            </div>
-        </form>
-    </div>-->
+                                        <div class="servicePriceQue">
+                                            <div class="icon">
+                                                ?
+                                                <span class="tooltiptext">
+                                                    You can filter based on price per game, hour. and half
+                                                    hour.
+                                                    <br>
+                                                    <br> Price breakdown:
+                                                    <br> The price range is between 2.00 to 999.99.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>-->
 
 
                                     <div class="form-group">
@@ -1685,118 +1695,107 @@
 
                                     <!-- Timepicker -->
                                     <!--<p>Availability</p>
-                                    <div class="timePickerWrapper">
-                                        <label for="date">Mon</label>
-                                        <div class="apptTime">
-                                            <p>
-                                                Start :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                            <p>
-                                                End :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                        </div>
+                                <div class="timePickerWrapper">
+                                    <label for="date">Mon</label>
+                                    <div class="apptTime">
+                                        <p>
+                                            Start :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
+                                        <p>
+                                            End :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
                                     </div>
-                                    <div class="timePickerWrapper">
-                                        <label for="date">Tue</label>
-                                        <div class="apptTime">
-                                            <p>
-                                                Start :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                            <p>
-                                                End :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                        </div>
+                                </div>
+                                <div class="timePickerWrapper">
+                                    <label for="date">Tue</label>
+                                    <div class="apptTime">
+                                        <p>
+                                            Start :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
+                                        <p>
+                                            End :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
                                     </div>
-                                    <div class="timePickerWrapper">
-                                        <label for="date">Wed</label>
-                                        <div class="apptTime">
-                                            <p>
-                                                Start :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                            <p>
-                                                End :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                        </div>
+                                </div>
+                                <div class="timePickerWrapper">
+                                    <label for="date">Wed</label>
+                                    <div class="apptTime">
+                                        <p>
+                                            Start :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
+                                        <p>
+                                            End :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
                                     </div>
-                                    <div class="timePickerWrapper">
-                                        <label for="date">Thu</label>
-                                        <div class="apptTime">
-                                            <p>
-                                                Start :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                            <p>
-                                                End :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                        </div>
+                                </div>
+                                <div class="timePickerWrapper">
+                                    <label for="date">Thu</label>
+                                    <div class="apptTime">
+                                        <p>
+                                            Start :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
+                                        <p>
+                                            End :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
                                     </div>
-                                    <div class="timePickerWrapper">
-                                        <label for="date">Fri</label>
-                                        <div class="apptTime">
-                                            <p>
-                                                Start :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                            <p>
-                                                End :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                        </div>
+                                </div>
+                                <div class="timePickerWrapper">
+                                    <label for="date">Fri</label>
+                                    <div class="apptTime">
+                                        <p>
+                                            Start :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
+                                        <p>
+                                            End :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
                                     </div>
-                                    <div class="timePickerWrapper">
-                                        <label for="date">Sat</label>
-                                        <div class="apptTime">
-                                            <p>
-                                                Start :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                            <p>
-                                                End :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                        </div>
+                                </div>
+                                <div class="timePickerWrapper">
+                                    <label for="date">Sat</label>
+                                    <div class="apptTime">
+                                        <p>
+                                            Start :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
+                                        <p>
+                                            End :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
                                     </div>
-                                    <div class="timePickerWrapper">
-                                        <label for="date">Sun</label>
-                                        <div class="apptTime">
-                                            <p>
-                                                Start :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                            <p>
-                                                End :
-                                                <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                            </p>
-                                        </div>
-                                    </div>-->
+                                </div>
+                                <div class="timePickerWrapper">
+                                    <label for="date">Sun</label>
+                                    <div class="apptTime">
+                                        <p>
+                                            Start :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
+                                        <p>
+                                            End :
+                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
+                                        </p>
+                                    </div>
+                                </div>-->
 
 
                                 </div>
                             </div>
-                            <div class="formLine"></div>
-
-                            <!-- footer -->
-                            @*<div class="footer">
-                                <div class="buttonWrapper">
-                                    <div class="preButtonWrapper">
-                                        <button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("ChooseAService","ChooseAService")'">Previous</button>
-                                    </div>
-                                    <div class="nextButtonWrapper">
-                                        <button type="button" class="btn btn-outline-dark" onclick="location.href='@Url.Action("GameInformation","GameInformation")'">Next</button>
-                                    </div>
-                                </div>
-                            </div>*@
-
                         </div>
                     </div>
                 </div>
+
+                @*<button type="button" id="prevBtn" onclick="nextPrev(0)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(2)">Next</button>*@
             </div>
 
 
@@ -1955,178 +1954,128 @@
                                     <div class="formLine"></div>
 
 
+
+
+
                                     @*intro*@
                                     <div class="form-group">
                                         <div class="row">
                                             @Html.LabelFor(model => Model.addgame.Introduction, htmlAttributes: new { @class = "control-label col-md-6" })
-                                            <p class="introDesc">
-                                                The first 1 or 2 sentences of your introduction will be displayed on your ePal cover card.
-                                            </p>
+                                            <div class="introDesc">
+                                                <p>The first 1 or 2 sentences of your introduction will be displayed on your ePal cover card.</p>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @Html.EditorFor(model => Model.addgame.Introduction, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => Model.addgame.Introduction, new { htmlAttributes = new { @class = "form-control", rows = "10", cols = "50", maxlength = "500" } })
                                                 @Html.ValidationMessageFor(model => model.addgame.Introduction, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
 
 
-                                    @*<div class="intro">
-                                        <div class="introTitle">Introduction</div>
-                                        <p class="introDesc">
-                                            The first 1 or 2 sentences of your introduction will be displayed on
-                                            your ePal cover card.
-                                        </p>
 
-                                        <div class="form-floating">
-                                            <textarea class="form-control" placeholder="You need at least 10 characters here, for example:
-[LoL] I am a god in League, 1 free order for you if you beat me solo mid
-[PUBG] Chicken dinner every night. Tip me if we win, or I will sing you a song if we lose
-[CS:GO] Pretty legendary in Hide and Seek maps. Will make the order free if you can find me in 10 minutes.
-[WoW] Let's run across the map on barefoot at level 1. NO CHEATING
-[Fortnite] Let's build the tallest building in the world" id="floatingTextarea2"></textarea>
+                                    @*voiceRecord*@
+                                    <!--<div class="form-group voiceRecord">
+                                        <div class="row">
+                                            <div class="voiceTitle">Voice Recording</div>-->
+                                            @*@Html.LabelFor(model => Model.addgame.Introduction, htmlAttributes: new { @class = "control-label col-md-6 upload_cover" })*@
+                                            <!--<div class="introDesc col-md-6">
+                                                <p>Record a 3-15 second audio clip based on our recommendations</p>
+                                                <p>We will rate your Voice Recording based on what the clients prefer.</p>
+                                            </div>
                                         </div>
-                                    </div>*@
-
-
-
-                                    <div class="voiceRecord">
-                                        <div style="display: flex;
-                            justify-content: space-between;    align-items: center;">
-                                            <div class="voiceTitle">Voice Recording</div>
-                                            <a href="@Url.Action("Rule_VoiceRecord","GameInformation")">Rule &raquo;</a>
-                                        </div>
-                                        <p class="voiceDesc">
-                                            Record a 3-15 second audio clip based on our recommendations
-                                            <br>We will rate your Voice Recording based on what the clients prefer.
-                                        </p>
-                                    </div>
-
-
-
-                                    <div class="listCover">
-                                        <div style="display: flex;
-                            justify-content: space-between;    align-items: center;">
-                                            <div class="coverTitle">List Cover</div>
-                                            <a href="@Url.Action("Rule_ListCover","GameInformation")">Rule &raquo;</a>
-                                        </div>
-                                        <p class="coverDesc">
-                                            Upload your selfie here as the cover of this game
-                                            <br> We will rate your List Cover based on what the clients prefer.
-                                        </p>
-                                        <div class="wrapper">
-                                            <div class="mb-3">
-                                                <label class="bordersize upload_cover">
-                                                    <input id="upload_input" type="file">
-                                                    <div class="upload_icon">
-                                                        <img src="~/Assets/images/GameInformation/addpic.png" alt="">
-                                                    </div>
-                                                    <i class="delAvatar fa fa-times-circle-o" title="delete"></i>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="control-label col-md-6 btn">
+                                                    <input id="upload_voice" style="display:none;" type="file" class="form-control voiceBtn">
+                                                    Upload your voice-->
+                                                    @*@Html.EditorFor(model => Model.addgame.Introduction, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                    <!--@Html.ValidationMessageFor(model => model.addgame.Introduction, "", new { @class = "text-danger" })
                                                 </label>
                                             </div>
-                                            <br>
                                         </div>
-                                        <br>
+                                    </div>-->
+
+
+                                    @*listCover*@
+                                    <!--<div class="form-group listCover">
+                                        <div class="row">
+                                            <div class="coverTitle">List Cover</div>-->
+                                            @*@Html.LabelFor(model => Model.addgame.Introduction, htmlAttributes: new { @class = "control-label col-md-6 upload_cover" })*@
+                                            <!--<div class="introDesc col-md-6">
+                                                <p>Upload your selfie here as the cover of this game</p>
+                                                <p>We will rate your List Cover based on what the clients prefer.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="control-label col-md-6 upload_cover">
+                                                    <input id="upload_input" type="file" class="form-control">
+                                                    <div class="upload_icon">
+                                                        <img src="~/Assets/images/GameInformation/addpic.png" alt="">
+                                                    </div>-->
+                                                    @*@Html.EditorFor(model => Model.addgame.Introduction, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                    <!--@Html.ValidationMessageFor(model => model.addgame.CreatorImg, "", new { @class = "text-danger" })
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>-->
+
+
+
+                                    @*test*@
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.addgame.ProductImg, htmlAttributes: new { @class = "control-label col-md-6" })
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(model => model.addgame.ProductImg, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.addgame.ProductImg, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.addgame.CreatorImg, htmlAttributes: new { @class = "control-label col-md-6" })
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(model => model.addgame.CreatorImg, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.addgame.CreatorImg, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.addgame.RecommendationVoice, htmlAttributes: new { @class = "control-label col-md-6" })
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(model => model.addgame.RecommendationVoice, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.addgame.RecommendationVoice, "", new { @class = "text-danger" })
+                                        </div>
                                     </div>
 
 
 
-                                    <div class="screenVideos">
+                                    <!--<div class="screenVideos">
 
-                                        <div style="display: flex;
-                            justify-content: space-between;    align-items: center;">
-                                            <div class="svTitle">Screenshots or Videos</div>
-                                            <a href="@Url.Action("Rule_ScreenshotRules","GameInformation")">Rule &raquo;</a>
-                                        </div>
-                                        <p class="svDesc">
-                                            Showcase your skills by uploading a screenshot or video clip.
-                                        </p>
+    <div style="display: flex;  justify-content: space-between; align-items: center;">
+        <div class="svTitle">Screenshots or Videos</div>
+        <a href="@Url.Action("Rule_ScreenshotRules","GameInformation")">Rule &raquo;</a>
+    </div>
+    <p class="svDesc">
+        Showcase your skills by uploading a screenshot or video clip.
+    </p>
 
-                                        <div class="svContainer">
-                                            <div class="wrapper">
-                                                <div class="mb-3">
-                                                    <label class="bordersize upload_cover">
-                                                        <input id="upload_input" type="file">
-                                                        <div class="upload_icon">
-                                                            <img src="~/Assets/images/GameInformation/addpic.png"
-                                                                 alt="">
-                                                        </div>
-                                                        <i class="delAvatar fa fa-times-circle-o" title="delete"></i>
-                                                    </label>
-                                                </div>
-                                            </div>
-
-                                            <!-- Button trigger modal -->
-                                            <div class="wrapper2">
-                                                <div class="mb-3">
-                                                    <label class="bordersize upload_cover">
-                                                        <input id="upload_input" type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                               data-bs-target="#exampleModal">
-                                                        <div class="upload_icon">
-                                                            <img src="~/Assets/images/GameInformation/addvideo.jpg"
-                                                                 alt="">
-                                                        </div>
-                                                        <i class="delAvatar fa fa-times-circle-o" title="delete"></i>
-                                                    </label>
-                                                </div>
-                                            </div>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Video</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                    aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <input id="shareLink" class="shareLink" type="text" autocomplete="off" placeholder="Paste YouTube share link">
-                                                            <p>Upload your gaming videos in the Community as an ePal will increase your orders.</p>
-                                                            <a href="#">How to find YouTube share link?</a>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">
-                                                                Cancel
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary">Confirm</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="formLine"></div>
-
-                                    <!-- footer -->
-                                    <!--<div class="footer">
-        <div class="buttonWrapper">
-            <div class="preButtonWrapper">
-                <button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("addgame","addgame")'">Previous</button>
-            </div>
-            <div class="nextButtonWrapper">
-                <button type="button" class="btn btn-outline-dark" onclick="location.href='@Url.Action("CreatorProject","CreatorProject")'">Submit</button>
-            </div>
-        </div>
-
-        <div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                       checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    By clicking submit button, you are indicating that you have read and
-                    acknowledge
-                    the <a href="https://policies.epal.gg/epal.html?theme=dark">
-                        E-Pal Platform Agreement
-                    </a> .
+    <div class="svContainer">
+        <div class="wrapper">
+            <div class="mb-3">
+                <label class="bordersize upload_cover">
+                    <input id="upload_input" type="file">
+                    <div class="upload_icon">
+                        <img src="~/Assets/images/GameInformation/addpic.png"
+                             alt="">
+                    </div>
+                    <i class="delAvatar fa fa-times-circle-o" title="delete"></i>
                 </label>
             </div>
-        </div>
+        </div>-->
+                                    <!--</div>
+
     </div>-->
+
 
                                 </div>
                             </div>
@@ -2187,6 +2136,8 @@
                 @*<div style="float:left;">*@
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                 <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                @*<button type="button" id="prevBtn" onclick="nextPrev(2)">Previous</button>
+                <input type="submit" id="nextBtn" value="Sumit">*@
                 @*</div>*@
             </div>
 
@@ -2228,9 +2179,9 @@
             }
 
             if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "Submit";
+                document.getElementById("nextBtn").value = "Submit";
             } else {
-                document.getElementById("nextBtn").innerHTML = "Next";
+                document.getElementById("nextBtn").value = "Next";
             }
 
             //fixStepIndicator(n)
@@ -2252,13 +2203,12 @@
             x[currentTab].style.display = "none";
             currentTab = currentTab + n;
             if (currentTab >= x.length) {
-                // document.getElementById("regForm").submit();
-                // return false;
-                //alert("sdf");
+                 document.getElementById("becomeForm").submit();
+                 return false;
+                alert("sdf");
                 document.getElementById("nextprevious").style.display = "none";
-                //document.getElementById("all-steps").style.display = "none";
+                document.getElementById("all-steps").style.display = "none";
                 //document.getElementById("register").style.display = "none";
-                //document.getElementById("text-message").style.display = "block";
             }
             showTab(currentTab);
         }
@@ -2343,33 +2293,32 @@
         }
 
         #nextprevious button {
-            background-color: #120E1B;
+            background-color: #7041E6;
             color: #ffffff;
             padding: 10px 20px;
-            font-size: 20px;
+            font-size: 16px;
             cursor: pointer;
             border-radius: 50px;
-            border: 1px solid white;
+            border: 1px solid transparent;
+            width: 100px;
         }
-
-            #nextprevious button:hover {
-                opacity: 0.8
-            }
-
+        #nextprevious button:hover {
+            opacity: 0.8;
+        }
         #nextprevious #prevBtn {
-            background-color: #bbbbbb
+            background-color: #21212C;
+            border:0;
         }
-
         #becomeForm {
             margin: 0px auto;
             border-radius: 10px;
             position: relative;
         }
 
+
         .tab-content input[type="radio"] {
             /*display: none;*/
         }
-
 
 
         .gameCard span {
@@ -2389,27 +2338,67 @@
             height: 15px;
             width: 15px;
             margin: 0 2px;
-            background-color: #bbbbbb;
+            /*background-color: #bbbbbb;*/
+            background-color: transparent;
             border: none;
             border-radius: 50%;
             display: inline-block;
-            opacity: 0.5
+            opacity: 0.5;
         }
-
-            .step.active {
-                opacity: 1
-            }
-
-            .step.finish {
-                background-color: #4CAF50
-            }
-
+        .step.active {
+            opacity: 1
+        }
+        .step.finish {
+            background-color: #4CAF50;
+            background-color: transparent;
+        }
         .all-steps {
             text-align: center;
-            /*margin-top: 30px;*/
-            /*margin-bottom: 30px*/
             position: absolute;
             bottom: 30px;
+        }
+
+
+        .introDesc {
+            font-size: 12px;
+            color: #8D65EA;
+            line-height: 1.5;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        /*creator pic*/
+        .listCover .upload_cover {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            cursor: pointer;
+            background: #21212C;
+            border: 1px dashed #595656;
+            border-radius: 5px;
+        }
+
+        #upload_input {
+            display: none;
+        }
+
+        .upload_icon img {
+            position: absolute;
+            left: 0;
+            width: 30%;
+            top: 35%;
+            left: 35%;
+        }
+
+        .voiceRecord label {
+            background-color: #21212C;
+            color: white;
+        }
+        .voiceRecord label:hover {
+            background-color: #21212C;
+            color: white;
+            opacity: 0.8;
         }
 
 
