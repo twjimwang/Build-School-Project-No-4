@@ -25,7 +25,6 @@ namespace Build_School_Project_No_4.Controllers
     public class MembersController : Controller
     {
         private EPalContext db = new EPalContext();
-
         private MemberService _MemberService;
         private MailService _MailService;
         public MembersController()
@@ -47,6 +46,60 @@ namespace Build_School_Project_No_4.Controllers
 
             return View(MemberData);
         }
+
+
+
+
+        //抓到memberId
+        public string GetMemberId()
+        {
+            var cookie = HttpContext.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
+            
+            string userid = "";
+            if (cookie != null)
+            {
+                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+                userid = ticket.UserData;
+                return userid;
+            }
+            return null;
+        }
+
+
+        //int a = 16;
+        //[Authorize]
+        public ActionResult profile()
+        {
+            int memberId;
+            bool IsSuccess = true;
+            string memId = GetMemberId();
+            IsSuccess = int.TryParse(memId, out memberId);
+
+            if(!IsSuccess)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //throw new NotImplementedException();
+            }
+
+            try
+            {
+                var profiles = new ProfileEpalService();
+                var profileGetAll = profiles.GetProfiles(memberId);
+
+                GroupViewModel profileContent = new GroupViewModel
+                {
+                    Profiles = profileGetAll
+                };
+                return View(profileContent);
+
+            }
+            catch(Exception ex)
+            {
+                return Content("失敗:" + ex.ToString());
+            }           
+
+        }
+
 
 
 

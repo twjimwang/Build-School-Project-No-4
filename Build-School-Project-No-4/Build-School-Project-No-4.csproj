@@ -771,7 +771,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Members\Logout.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
-    <Content Include="Views\Profile\ProFile.cshtml" />
+    <Content Include="Views\Members\profile.cshtml" />
     <Content Include="Views\Follow\Followings.cshtml" />
     <Content Include="Views\Members\EditProfile.cshtml" />
     <Content Include="Views\Members\ImageUpload.cshtml" />
@@ -782,6 +782,7 @@
     <Folder Include="obj\Debug\" />
     <Folder Include="obj\Release\" />
     <Folder Include="Views\Filter\" />
+    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
