@@ -9,10 +9,6 @@ namespace Build_School_Project_No_4.ViewModels
 {
     public class GroupViewModel
     {
-        public GroupViewModel()
-        {
-            //Gender = "Male";
-        }
 
         public IEnumerable<MemberViewModel> MeetLikes { get; set; }
         public IEnumerable<ProductViewModel> EPalIndex { get; set; }
@@ -24,42 +20,6 @@ namespace Build_School_Project_No_4.ViewModels
         public MemberInfoViewModel MemberInfo { get; set; }
 
 
-
-
-        ////以下註冊、登入使用
-        //public Member MemberDM { get; set; }
-
-        //public int MemberId { get; set; }
-
-        ////[Required(ErrorMessage = "Please enter your Name")]
-        ////[Display(Name = "Name")]
-        ////public string MemberName { get; set; }
-
-        //[DataType(DataType.Date)]
-        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        //public DateTime? RegistrationDate { get; set; }
-
-        //[Required(ErrorMessage = "Please enter your Email")]
-        //[EmailAddress]
-        //public string Email { get; set; }
-
-        //[Required(ErrorMessage = "Please enter your password")]
-        //[StringLength(15, MinimumLength = 6, ErrorMessage = "密碼需大於6個字元")]
-        //[DataType(DataType.Password)]
-        //public string Password { get; set; }
-
-        //[StringLength(10)]
-        //public string AuthCode { get; set; }
-
-        //public bool? IsAdmin { get; set; }
-
-        //[Display(Name = "記得我")]
-        //public bool Remember { get; set; }
-
-
     }
-
-
-
 
 }

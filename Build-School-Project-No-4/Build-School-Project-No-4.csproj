@@ -773,7 +773,7 @@
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Members\profile.cshtml" />
     <Content Include="Views\Follow\Followings.cshtml" />
-    <Content Include="Views\Members\EditProfile.cshtml" />
+    <Content Include="Views\Members\editprofile.cshtml" />
     <Content Include="Views\Members\ImageUpload.cshtml" />
     <Content Include="Views\Shared\_AvatarPartial.cshtml" />
   </ItemGroup>

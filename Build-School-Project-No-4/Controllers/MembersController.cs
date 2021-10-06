@@ -113,6 +113,8 @@ namespace Build_School_Project_No_4.Controllers
         [HttpPost]
         public bool SaveImageToServer()
         {
+
+
             try
             {
                 HttpFileCollectionBase files = Request.Files;
@@ -166,6 +168,8 @@ namespace Build_School_Project_No_4.Controllers
             {
                 return false;
             }
+
+
         }
         
 
@@ -183,7 +187,7 @@ namespace Build_School_Project_No_4.Controllers
         //[Authorize]
         [HttpGet]
         //public ActionResult Edit_Profile(int? Id)
-        public ActionResult EditProfile(int? Id)
+        public ActionResult editprofile(int? Id)
         {
             if (Id == null)
             {
@@ -240,7 +244,7 @@ namespace Build_School_Project_No_4.Controllers
         [ValidateAntiForgeryToken]
         //public ActionResult Edit_Profile(MemberInfoViewModel MemberInfo)
         [Route("EditProfile")]
-        public ActionResult EditProfile([Bind(Include = "MemberInfo")] GroupViewModel EditMember)
+        public ActionResult editprofile([Bind(Include = "MemberInfo")] GroupViewModel EditMember)
         {   
             //將密碼Hash
             EditMember.MemberInfo.Password = _MemberService.HashPassword(EditMember.MemberInfo.Password);
