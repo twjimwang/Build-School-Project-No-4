@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Build_School_Project_No_4.DataModels;
 
 
 namespace Build_School_Project_No_4.Services
@@ -25,18 +24,18 @@ namespace Build_School_Project_No_4.Services
             {
                 ProductCards = new List<ProductCard>()
             };
-            var category = _repo.GetAll<GameCategory>().FirstOrDefault(x => x.GameCategoryId == categoryId);
+            var category = _repo.GetAll<GameCategories>().FirstOrDefault(x => x.GameCategoryId == categoryId);
             if (category == null)
             {
                 return result;
             }
-            var products = _repo.GetAll<Product>().Where(x => x.GameCategoryId == category.GameCategoryId).ToList();
-            var CommentDetails = _repo.GetAll<CommentDetail>().ToList();
+            var products = _repo.GetAll<Products>().Where(x => x.GameCategoryId == category.GameCategoryId).ToList();
+            var CommentDetails = _repo.GetAll<CommentDetails>().ToList();
             var ProductPositions = _repo.GetAll<ProductPosition>().ToList();
             var Positions = _repo.GetAll<Position>().ToList();
             var Ranks = _repo.GetAll<Rank>().ToList();
-            var Members = _repo.GetAll<Member>().ToList();
-            var LineStatus = _repo.GetAll<LineStatu>().ToList();
+            var Members = _repo.GetAll<Members>().ToList();
+            var LineStatus = _repo.GetAll<LineStatus>().ToList();
 
             var productCards = products.Select(p => new ProductCard {
                 UnitPrice = p.UnitPrice,
@@ -60,12 +59,12 @@ namespace Build_School_Project_No_4.Services
         public CategoryViewModel GetGamesAllAndDeatils(int categoryId)
         {
             var result = new CategoryViewModel();
-            var category = _repo.GetAll<GameCategory>().FirstOrDefault(x => x.GameCategoryId == categoryId);
+            var category = _repo.GetAll<GameCategories>().FirstOrDefault(x => x.GameCategoryId == categoryId);
             if (category == null)
             {
                 return result;
             }
-            var Games = _repo.GetAll<GameCategory>().ToList();
+            var Games = _repo.GetAll<GameCategories>().ToList();
             result.GameAllName = Games.Select(x => x.GameName).ToList();
             result.CategroyId = categoryId;
             result.GameCoverImg = category.GameCoverImg;
@@ -79,19 +78,19 @@ namespace Build_School_Project_No_4.Services
             {
                 ProductCards = new List<ProductCard>()
             };
-            var category = _repo.GetAll<GameCategory>().FirstOrDefault(x => x.GameCategoryId == categoryId);
+            var category = _repo.GetAll<GameCategories>().FirstOrDefault(x => x.GameCategoryId == categoryId);
             if (category == null)
             {
                 return result.ToString();
             }
-            var products = _repo.GetAll<Product>().Where(x => x.GameCategoryId == category.GameCategoryId).ToList();
-            var CommentDetails = _repo.GetAll<CommentDetail>().ToList();
+            var products = _repo.GetAll<Products>().Where(x => x.GameCategoryId == category.GameCategoryId).ToList();
+            var CommentDetails = _repo.GetAll<CommentDetails>().ToList();
             var ProductPositions = _repo.GetAll<ProductPosition>().ToList();
             var Positions = _repo.GetAll<Position>().ToList();
             var Ranks = _repo.GetAll<Rank>().ToList();
-            var Members = _repo.GetAll<Member>().ToList();
+            var Members = _repo.GetAll<Members>().ToList();
             var Servers = _repo.GetAll<ProductServer>().ToList();
-            var LineStatus = _repo.GetAll<LineStatu>().ToList();
+            var LineStatus = _repo.GetAll<LineStatus>().ToList();
 
             var productCards = products.Select(p => new ProductCard
             {

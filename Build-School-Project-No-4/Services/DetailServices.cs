@@ -20,9 +20,9 @@ namespace Build_School_Project_No_4.Services
             var playerData = new DetailViewModel();
 
 
-            var products = _repo.GetAll<Product>();
-            var gameInfo = _repo.GetAll<GameCategory>();
-            var playerInfo = _repo.GetAll<Member>();
+            var products = _repo.GetAll<Products>();
+            var gameInfo = _repo.GetAll<GameCategories>();
+            var playerInfo = _repo.GetAll<Members>();
             var productServer = _repo.GetAll<ProductServer>();
             var server = _repo.GetAll<Server>();
             var rank = _repo.GetAll<Rank>();

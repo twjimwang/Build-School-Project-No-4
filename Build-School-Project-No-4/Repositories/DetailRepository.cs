@@ -15,7 +15,7 @@ namespace Build_School_Project_No_4.Repositories
         }
 
 
-        public Product FindPlayerListing(int prodId)
+        public Products FindPlayerListing(int prodId)
         {
             var product = _ctx.Products.FirstOrDefault(x => x.ProductId == prodId);
             return product;

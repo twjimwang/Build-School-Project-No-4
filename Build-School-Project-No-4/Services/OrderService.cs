@@ -19,7 +19,7 @@ namespace Build_School_Project_No_4.Services
 
         public List<OrderViewModel> Order()
         {
-            List<Order> Orders = _Repo.GetAll<Order>().ToList();
+            List<Orders> Orders = _Repo.GetAll<Orders>().ToList();
             List<OrderStatus> OrderStatus = _Repo.GetAll<OrderStatus>().ToList();
 
             List<OrderViewModel> result = new List<OrderViewModel>();

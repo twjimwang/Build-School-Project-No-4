@@ -16,12 +16,12 @@ namespace Build_School_Project_No_4.Services
             _repo = new Repository();
         }
 
-        public Order CreateUnpaidOrder(GroupViewModel AddCartVM, string startTime, int id)
+        public Orders CreateUnpaidOrder(GroupViewModel AddCartVM, string startTime, int id)
         {
             var cart = AddCartVM.AddCart;
             var timeNow = DateTime.UtcNow;
             //get timestamp + identifier EP-12873472834
-            Order order = new Order()
+            Orders order = new Orders()
             {
                 CustomerId = 1,
                 ProductId = id,
