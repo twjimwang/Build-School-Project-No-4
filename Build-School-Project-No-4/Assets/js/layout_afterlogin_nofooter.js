@@ -43,9 +43,10 @@ let logsignmodalbtn = document.querySelector('.logsign-modal-button');
 let mailerror = document.getElementById('email-error');
 let passerror = document.getElementById('myinput-error');
 let valerror = document.querySelectorAll(".field-validation-error");
-
+//let isRequestAuthenticated = ' @Request.IsAuthenticated';
 
 window.onload = function () {
+    
     ////BS validation
     //// Example starter JavaScript for disabling form submissions if there are invalid fields
     //(function () {
@@ -105,6 +106,10 @@ window.onload = function () {
 
 
 
+    //logsigntab[0].classList.add('logsign-purple-border');
+/*    $('#myModal').modal('show');*/     
+
+ 
 
 
     //login / signup modal
@@ -113,24 +118,13 @@ window.onload = function () {
 
         //logsignTabContent[idx].classList.remove('show', 'active');
         //logsigntab[idx].classList.remove('active');    
-
         
         logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
         //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
         modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
 
-        //if (idx === 0) { logsignBtn[0].value = "Log In"; }
-        //else if (idx === 1) { logsignBtn[1].value = "Sign Up"; }
-
-        //if (idx == 0) {
-        //    validate[0].innerHTML = "";
-        //    validate[1].innerHTML = "";
-        //}
-        //else if (idx == 1) {
-        //    validate[2].innerHTML = "";
-        //    validate[3].innerHTML = "";
-        //}
-
+        //if (!isRequestAuthenticated)
+        $('#loginmodal').trigger('click');
 
 
         btn.addEventListener('click', function (event) {
@@ -228,7 +222,9 @@ window.onload = function () {
 
 
     })
-    $('#myModal').modal({ backdrop: 'static', keyboard: false });
+    //$('#myModal').modal({ backdrop: 'static', keyboard: false });
+
+
 
 
 }

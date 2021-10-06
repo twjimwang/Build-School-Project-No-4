@@ -135,6 +135,7 @@
                     }
                     else
                     {
+
                         @*<div style="color:white">@(User.Identity.Name)</div>*@
                         @*<li>@Html.ActionLink("變更密碼", "ChangePassword", "Members")</li>*@
                         @*<div>@Html.ActionLink("Log out", "Logout", "Members")</div>*@
@@ -378,7 +379,7 @@
 
 
     @*(平板以上)Navbar login/signup Modal*@
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
 

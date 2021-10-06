@@ -66,22 +66,12 @@ namespace Build_School_Project_No_4.ViewModels
 
     public enum LanguageCategories
     {
-        MandarinChinese = 1,
-        Spanish = 2,
+        簡體中文 = 1,
+        Korean = 2,
         English = 3,
-        Hindi = 4,
-        Arabic = 5,
-        Bengali = 6,
-        Portuguese = 7,
-        Russian = 8,
-        Japanese = 9,
-        Turkish = 10,
-        Korean = 11,
-        French = 12,
-        German = 13,
-        Vietnamese = 14,
-        Italian = 15,
-        YueChinese = 16,
-        Others = 17
+        Deutsch = 4,
+        Nederlands = 5,
+        日本語 = 6,
+        繁體中文 = 7
     }
 }

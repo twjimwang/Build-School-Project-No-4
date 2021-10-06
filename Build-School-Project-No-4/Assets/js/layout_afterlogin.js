@@ -43,6 +43,7 @@ let logsignmodalbtn = document.querySelector('.logsign-modal-button');
 let mailerror = document.getElementById('email-error');
 let passerror = document.getElementById('myinput-error');
 let valerror = document.querySelectorAll(".field-validation-error");
+//let isRequestAuthenticated = ' @Request.IsAuthenticated';
 
 
 window.onload = function () {
@@ -97,8 +98,8 @@ window.onload = function () {
         //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
         modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
 
-        //if (idx === 0) { logsignBtn[0].value = "Log In"; }
-        //else if (idx === 1) { logsignBtn[1].value = "Sign Up"; }
+        //if (!isRequestAuthenticated)
+        $('#loginmodal').trigger('click');
 
 
         btn.addEventListener('click', function (event) {

@@ -103,6 +103,7 @@ namespace Build_School_Project_No_4.Controllers
                         Folder = "MyImages",
                         Transformation = new Transformation().Width(imageWidth).Height(imageHeight).Crop("thumb").Gravity("face")
                     };
+                    //str = str.Replace("\uFEFF", "");
                     var uploadResult = _cloudinary.UploadLarge(uploadParams);
                     //uploadedImageUrl = uploadResult?.SecureUri?.AbsoluteUri;
                     return true;
@@ -259,7 +260,19 @@ namespace Build_School_Project_No_4.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Login");
+            //return RedirectToAction("Login");
+            //獲取該頁面url的參數資訊
+            string returnURL = Request.Params["HTTP_REFERER"];
+            int index = returnURL.IndexOf('=');
+            returnURL = returnURL.Substring(index + 1);
+
+            //如果參數為空，則跳轉到首頁，否則切回原頁面
+            if (string.IsNullOrEmpty(returnURL))
+                return Redirect("/Home/HomePage");
+            else
+                return Redirect(returnURL);
+
+            //return Redirect(Request.QueryString["URL"]);
             //return View();
             ////使用者登出
             ////Cookie名稱
@@ -613,7 +626,9 @@ namespace Build_School_Project_No_4.Controllers
         {
             //用ViewData儲存，使用Service進行信箱驗證後的結果訊息
             ViewData["EmailValidate"] = _MemberService.EmailValidate(Email, AuthCode);
-            return View();
+            //10/5 再用modal處理驗證成功訊息
+            //return View();
+            return RedirectToAction("ePal", "ePal");
         }
 
 

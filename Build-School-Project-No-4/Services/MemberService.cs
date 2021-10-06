@@ -189,7 +189,7 @@ namespace Build_School_Project_No_4.Services
                 }
                 else
                 {
-                    ValidateStr = "驗證碼錯誤，請重新確認或再註冊";
+                    ValidateStr = "驗證碼錯誤或已經過認證，請重新確認或再註冊";
                 }
             }
             else
