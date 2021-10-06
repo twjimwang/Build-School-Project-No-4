@@ -21,7 +21,7 @@
 
 <body style="background-color: #120E1B;">
 
-    <div class="container">
+    <div class="">
         @*<div class="row d-flex justify-content-center align-items-center">
             <div class="col-md-6">*@
 
@@ -84,27 +84,37 @@
 
                                                         <!-- list -->
                                                         <div class="list">
-                                                            <!-- League of Legends -->
-                                                            <div class="gameCard">
-                                                                <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                                    <div class="imgMain">
-                                                                        <img src="~/Assets/images/ChooseAService/CAS01.jpg"
-                                                                             alt="">
+
+                                                            <label for="label">
+                                                                <input type="radio" name="label" value="台劇" checked="checked">
+                                                                <span class="round button">台劇</span>
+
+                                                                <!-- League of Legends -->
+                                                                <div class="gameCard">
+                                                                    <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                        <div class="imgMain">
+                                                                            <img src="~/Assets/images/ChooseAService/CAS01.jpg"
+                                                                                 alt="">
+                                                                        </div>
+                                                                        <div class="imgMark"></div>
+                                                                        <div class="imgLogo">
+                                                                            <img src="~/Assets/images/ChooseAService/CAS01c.jpg"
+                                                                                 alt="">
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="imgMark"></div>
-                                                                    <div class="imgLogo">
-                                                                        <img src="~/Assets/images/ChooseAService/CAS01c.jpg"
-                                                                             alt="">
+                                                                    <div class="chooseBtn">
+                                                                        <div class="chooseBtnImg">
+                                                                            <img class="btnImg" src="~/Assets/images/ChooseAService/V.png" alt="">
+                                                                        </div>
+                                                                        <span>League of Legends</span>
                                                                     </div>
+                                                                    <div class="desc"></div>
                                                                 </div>
-                                                                <div class="chooseBtn">
-                                                                    <div class="chooseBtnImg">
-                                                                        <img class="btnImg" src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                    </div>
-                                                                    <span>League of Legends</span>
-                                                                </div>
-                                                                <div class="desc"></div>
-                                                            </div>
+
+                                                            </label>
+
+
+
 
                                                             <!-- E-Chat -->
                                                             <div class="gameCard">
@@ -2062,18 +2072,18 @@
 
 
 
-        // changeStyle
-        function changeStyle(element) {
+        //// changeStyle
+        //function changeStyle(element) {
 
-            let gameActive = document.getElementsByClassName("gameActive");
-            let btnImg = document.getElementsByClassName("btnImg");
+        //    let gameActive = document.getElementsByClassName("gameActive");
+        //    let btnImg = document.getElementsByClassName("btnImg");
 
-            for (let el of gameActive) {
-                el.style.borderColor = '#120E1B';
-                // btnImg.src = "/E-Pal/ChooseAService1/Img_ChooseAService1/Vc.png";
-            }
-            element.style.borderColor = "#7041e6";
-        }
+        //    for (let el of gameActive) {
+        //        el.style.borderColor = '#120E1B';
+        //        // btnImg.src = "/E-Pal/ChooseAService1/Img_ChooseAService1/Vc.png";
+        //    }
+        //    element.style.borderColor = "#7041e6";
+        //}
 
 
     </script>
@@ -2088,16 +2098,26 @@
             font-family: 'Poppins', sans-serif;
             color: white;
         }
-        .container {
+/*        .container {
             display: block;
             position: relative;
             padding-left: 35px;
             margin-bottom: 12px;
             cursor: pointer;
+        }*/
+        body {
+            position: relative;
         }
+        #nextprevious {
+            position: absolute;
+            bottom: 80px;
+            left: 30px;
+        }
+
         .tab {
             display: none
         }
+
         #nextprevious button {
             background-color: #120E1B;
             color: #ffffff;
@@ -2118,13 +2138,11 @@
             border-radius: 10px;
             /*position:relative;*/
         }
-        #nextprevious{
-            position:absolute;
-            bottom:100px;
-            left:50px;
 
+
+        .tab-content input[type="radio"] {
+            display: none;
         }
-
 
 
 
