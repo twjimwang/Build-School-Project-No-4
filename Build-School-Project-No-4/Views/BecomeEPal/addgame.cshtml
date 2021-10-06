@@ -1629,7 +1629,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.addgame.GameAvailableDay, htmlAttributes: new { @class = "control-label col-md-6" })
                                         <div class="col-md-6">
-                                            @Html.EditorFor(model => model.addgame.GameAvailableDay, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.EditorFor(model => model.addgame.GameAvailableDay, new { htmlAttributes = new { @class = "form-control", placeholder = "please enter Mon to Sun" } })
                                             @Html.ValidationMessageFor(model => model.addgame.GameAvailableDay, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -1792,7 +1792,7 @@
                             <div class="formWrapper">
                                 <div class="formMain">
 
-                                    <!-- State -->
+                                    <!-- Rank -->
                                     <p>Rank</p>
                                     <select autocomplete=off class="form-select" aria-label="Default select example">
                                         <option selected class="stateSelect">Please select rank</option>
@@ -2195,6 +2195,13 @@
         }
 
 
+
+        $(function () {
+            //$("<br/>").insertAfter("input");
+            //$("<br/>").insertAfter("textarea");
+            $("<br/>").insertAfter(".form-group");
+        });
+
     </script>
 }
 
@@ -2220,8 +2227,8 @@
 
         #nextprevious {
             position: absolute;
-            bottom: 80px;
-            left: 30px;
+            bottom: 50px;
+            left: 20px;
         }
 
         .tab {
