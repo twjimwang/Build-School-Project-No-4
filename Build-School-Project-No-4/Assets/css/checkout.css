@@ -1,25 +1,17 @@
-html {
-  background-color: rgb(18, 14, 27);
-  color: white;
-  font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: 500;
-}
 body {
-  background-color: rgb(18, 14, 27);
-  color: white;
-  font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+    background-color: rgb(18, 14, 27);
 }
 hr{
   height: 1px;
   color: rgb(90, 90, 90);
 }
 .checkout-container {
-  margin: 20px 0;
+  padding: 20px 0;
 }
 .checkout-header {
   font-weight: 600;
   font-size: 18px;
-  margin: 15px 0;
+  padding: 15px 0;
 }
 .cart-summary {
   background-color: rgb(48, 47, 61);
@@ -65,9 +57,11 @@ div.game-play{
 .greyish {
   color: rgb(196, 195, 230);
   font-size: 16px;
+  font-weight: normal;
 }
 .desc {
   font-size: 16px;
+  font-weight: normal;
 }
 .rounds-total{
   font-size: 14px;
@@ -90,12 +84,12 @@ div.game-play{
 }
 
 .form-check-input:checked[type="radio"] {
-  background-image: url(img/check.png);
-  background-size: contain;
-  width: 19px;
-  height: 19px;
-  background-color: rgba(0, 0, 0, 0);
-  border-color: rgba(0, 0, 0, 0);
+    background-image: url('../images/checkout/check.png');
+    background-size: contain;
+    width: 19px;
+    height: 19px;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
 }
 .payment-check-label span {
   font-size: 16px;
@@ -106,6 +100,7 @@ div.game-play{
   width: 130px;
   height: auto;
   margin: 20px 27px;
+  display: block;
 }
 .paypal-img img {
   width: 100%;
@@ -149,11 +144,15 @@ div.game-play{
 .time-left{
   color: orange;
 }
+.straighten{
+    display: flex;
+    align-items: center;
+}
 
 @media screen and (min-width: 576px) {
   .checkout-header {
     font-size: 22px;
-    margin: 18px 0;
+    padding: 18px 0;
   }
 
   .payment-check-label span {
@@ -176,12 +175,25 @@ div.game-play{
   }
   .checkout-header {
     font-size: 30px;
-    margin: 10px 0 20px;
+    padding: 70px 0 20px;
   }
   .greyish,
   .desc {
     font-size: 15px;
   }
+  .cart-summary {
+    padding: 20px 252px;
+   }
+    .order-info,
+    .game-info,
+    .start-info,
+    .unit-price,
+    .rounds-info,
+    .subtotal-info,
+    .promotion,
+    .final-price-div {
+      margin: 12px 0;
+    }
   .rounds-total{
     font-size: 14px;
   }
@@ -199,6 +211,7 @@ div.game-play{
   }
   .total-div {
     margin-top: 90px;
+    padding-right: 80px;
   }
   .total-price {
     font-size: 16px;
@@ -208,7 +221,7 @@ div.game-play{
   }
   .checkout-btn {
     border-radius: 25px;
-    padding: 5px 18px;
+    padding: 7px 18px;
     font-size: 18px;
   }
 
@@ -216,7 +229,7 @@ div.game-play{
 
 @media screen and (min-width: 992px){
   div.game-play{
-    font-size: 17px;
+    font-size: 18px;
     width: 180px;
   }
 }

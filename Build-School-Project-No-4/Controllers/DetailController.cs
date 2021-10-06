@@ -52,21 +52,14 @@ namespace Build_School_Project_No_4.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DetailPage(GroupViewModel AddCartVM, string startTime, int id)
         {
+            var unpaid = _cartService.CreateUnpaidOrder(AddCartVM, startTime, id);
 
-            //var unpaid = _cartService.CreateUnpaidOrder(AddCartVM, startTime, int id);
-            var gameStartTime = Convert.ToDateTime(startTime);
-            Order unpaid = new Order()
-            {
-                Quantity = AddCartVM.AddCart.Rounds,
-                UnitPrice = AddCartVM.AddCart.UnitPrice,
-                CustomerId = 1,
-                ProductId = AddCartVM.AddCart.PlayerId,
-                OrderDate = DateTime.Now,
-                GameStartDateTime = gameStartTime,
-                OrderStatusId = 1,
+            //bool isSuccess;
+            //if (isSuccess)
+            //{
+            //    //return RedirectToAction("Checkout", new { Confirmation = confirmation, AA = 123 });
+            //}
 
-
-            };
             using (var tran = _ctx.Database.BeginTransaction())
             {
                 try
@@ -74,7 +67,8 @@ namespace Build_School_Project_No_4.Controllers
                     _ctx.Orders.Add(unpaid);
                     _ctx.SaveChanges();
                     tran.Commit();
-                    return RedirectToAction("Checkout");
+                    var confirmation = unpaid.OrderConfirmation;
+                    return RedirectToAction("Checkout" ,new { Confirmation = confirmation, AA = 123});
                 }
                 catch (Exception ex)
                 {
@@ -84,9 +78,11 @@ namespace Build_School_Project_No_4.Controllers
             }
 
         }
-
-        public ActionResult Checkout()
+        [HttpGet]
+        public ActionResult Checkout(string confirmation, int aa)
         {
+
+            int i = 0;
             return View();
         }
 

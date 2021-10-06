@@ -686,6 +686,12 @@
     <Content Include="Views\Detail\Order.cshtml" />
     <Content Include="Views\Detail\_ViewStart.cshtml" />
     <Content Include="Views\Detail\Checkout.cshtml" />
+    <Content Include="Views\ePals\Order.cshtml" />
+    <Content Include="Views\ePals\_ViewStart.cshtml" />
+    <Content Include="Views\ePals\Checkout.cshtml" />
+    <Content Include="Views\ePals\DetailPage.cshtml" />
+    <Content Include="Views\ePals\Index.cshtml" />
+    <Content Include="Views\ePals\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
