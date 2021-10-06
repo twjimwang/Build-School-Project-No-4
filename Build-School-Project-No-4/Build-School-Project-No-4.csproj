@@ -649,6 +649,8 @@
     <Content Include="Assets\MeetImages\Meets\icon2.png" />
     <Content Include="Assets\MeetImages\Meets\icon3.png" />
     <Content Include="Assets\MeetImages\Meets\icon4.png" />
+    <Content Include="Assets\MeetImages\Meets\imageonline-co-nope.png" />
+    <Content Include="Assets\MeetImages\Meets\imageonline-co-roundcorner.png" />
     <Content Include="Assets\MeetImages\Meets\Likefonts.png" />
     <Content Include="Assets\MeetImages\Meets\Meet1.png" />
     <Content Include="Assets\MeetImages\Meets\Meet11.png" />
