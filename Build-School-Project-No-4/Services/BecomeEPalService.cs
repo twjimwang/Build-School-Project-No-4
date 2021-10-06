@@ -6,16 +6,16 @@ using System.Web;
 
 namespace Build_School_Project_No_4.Services
 {
-    public class BasicInformation
+    public class addgame
     {
 
-        private readonly Repository _basicInformationRepository;
-        public BasicInformation()
+        private readonly Repository _addgameRepository;
+        public addgame()
         {
-            _basicInformationRepository = new Repository();
+            _addgameRepository = new Repository();
         }
 
-        //public BasicInformationViewModel CeateBasicInformation()
+        //public addgameViewModel Ceateaddgame()
         //{
 
         //    return View();

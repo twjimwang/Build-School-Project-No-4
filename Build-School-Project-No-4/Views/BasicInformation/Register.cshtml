@@ -1,4 +1,4 @@
-﻿@*@model Build_School_Project_No_4.ViewModels.BasicInformationViewModel*@
+﻿@*@model Build_School_Project_No_4.ViewModels.addgameViewModel*@
 @model GroupViewModel
 @{
     ViewBag.Title = "Register";
@@ -15,24 +15,24 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>BasicInformationViewModel</h4>
+    <h4>addgameViewModel</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.GameCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.addgame.GameCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.GameCategoryId, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.GameCategoryId, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.addgame.GameCategoryId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.addgame.GameCategoryId, "", new { @class = "text-danger" })
         </div>
     </div>
 
 
 
     @*<div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.CreatorId, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.addgame.CreatorId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-        @Html.EditorFor(model => model.BasicInformation.CreatorId, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.BasicInformation.CreatorId, "", new { @class = "text-danger" })
+        @Html.EditorFor(model => model.addgame.CreatorId, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.addgame.CreatorId, "", new { @class = "text-danger" })
         </div>
         </div>*@
 
@@ -40,77 +40,77 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.UnitPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.addgame.UnitPrice, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.UnitPrice, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.UnitPrice, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.addgame.UnitPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.addgame.UnitPrice, "", new { @class = "text-danger" })
         </div>
     </div>
 
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.ProductImg, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.addgame.ProductImg, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.ProductImg, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.ProductImg, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.addgame.ProductImg, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.addgame.ProductImg, "", new { @class = "text-danger" })
         </div>
     </div>
 
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.Introduction, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.addgame.Introduction, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.Introduction, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.Introduction, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.addgame.Introduction, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.addgame.Introduction, "", new { @class = "text-danger" })
         </div>
     </div>
 
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.CreatorImg, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.addgame.CreatorImg, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.CreatorImg, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.CreatorImg, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.addgame.CreatorImg, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.addgame.CreatorImg, "", new { @class = "text-danger" })
         </div>
     </div>
 
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.GameAvailableDay, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.addgame.GameAvailableDay, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.GameAvailableDay, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.GameAvailableDay, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.addgame.GameAvailableDay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.addgame.GameAvailableDay, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.GameStartTime, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.addgame.GameStartTime, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.GameStartTime, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.GameStartTime, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.addgame.GameStartTime, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.addgame.GameStartTime, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.BasicInformation.GameEndTime, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.addgame.GameEndTime, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.BasicInformation.GameEndTime, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BasicInformation.GameEndTime, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.addgame.GameEndTime, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.addgame.GameEndTime, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         <div class="row justify-content-center">
-            @Html.LabelFor(model => Model.BasicInformation.ServerId, htmlAttributes: new { @class = "col-md-6 control-label" })
+            @Html.LabelFor(model => Model.addgame.ServerId, htmlAttributes: new { @class = "col-md-6 control-label" })
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                @Html.EnumDropDownListFor(model => model.BasicInformation.ServerId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BasicInformation.ServerId, "", new { @class = "text-danger" })
+                @Html.EnumDropDownListFor(model => model.addgame.ServerId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.addgame.ServerId, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
@@ -118,24 +118,24 @@
 
     <div class="form-group">
         <div class="row justify-content-center">
-            @Html.LabelFor(model => Model.BasicInformation.StyleId, htmlAttributes: new { @class = "col-md-6 control-label" })
+            @Html.LabelFor(model => Model.addgame.StyleId, htmlAttributes: new { @class = "col-md-6 control-label" })
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                @Html.EnumDropDownListFor(model => model.BasicInformation.StyleId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BasicInformation.StyleId, "", new { @class = "text-danger" })
+                @Html.EnumDropDownListFor(model => model.addgame.StyleId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.addgame.StyleId, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
 
     <div class="form-group">
         <div class="row justify-content-center">
-            @Html.LabelFor(model => Model.BasicInformation.PositionId, htmlAttributes: new { @class = "col-md-6 control-label" })
+            @Html.LabelFor(model => Model.addgame.PositionId, htmlAttributes: new { @class = "col-md-6 control-label" })
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                @Html.EnumDropDownListFor(model => model.BasicInformation.PositionId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BasicInformation.PositionId, "", new { @class = "text-danger" })
+                @Html.EnumDropDownListFor(model => model.addgame.PositionId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.addgame.PositionId, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
