@@ -16,7 +16,11 @@ namespace Build_School_Project_No_4.Controllers
 
         public ActionResult Wallet()
         {
+            var Wallet = new WalletService();
+
             return View();
         }
+
+      
     }
 }

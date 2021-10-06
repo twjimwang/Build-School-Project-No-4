@@ -288,6 +288,7 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\WalletService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BasicInformationViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
@@ -296,6 +297,7 @@
     <Compile Include="ViewModels\producttestViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Compile Include="ViewModels\WalletViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AboutUsImages\about.png" />
