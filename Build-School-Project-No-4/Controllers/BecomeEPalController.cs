@@ -47,7 +47,8 @@ namespace Build_School_Project_No_4.Controllers
                     UnitPrice = registerVM.addgame.UnitPrice,
                     ProductImg = registerVM.addgame.ProductImg,
                     Introduction = registerVM.addgame.Introduction,
-                    CreatorImg = registerVM.addgame.CreatorImg
+                    CreatorImg = registerVM.addgame.CreatorImg,
+                    RecommendationVoice = registerVM.addgame.RecommendationVoice
                 };
 
                 ProductPlan productPlan = new ProductPlan
@@ -100,12 +101,12 @@ namespace Build_School_Project_No_4.Controllers
 
                         //tran.Commit();
                         //ViewData["Message"] = "使用者儲存成功";
-                        return Content("儲存成功");
+                        return Content("創建商品成功");
                     }
                     catch (Exception ex)
                     {
                         tran.Rollback();
-                        return Content("使用者儲存失敗:" + ex.ToString());
+                        return Content("創建商品失敗:" + ex.ToString());
                     }
                 }
             }

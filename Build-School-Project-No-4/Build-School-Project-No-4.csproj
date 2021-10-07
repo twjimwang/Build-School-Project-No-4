@@ -288,6 +288,7 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\WalletService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AddgameViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
@@ -296,6 +297,7 @@
     <Compile Include="ViewModels\producttestViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Compile Include="ViewModels\WalletViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AboutUsImages\about.png" />
@@ -675,7 +677,7 @@
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
     <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
-    <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
+    <Content Include="Views\becomeepal\BecomeEPalPage.cshtml" />
     <Content Include="Views\Page404\Page404.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
     <Content Include="Views\Detail\DetailPage.cshtml" />
@@ -707,8 +709,8 @@
     <Content Include="Views\GameInformation\Rule_ListCover.cshtml" />
     <Content Include="Views\GameInformation\Rule_ScreenshotRules.cshtml" />
     <Content Include="Views\BasicInformation\Register.cshtml" />
-    <Content Include="Views\BecomeEPal\addgame.cshtml" />
-    <Content Include="Views\BecomeEPal\addgame - 複製.cshtml" />
+    <Content Include="Views\becomeepal\addgame.cshtml" />
+    <Content Include="Views\becomeepal\addgame - 複製.cshtml" />
     <Content Include="Views\CreatorProject\ChooseAService.cshtml" />
     <Content Include="Views\CreatorProject\BasicInformation.cshtml" />
     <Content Include="Views\CreatorProject\GameInformation.cshtml" />
