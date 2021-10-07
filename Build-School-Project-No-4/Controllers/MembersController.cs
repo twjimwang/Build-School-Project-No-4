@@ -19,6 +19,7 @@ using CloudinaryDotNet.Actions;
 using System.Text.RegularExpressions;
 using System.Drawing;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Build_School_Project_No_4.Controllers
 {
@@ -113,8 +114,6 @@ namespace Build_School_Project_No_4.Controllers
         [HttpPost]
         public bool SaveImageToServer()
         {
-
-
             try
             {
                 HttpFileCollectionBase files = Request.Files;
@@ -127,16 +126,16 @@ namespace Build_School_Project_No_4.Controllers
                 var myAccount = new Account { ApiKey = _apiKey, ApiSecret = _apiSecret, Cloud = _cloud };
                 Cloudinary _cloudinary = new Cloudinary(myAccount);
 
-                // Checking for Internet Explorer  
-                if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
-                {
-                    string[] testfiles = file.FileName.Split(new char[] { '\\' });
-                    fname = testfiles[testfiles.Length - 1];
-                }
-                else
-                {
-                    fname = Regex.Replace(file.FileName.Trim(), @"[^0-9a-zA-Z.]+", "_");
-                }
+                 
+                //if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
+                //{
+                //    string[] testfiles = file.FileName.Split(new char[] { '\\' });
+                //    fname = testfiles[testfiles.Length - 1];
+                //}
+                //else
+                //{
+                //    fname = Regex.Replace(file.FileName.Trim(), @"[^0-9a-zA-Z.]+", "_");
+                //}
                 using (Image img = Image.FromStream(file.InputStream))
                 {
                     int imageHeight = 0;
@@ -158,8 +157,12 @@ namespace Build_School_Project_No_4.Controllers
                         Folder = "MyImages",
                         Transformation = new Transformation().Width(imageWidth).Height(imageHeight).Crop("thumb").Gravity("face")
                     };
-                    //str = str.Replace("\uFEFF", "");
+                    
+                    
                     var uploadResult = _cloudinary.UploadLarge(uploadParams);
+                    //Failed to deserialize response with status code: NotFound cloudinary
+                    //cloudinary Unexpected character encountered while parsing value: <.Path '', line 0, position 0.
+
                     //uploadedImageUrl = uploadResult?.SecureUri?.AbsoluteUri;
                     return true;
                 }
@@ -168,7 +171,6 @@ namespace Build_School_Project_No_4.Controllers
             {
                 return false;
             }
-
 
         }
         
