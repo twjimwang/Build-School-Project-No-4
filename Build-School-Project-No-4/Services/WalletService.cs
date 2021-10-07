@@ -18,7 +18,7 @@ namespace Build_School_Project_No_4.Services
 
         private IQueryable<Order> Orders;
         private IQueryable<Member> Members;
-        private IQueryable<OrderStatu>
+        //private IQueryable<OrderStatu>
 
 
     }
