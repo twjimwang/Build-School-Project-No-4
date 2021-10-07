@@ -11,7 +11,6 @@
                         <div class="body-Header-Title">
                             <div class="title-Text">
                                 <h1>@Model.GamesDetails.GameTitle</h1>
-                                <h1>@Html.Raw(ViewBag.ProductCard)</h1>
                                 <div class="start-Icon">
                                     <i class="fas fa-star gold-star"></i>
                                 </div>
@@ -486,11 +485,11 @@
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            @for (var i = 0; i < Model.GamesDetails.GameAllName.Count(); i++)
+                            @foreach (var m in Model.GamesDetails.GameAll)
                             {
-                                <a href="@Url.Action("ePal","ePals",new {id = i+1})">
+                                <a href="@Url.Action("ePal","ePals",new {id = m.GameId})">
                                     <span>
-                                        @Model.GamesDetails.GameAllName[i]
+                                        @m.GameName
                                         <i class="fas fa-star gold-star"></i>
                                     </span>
                                 </a>

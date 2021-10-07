@@ -25,6 +25,15 @@ namespace Build_School_Project_No_4.ViewModels
         /// <summary>
         /// 全部遊戲
         /// </summary>
-        public List<string> GameAllName { get; set; }
+        public List<Game> GameAll { get; set; }
+        /// <summary>
+        /// 全部遊戲ID
+        /// </summary>
+        public class Game
+        {
+            public string GameName { get; set; }
+
+            public int GameId { get; set; }
+        }
     }
 }

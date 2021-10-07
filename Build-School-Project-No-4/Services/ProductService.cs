@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using static Build_School_Project_No_4.ViewModels.CategoryViewModel;
 
 namespace Build_School_Project_No_4.Services
 {
@@ -64,8 +64,13 @@ namespace Build_School_Project_No_4.Services
             {
                 return result;
             }
-            var Games = _repo.GetAll<GameCategories>().ToList();
-            result.GameAllName = Games.Select(x => x.GameName).ToList();
+            var GameTable = _repo.GetAll<GameCategories>().ToList();
+            var GameAll = GameTable.Select(g => new Game
+            {
+                GameId = g.GameCategoryId,
+                GameName = g.GameName
+            }).ToList();
+            result.GameAll = GameAll;
             result.CategroyId = categoryId;
             result.GameCoverImg = category.GameCoverImg;
             result.GameTitle = category.GameName;
@@ -98,7 +103,7 @@ namespace Build_School_Project_No_4.Services
                 CreatorImg = p.CreatorImg,
                 Introduction = p.Introduction,
                 RecommendationVoice = p.RecommendationVoice,
-                LineStatus = LineStatus.First(y => y.LineStatusId == (Members.First(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName,
+                LineStatus = LineStatus.First(y => y.LineStatusId == (Members.First(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusImg,
                 CreatorName = Members.First(x => x.MemberId == p.CreatorId).MemberName,
                 StarLevel = CommentDetails.First(x => x.ProductId == p.ProductId).StarLevel,
                 Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.First(x => x.RankId == p.RankId).RankName,
