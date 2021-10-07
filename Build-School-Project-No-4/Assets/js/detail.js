@@ -102,26 +102,26 @@ let inputDate = document.getElementById('start-time');
 let d, localDatetime;
 let timeNowBtn = document.querySelector('.time-now');
 window.onload = function () {
-    localDatetime = TimeNow();
+    localDatetime = TimeNowPlusTen();
     inputDate.value = localDatetime;
 }
 
 timeNowBtn.addEventListener('click', () => {
-    localDatetime = TimeNow();
+    localDatetime = TimeNowPlusTen();
     inputDate.value = localDatetime;
 });
 
 
-function TimeNow() {
+function TimeNowPlusTen() {
     const now = new Date();
-    const offsetMs = now.getTimezoneOffset() * 60 * 1000;
+    const offsetMs = (now.getTimezoneOffset() - 10) * 60 * 1000;
     const dateLocal = new Date(now.getTime() - offsetMs);
     const str = dateLocal.toISOString().slice(0, 16).replace();
     return str;
 }
 
 function DateCheck(a) {
-    localDatetime = TimeNow();
+    localDatetime = TimeNowPlusTen();
     if (Date.parse(localDatetime) > Date.parse(a) || a == "") {
         return inputDate.value = localDatetime;
     } else {

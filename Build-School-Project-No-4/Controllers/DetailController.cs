@@ -15,11 +15,13 @@ namespace Build_School_Project_No_4.Controllers
         private readonly EPalContext _ctx;
         private readonly DetailServices _detailService;
         private readonly AddToCartService _cartService;
+        private readonly CheckoutService _checkoutService;
         public DetailController()
         {
             _detailService = new DetailServices();
             _ctx = new EPalContext();
             _cartService = new AddToCartService();
+            _checkoutService = new CheckoutService();
         }
         public ActionResult Index()
         {
@@ -53,37 +55,39 @@ namespace Build_School_Project_No_4.Controllers
         public ActionResult DetailPage(GroupViewModel AddCartVM, string startTime, int id)
         {
             var unpaid = _cartService.CreateUnpaidOrder(AddCartVM, startTime, id);
+            var isSuccess = _cartService.AddCartSuccess(unpaid);
 
-            //bool isSuccess;
-            //if (isSuccess)
-            //{
-            //    //return RedirectToAction("Checkout", new { Confirmation = confirmation, AA = 123 });
-            //}
-
-            using (var tran = _ctx.Database.BeginTransaction())
+            if (isSuccess)
             {
-                try
-                {
-                    _ctx.Orders.Add(unpaid);
-                    _ctx.SaveChanges();
-                    tran.Commit();
-                    var confirmation = unpaid.OrderConfirmation;
-                    return RedirectToAction("Checkout" ,new { Confirmation = confirmation, AA = 123});
-                }
-                catch (Exception ex)
-                {
-                    tran.Rollback();
-                    return Content("add failed" + ex.ToString());
-                }
+                var confirmation = unpaid.OrderConfirmation;
+                return RedirectToAction("Checkout", new { Confirmation = confirmation });
+            }
+            else
+            {
+                return Content("Failed to create new order");
             }
 
         }
         [HttpGet]
-        public ActionResult Checkout(string confirmation, int aa)
+        public ActionResult Checkout(string confirmation)
         {
+            if (confirmation == null)
+            {
+                return Content("Order not found!");
+            }
+            var checkoutVM = _checkoutService.GetCheckoutDetails(confirmation);
 
+            GroupViewModel groupVM = new GroupViewModel
+            {
+                Checkout = checkoutVM
+            };
+            return View(groupVM);
+        }
+        [HttpPost]
+        public ActionResult Checkout(GroupViewModel x, string confirmation)
+        {
             int i = 0;
-            return View();
+            return View("Index");
         }
 
     }

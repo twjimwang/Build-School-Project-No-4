@@ -14,6 +14,7 @@ namespace Build_School_Project_No_4.ViewModels
         public MemberViewModel MemberData { get; set; }
         public DetailViewModel Deets { get; set; }
         public AddToCartViewModel AddCart { get; set; }
+        public CheckoutViewModel Checkout { get; set; }
     }
 
 }
