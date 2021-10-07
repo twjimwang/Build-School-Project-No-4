@@ -72,13 +72,19 @@ namespace Build_School_Project_No_4.Services
 
         private static decimal starAvgMethod(List<CommentDetails> selectRecommend)
         {
-            decimal avgStar;
+    
+            decimal avgStar = 0;
             decimal y = 0;
             foreach (var item in selectRecommend)
             {
                 y = item.StarLevel + y;
             }
-            avgStar = y / selectRecommend.Count();
+
+            if (y != 0)
+            {
+                avgStar = y / selectRecommend.Count();
+            }
+           
             return avgStar;
         }
 
