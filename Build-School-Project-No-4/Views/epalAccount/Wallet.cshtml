@@ -1,4 +1,6 @@
-﻿<div class="container topContent">
+﻿
+@model GroupViewModel
+<div class="container topContent">
     <div class="row navBarPhone">
         <div class="col leftNavbar">
             <i class="fas fa-angle-left"></i>
@@ -57,6 +59,8 @@
 
 <div class="container table">
     <div class="row orderCalender">
+
+
         <div class="col-4 col-md-1 selectCalender">
             <div class="calenderItem">Sep</div>
             <div class="calenderItem">,</div>
@@ -71,34 +75,43 @@
             </div>
         </div>
     </div>
-    <div class="row orderField">
-        <div class="col">
-            Item
+
+    @foreach (var m in Model.wallets)
+    {
+        <div class="row orderField">
+            <div class="col">
+                Item
+            </div>
+            <div class="col">
+                Order
+                <span>@Html.DisplayFor(x=>m.OrderId)</span>
+            </div>
+            <div class="col">
+                Time
+                <span>@Html.DisplayFor(x => m.OrderDate)</span>
+            </div>
+            <div class="col">
+                User
+                <span>@Html.DisplayFor(x => m.MemberName)</span>
+            </div>
+            <div class="col-2">
+                Payment Gateway
+            </div>
+            <div class="col">
+                Amount
+                <span>@Html.DisplayFor(x => m.TotalPrice)</span>
+            </div>
+            <div class="col">
+                Status
+                <span>@Html.DisplayFor(x => m.OrderStatusName)</span>
+            </div>
         </div>
-        <div class="col">
-            Order
-        </div>
-        <div class="col">
-            Time
-        </div>
-        <div class="col">
-            User
-        </div>
-        <div class="col-2">
-            Payment Gateway
-        </div>
-        <div class="col">
-            Amount
-        </div>
-        <div class="col">
-            Status
+    }
+        <div class="row walletDetail">
+            <img src="~/Assets/WalletImages/wallet.png" />
+            <p>No details now~</p>
         </div>
     </div>
-    <div class="row walletDetail">
-        <img src="~/Assets/WalletImages/wallet.png" />
-        <p>No details now~</p>
-    </div>
-</div>
     </div>
 
 @section topCSS{
