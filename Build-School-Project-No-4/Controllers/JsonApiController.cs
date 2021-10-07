@@ -4,11 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Build_School_Project_No_4.DataModels;
 using Build_School_Project_No_4.Services;
 
+
 namespace Build_School_Project_No_4.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class JsonApiController : ApiController
     {
         private readonly ProductService _productService;

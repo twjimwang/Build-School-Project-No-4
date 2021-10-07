@@ -42,7 +42,7 @@ namespace Build_School_Project_No_4.Services
                 CreatorImg = p.CreatorImg,
                 Introduction = p.Introduction,
                 RecommendationVoice = p.RecommendationVoice,
-                LineStatus = LineStatus.First(y => y.LineStatusId == (Members.First(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName,
+                LineStatus = LineStatus.First(y => y.LineStatusId == (Members.First(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusImg,
                 CreatorName = Members.First(x => x.MemberId == p.CreatorId).MemberName,
                 StarLevel = CommentDetails.First(x => x.ProductId == p.ProductId).StarLevel,
                 Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.First(x => x.RankId == p.RankId).RankName,
@@ -71,7 +71,6 @@ namespace Build_School_Project_No_4.Services
                 GameName = g.GameName
             }).ToList();
             result.GameAll = GameAll;
-            result.CategroyId = categoryId;
             result.GameCoverImg = category.GameCoverImg;
             result.GameTitle = category.GameName;
             return result;

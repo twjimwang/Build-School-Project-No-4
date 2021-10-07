@@ -18,14 +18,10 @@ namespace Build_School_Project_No_4.ViewModels
         public string GameTitle { get; set; }
 
         /// <summary>
-        /// 類別ID
-        /// </summary>
-        public int CategroyId { get; set; }
-
-        /// <summary>
         /// 全部遊戲
         /// </summary>
         public List<Game> GameAll { get; set; }
+
         /// <summary>
         /// 全部遊戲ID
         /// </summary>
