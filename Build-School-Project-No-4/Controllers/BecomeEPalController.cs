@@ -47,7 +47,8 @@ namespace Build_School_Project_No_4.Controllers
                     UnitPrice = registerVM.addgame.UnitPrice,
                     ProductImg = registerVM.addgame.ProductImg,
                     Introduction = registerVM.addgame.Introduction,
-                    CreatorImg = registerVM.addgame.CreatorImg
+                    CreatorImg = registerVM.addgame.CreatorImg,
+                    RecommendationVoice = registerVM.addgame.RecommendationVoice
                 };
 
                 ProductPlan productPlan = new ProductPlan
