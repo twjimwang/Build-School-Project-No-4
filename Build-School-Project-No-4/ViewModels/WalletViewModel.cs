@@ -19,5 +19,7 @@ namespace Build_School_Project_No_4.ViewModels
         public decimal Discount { get; set; }
 
         public string OrderStatusName { get; set; }
+
+        public decimal TotalPrice { get; internal set; }
     }
 }
