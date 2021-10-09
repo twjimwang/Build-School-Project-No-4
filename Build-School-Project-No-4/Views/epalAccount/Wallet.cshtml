@@ -59,14 +59,11 @@
 <div class="container table">
     <div class="row orderCalender">
 
+        <input type="month" class="monthCalender" id="start" name="start" min="2021-10" value="2021-10">
 
-        <div class="col-4 col-md-1 selectCalender">
-            <div class="calenderItem">Sep</div>
-            <div class="calenderItem">,</div>
-            <div class="calenderItem">2021</div>
-            <i class="fas fa-angle-down"></i>
-        </div>
-
+        @*<div class="col-4 col-md-1 selectCalender">
+            <input type="month" id="start" name="start" min="2018-03" value="2018-05">
+        </div>*@
 
         <div class="col-12 col-md-1 orderIncome">
             <div class="expensePhone co-6">Expense 0.00</div>
@@ -214,6 +211,8 @@
             background-color: #302f3d;
             display: flex;
             justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
             .walletDetail img {
@@ -257,7 +256,7 @@
             }
 
             .selectCalender {
-                display: flex;
+                /*display: flex;*/
             }
 
             .orderIncome {
@@ -267,7 +266,7 @@
             }
 
             .selectCalender div {
-                padding: 2px;
+                /*padding: 2px;*/
             }
 
             .orderIncome .expensePhone {
@@ -307,6 +306,7 @@
 
                 .pcTitle p {
                     font-size: 24px;
+                    text-align: left;
                 }
 
             .pcItemName {
@@ -412,11 +412,10 @@
             }
 
             .orderIncome {
-                margin: 0 50px;
+                /*margin: 0 50px;*/
             }
 
             .selectCalender {
-                display: flex;
                 margin: 5px;
                 font-size: 18px;
             }
@@ -446,6 +445,20 @@
                 font-size: 14px;
                 text-align: center;
                 margin-bottom: 50px;
+            }
+
+            .row > * {
+                width: 20%;
+                color: white !important;
+                font-size: medium !important;
+                text-align: center !important;
+                border-block: none !important;
+                border-block-color: #302f3d !important;
+                border-right: unset !important;
+            }
+
+            .monthCalender {
+                background-color: #302f3d !important;
             }
         }
 
