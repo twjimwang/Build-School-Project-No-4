@@ -11,7 +11,7 @@ namespace Build_School_Project_No_4.Services
 {
     public class MemberService
     {
-        //private MemberRepository _MemberRepo;
+
         private readonly Repository _Repo;
         public MemberService()
         {
@@ -41,42 +41,10 @@ namespace Build_School_Project_No_4.Services
                     LanguageId = item.LanguageId,
                     Bio = item.Bio,
                     ProfilePicture = item.ProfilePicture,
-                    //LineStatus = item.LineStatus,
                 });
             }
             return result;
         }
-
-        //public List<MemberInfoViewModel> EditMemberInfo()
-        //{
-        //    List<Member> members = _Repo.GetAll<Member>().ToList();
-
-        //    List<MemberInfoViewModel> result = new List<MemberInfoViewModel>();
-        //    foreach (var item in members)
-        //    {
-        //        result.Add(new MemberInfoViewModel
-        //        {
-        //            MemberId = item.MemberId,
-        //            MemberName = item.MemberName,
-        //            RegistrationDate = item.RegistrationDate,
-        //            Email = item.Email,
-        //            Password = item.Password,
-        //            Phone = item.Phone,
-        //            Country = item.Country,
-        //            CityId = item.CityId,
-        //            Gender = item.Gender,
-        //            BirthDay = item.BirthDay,
-        //            TimeZone = item.TimeZone,
-        //            LanguageId = item.LanguageId,
-        //            Bio = item.Bio,
-        //            ProfilePicture = item.ProfilePicture,
-        //            LineStatus = item.LineStatus,
-        //        });
-        //    }
-        //    return result;
-        //}
-
-
 
 
         public List<MemberRegisterViewModel> MemberRigisterData()
@@ -99,6 +67,7 @@ namespace Build_School_Project_No_4.Services
             }
             return result;
         }
+
 
         public List<Members> MemberLoginData()
         {
@@ -132,7 +101,7 @@ namespace Build_School_Project_No_4.Services
         }
 
 
-        //由email取得單筆資料
+        //由email取得member單筆資料
         public Members GetDataByAccount(string Email)
         {
             Members Data = new Members();
@@ -158,23 +127,20 @@ namespace Build_School_Project_No_4.Services
         //信箱驗證碼
         public string EmailValidate(string Email, string AuthCode)
         {
-            //取得傳入email的會員資料
             Members ValidateMember = GetDataByAccount(Email);
 
-            //宣告驗證後訊息字串
             string ValidateStr = string.Empty;
             if (ValidateMember != null)
             {
-                //判斷傳入驗證碼與資料庫中是否相同
+
                 if (ValidateMember.AuthCode == AuthCode)
                 {                    
-                    //將資料庫的驗證碼設為空                    
+               
                     using(EPalContext _ctx = new EPalContext())
                     {
                         var m = _ctx.Members.ToList().Find(x => x.Email.Equals(Email));
                         try
-                        {
-                            //var member = _MemberRepo.ReadMember().Where(m => m.Email == Email).FirstOrDefault();
+                        {                            
                             m.AuthCode = string.Empty;
                             _ctx.SaveChanges();
 
@@ -202,16 +168,14 @@ namespace Build_School_Project_No_4.Services
 
         //登入帳密確認
         public string LoginCheck(string Email, string Password)
-        {
-            //取得傳入帳號的會員資料
+        {            
             Members loginMember = GetDataByAccount(Email);
-            //判斷是否有此會員
             if (loginMember != null)
             {
-                //判斷是否有經過信箱驗證，有經驗證後，驗證碼欄位會被清空
+                //判斷有經驗證後，驗證碼欄位會被清空
                 if (String.IsNullOrWhiteSpace(loginMember.AuthCode))
                 {
-                    //進行帳號密碼確認
+                    //帳號密碼確認
                     if (PasswordCheck(loginMember, Password))
                     {
                         return "";
@@ -246,14 +210,12 @@ namespace Build_School_Project_No_4.Services
         {
             string Role = "User";
             Members loginMember = GetDataByAccount(Email);
-            //判斷資料庫欄位，用以確認是否為Admin
             if (loginMember.IsAdmin != null && loginMember.IsAdmin == true)
             {
                 Role += ",Admin"; 
                 return Role;
             }
             return null;
-
         }
 
     }

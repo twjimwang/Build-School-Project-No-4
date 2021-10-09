@@ -82,6 +82,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
@@ -171,6 +174,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -242,6 +248,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -254,25 +261,22 @@
     <Compile Include="Controllers\CouponsController.cs" />
     <Compile Include="Controllers\CreatorProjectController.cs" />
     <Compile Include="Controllers\DetailController.cs" />
-    <Compile Include="Controllers\Edit_ProfileController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
     <Compile Include="Controllers\ePalController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ChillMeetController.cs" />
-    <Compile Include="Controllers\FilterController.cs" />
     <Compile Include="Controllers\FollowController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeForPhoneController.cs" />
+    <Compile Include="Controllers\MembersApiController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\Page404Controller.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RecommendController.cs" />
-    <Compile Include="Controllers\SettingsAccountController.cs" />
     <Compile Include="Controllers\SubscriptionController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserAgreementController.cs" />
     <Compile Include="DataModels\Chatlist.cs" />
     <Compile Include="DataModels\Cities.cs" />
@@ -303,50 +307,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Utility.cs" />
-    <Compile Include="Migrations\202109200332179_InitialCreate.cs" />
-    <Compile Include="Migrations\202109200332179_InitialCreate.Designer.cs">
-      <DependentUpon>202109200332179_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109200351357_modifyDM.cs" />
-    <Compile Include="Migrations\202109200351357_modifyDM.Designer.cs">
-      <DependentUpon>202109200351357_modifyDM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109210253381_modifyMemberDM.cs" />
-    <Compile Include="Migrations\202109210253381_modifyMemberDM.Designer.cs">
-      <DependentUpon>202109210253381_modifyMemberDM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109210310453_modifyMemberDM2.cs" />
-    <Compile Include="Migrations\202109210310453_modifyMemberDM2.Designer.cs">
-      <DependentUpon>202109210310453_modifyMemberDM2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109210343209_modifyMemberDM3.cs" />
-    <Compile Include="Migrations\202109210343209_modifyMemberDM3.Designer.cs">
-      <DependentUpon>202109210343209_modifyMemberDM3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109210445466_modifyMemberDM4.cs" />
-    <Compile Include="Migrations\202109210445466_modifyMemberDM4.Designer.cs">
-      <DependentUpon>202109210445466_modifyMemberDM4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109210459188_modifyMemberDM5.cs" />
-    <Compile Include="Migrations\202109210459188_modifyMemberDM5.Designer.cs">
-      <DependentUpon>202109210459188_modifyMemberDM5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109210506377_modifyMemberDM6.cs" />
-    <Compile Include="Migrations\202109210506377_modifyMemberDM6.Designer.cs">
-      <DependentUpon>202109210506377_modifyMemberDM6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109210512212_modifyMemberDM7.cs" />
-    <Compile Include="Migrations\202109210512212_modifyMemberDM7.Designer.cs">
-      <DependentUpon>202109210512212_modifyMemberDM7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\JwtObject.cs" />
-    <Compile Include="Security\JwtService.cs" />
     <Compile Include="Services\FollowService.cs" />
     <Compile Include="Services\MailService.cs" />
     <Compile Include="Services\MemberService.cs" />
@@ -372,8 +336,6 @@
     <Content Include="Assets\css\detail.css" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
-    <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
-    <Content Include="Assets\css\layout_beforelogin.css" />
     <Content Include="Assets\css\PlusPremium.css" />
     <Content Include="Assets\css\reset.css" />
     <Content Include="Assets\Edit_ProfileImages\avatar.png" />
@@ -603,11 +565,8 @@
     <Content Include="Assets\images\layout\resting.png" />
     <Content Include="Assets\images\layout\walleticon.png" />
     <Content Include="Assets\images\Page404\404.png" />
-    <Content Include="Assets\js\layout.js" />
     <Content Include="Assets\js\layout_afterlogin_nofooter.js" />
     <Content Include="Assets\js\layout_afterlogin.js" />
-    <Content Include="Assets\js\layout_beforelogin_nofooter.js" />
-    <Content Include="Assets\js\layout_beforelogin.js" />
     <Content Include="Assets\LiveImages\head1.png" />
     <Content Include="Assets\LiveImages\head10.png" />
     <Content Include="Assets\LiveImages\head11.png" />
@@ -728,12 +687,10 @@
     <Content Include="Views\Project\Project.cshtml" />
     <Content Include="Views\Recommend\RecommenedController.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
-    <Content Include="Views\Shared\_Layout_beforelogin.cshtml" />
     <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\ChillMeet\Meet.cshtml" />
     <Content Include="Views\ChillLive\Live.cshtml" />
     <Content Include="Views\Shared\_Layout_nofooter.cshtml" />
-    <Content Include="Views\Shared\_Layout_beforelogin_nofooter.cshtml" />
     <Content Include="Views\Coupons\Coupons.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\ePal\ePal.cshtml" />
@@ -744,9 +701,7 @@
     <Content Include="Views\Page404\Page404.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
     <Content Include="Views\Detail\DetailPage.cshtml" />
-    <Content Include="Views\Edit_Profile\Edit_Profile.cshtml" />
     <Content Include="Views\Order\Order.cshtml" />
-    <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
     <Content Include="Views\Subscription\Subscription.cshtml" />
     <Content Include="Views\Detail\DetailPage.cshtml" />
@@ -754,13 +709,11 @@
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
-    <Content Include="Views\Members\ReadMember.cshtml" />
     <Content Include="Views\ChillMeetLike\MeetLikes.cshtml" />
     <Content Include="Views\ChillMeetLike\MeetMatches.cshtml" />
     <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
     <Content Include="Views\ePal\EPalIndex.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
-    <Content Include="Views\Members\CreateSeed.cshtml" />
     <Content Include="Views\Order\Orders.cshtml" />
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
@@ -770,18 +723,16 @@
     <Content Include="Views\Members\LoginResult.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Members\Logout.cshtml" />
-    <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Members\profile.cshtml" />
     <Content Include="Views\Follow\Followings.cshtml" />
-    <Content Include="Views\Members\editprofile.cshtml" />
     <Content Include="Views\Members\ImageUpload.cshtml" />
     <Content Include="Views\Shared\_AvatarPartial.cshtml" />
+    <Content Include="Views\Members\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="obj\Release\" />
-    <Folder Include="Views\Filter\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
@@ -796,35 +747,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109200332179_InitialCreate.resx">
-      <DependentUpon>202109200332179_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109200351357_modifyDM.resx">
-      <DependentUpon>202109200351357_modifyDM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109210253381_modifyMemberDM.resx">
-      <DependentUpon>202109210253381_modifyMemberDM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109210310453_modifyMemberDM2.resx">
-      <DependentUpon>202109210310453_modifyMemberDM2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109210343209_modifyMemberDM3.resx">
-      <DependentUpon>202109210343209_modifyMemberDM3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109210445466_modifyMemberDM4.resx">
-      <DependentUpon>202109210445466_modifyMemberDM4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109210459188_modifyMemberDM5.resx">
-      <DependentUpon>202109210459188_modifyMemberDM5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109210506377_modifyMemberDM6.resx">
-      <DependentUpon>202109210506377_modifyMemberDM6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109210512212_modifyMemberDM7.resx">
-      <DependentUpon>202109210512212_modifyMemberDM7.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

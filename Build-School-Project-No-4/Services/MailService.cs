@@ -9,9 +9,9 @@ namespace Build_School_Project_No_4.Services
     public class MailService
     {
 
-        private string gmail_account = "epalmemberservice@gmail.com"; //Gmail帳號
-        private string gmail_password = "epalproject2021"; //Gmail密碼
-        private string gmail_mail = "epalmemberservice@gmail.com"; //Gmail信箱
+        private string gmail_account = "epalmemberservice@gmail.com"; 
+        private string gmail_password = "epalproject2021"; 
+        private string gmail_mail = "epalmemberservice@gmail.com"; 
 
         
         //產生驗證碼
@@ -31,7 +31,7 @@ namespace Build_School_Project_No_4.Services
             return ValidateCode;
         }
 
-        //使用者資料填入驗證信範本
+        //使用者資料填入驗證信
         public string GetRegisterMailBody(string TempString, string UserEmail, string ValidateUrl)
         {
             TempString = TempString.Replace("{{UserEmail}}", UserEmail);

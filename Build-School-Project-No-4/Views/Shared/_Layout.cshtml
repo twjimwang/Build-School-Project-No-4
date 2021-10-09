@@ -41,7 +41,6 @@
 </head>
 <body>
 
-    @*<div class="layout-wrapper">*@
 
     <header>
         <nav class="navbar">
@@ -60,7 +59,7 @@
                         <a class="nav-link text-white navItem" href="#">Posts</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="#">Creator Project</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("CreatorProject","CreatorProject")">Creator Project</a>
                     </li>
 
                     <li class="dropdown nav-item dropdown-about-list">
@@ -427,11 +426,6 @@
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     //mail
                                     <div class="maillog logmethod form-group">
-                                        @*<label for="email" class="maillabel">@Model.Email</label>
-                                            <input type="text" class="emailinput ellipsis form-control" id="email" name = "email" placeholder = "Please enter your email" required value="@Model.Email">
-                                            <div class="invalid-feedback">
-                                              Please provide a valid city.
-                                            </div>*@
                                         @Html.LabelFor(model => model.MemberLogin.Email, new { @class = "maillabel", @for = "email" })<br>
                                         @Html.TextBoxFor(model => model.MemberLogin.Email, null, new { @class = "emailinput ellipsis form-control", id = "email", name = "email", placeholder = "Please enter your email", required = "required" })
                                         @Html.ValidationMessageFor(model => model.MemberLogin.Email, "", new { @class = "text-danger", style = "font-size:14px" })
@@ -439,11 +433,6 @@
 
                                     //password
                                     <div class="form-group ">
-                                        @*<label for="password" class="maillabel">@Model.Password</label>
-                                            <input type="text" class="passwordinput ellipsis form-control" id="password" name = "password" placeholder = "Please enter your password" required value="@Model.Password">
-                                            <div class="invalid-feedback">
-                                              Please provide a valid city.
-                                            </div>*@
                                         @Html.LabelFor(model => model.MemberLogin.Password, new { @for = "password", @class = "passTitle" })<br>
                                         @Html.PasswordFor(model => model.MemberLogin.Password, new { @class = "passwordinput ellipsis form-control", id = "password", name = "password", placeholder = "Please enter your password", required = "required" })
                                         <input type="button" class="passwordshow passwordshowLogin" value="show">
@@ -512,7 +501,6 @@
 
 
 
-    @*</div>*@
 
     <footer>
         <div class="container">

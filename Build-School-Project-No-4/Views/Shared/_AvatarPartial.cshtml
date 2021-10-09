@@ -1,20 +1,40 @@
 ﻿@*Avatar*@
 <div class="avatarContainer">
-    @using (Html.BeginForm("SaveImageToServer", "Members", FormMethod.Post, new { @class = "avatar-upload" }))
-    {
-        @Html.AntiForgeryToken()
+    @*@using (Html.BeginForm("", "", FormMethod.Post, new { @class = "avatar-upload" }))
+        {*@
+    <div class="avatar-upload">
+        @*@Html.AntiForgeryToken()*@
         <div class="avatar-edit">
+
             <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" name="avatar" />
-            <label for="imageUpload"><i class="fas fa-camera"></i></label>
+            <label for="imageUpload">
+                <i class="fas fa-camera"></i>
+            </label>
+
         </div>
 
         <div class="avatar-preview container2">
-            <div id="imagePreview" style="background-image: url('/Assets/Edit_ProfileImages/avatar.png');">
+
+            <div id="imagePreview">
                 @*<input type="hidden" name="_token" value="{{csrf_token()}}">*@
                 <input type="submit" class="btn btn-danger" value="Upload" id="btnSubmit">
-
             </div>
+
         </div>
         <label id="ShowMsg"></label>
-    }
+    </div>
+
+    @*}*@
 </div>
+
+@section endJS{
+
+
+    <script>
+
+
+
+
+
+    </script>
+}
