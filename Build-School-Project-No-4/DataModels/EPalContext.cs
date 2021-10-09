@@ -26,7 +26,7 @@ namespace Build_School_Project_No_4.DataModels
         public virtual DbSet<Members> Members { get; set; }
         public virtual DbSet<MessageType> MessageType { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
-        public virtual DbSet<OrderStatuses> OrderStatuses { get; set; }
+        public virtual DbSet<OrderStatus> OrderStatus { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<ProductPlans> ProductPlans { get; set; }
         public virtual DbSet<ProductPosition> ProductPosition { get; set; }
@@ -155,15 +155,15 @@ namespace Build_School_Project_No_4.DataModels
                 .Property(e => e.Discount)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<OrderStatuses>()
+            modelBuilder.Entity<OrderStatus>()
                 .HasMany(e => e.Orders)
-                .WithRequired(e => e.OrderStatuses)
+                .WithRequired(e => e.OrderStatus)
                 .HasForeignKey(e => e.OrderStatusId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<OrderStatuses>()
+            modelBuilder.Entity<OrderStatus>()
                 .HasMany(e => e.Orders1)
-                .WithRequired(e => e.OrderStatuses1)
+                .WithRequired(e => e.OrderStatus1)
                 .HasForeignKey(e => e.OrderStatusId)
                 .WillCascadeOnDelete(false);
 
