@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Build_School_Project_No_4.ViewModels;
 
 namespace Build_School_Project_No_4.Controllers
 {
@@ -15,20 +16,13 @@ namespace Build_School_Project_No_4.Controllers
         {
             return View();
         }
-        public ActionResult Orders()
+        public ActionResult OrderSummary()
         {
-            var Orders = new OrderService();
-            var a = Orders.Order();
-            return View(a);
+
+            return View();
 
         }
-        public ActionResult Order()
-        {
-            var Orders = new OrderService();
-            var a = Orders.Order();
-            return View(a);
 
-        }
        
     }
 }
