@@ -1111,8 +1111,8 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label class="control-label col-md-6 btn">
-                                                    <input id="uploadfile" style="display:none;" type="file" class="form-control voiceBtn">
+                                                <label class="control-label col-md-6 btn" for="uploadvoice">
+                                                    <input id="uploadvoice" style="display:none;" type="file" class="form-control voiceBtn uploadfile">
                                                     Upload your voice
                                                     @*@Html.EditorFor(model => Model.addgame.RecommendationVoice, new { htmlAttributes = new { @class = "form-control" } })
                                                     @Html.ValidationMessageFor(model => model.addgame.RecommendationVoice, "", new { @class = "text-danger" })*@
@@ -1132,16 +1132,20 @@
                                                 <p>We will rate your List Cover based on what the clients prefer.</p>
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label class="control-label col-md-6 upload_cover">
-                                                    <input id="uploadfile" type="file" class="form-control">
+
+                                                <label class="control-label col-md-6 upload_cover" for="uploadlistcover" id="imagePreview">
+                                                    <input id="uploadlistcover" type="file" class="form-control uploadfile" accept=".png, .jpg, .jpeg">
                                                     <div class="upload_icon">
                                                         <img src="~/Assets/images/GameInformation/addpic.png" alt="">
                                                     </div>
                                                     @*@Html.EditorFor(model => Model.addgame.ProductImg, new { htmlAttributes = new { @class = "form-control" } })
                                                     @Html.ValidationMessageFor(model => model.addgame.ProductImg, "", new { @class = "text-danger" })*@
                                                 </label>
+                                                @*<div id="imagePreview"> </div>*@
+
                                             </div>
                                         </div>
                                     </div>
@@ -1266,6 +1270,7 @@
                 document.getElementById("nextBtn").value = "Submit";
                 document.getElementById("nextBtn").innerText = "Submit";
                 document.getElementById("nextBtn").classList.add("submitbtn");
+                document.getElementById("nextBtn").nodeType = "submit";
             } else {
                 document.getElementById("nextBtn").value = "Next";
                 document.getElementById("nextBtn").innerText = "Next";
@@ -1399,50 +1404,78 @@
         @*let memberId = parseInt(@userid);*@
 
 
-        var cloud_url = 'https://api.cloudinary.com/v1_1/drub4oabm/image/upload'
-        var cloud_upload_preset = 'cltdf3ai'
+        //var cloud_url = 'https://api.cloudinary.com/v1_1/drub4oabm/image/upload'
+        //var cloud_upload_preset = 'cltdf3ai'
 
-        //var imgPreview = document.getElementById('imagePreview');
-        var fileUpload = document.getElementsByClassName('submitbtn');
-        // var btnSubmit = document.getElementById('btnSubmit');
+        ////var imgPreview = document.getElementById('imagePreview');
+        //var fileUpload = document.getElementsByClassName('submitbtn');
+        //// var btnSubmit = document.getElementById('btnSubmit');
 
-        fileUpload.addEventListener("click", function (event) {
-            //var file = event.target.files[0];
+        //fileUpload.addEventListener("click", function (event) {
+        //    //var file = event.target.files[0];
 
-            var fileLen = document.getElementById('uploadfile').files.length;
-            //var file = document.getElementById('uploadfile').files[0];
-            //var imagefile = document.getElementById('upload_input').files[0];
-            var formData = new FormData();
-            for (var x = 0; x < fileLen; x++) {
-                formData.append('file[]', document.getElementById('uploadfile').files[x])
+        //    var fileLen = document.getElementsByClassName('uploadfile').files.length;
+        //    //var file = document.getElementById('uploadfile').files[0];
+        //    //var imagefile = document.getElementById('upload_input').files[0];
+        //    var formData = new FormData();
+        //    for (var x = 0; x < fileLen; x++) {
+        //        formData.append('file[]', document.getElementsByClassName('uploadfile').files[x])
+        //    }
+        //    //formData.append('file', voicefile);
+        //    //formData.append('file', imagefile);
+        //    formData.append('upload_preset', cloud_upload_preset);
+
+        //    axios({
+        //        url: cloud_url,
+        //        method: 'POST',
+        //        Headers: {
+        //            'Content-Type': 'multipart/form-data'
+        //        },
+        //        data: formData
+        //    }).then(function (res) {
+        //        console.log(res);
+        //        photoUrl = res.data.secure_url;
+        //        console.log(photoUrl);
+        //        //$("#imageUpload").change(function () {
+        //        //    readURL(photoUrl);
+        //        //});
+        //        //SaveImageViaAjax(memberId, photoUrl);
+
+        //    }).catch(function (err) {
+        //        console.error(err);
+        //    });
+        //});
+
+
+
+        //image preview
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+
+                    //$('.upload_cover').resize(function() {
+                    //    if ($(this).height() > 200) {
+                    //        $(this).css('height', 'auto');
+                    //    }
+                    //});
+
+
+                    $('.upload_cover').css({ 'width': '', 'height': '', 'background-size': 'contain', 'background-repeat': 'no-repeat', 'border': 'transparent', 'background-color':'#120E1B' });
+
+
+                    $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                    document.querySelector("#imagePreview img").src = "";
+
+                    //$('#imagePreview img').css('background-image', 'url(' + e.target.result + ')');
+                    //$('#imagePreview').hide();
+                    //$('#imagePreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
             }
-            //formData.append('file', voicefile);
-            //formData.append('file', imagefile);
-            formData.append('upload_preset', cloud_upload_preset);
-
-            axios({
-                url: cloud_url,
-                method: 'POST',
-                Headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-                data: formData
-            }).then(function (res) {
-                console.log(res);
-                photoUrl = res.data.secure_url;
-                console.log(photoUrl);
-                //$("#imageUpload").change(function () {
-                //    readURL(photoUrl);
-                //});
-                //SaveImageViaAjax(memberId, photoUrl);
-
-
-            }).catch(function (err) {
-                console.error(err);
-
-            });
-
-
+        }
+        $("#uploadlistcover").change(function () {
+            readURL(this);
         });
 
 
@@ -1578,7 +1611,7 @@
             border-radius: 5px;
         }
 
-        #upload_input {
+        .listCover .uploadfile {
             display: none;
         }
 
