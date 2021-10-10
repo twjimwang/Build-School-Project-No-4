@@ -1112,7 +1112,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="control-label col-md-6 btn">
-                                                    <input id="upload_voice" style="display:none;" type="file" class="form-control voiceBtn">
+                                                    <input id="uploadfile" style="display:none;" type="file" class="form-control voiceBtn">
                                                     Upload your voice
                                                     @*@Html.EditorFor(model => Model.addgame.RecommendationVoice, new { htmlAttributes = new { @class = "form-control" } })
                                                     @Html.ValidationMessageFor(model => model.addgame.RecommendationVoice, "", new { @class = "text-danger" })*@
@@ -1135,7 +1135,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="control-label col-md-6 upload_cover">
-                                                    <input id="upload_input" type="file" class="form-control">
+                                                    <input id="uploadfile" type="file" class="form-control">
                                                     <div class="upload_icon">
                                                         <img src="~/Assets/images/GameInformation/addpic.png" alt="">
                                                     </div>
@@ -1239,7 +1239,11 @@
 
 @section endJS{
     <script>
-        /*        window.onload = function(){*/
+        $(function () {
+            //$("<br/>").insertAfter("input");
+            //$("<br/>").insertAfter("textarea");
+            $("<br/>").insertAfter(".form-group");
+        });
 
         //your javascript goes here
         var currentTab = 0;
@@ -1261,6 +1265,7 @@
             if (n == (x.length - 1)) {
                 document.getElementById("nextBtn").value = "Submit";
                 document.getElementById("nextBtn").innerText = "Submit";
+                document.getElementById("nextBtn").classList.add("submitbtn");
             } else {
                 document.getElementById("nextBtn").value = "Next";
                 document.getElementById("nextBtn").innerText = "Next";
@@ -1319,7 +1324,7 @@
                     if ((s[i].value == "") || (e[i].value == "") || (u.value == "")) {
                         //y[i].className += "invalid";
                         valid = false;
-/*                        break;*/
+                        /*break;*/
                     }
                     else {
                         valid = true;
@@ -1356,7 +1361,7 @@
         //    return valid;
         //}
 
-        //}
+
 
 
         // changeStyle
@@ -1365,7 +1370,7 @@
         gamebtn.forEach((item, idx) => {
             item.addEventListener("click", function () {
                 gameActive.forEach(item => {
-                    item.style.borderColor = '#120E1B';                   
+                    item.style.borderColor = '#120E1B';
                 })
                 gameActive[idx].style.borderColor = "#7041e6";
             })
@@ -1387,11 +1392,71 @@
 
 
 
-        $(function () {
-            //$("<br/>").insertAfter("input");
-            //$("<br/>").insertAfter("textarea");
-            $("<br/>").insertAfter(".form-group");
+
+
+        //save voice/image to Cloudinary
+        let photoUrl = "";
+        @*let memberId = parseInt(@userid);*@
+
+
+        var cloud_url = 'https://api.cloudinary.com/v1_1/drub4oabm/image/upload'
+        var cloud_upload_preset = 'cltdf3ai'
+
+        //var imgPreview = document.getElementById('imagePreview');
+        var fileUpload = document.getElementsByClassName('submitbtn');
+        // var btnSubmit = document.getElementById('btnSubmit');
+
+        fileUpload.addEventListener("click", function (event) {
+            //var file = event.target.files[0];
+
+            var fileLen = document.getElementById('uploadfile').files.length;
+            //var file = document.getElementById('uploadfile').files[0];
+            //var imagefile = document.getElementById('upload_input').files[0];
+            var formData = new FormData();
+            for (var x = 0; x < fileLen; x++) {
+                formData.append('file[]', document.getElementById('uploadfile').files[x])
+            }
+            //formData.append('file', voicefile);
+            //formData.append('file', imagefile);
+            formData.append('upload_preset', cloud_upload_preset);
+
+            axios({
+                url: cloud_url,
+                method: 'POST',
+                Headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formData
+            }).then(function (res) {
+                console.log(res);
+                photoUrl = res.data.secure_url;
+                console.log(photoUrl);
+                //$("#imageUpload").change(function () {
+                //    readURL(photoUrl);
+                //});
+                //SaveImageViaAjax(memberId, photoUrl);
+
+
+            }).catch(function (err) {
+                console.error(err);
+
+            });
+
+
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
 }
