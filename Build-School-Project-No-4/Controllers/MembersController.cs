@@ -188,6 +188,66 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
+        [HttpGet]
+        [Authorize]
+        public ActionResult GetAvatar()
+        {
+            Members emp = db.Members.Find(int.Parse(GetMemberId()));
+            if (emp == null)
+            {
+                return HttpNotFound();
+            }
+
+            GroupViewModel groupMember = new GroupViewModel()
+            {
+                MemberInfo = new MemberInfoViewModel()
+            };
+
+            //DM -> MemberInfoViewModel -> GroupViewModel
+            MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
+            {
+                //MemberId = emp.MemberId,
+                ProfilePicture = emp.ProfilePicture
+            };
+
+            groupMember.MemberInfo = MemberInfo;
+            ViewBag.Avatar = groupMember;
+            //TempData["Avatar"] = groupMember;
+
+
+            //return View("EditProfile");
+            return View("EditProfile");
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult GetAvatarForLayout()
+        {
+            Members emp = db.Members.Find(int.Parse(GetMemberId()));
+            if (emp == null)
+            {
+                return HttpNotFound();
+            }
+
+            GroupViewModel groupMember = new GroupViewModel()
+            {
+                MemberInfo = new MemberInfoViewModel()
+            };
+
+            //DM -> MemberInfoViewModel -> GroupViewModel
+            MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
+            {
+                //MemberId = emp.MemberId,
+                ProfilePicture = emp.ProfilePicture
+            };
+
+            groupMember.MemberInfo = MemberInfo;
+            ViewBag.Avatar = groupMember;
+
+            return View("_Layout_nofooter", groupMember);
+        }
+
 
 
 
@@ -230,10 +290,12 @@ namespace Build_School_Project_No_4.Controllers
                 LanguageId = (LanguageCategories)emp.LanguageId,
                 Bio = emp.Bio,
                 Email = emp.Email,
-                Password = emp.Password
+                Password = emp.Password,
+                ProfilePicture = emp.ProfilePicture
             };
 
             groupMember.MemberInfo = MemberInfo;
+            ViewBag.Avatar = groupMember.MemberInfo.ProfilePicture;
                         
 
             return View("EditProfile", groupMember);

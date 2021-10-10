@@ -464,8 +464,10 @@
         //    });
         //})
 
-        let photo_url = "";
-        let memId = parseInt(@userid);
+
+        //save avatar to Cloudinary、DB
+        let photoUrl = "";
+        let memberId = parseInt(@userid);
         //let memEmail = @useremail;
 
         var cloud_url = 'https://api.cloudinary.com/v1_1/drub4oabm/image/upload'
@@ -489,16 +491,15 @@
                 method: 'POST',
                 Headers: {
                     'Content-Type': 'multipart/form-data'
-                    // 'Content-Type': 'application/X-www-form-urlencoded'
                 },
                 data: formData
             }).then(function (res) {
                 console.log(res);
-                photo_url = res.data.secure_url;
+                photoUrl = res.data.secure_url;
                 $("#imageUpload").change(function () {
-                    readURL(photo_url);
+                    readURL(photoUrl);
                 });
-                SaveImageViaAjax(memId, photo_url);
+                SaveImageViaAjax(memberId, photoUrl);
 
 
             }).catch(function (err) {
@@ -508,9 +509,10 @@
 
 
         });
-        //$("#imagePreview").css('background-image', 'url(" + photo_url + ")');
+        //$("#imagePreview").css('background-image', 'url(" + photoUrl + ")');
 
 
+        //image preview
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -528,48 +530,44 @@
 
 
 
-
-
+        //save avatar to Cloudinary、DB
         function SaveImageViaAjax(memberId, photoUrl) {
-            //var id = 123;
-            //var formData = new FormData();
-            //var totalFiles = document.getElementById("imageUploadForm").files.length;
 
-            //for (var i = 0; i < totalFiles; i++) {
-            //    var file = document.getElementById("imageUploadForm").files[i];
-
-            //    formData.append("imageUploadForm", file);
-            //}
-            //var data = JSON.stringify({
-            //    MemberId: memberId,
-            //    ProfilePicture: photoUrl
-            //});
-            var data = JSON.stringify({
-                MemberId: memberId,
-                ProfilePicture: photoUrl,
-                //Email: memEmail
+            var Data = JSON.stringify({
+                MemberId: `${memberId}`,
+                ProfilePicture: `${photoUrl}`
             });
 
             $.ajax({
-                url: "https://localhost:44322/Api/MembersApi",
+                url: "https://localhost:44322/api/MembersApi/",
                 type: "POST",
-                data: data,
-                async: false,
-                contentType: 'application/json',
+                data: Data,
+                async: true,
+                contentType: 'application/json; charset=utf-8',
                 processData: false,
-                success: function (dbres) {
-                        console.log(dbres);
+                //dataType: "json",
+                success: function (res) {
+                        console.log(res);
                      $("#ShowMsg").text("Image Uploaded Successfully...!").css("color", "green")
                 },
-                error: function (dberr) {
-                        console.log(dberr);
+                error: function (err) {
+                        console.log(err);
                     $("#ShowMsg").text("Image Not Uploaded...!").css("color", "red")
                 }
             });
 
         }
 
+        //display avatar
+        document.getElementById('imagePreview').style.backgroundImage = "url('@ViewBag.Avatar')";
 
+        @*let Avatar = @ViewBag.Avatar;
+        if (Avatar != "") {
+            $("#imagePreview").css('background-image', 'url(" + Avatar + ")');
+        }
+        else {
+            $("#imagePreview").css('background-image', 'url("/Assets/Edit_ProfileImages/avatar.png")');
+        }*@
 
 
 

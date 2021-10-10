@@ -321,6 +321,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FollowViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\MemberAvatarViewModel.cs" />
     <Compile Include="ViewModels\MemberInfoViewModel.cs" />
     <Compile Include="ViewModels\MemberLoginViewModel.cs" />
     <Compile Include="ViewModels\MemberRegisterViewModel.cs" />
