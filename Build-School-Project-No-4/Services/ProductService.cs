@@ -77,6 +77,7 @@ namespace Build_School_Project_No_4.Services
 
         public string GetProductCardsJson(int categoryId)
         {
+
             var result = new ProductViewModel()
             {
                 ProductCards = new List<ProductCard>()
@@ -92,8 +93,10 @@ namespace Build_School_Project_No_4.Services
             var Positions = _repo.GetAll<Position>().ToList();
             var Ranks = _repo.GetAll<Rank>().ToList();
             var Members = _repo.GetAll<Members>().ToList();
-            var Servers = _repo.GetAll<ProductServer>().ToList();
+            var ProductServers = _repo.GetAll<ProductServer>().ToList();
+            var Servers = _repo.GetAll<Server>().ToList();
             var LineStatus = _repo.GetAll<LineStatus>().ToList();
+            var LanguageName = _repo.GetAll<Language>().ToList();
 
             var productCards = products.Select(p => new ProductCard
             {
@@ -107,9 +110,8 @@ namespace Build_School_Project_No_4.Services
                 Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.First(x => x.RankId == p.RankId).RankName,
                 Position = Positions.First(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
                 ProductId = p.ProductId,
-                RankId = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? 0 : Ranks.First(x => x.RankId == p.RankId).RankId,
-                ServerId = Servers.First(x=> x.ProductId == p.ProductId).ServerId,
-                LanguageId = (int)Members.First(x => x.MemberId == p.CreatorId).LanguageId,
+                Server = Servers.First(s => s.ServerId ==((ProductServers.First(y => y.ProductId == p.ProductId).ServerId))).ServerName,
+                Language = LanguageName.First(L => L.LanguageId == (int)Members.First(x => x.MemberId == p.CreatorId).LanguageId).LanguageName,
                 GenderId = (int)Members.First(x => x.MemberId == p.CreatorId).Gender
             }).ToList();
             result.CategoryId = categoryId;

@@ -8,6 +8,9 @@ namespace Build_School_Project_No_4.ViewModels
     public class ProductViewModel
     {
         public int CategoryId { get; set; }
+
+        
+
         public List<ProductCard> ProductCards { get; set; }
     }
 
@@ -64,23 +67,28 @@ namespace Build_School_Project_No_4.ViewModels
         public int ProductId { get; set; }
 
         /// <summary>
-        /// RankId
+        /// 不顯示但filter需要條件
         /// </summary>
-        public int RankId { get; set; }
+        public string Server{ get; set; }
 
         /// <summary>
-        /// LanguageId 
+        /// 不顯示但filter需要條件
         /// </summary>
-        public int LanguageId { get; set; }
+        public string Language { get; set; }
 
         /// <summary>
-        /// ServerId
-        /// </summary>
-        public int ServerId { get; set; }
-
-        /// <summary>
-        /// ServerId
+        /// 不顯示但filter需要條件
         /// </summary>
         public int GenderId { get; set; }
+
+        /// <summary>
+        /// 不顯示但filter需要條件
+        /// </summary>
+        public string StatusName { get; set; }
+
+        /// <summary>
+        /// 不顯示但filter需要條件
+        /// </summary>
+        public int Age { get; set; }
     }
 }
