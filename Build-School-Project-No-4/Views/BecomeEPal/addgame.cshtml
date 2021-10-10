@@ -1263,6 +1263,7 @@
                 document.getElementById("nextBtn").innerText = "Submit";
             } else {
                 document.getElementById("nextBtn").value = "Next";
+                document.getElementById("nextBtn").innerText = "Next";
             }
 
             //fixStepIndicator(n)
@@ -1315,12 +1316,14 @@
             }
             else if (currentTab == 1) {
                 for (i = 0; i < s.length; i++) {
-                    if ((s[i].value != "") && (e[i].value != "") && (u.value != "")) {
-                        valid = true;
-                        break;
+                    if ((s[i].value == "") || (e[i].value == "") || (u.value == "")) {
+                        //y[i].className += "invalid";
+                        valid = false;
+/*                        break;*/
                     }
                     else {
-                        valid = false;
+                        valid = true;
+                        break;
                     }
                 }
             }
