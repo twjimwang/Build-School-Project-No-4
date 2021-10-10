@@ -366,6 +366,7 @@
     <Content Include="Assets\css\layout_afterlogin.css" />
     <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
     <Content Include="Assets\css\layout_beforelogin.css" />
+    <Content Include="Assets\css\orders.css" />
     <Content Include="Assets\css\PlusPremium.css" />
     <Content Include="Assets\css\reset.css" />
     <Content Include="Assets\Edit_ProfileImages\avatar.png" />
@@ -549,6 +550,10 @@
     <Content Include="Assets\images\homepageimg\top slider games\hearthStone.png" />
     <Content Include="Assets\images\homepageimg\top slider games\lol.png" />
     <Content Include="Assets\images\homepageimg\Yoonah.jpg" />
+    <Content Include="Assets\images\Orders\currency.png" />
+    <Content Include="Assets\images\Orders\default_avatar.png" />
+    <Content Include="Assets\images\Orders\noOrders.png" />
+    <Content Include="Assets\images\Orders\testavatar.jpg" />
     <Content Include="Assets\images\subImg\back%402x.png" />
     <Content Include="Assets\images\subImg\buff%402x.png" />
     <Content Include="Assets\images\subImg\buff.png" />
@@ -721,7 +726,6 @@
     <Content Include="Views\Page404\Page404.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
     <Content Include="Views\Edit_Profile\Edit_Profile.cshtml" />
-    <Content Include="Views\Order\Order.cshtml" />
     <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
     <Content Include="Views\Subscription\Subscription.cshtml" />
@@ -736,7 +740,6 @@
     <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\Members\CreateSeed.cshtml" />
-    <Content Include="Views\Order\Orders.cshtml" />
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
@@ -755,6 +758,7 @@
     <Content Include="Views\ePals\DetailPage.cshtml" />
     <Content Include="Views\ePals\Index.cshtml" />
     <Content Include="Views\ePals\NotFound.cshtml" />
+    <Content Include="Views\Order\OrderSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

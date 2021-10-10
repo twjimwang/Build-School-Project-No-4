@@ -1,0 +1,368 @@
+body {
+    background-color: rgb(18, 14, 27);
+    color: white;
+    font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+    
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.greyish {
+    color: rgb(196, 195, 230);
+}
+
+.title {
+    font-size: 13px;
+    position: relative;
+    padding: 20px 0 15px;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.categories {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    flex-direction: row;
+    overflow-x: scroll;
+    width: 100%;
+    display: flex;
+    white-space: nowrap;
+}
+
+
+.stat-category {
+    cursor: pointer;
+    font-size: 13px;
+    width: 100%;
+    margin: 0 15px;
+}
+
+.stat-category:first-of-type {
+    margin-left: 0;
+}
+
+.selected {
+    border-bottom: 2px solid purple;
+}
+
+.status {
+    display: none;
+}
+
+.status-header {
+    display: none;
+}
+
+.no-orders {
+    height: 100vh;
+    background-image: url('../images/Orders/noOrders.png');
+    width: 100%;
+    background-position: center center;
+    background-size: 40%;
+    background-repeat: no-repeat;
+}
+
+.cards-list-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards-list {
+    display: none;
+}
+
+.order-card {
+    background-color: rgb(48, 47, 61);
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 7px;
+    width: 90%;
+    font-size: 12px;
+}
+
+.order-card:first-of-type {
+    margin-top: 15px;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user-img {
+    width: 30px;
+    height: 30px;
+    background-image: url('../images/Orders/default_avatar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 8px;
+    border-radius: 5px;
+}
+
+.name i {
+    display: inline;
+    font-size: 10px;
+    color: rgb(104, 103, 122);
+}
+
+.order-status {
+    display: block;
+}
+
+hr {
+    margin: 10px 0;
+    background-color: rgb(104, 103, 122);
+    height: 2px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 10px;
+}
+.info-left div{
+    padding: 2px 0;
+}
+
+.info-right img {
+    width: 15px;
+    height: 15px;
+    margin-right: 2px;
+}
+
+.info-right {
+    display: flex;
+    align-items: baseline;
+    align-items: flex-end;
+    font-size: 11px;
+}
+
+.bot-section {
+    display: flex;
+    justify-content: end;
+}
+
+.chat {
+    color: white;
+    border: none;
+    background-color: rgba(104, 103, 122, 0.5);
+    margin: 10px 0 5px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+
+    .order-summary{
+        padding-top: 60px;
+    }
+    .order-statuses {
+        padding: 0;
+    }
+
+    .order-list {
+        margin: 0;
+        margin-top: 60px;
+        padding: 0px 12px;
+        padding-top: 30px;
+        height: 100%;
+        background-color: rgb(33, 33, 44);
+        flex-direction: column;
+        overflow-x: initial;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+    .categories {
+        flex-direction: column;
+    }
+
+    .title {
+        padding: 10px 10px 15px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .stat-category {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .selected {
+        border: none;
+        background-color: rgb(18, 14, 27);
+        border-radius: 4px;
+    }
+
+    .stat-category:hover {
+        background-color: rgb(27, 23, 39);
+        border-radius: 4px;
+    }
+
+    .order-card-lg {
+        font-size: 13px;
+    }
+
+    .order-summary {
+        margin: 30px 0px;
+    }
+
+    .status {
+        font-size: 28px;
+        margin: 15px 0;
+    }
+
+    .status-header {
+        font-size: 15px;
+    }
+
+    .cards-list-mobile {
+        display: none;
+    }
+
+    .name i {
+        display: none;
+    }
+
+    .status {
+        display: block;
+    }
+
+    .status-header {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(33, 33, 44);
+        padding: 8px 10px;
+        border-radius: 10px;
+    }
+
+    .order-card-lg {
+        margin: 20px 0;
+    }
+
+    .cards-list {
+        margin: 15px 0;
+        display: block;
+    }
+
+    .card-info {
+        background-color: rgb(33, 33, 44);
+        padding: 8px 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-body {
+        background-color: rgb(48, 47, 61);
+        padding: 15px 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .u-details {
+        display: flex;
+        align-items: center;
+        background-color: rgb(18, 14, 27);
+        border-radius: 35px;
+        width: 150px;
+        height: 55px;
+    }
+
+    .user-img {
+        width: 55px;
+        height: 55px;
+        background-image: url('../images/Orders/testavatar.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-right: 8px;
+        border-radius: 50%;
+        border: 2px solid rgb(112, 95, 247);
+    }
+
+    .order-total {
+        font-size: 15px;
+    }
+
+    .order-total img {
+        width: 18px;
+        height: 18px;
+        margin-right: 3px;
+    }
+
+    .order-actions {
+        display: flex;
+
+    }
+
+    .order-actions div {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(33, 33, 44);
+        border-radius: 50%;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+    .order-actions i {
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    .status-header {
+        font-size: 16px;
+    }
+
+    .order-card-lg {
+        font-size: 15px;
+    }
+
+    .order-summary {
+        margin: 30px 15px;
+    }
+
+    .order-total {
+        font-size: 22px;
+    }
+
+    .order-actions div {
+        height: 35px;
+        width: 35px;
+        margin-left: 10px;
+    }
+
+    .order-actions i {
+        font-size: 17px;
+    }
+}
