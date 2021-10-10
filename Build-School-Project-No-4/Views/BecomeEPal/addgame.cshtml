@@ -138,8 +138,8 @@
                                                     <!-- League of Legends -->
                                                     <label for="game1" class="gamelist">
 
-                                                        <div class="gameCard">
-                                                            <div class="gameActive activeNow"  onclick="changeStyle(this)">
+                                                        <div class="gameCard" >
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS01.jpg"
                                                                          alt="">
@@ -150,7 +150,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @class="", @id = "game1", @name = "game", @value = "LOL", @checked= "checked"})
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "LOL", new {@class ="gamebtn", @id = "game1", @checked = "checked"})
                                                             <span>League of Legends</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -163,7 +163,7 @@
                                                     <label for="game2" class="gamelist">
 
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS02.jpg"
                                                                          alt="">
@@ -174,7 +174,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game2", @name = "game", @value = "E-Chat"})
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "EChat", new { @class = "gamebtn", @id = "game2"})
                                                             <span>E-Chat</span>
                                                             <div class="desc">Chat with clients</div>
 
@@ -186,7 +186,7 @@
                                                     <label for="game3" class="gamelist">
                                                         <!-- Movie -->
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS04.jpg"
                                                                          alt="">
@@ -197,7 +197,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game3", @name = "game", @value = "Movie" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Movie", new { @class = "gamebtn", @id = "game3"})
                                                             <span>Movie</span>
                                                             <div class="desc">Watch movies together</div>
 
@@ -208,7 +208,7 @@
                                                     <label for="game4" class="gamelist">
                                                         <!-- Valorant -->
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS05.jpg"
                                                                          alt="">
@@ -219,7 +219,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game4", @name = "game", @value = "Valorant" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Valorant", new { @class = "gamebtn", @id = "game4"})
                                                             <span>Valorant</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -230,7 +230,7 @@
                                                     <label for="game5" class="gamelist">
                                                         <!-- Custom Game -->
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS03.jpg"
                                                                          alt="">
@@ -241,7 +241,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game5", @name = "game", @value = "CustomGame" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "CustomGame", new { @class = "gamebtn", @id = "game5" })
                                                             <span>Custom Game</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -252,7 +252,7 @@
                                                     <label for="game6" class="gamelist">
                                                         <!-- Minecraft -->
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS08.jpg"
                                                                          alt="">
@@ -263,7 +263,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game6", @name = "game", @value = "Minecraft" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Minecraft", new { @class = "gamebtn", @id = "game6" })
                                                             <span>Minecraft</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -274,7 +274,7 @@
                                                     <label for="game7" class="gamelist">
                                                         <!-- Among Us -->
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS06.jpg"
                                                                          alt="">
@@ -285,7 +285,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game7", @name = "game", @value = "AmongUs" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "AmongUs", new { @class = "gamebtn", @id = "game7" })
                                                             <span>Among Us</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -296,7 +296,7 @@
                                                     <label for="game8" class="gamelist">
                                                         <!-- Apex Legends -->
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS10.jpg"
                                                                          alt="">
@@ -307,7 +307,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game8", @name = "game", @value = "ApexLegends" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "ApexLegends", new { @class = "gamebtn", @id = "game8"})
                                                             <span>Apex Legends</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -318,7 +318,7 @@
                                                     <label for="game9" class="gamelist">
                                                         <!-- Teamfight Tactics -->
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow" >
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS07.jpg"
                                                                          alt="">
@@ -329,7 +329,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game9", @name = "game", @value = "TeamfightTactics" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "TeamfightTactics", new { @class = "gamebtn", @id = "game9" })
                                                             <span>Teamfight Tactics</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -340,7 +340,7 @@
                                                     <label for="game10" class="gamelist">
                                                         <!-- Overwatch -->
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS09.jpg"
                                                                          alt="">
@@ -351,7 +351,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game10", @name = "game", @value = "Overwatch" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Overwatch", new { @class = "gamebtn", @id = "game10" })
                                                             <span>Overwatch</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -362,7 +362,7 @@
                                                     <label for="game11" class="gamelist">
                                                         <!-- Sleep Call -->
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow" >
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS11.jpg"
                                                                          alt="">
@@ -373,7 +373,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game11", @name = "game", @value = "OverwatchSleepCall" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "SleepCall", new { @class = "gamebtn", @id = "game11"})
                                                             <span>Sleep Call</span>
                                                             <div class="desc">Read bedtime stories for your customers</div>
                                                         </div>
@@ -394,7 +394,7 @@
                                                     <label for="game8" class="gamelist">
                                                         @*Apex Legends*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS19.jpg"
                                                                          alt="">
@@ -405,7 +405,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game8", @name = "game", @value = "ApexLegends" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "ApexLegends", new { @class = "gamebtn", @id = "game8" })
                                                             <span>Apex Legends</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -415,18 +415,18 @@
                                                     <label for="game6" class="gamelist">
                                                         @*Minecraft*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS20.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS08.jpg"
                                                                          alt="">
                                                                 </div>
                                                                 <div class="imgMark"></div>
                                                                 <div class="imgLogo">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS20c.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS08c.jpg"
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game6", @name = "game", @value = "Minecraft" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Minecraft", new { @class = "gamebtn", @id = "game6"})
                                                             <span>Minecraft</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -436,7 +436,7 @@
                                                     <label for="game12" class="gamelist">
                                                         @*Animal Crossing: New Horizons*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS21.jpg"
                                                                          alt="">
@@ -447,7 +447,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game12", @name = "game", @value = "AnimalCrossing_NewHorizons" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "AnimalCrossing_NewHorizons", new { @class = "gamebtn", @id = "game12" })
                                                             <span>Animal Crossing: New Horizons</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -456,7 +456,7 @@
                                                     <label for="game13" class="gamelist">
                                                         @*Arena of Valor*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS22.jpg"
                                                                          alt="">
@@ -467,7 +467,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game13", @name = "game", @value = "ArenaofValor" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "ArenaofValor", new { @class = "gamebtn", @id = "game13"})
                                                             <span>Arena of Valor</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -477,7 +477,7 @@
                                                     <label for="game14" class="gamelist">
                                                         @*ARK: Survival Evolved*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS23.jpg"
                                                                          alt="">
@@ -488,7 +488,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game14", @name = "game", @value = "ARK_SurvivalEvolved" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "ARK_SurvivalEvolved", new { @class = "gamebtn", @id = "game14" })
                                                             <span>ARK: Survival Evolved</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -500,7 +500,7 @@
                                                     <label for="game15" class="gamelist">
                                                         @*Assassin's Creed: Valhalla*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS24.jpg"
                                                                          alt="">
@@ -511,7 +511,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game15", @name = "game", @value = "Assassin'sCreed_Valhalla" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "AssassinsCreed_Valhalla", new { @class = "gamebtn", @id = "game15"})
                                                             <span>Assassin's Creed: Valhalla</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -521,7 +521,7 @@
                                                     <label for="game16" class="gamelist">
                                                         @*Black Desert Online*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS25.jpg"
                                                                          alt="">
@@ -532,7 +532,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game16", @name = "game", @value = "BlackDesertOnline" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "BlackDesertOnline", new { @class = "gamebtn", @id = "game16" })
                                                             <span>Black Desert Online</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -542,7 +542,7 @@
                                                     <label for="game17" class="gamelist">
                                                         @*Borderlands 3*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS26.jpg"
                                                                          alt="">
@@ -553,7 +553,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game17", @name = "game", @value = "Borderlands3" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Borderlands3", new { @class = "gamebtn", @id = "game17" })
                                                             <span>Borderlands 3</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -563,7 +563,7 @@
                                                     <label for="game18" class="gamelist">
                                                         @*Brawl Stars*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS27.jpg"
                                                                          alt="">
@@ -574,7 +574,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game18", @name = "game", @value = "BrawlStars" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "BrawlStars", new { @class = "gamebtn", @id = "game18" })
                                                             <span>Brawl Stars</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -584,7 +584,7 @@
                                                     <label for="game19" class="gamelist">
                                                         @*Brawlhalla*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow" >
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS28.jpg"
                                                                          alt="">
@@ -595,7 +595,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game19", @name = "game", @value = "Brawlhalla" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Brawlhalla", new { @class = "gamebtn", @id = "game19"})
                                                             <span>Brawlhalla</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -616,7 +616,7 @@
                                                     <label for="game2" class="gamelist">
                                                         @*E-Chat*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow" >
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS02.jpg"
                                                                          alt="">
@@ -627,7 +627,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game2", @name = "game", @value = "E-Chat" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "EChat", new { @class = "gamebtn", @id = "game2"})
                                                             <span>E-Chat</span>
                                                             <div class="desc">Chat with clients</div>
                                                         </div>
@@ -637,7 +637,7 @@
                                                     <label for="game3" class="gamelist">
                                                         @*Movie*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS04.jpg"
                                                                          alt="">
@@ -648,7 +648,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game3", @name = "game", @value = "Movie" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Movie", new { @class = "gamebtn", @id = "game3"})
                                                             <span>Movie</span>
                                                             <div class="desc">Watch movies together</div>
                                                         </div>
@@ -657,7 +657,7 @@
                                                     <label for="game20" class="gamelist">
                                                         @*Karaoke*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS15.jpg"
                                                                          alt="">
@@ -668,7 +668,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game20", @name = "game", @value = "Karaoke" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Karaoke", new { @class = "gamebtn", @id = "game20" })
                                                             <span>Karaoke</span>
                                                             <div class="desc">Sing with each other</div>
                                                         </div>
@@ -678,7 +678,7 @@
                                                     <label for="game21" class="gamelist">
                                                         @*ASMR*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS18.jpg"
                                                                          alt="">
@@ -689,7 +689,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game21", @name = "game", @value = "ASMR" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "ASMR", new { @class = "gamebtn", @id = "game21" })
                                                             <span>ASMR</span>
                                                             <div class="desc">Gentle whisper to your client, excellent mic is required</div>
                                                         </div>
@@ -699,7 +699,7 @@
                                                     <label for="game22" class="gamelist">
                                                         @*Relationship advice*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS14.jpg"
                                                                          alt="">
@@ -710,7 +710,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game22", @name = "game", @value = "Relationshipadvice" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Relationshipadvice", new { @class = "gamebtn", @id = "game22"})
                                                             <span>Relationship advice</span>
                                                             <div class="desc">Share your experience and perspectives</div>
                                                         </div>
@@ -720,7 +720,7 @@
                                                     <label for="game23" class="gamelist">
                                                         @*Emotional support*@
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS12.jpg"
                                                                          alt="">
@@ -731,7 +731,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game23", @name = "game", @value = "Emotionalsupport" })
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "Emotionalsupport", new { @class = "gamebtn", @id = "game23" })
                                                             <span>Emotional support</span>
                                                             <div class="desc">Provide emotional support to people in need</div>
                                                         </div>
@@ -782,90 +782,59 @@
                             <!-- form -->
                             <div class="formWrapper">
                                 <div class="formMain">
-                                    <!-- State -->
-                                    <!--<p>State</p>
-                                <select autocomplete = off class="form-select" aria-label="Default select example">
-                                    <option value = "1" selected>Set yourself to Online(ready to take orders)</option>
-                                    <option value = "2" > Set yourself to Offline(not ready to take orders)</option>
-                                </select>-->
-                                                <!-- Price -->
-                                                <!--<p>Price</p>
-    <div class="priceSelect">
-        <form class="row row-cols-lg-auto g-3 align-items-center">
-            <div class="col-12-1">
-                <label class="visually-hidden" for="inlineFormInputGroupUsername">2</label>
-                <div class="input-group">
-                    <div class="input-group-text">
-                        <img src="~/Assets/images/addgame/price.png"
-                             alt="priceIcon">
-                    </div>
-                    <input type="text" class="form-control" id="inlineFormInputGroupUsername"
-                           placeholder="2">
-                </div>
-            </div>
-
-            <div class="col-12-2">
-                <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-                <select class="form-select" id="inlineFormSelectPref">
-                    <option value="1">/Game</option>
-                    <option value="2">/15Min</option>
-                    <option value="3">/30Min</option>
-                    <option value="4">/Hour</option>
-                    <option value="5">/Time</option>
-                </select>
-            </div>
-
-            <div class="servicePriceQue">
-                <div class="icon">
-                    ?
-                    <span class="tooltiptext">
-                        You can filter based on price per game, hour. and half
-                        hour.
-                        <br>
-                        <br> Price breakdown:
-                        <br> The price range is between 2.00 to 999.99.
-                    </span>
-                </div>
-            </div>
-        </form>
-    </div>-->
 
 
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.addgame.UnitPrice, htmlAttributes: new { @class = "control-label col-md-6" })
-                                                    <div class="col-md-6">
-                                                        @Html.EditorFor(model => model.addgame.UnitPrice, new { htmlAttributes = new { @class = "form-control", placeholder = "please enter price per game" } })
-                                                        @Html.ValidationMessageFor(model => model.addgame.UnitPrice, "", new { @class = "text-danger" })
-                                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.addgame.UnitPrice, htmlAttributes: new { @class = "control-label col-md-3" })
+                                        <div class="col-md-3">
+                                            @Html.EditorFor(model => model.addgame.UnitPrice, new { htmlAttributes = new { @class = "form-control uniprice", placeholder = "please enter price per game" } })
+                                            @Html.ValidationMessageFor(model => model.addgame.UnitPrice, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+
+                                        @Html.Partial("_GameDayPartial")
+
+
+
+                                         @*<div class="form-group row">
+                                            <div class="col-2">
+                                                <p>Game AvailableDay</p>
+                                            </div>
+                                            <div class="col-3">
+                                                <p>Start Time</p>
+                                            </div>
+                                            <div class="col-3">
+                                                <p>End Time</p>
+                                            </div>
+                                        </div>*@
+
+                                        @*@foreach (var day in Model.addgame.AvailabledayList)
+                                        {*@
+                                            @*<div class="form-group row">*@
+
+                                                @*<div class="col-2">
+                                                    @Html.DisplayFor(model => day.GameAvailableDay, new { htmlAttributes = new { @class = "form-control visually-hidden", @readonly = "readonly" } })
+                                                    @Html.ValidationMessageFor(model => model.addgame.GameAvailableDay, "", new { @class = "text-danger" })
                                                 </div>
-
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.addgame.GameAvailableDay, htmlAttributes: new { @class = "control-label col-md-6" })
-                                                    <div class="col-md-6">
-                                                        @Html.EditorFor(model => model.addgame.GameAvailableDay, new { htmlAttributes = new { @class = "form-control", placeholder = "please enter Mon to Sun" } })
-                                                        @Html.ValidationMessageFor(model => model.addgame.GameAvailableDay, "", new { @class = "text-danger" })
-                                                    </div>
+                                                <div class="col-3">
+                                                    @Html.EditorFor(model => day.GameStartTime, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => day.GameStartTime, "", new { @class = "text-danger" })
                                                 </div>
+                                                <div class="col-3">
+                                                    @Html.EditorFor(model => day.GameEndTime, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => day.GameEndTime, "", new { @class = "text-danger" })
+                                                </div>*@
 
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.addgame.GameStartTime, htmlAttributes: new { @class = "control-label col-md-6" })
-                                                    <div class="col-md-6">
-                                                        @Html.EditorFor(model => model.addgame.GameStartTime, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.addgame.GameStartTime, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.addgame.GameEndTime, htmlAttributes: new { @class = "control-label col-md-6" })
-                                                    <div class="col-md-6">
-                                                        @Html.EditorFor(model => model.addgame.GameEndTime, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.addgame.GameEndTime, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
+                                            @*</div>
+                                        }*@
 
 
-                                                <!-- Timepicker -->
-                                                <!--<p>Availability</p>
+
+                            <!-- Timepicker -->
+                            <!--<p>Availability</p>
     <div class="timePickerWrapper">
         <label for="date">Mon</label>
         <div class="apptTime">
@@ -959,14 +928,11 @@
     </div>-->
 
 
-                                            </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                @*<button type="button" id="prevBtn" onclick="nextPrev(0)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(2)">Next</button>*@
             </div>
 
 
@@ -997,7 +963,7 @@
                                     <!--DropDownList, Rank-->
                                     <div class="form-group">
                                         <div class="row">
-                                            @Html.LabelFor(model => Model.addgame.RankId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                            @Html.LabelFor(model => model.addgame.RankId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -1007,21 +973,11 @@
                                         </div>
                                     </div>
 
-                                    <!-- Rank -->
-                                    <!--<p>Rank</p>
-    <select autocomplete=off class="form-select" aria-label="Default select example">
-        <option selected class="stateSelect">Please select rank</option>
-        <option value="1">Iron</option>
-        <option value="2">Bronze</option>
-        <option value="3">Silver</option>
-        <option value="4">Gold</option>
-        <option value="5">Platinum</option>
-        <option value="6">Diamond</option>
-    </select>-->
+
                                     <!--Listbox, Server-->
                                     <div class="form-group">
                                         <div class="row">
-                                            @Html.LabelFor(model => Model.addgame.ServerId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                            @Html.LabelFor(model => model.addgame.ServerId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -1060,7 +1016,7 @@
                                     <!--Listbox, Position-->
                                     <div class="form-group">
                                         <div class="row">
-                                            @Html.LabelFor(model => Model.addgame.PositionId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                            @Html.LabelFor(model => model.addgame.PositionId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -1088,7 +1044,7 @@
                                     <!--Listbox, Style-->
                                     <div class="form-group">
                                         <div class="row">
-                                            @Html.LabelFor(model => Model.addgame.StyleId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                            @Html.LabelFor(model => model.addgame.StyleId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -1125,9 +1081,6 @@
                                     <div class="formLine"></div>
 
 
-
-
-
                                     @*intro*@
                                     <div class="form-group">
                                         <div class="row">
@@ -1147,11 +1100,11 @@
 
 
                                     @*voiceRecord*@
-                                    <!--<div class="form-group voiceRecord">
+                                    <div class="form-group voiceRecord">
                                         <div class="row">
-                                            <div class="voiceTitle">Voice Recording</div>-->
-                                            @*@Html.LabelFor(model => Model.addgame.Introduction, htmlAttributes: new { @class = "control-label col-md-6 upload_cover" })*@
-                                            <!--<div class="introDesc col-md-6">
+                                            <div class="voiceTitle">Voice Recording</div>
+                                            @*@Html.LabelFor(model => Model.addgame.RecommendationVoice, htmlAttributes: new { @class = "control-label col-md-6 upload_cover" })*@
+                                            <div class="introDesc col-md-6">
                                                 <p>Record a 3-15 second audio clip based on our recommendations</p>
                                                 <p>We will rate your Voice Recording based on what the clients prefer.</p>
                                             </div>
@@ -1160,21 +1113,21 @@
                                             <div class="col-md-6">
                                                 <label class="control-label col-md-6 btn">
                                                     <input id="upload_voice" style="display:none;" type="file" class="form-control voiceBtn">
-                                                    Upload your voice-->
-                                                    @*@Html.EditorFor(model => Model.addgame.Introduction, new { htmlAttributes = new { @class = "form-control" } })*@
-                                                    <!--@Html.ValidationMessageFor(model => model.addgame.Introduction, "", new { @class = "text-danger" })
+                                                    Upload your voice
+                                                    @*@Html.EditorFor(model => Model.addgame.RecommendationVoice, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.addgame.RecommendationVoice, "", new { @class = "text-danger" })*@
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>-->
+                                    </div>
 
 
                                     @*listCover*@
-                                    <!--<div class="form-group listCover">
+                                    <div class="form-group listCover">
                                         <div class="row">
-                                            <div class="coverTitle">List Cover</div>-->
-                                            @*@Html.LabelFor(model => Model.addgame.Introduction, htmlAttributes: new { @class = "control-label col-md-6 upload_cover" })*@
-                                            <!--<div class="introDesc col-md-6">
+                                            <div class="coverTitle">List Cover</div>
+                                            @*@Html.LabelFor(model => Model.addgame.ProductImg, htmlAttributes: new { @class = "control-label col-md-6 upload_cover" })*@
+                                            <div class="introDesc col-md-6">
                                                 <p>Upload your selfie here as the cover of this game</p>
                                                 <p>We will rate your List Cover based on what the clients prefer.</p>
                                             </div>
@@ -1185,18 +1138,18 @@
                                                     <input id="upload_input" type="file" class="form-control">
                                                     <div class="upload_icon">
                                                         <img src="~/Assets/images/GameInformation/addpic.png" alt="">
-                                                    </div>-->
-                                                    @*@Html.EditorFor(model => Model.addgame.Introduction, new { htmlAttributes = new { @class = "form-control" } })*@
-                                                    <!--@Html.ValidationMessageFor(model => model.addgame.CreatorImg, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    @*@Html.EditorFor(model => Model.addgame.ProductImg, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.addgame.ProductImg, "", new { @class = "text-danger" })*@
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>-->
+                                    </div>
 
 
 
                                     @*test*@
-                                    <div class="form-group">
+                                    @*<div class="form-group">
                                         @Html.LabelFor(model => model.addgame.ProductImg, htmlAttributes: new { @class = "control-label col-md-6" })
                                         <div class="col-md-6">
                                             @Html.EditorFor(model => model.addgame.ProductImg, new { htmlAttributes = new { @class = "form-control" } })
@@ -1216,7 +1169,7 @@
                                             @Html.EditorFor(model => model.addgame.RecommendationVoice, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.addgame.RecommendationVoice, "", new { @class = "text-danger" })
                                         </div>
-                                    </div>
+                                    </div>*@
 
 
 
@@ -1259,47 +1212,6 @@
 
 
 
-            @*<div class="tab">
-                <p><input placeholder="First Name" oninput="this.className = ''" name="first"></p>
-                <p><input placeholder="Last Name" oninput="this.className = ''" name="last"></p>
-                <p><input placeholder="Email" oninput="this.className = ''" name="email"></p>
-                <p><input placeholder="Phone" oninput="this.className = ''" name="phone"></p>
-                <p><input placeholder="Street Address" oninput="this.className = ''" name="address"></p>
-                <p><input placeholder="City" oninput="this.className = ''" name="city"></p>
-                <p><input placeholder="State" oninput="this.className = ''" name="state"></p>
-                <p><input placeholder="Country" oninput="this.className = ''" name="country"></p>
-            </div>
-
-            <div class="tab">
-                <p><input placeholder="Credit Card #" oninput="this.className = ''" name="email"></p>
-                <p>
-                    Exp Month <select id="month">
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                    </select>
-                </p>
-                <p>
-                    Exp Year <select id="year">
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                    </select>
-                </p>
-                <p><input placeholder="CVV" oninput="this.className = ''" name="phone"></p>
-            </div>*@
-
-
 
 
 
@@ -1307,8 +1219,6 @@
                 @*<div style="float:left;">*@
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                 <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                @*<button type="button" id="prevBtn" onclick="nextPrev(2)">Previous</button>
-                <input type="submit" id="nextBtn" value="Sumit">*@
                 @*</div>*@
             </div>
 
@@ -1316,7 +1226,6 @@
 
 
         }
-
 
 
         @*</div>
@@ -1351,6 +1260,7 @@
 
             if (n == (x.length - 1)) {
                 document.getElementById("nextBtn").value = "Submit";
+                document.getElementById("nextBtn").innerText = "Submit";
             } else {
                 document.getElementById("nextBtn").value = "Next";
             }
@@ -1374,9 +1284,9 @@
             x[currentTab].style.display = "none";
             currentTab = currentTab + n;
             if (currentTab >= x.length) {
-                 document.getElementById("becomeForm").submit();
-                 return false;
-                alert("sdf");
+                document.getElementById("becomeForm").submit();
+                return false;
+                //alert("sdf");
                 document.getElementById("nextprevious").style.display = "none";
                 document.getElementById("all-steps").style.display = "none";
                 //document.getElementById("register").style.display = "none";
@@ -1386,41 +1296,91 @@
 
 
         function validateForm() {
-            var x, y, i, valid = true;
+            var x, y, i, u, s, e, valid = true;
             x = document.getElementsByClassName("tab");
             //取得所有input欄位做驗證
             y = x[currentTab].getElementsByTagName("input");
-            for (i = 0; i < y.length; i++) {
-                if (y[i].value == "") {
-                    y[i].className += "invalid";
-                    valid = false;
+
+            u = x[1].getElementsByClassName("uniprice");
+            s = x[1].getElementsByClassName("starttime");
+            e = x[1].getElementsByClassName("endtime");
+
+            if (currentTab == 0 || currentTab == 2) {
+                for (i = 0; i < y.length; i++) {
+                    if (y[i].value == "") {
+                        y[i].className += "invalid";
+                        valid = false;
+                    }
                 }
             }
+            else if (currentTab == 1) {
+                for (i = 0; i < s.length; i++) {
+                    if ((s[i].value != "") && (e[i].value != "") && (u.value != "")) {
+                        valid = true;
+                        break;
+                    }
+                    else {
+                        valid = false;
+                    }
+                }
+            }
+
             if (valid) {
-                document.getElementsByClassName("step")[currentTab].className += " finish";
+                document.getElementsByClassName("step")[currentTab].className += "finish";
             }
             return valid;
         }
 
 
 
+
+
+
+        //function validateForm() {
+        //    var x, y, i, s, e, valid = true;
+        //    x = document.getElementsByClassName("tab");
+        //    //取得所有input欄位做驗證
+        //    y = x[currentTab].getElementsByTagName("input");
+        //    for (i = 0; i < y.length; i++) {
+        //        if (y[i].value == "") {
+        //            y[i].className += "invalid";
+        //            valid = false;
+        //        }
+        //    }
+        //    if (valid) {
+        //        document.getElementsByClassName("step")[currentTab].className += "finish";
+        //    }
+        //    return valid;
+        //}
+
         //}
 
 
-
-
         // changeStyle
-        function changeStyle(element) {
+        let gamebtn = document.querySelectorAll(".gamebtn");
+        let gameActive = document.querySelectorAll(".gameActive");
+        gamebtn.forEach((item, idx) => {
+            item.addEventListener("click", function () {
+                gameActive.forEach(item => {
+                    item.style.borderColor = '#120E1B';                   
+                })
+                gameActive[idx].style.borderColor = "#7041e6";
+            })
+        })
 
-            let gameActive = document.getElementsByClassName("gameActive");
-            let btnImg = document.getElementsByClassName("btnImg");
 
-            for (let el of gameActive) {
-                el.style.borderColor = '#120E1B';
-                // btnImg.src = "/E-Pal/ChooseAService1/Img_ChooseAService1/Vc.png";
-            }
-            element.style.borderColor = "#7041e6";
-        }
+        //// changeStyle
+        //function changeStyle(element) {
+
+        //    let gameActive = document.getElementsByClassName("gameActive");
+        //    let btnImg = document.getElementsByClassName("btnImg");
+
+        //    for (let el of gameActive) {
+        //        el.style.borderColor = '#120E1B';
+        //        // btnImg.src = "/E-Pal/ChooseAService1/Img_ChooseAService1/Vc.png";
+        //    }
+        //    element.style.borderColor = "#7041e6";
+        //}
 
 
 

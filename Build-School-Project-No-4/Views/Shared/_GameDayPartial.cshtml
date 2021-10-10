@@ -1,0 +1,38 @@
+﻿@*@model IEnumerable<ProductPlan>*@
+@model GroupViewModel
+@{
+    int indexer = 1;
+}
+
+<div class="form-group row">
+    <div class="col-4 col-md-2">
+        <p>AvailableDay</p>
+    </div>
+    <div class="col-4 col-md-3">
+        <p>Start Time</p>
+    </div>
+    <div class="col-4 col-md-3">
+        <p>End Time</p>
+    </div>
+</div>
+
+@*@{ var js = new System.Web.Script.Serialization.JavaScriptSerializer();}*@
+@foreach (var day in Model.addgame.AvailabledayList)
+{
+    <div class="form-group row">
+
+        <div class="col-4 col-md-2">
+            @Html.DisplayFor(model => day.GameAvailableDay, new { htmlAttributes = new { @class = "form-control visually-hidden", @readonly = "readonly" } })
+            @*@Html.ValidationMessageFor(model => model.addgame.GameAvailableDay, "", new { @class = "text-danger" })*@
+        </div>
+        <div class="col-4 col-md-3">
+            @Html.EditorFor(model => day.GameStartTime, new { htmlAttributes = new { @class = "form-control starttime" } })
+            @Html.ValidationMessageFor(model => day.GameStartTime, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-4 col-md-3">
+            @Html.EditorFor(model => day.GameEndTime, new { htmlAttributes = new { @class = "form-control endtime" } })
+            @Html.ValidationMessageFor(model => day.GameEndTime, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+}

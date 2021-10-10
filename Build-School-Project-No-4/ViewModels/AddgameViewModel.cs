@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Build_School_Project_No_4.DataModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,17 +9,9 @@ namespace Build_School_Project_No_4.ViewModels
 {
     public class AddgameViewModel
     {
+        [Display(Name = "Unit Price")]
+        public decimal UnitPrice { get; set; }        
 
-        public decimal UnitPrice { get; set; }
-
-        
-        public string GameAvailableDay { get; set; }
-
-        [DataType(DataType.Time)]
-        public DateTime GameStartTime { get; set; }
-
-        [DataType(DataType.Time)]
-        public DateTime GameEndTime { get; set; }
         public int MemberId { get; set; }
         public int ProductId { get; set; }
         public GameCategoryList GameCategoryId { get; set; }
@@ -34,29 +27,98 @@ namespace Build_School_Project_No_4.ViewModels
 
         public string RecommendationVoice { get; set; }
 
+
+
         [Display(Name ="Server")]
-        public ServerEum ServerId { get; set; }
+        //public ServerEum ServerId { get; set; }
+        public List<int> ServerId { get; set; }
+
         [Display(Name = "Style")]
-        public StyleIdEum  StyleId { get; set; }
+        //public StyleIdEum  StyleId { get; set; }
+        public List<int>  StyleId { get; set; }
+
         [Display(Name = "Position")]
-        public PositionEum PositionId { get; set; }
+        //public PositionEum PositionId { get; set; }
+        public List<int> PositionId { get; set; }
+
         [Display(Name = "Rank")]
         public RankEum RankId { get; set; }
 
+        [DataType(DataType.Time)]
+        public List<ProductPlan> AvailabledayList { get; set; }
+
+
+
+
+        //public AddgameViewModel()
+        //{
+        //    AvailabledayList = new List<ProductPlan>()
+        //    {
+        //        new ProductPlan{ GameAvailableDay = "Monday" },
+        //        new ProductPlan{ GameAvailableDay = "Tuesday" },
+        //        new ProductPlan{ GameAvailableDay = "Wednesday" },
+        //        new ProductPlan{ GameAvailableDay = "Thursday" },
+        //        new ProductPlan{ GameAvailableDay = "Friday" },
+        //        new ProductPlan{ GameAvailableDay = "Saterday" },
+        //        new ProductPlan{ GameAvailableDay = "Sunday" }
+                
+        //    };
+        //}
+
+
     }
+
+    //public class Availableday
+    //{
+    //    [Display(Name = "Game AvailableDay")]
+    //    public AvailableDayEnum GameAvailableDay { get; set; }
+
+    //    [Display(Name = "Start Time ")]
+    //    [DataType(DataType.Time)]
+    //    public DateTime GameStartTime { get; set; }
+
+    //    [Display(Name = "End Time")]
+    //    [DataType(DataType.Time)]
+    //    public DateTime GameEndTime { get; set; }
+    //}
+
+
+    //public enum AvailableDayEnum
+    //{
+    //    Monday = 1,
+    //    Tuesday = 2,
+    //    Wednesday = 3,
+    //    Thursday = 4,
+    //    Friday = 5,
+    //    Saterday = 6,
+    //    Sunday = 7
+    //}
 
     public enum GameCategoryList
     {
         LOL = 1,
-        NA = 2,
-        LAN = 3,
-        BR = 4,
-        EU_West = 5,
-        EU_NorthEast = 6,
-        EU_NorthEast = 7,
-        EU_NorthEast = 8,
-        EU_NorthEast = 9,
-        EU_NorthEast = 10,
+        EChat = 2,
+        Movie = 3,
+        Valorant = 4,
+        CustomGame = 5,
+        Minecraft = 18,
+        AmongUs = 20,
+        ApexLegends = 22,
+        TeamfightTactics = 23,
+        Overwatch = 24,
+        SleepCall = 25,
+        AnimalCrossing_NewHorizons = 27,
+        ArenaofValor = 28,
+        ARK_SurvivalEvolved = 29,
+        AssassinsCreed_Valhalla = 30,
+        BlackDesertOnline = 31,
+        Borderlands3 = 32,
+        BrawlStars = 33,
+        Brawlhalla = 34,
+        Karaoke = 43,
+        ASMR = 45,
+        Relationshipadvice = 47,
+        Emotionalsupport = 49
     }
 
     public enum ServerEum

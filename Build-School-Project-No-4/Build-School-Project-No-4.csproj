@@ -717,6 +717,7 @@
     <Content Include="Views\CreatorProject\Rule_VoiceRecord.cshtml" />
     <Content Include="Views\CreatorProject\Rule_ListCover.cshtml" />
     <Content Include="Views\CreatorProject\Rule_ScreenshotRules.cshtml" />
+    <Content Include="Views\Shared\_GameDayPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
