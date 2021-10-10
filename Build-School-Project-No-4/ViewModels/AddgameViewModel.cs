@@ -21,7 +21,7 @@ namespace Build_School_Project_No_4.ViewModels
         public DateTime GameEndTime { get; set; }
         public int MemberId { get; set; }
         public int ProductId { get; set; }
-        public int GameCategoryId { get; set; }
+        public GameCategoryList GameCategoryId { get; set; }
 
         public int CreatorId { get; set; }
 
@@ -43,6 +43,20 @@ namespace Build_School_Project_No_4.ViewModels
         [Display(Name = "Rank")]
         public RankEum RankId { get; set; }
 
+    }
+
+    public enum GameCategoryList
+    {
+        LOL = 1,
+        NA = 2,
+        LAN = 3,
+        BR = 4,
+        EU_West = 5,
+        EU_NorthEast = 6,
+        EU_NorthEast = 7,
+        EU_NorthEast = 8,
+        EU_NorthEast = 9,
+        EU_NorthEast = 10,
     }
 
     public enum ServerEum

@@ -100,25 +100,28 @@
                                         <!-- gameTabs -->
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item purple-text-border" role="presentation">
-                                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                                @*<button class="nav-link active" id="home-tab" data-bs-toggle="tab"
                                                         data-bs-target="#home" type="button" role="tab" aria-controls="home"
                                                         aria-selected="true">
-                                                    Hot(19)
-                                                </button>
+                                                    Hot(11)
+                                                </button>*@
+                                                <a class="nav-link active" data-bs-toggle="tab" href="#tab1">Hot(11)</a>
                                             </li>
                                             <li class="nav-item purple-text-border" role="presentation">
-                                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                                @*<button class="nav-link" id="profile-tab" data-bs-toggle="tab"
                                                         data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
                                                         aria-selected="false">
                                                     Games(32)
-                                                </button>
+                                                </button>*@
+                                                <a class="nav-link" data-bs-toggle="tab" href="#tab2">Games(10)</a>
                                             </li>
                                             <li class="nav-item purple-text-border" role="presentation">
-                                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                                @*<button class="nav-link" id="contact-tab" data-bs-toggle="tab"
                                                         data-bs-target="#contact" type="button" role="tab" aria-controls="contact"
                                                         aria-selected="false">
                                                     LifeStyles(10)
-                                                </button>
+                                                </button>*@
+                                                <a class="nav-link" data-bs-toggle="tab" href="#tab3">LifeStyles(6)</a>
                                             </li>
                                         </ul>
 
@@ -127,8 +130,7 @@
                                         <div class="tab-content service-content" id="myTabContent">
 
                                             <!-- Hot(19) -->
-                                            <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                                 aria-labelledby="home-tab">
+                                            <div class="tab-pane fade show active" id="tab1" role="tabpanel">                                              
 
                                                 <!-- list -->
                                                 <div class="list">
@@ -137,7 +139,7 @@
                                                     <label for="game1" class="gamelist">
 
                                                         <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                            <div class="gameActive activeNow"  onclick="changeStyle(this)">
                                                                 <div class="imgMain">
                                                                     <img src="~/Assets/images/ChooseAService/CAS01.jpg"
                                                                          alt="">
@@ -148,22 +150,12 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-
-                                                            <!--<div class="chooseBtn">
-                                                        <div class="chooseBtnImg">-->
-                                                            @*<img class="btnImg" src="~/Assets/images/ChooseAService/V.png" alt="">*@
-                                                            <!--</div>-->
-                                                            @*<span>League of Legends</span>*@
-                                                            <!--</div>
-                                                        <div class="desc"></div>-->
-                                                            <input id="game1" type="radio" name="game" value="League of Legends" checked="checked">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @class="", @id = "game1", @name = "game", @value = "LOL", @checked= "checked"})
                                                             <span>League of Legends</span>
                                                             <div class="desc"></div>
-
                                                         </div>
 
                                                     </label>
-
 
 
 
@@ -182,14 +174,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img class="btnImg" src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>E-Chat</span>
-                                                            </div>*@
-
-                                                            <input id="game2" type="radio" name="game" value="E-Chat">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game2", @name = "game", @value = "E-Chat"})
                                                             <span>E-Chat</span>
                                                             <div class="desc">Chat with clients</div>
 
@@ -212,14 +197,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Movie</span>
-                                                            </div>*@
-
-                                                            <input id="game3" type="radio" name="game" value="Movie">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game3", @name = "game", @value = "Movie" })
                                                             <span>Movie</span>
                                                             <div class="desc">Watch movies together</div>
 
@@ -241,13 +219,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                            </div>*@
-
-                                                            <input id="game4" type="radio" name="game" value="Valorant">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game4", @name = "game", @value = "Valorant" })
                                                             <span>Valorant</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -269,13 +241,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                            </div>*@
-
-                                                            <input id="game5" type="radio" name="game" value="Custom Game">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game5", @name = "game", @value = "CustomGame" })
                                                             <span>Custom Game</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -297,13 +263,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Minecraft</span>
-                                                            </div>*@
-                                                            <input id="game6" type="radio" name="game" value="Minecraft">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game6", @name = "game", @value = "Minecraft" })
                                                             <span>Minecraft</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -325,13 +285,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Among Us</span>
-                                                            </div>*@
-                                                            <input id="game7" type="radio" name="game" value="Among Us">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game7", @name = "game", @value = "AmongUs" })
                                                             <span>Among Us</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -353,13 +307,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Apex Legends</span>
-                                                            </div>*@
-                                                            <input id="game8" type="radio" name="game" value="Apex Legends">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game8", @name = "game", @value = "ApexLegends" })
                                                             <span>Apex Legends</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -381,13 +329,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Teamfight Tactics</span>
-                                                            </div>*@
-                                                            <input id="game9" type="radio" name="game" value="Teamfight Tactics">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game9", @name = "game", @value = "TeamfightTactics" })
                                                             <span>Teamfight Tactics</span>
                                                             <div class="desc"></div>
                                                         </div>
@@ -409,18 +351,13 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Overwatch</span>
-                                                            </div>*@
-                                                            <input id="game10" type="radio" name="game" value="Overwatch">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game10", @name = "game", @value = "Overwatch" })
                                                             <span>Overwatch</span>
                                                             <div class="desc"></div>
                                                         </div>
 
                                                     </label>
+
 
                                                     <label for="game11" class="gamelist">
                                                         <!-- Sleep Call -->
@@ -436,13 +373,7 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Sleep Call</span>
-                                                            </div>*@
-                                                            <input id="game11" type="radio" name="game" value="OverwatchSleep Call">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game11", @name = "game", @value = "OverwatchSleepCall" })
                                                             <span>Sleep Call</span>
                                                             <div class="desc">Read bedtime stories for your customers</div>
                                                         </div>
@@ -450,90 +381,302 @@
                                                     </label>
 
 
-                                                    <label for="game12" class="gamelist">
-                                                        <!-- Emotional support -->
+                                                </div>
+                                            </div>
+
+
+
+                                            <!-- Games(32) -->
+                                            <div class="tab-pane fade" id="tab2" role="tabpanel">
+
+                                                <div class="list">
+
+                                                    <label for="game8" class="gamelist">
+                                                        @*Apex Legends*@
                                                         <div class="gameCard">
                                                             <div class="gameActive activeNow" onclick="changeStyle(this)">
                                                                 <div class="imgMain">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS12.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS19.jpg"
                                                                          alt="">
                                                                 </div>
                                                                 <div class="imgMark"></div>
                                                                 <div class="imgLogo">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS12c.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS19c.jpg"
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Emotional support</span>
-                                                            </div>*@
-                                                            <input id="game12" type="radio" name="game" value="Emotional support">
-                                                            <span>Emotional support</span>
-                                                            <div class="desc">Provide emotional support to people in need</div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game8", @name = "game", @value = "ApexLegends" })
+                                                            <span>Apex Legends</span>
+                                                            <div class="desc"></div>
                                                         </div>
-
                                                     </label>
 
+
+                                                    <label for="game6" class="gamelist">
+                                                        @*Minecraft*@
+                                                        <div class="gameCard">
+                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                <div class="imgMain">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS20.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="imgMark"></div>
+                                                                <div class="imgLogo">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS20c.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game6", @name = "game", @value = "Minecraft" })
+                                                            <span>Minecraft</span>
+                                                            <div class="desc"></div>
+                                                        </div>
+                                                    </label>
+
+
+                                                    <label for="game12" class="gamelist">
+                                                        @*Animal Crossing: New Horizons*@
+                                                        <div class="gameCard">
+                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                <div class="imgMain">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS21.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="imgMark"></div>
+                                                                <div class="imgLogo">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS21c.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game12", @name = "game", @value = "AnimalCrossing_NewHorizons" })
+                                                            <span>Animal Crossing: New Horizons</span>
+                                                            <div class="desc"></div>
+                                                        </div>
+                                                    </label>
 
                                                     <label for="game13" class="gamelist">
-                                                        <!-- Relationship advice -->
+                                                        @*Arena of Valor*@
                                                         <div class="gameCard">
                                                             <div class="gameActive activeNow" onclick="changeStyle(this)">
                                                                 <div class="imgMain">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS14.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS22.jpg"
                                                                          alt="">
                                                                 </div>
                                                                 <div class="imgMark"></div>
                                                                 <div class="imgLogo">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS14c.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS22c.jpg"
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Relationship advice</span>
-                                                            </div>*@
-                                                            <input id="game13" type="radio" name="game" value="Relationship advice">
-                                                            <span>Relationship advice</span>
-                                                            <div class="desc">Share your experience and perspectives</div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game13", @name = "game", @value = "ArenaofValor" })
+                                                            <span>Arena of Valor</span>
+                                                            <div class="desc"></div>
                                                         </div>
-
                                                     </label>
+
 
                                                     <label for="game14" class="gamelist">
-                                                        <!-- Language Exchange -->
+                                                        @*ARK: Survival Evolved*@
                                                         <div class="gameCard">
                                                             <div class="gameActive activeNow" onclick="changeStyle(this)">
                                                                 <div class="imgMain">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS17.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS23.jpg"
                                                                          alt="">
                                                                 </div>
                                                                 <div class="imgMark"></div>
                                                                 <div class="imgLogo">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS17c.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS23c.jpg"
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Language Exchange</span>
-                                                            </div>*@
-                                                            <input id="game14" type="radio" name="game" value="Language Exchange">
-                                                            <span>Language Exchange</span>
-                                                            <div class="desc">Teach clients the languages you speak</div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game14", @name = "game", @value = "ARK_SurvivalEvolved" })
+                                                            <span>ARK: Survival Evolved</span>
+                                                            <div class="desc"></div>
                                                         </div>
                                                     </label>
+
+
 
 
                                                     <label for="game15" class="gamelist">
-                                                        <!-- ASMR -->
+                                                        @*Assassin's Creed: Valhalla*@
+                                                        <div class="gameCard">
+                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                <div class="imgMain">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS24.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="imgMark"></div>
+                                                                <div class="imgLogo">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS24c.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game15", @name = "game", @value = "Assassin'sCreed_Valhalla" })
+                                                            <span>Assassin's Creed: Valhalla</span>
+                                                            <div class="desc"></div>
+                                                        </div>
+                                                    </label>
+
+
+                                                    <label for="game16" class="gamelist">
+                                                        @*Black Desert Online*@
+                                                        <div class="gameCard">
+                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                <div class="imgMain">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS25.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="imgMark"></div>
+                                                                <div class="imgLogo">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS25c.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game16", @name = "game", @value = "BlackDesertOnline" })
+                                                            <span>Black Desert Online</span>
+                                                            <div class="desc"></div>
+                                                        </div>
+                                                    </label>
+
+
+                                                    <label for="game17" class="gamelist">
+                                                        @*Borderlands 3*@
+                                                        <div class="gameCard">
+                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                <div class="imgMain">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS26.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="imgMark"></div>
+                                                                <div class="imgLogo">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS26c.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game17", @name = "game", @value = "Borderlands3" })
+                                                            <span>Borderlands 3</span>
+                                                            <div class="desc"></div>
+                                                        </div>
+                                                    </label>
+
+
+                                                    <label for="game18" class="gamelist">
+                                                        @*Brawl Stars*@
+                                                        <div class="gameCard">
+                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                <div class="imgMain">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS27.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="imgMark"></div>
+                                                                <div class="imgLogo">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS27c.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game18", @name = "game", @value = "BrawlStars" })
+                                                            <span>Brawl Stars</span>
+                                                            <div class="desc"></div>
+                                                        </div>
+                                                    </label>
+
+
+                                                    <label for="game19" class="gamelist">
+                                                        @*Brawlhalla*@
+                                                        <div class="gameCard">
+                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                <div class="imgMain">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS28.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="imgMark"></div>
+                                                                <div class="imgLogo">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS28c.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game19", @name = "game", @value = "Brawlhalla" })
+                                                            <span>Brawlhalla</span>
+                                                            <div class="desc"></div>
+                                                        </div>
+                                                    </label>
+
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                             @*Lifestyles(10)*@
+                                            <div class="tab-pane fade" id="tab3" role="tabpanel">
+
+                                                <div class="list">
+
+                                                    <label for="game2" class="gamelist">
+                                                        @*E-Chat*@
+                                                        <div class="gameCard">
+                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                <div class="imgMain">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS02.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="imgMark"></div>
+                                                                <div class="imgLogo">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS02c.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game2", @name = "game", @value = "E-Chat" })
+                                                            <span>E-Chat</span>
+                                                            <div class="desc">Chat with clients</div>
+                                                        </div>
+                                                    </label>
+
+
+                                                    <label for="game3" class="gamelist">
+                                                        @*Movie*@
+                                                        <div class="gameCard">
+                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                <div class="imgMain">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS04.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="imgMark"></div>
+                                                                <div class="imgLogo">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS04c.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game3", @name = "game", @value = "Movie" })
+                                                            <span>Movie</span>
+                                                            <div class="desc">Watch movies together</div>
+                                                        </div>
+                                                    </label>
+
+                                                    <label for="game20" class="gamelist">
+                                                        @*Karaoke*@
+                                                        <div class="gameCard">
+                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
+                                                                <div class="imgMain">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS15.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="imgMark"></div>
+                                                                <div class="imgLogo">
+                                                                    <img src="~/Assets/images/ChooseAService/CAS15c.jpg"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game20", @name = "game", @value = "Karaoke" })
+                                                            <span>Karaoke</span>
+                                                            <div class="desc">Sing with each other</div>
+                                                        </div>
+                                                    </label>
+
+
+                                                    <label for="game21" class="gamelist">
+                                                        @*ASMR*@
                                                         <div class="gameCard">
                                                             <div class="gameActive activeNow" onclick="changeStyle(this)">
                                                                 <div class="imgMain">
@@ -546,1031 +689,58 @@
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>ASMR</span>
-                                                            </div>*@
-                                                            <input id="game15" type="radio" name="game" value="ASMR">
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game21", @name = "game", @value = "ASMR" })
                                                             <span>ASMR</span>
-                                                            <div class="desc">
-                                                                Gentle whisper to your client, excellent mic is required
-                                                            </div>
+                                                            <div class="desc">Gentle whisper to your client, excellent mic is required</div>
                                                         </div>
                                                     </label>
 
-                                                    <label for="game16" class="gamelist">
-                                                        <!-- Hearthstone -->
+
+                                                    <label for="game22" class="gamelist">
+                                                        @*Relationship advice*@
                                                         <div class="gameCard">
                                                             <div class="gameActive activeNow" onclick="changeStyle(this)">
                                                                 <div class="imgMain">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS51.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS14.jpg"
                                                                          alt="">
                                                                 </div>
                                                                 <div class="imgMark"></div>
                                                                 <div class="imgLogo">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS51c.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS14c.jpg"
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Hearthstone</span>
-                                                            </div>*@
-                                                            <input id="game16" type="radio" name="game" value="Hearthstone">
-                                                            <span>Hearthstone</span>
-                                                            <div class="desc"></div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game22", @name = "game", @value = "Relationshipadvice" })
+                                                            <span>Relationship advice</span>
+                                                            <div class="desc">Share your experience and perspectives</div>
                                                         </div>
-
                                                     </label>
 
 
-                                                    <label for="game17" class="gamelist">
-                                                        <!-- Heroes of the Storm -->
+                                                    <label for="game23" class="gamelist">
+                                                        @*Emotional support*@
                                                         <div class="gameCard">
                                                             <div class="gameActive activeNow" onclick="changeStyle(this)">
                                                                 <div class="imgMain">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS52.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS12.jpg"
                                                                          alt="">
                                                                 </div>
                                                                 <div class="imgMark"></div>
                                                                 <div class="imgLogo">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS52c.jpg"
+                                                                    <img src="~/Assets/images/ChooseAService/CAS12c.jpg"
                                                                          alt="">
                                                                 </div>
                                                             </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Heroes of the Storm</span>
-                                                            </div>*@
-                                                            <input id="game17" type="radio" name="game" value="Heroes of the Storm">
-                                                            <span>Heroes of the Storm</span>
-                                                            <div class="desc"></div>
-                                                        </div>
-
-                                                    </label>
-
-
-                                                    <label for="game18" class="gamelist">
-                                                        <!-- Humans Fall Flat -->
-                                                        <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                                <div class="imgMain">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS53.jpg"
-                                                                         alt="">
-                                                                </div>
-                                                                <div class="imgMark"></div>
-                                                                <div class="imgLogo">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS53c.jpg"
-                                                                         alt="">
-                                                                </div>
-                                                            </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Humans Fall Flat</span>
-                                                            </div>*@
-                                                            <input id="game18" type="radio" name="game" value="Humans Fall Flat">
-                                                            <span>Humans Fall Flat</span>
-                                                            <div class="desc"></div>
-                                                        </div>
-
-                                                    </label>
-
-
-                                                    <label for="game19" class="gamelist">
-                                                        <!-- Identity V -->
-                                                        <div class="gameCard">
-                                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                                <div class="imgMain">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS54.jpg"
-                                                                         alt="">
-                                                                </div>
-                                                                <div class="imgMark"></div>
-                                                                <div class="imgLogo">
-                                                                    <img src="~/Assets/images/ChooseAService/CAS54c.jpg"
-                                                                         alt="">
-                                                                </div>
-                                                            </div>
-                                                            @*<div class="chooseBtn">
-                                                                <div class="chooseBtnImg">
-                                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                                </div>
-                                                                <span>Identity V</span>
-                                                            </div>*@
-                                                            <input id="game19" type="radio" name="game" value="Identity V">
-                                                            <span>Identity V</span>
-                                                            <div class="desc"></div>
+                                                            @Html.RadioButtonFor(model => model.addgame.GameCategoryId, "", new { @id = "game23", @name = "game", @value = "Emotionalsupport" })
+                                                            <span>Emotional support</span>
+                                                            <div class="desc">Provide emotional support to people in need</div>
                                                         </div>
                                                     </label>
 
 
                                                 </div>
-                                            </div>
-
-
-
-                                            <!-- Games(32) -->
-                                            <!--<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div class="list">-->
-                                            <!-- Apex Legends -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS19.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS19c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Apex Legends</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Minecraft -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS20.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS20c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Minecraft</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Animal Crossing: New Horizons -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS21.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS21c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Animal Crossing: New Horizons</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Arena of Valor -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS22.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS22c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Arena of Valor</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- ARK: Survival Evolved -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS23.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS23c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>ARK: Survival Evolved</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Assassin's Creed: Valhalla -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS24.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS24c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Assassin's Creed: Valhalla</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Black Desert Online -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS25.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS25c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Black Desert Online</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Borderlands 3 -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS26.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS26c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Borderlands 3</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Brawl Stars -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS27.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS27c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Brawl Stars</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Brawlhalla -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS28.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS28c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Brawlhalla</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Call of Duty -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS29.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS29c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Call of Duty</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Call of Duty®: Mobile - Garena -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS30.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS30c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Call of Duty®: Mobile - Garen</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- CS:GO -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS31.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS31c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>CS:GO</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Cyberpunk 2077 -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS32.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS32c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Cyberpunk 2077</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Dead by Daylight -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS33.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS33c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Dead by Daylight</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Destiny 2 -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS34.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS34c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Destiny 2</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Division 2 -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS35.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS35c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Division 2</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Don't Starve Together -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS36.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS36c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Don't Starve Together</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Dota 2 -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS37.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS37c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Dota 2</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Escape From Tarkov -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS38.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS38c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Escape From Tarkov</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Eternal Return: Black Survival -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS39.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS39c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Eternal Return: Black Survival</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Fall Guys -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS40.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS40c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Fall Guys</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- FIFA -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS41.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS41c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>FIFA</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Final Fantasy XIV Online -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS42.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS42c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Final Fantasy XIV Online</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Fortnite -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS43.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS43c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Fortnite</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Fortnite: Mobile -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS44.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS44c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Fortnite: Mobile</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Free Fire -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS45.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS45c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Free Fire</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Genshin Impact -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS46.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS46c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Genshin Impact</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Golf with your friends -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS47.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS47c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Golf with your friends</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Grand Theft Auto V -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS48.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS48c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Grand Theft Auto V</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Gwent -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS49.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS49c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Gwent</span>
-                                            </div>
-                                            <div class="desc"></div>
-                                        </div>-->
-                                            <!-- Halo MCC -->
-                                            <!--<div class="gameCard">
-                                                    <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                        <div class="imgMain">
-                                                            <img src="~/Assets/images/ChooseAService/CAS50.jpg"
-                                                                 alt="">
-                                                        </div>
-                                                        <div class="imgMark"></div>
-                                                        <div class="imgLogo">
-                                                            <img src="~/Assets/images/ChooseAService/CAS50c.jpg"
-                                                                 alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="chooseBtn">
-                                                        <div class="chooseBtnImg">
-                                                            <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                        </div>
-                                                        <span>Halo MCC</span>
-                                                    </div>
-                                                    <div class="desc"></div>
-                                                </div>
-                                            </div>
-                                        </div>-->
-                                            <!-- Lifestyles(10) -->
-                                            <!--<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                        <div class="list">-->
-                                            <!-- E-Chat -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS02.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS02c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>E-Chat</span>
-                                            </div>
-                                            <div class="desc">Chat with clients</div>
-                                        </div>-->
-                                            <!-- Movie -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS04.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS04c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Movie</span>
-                                            </div>
-                                            <div class="desc">Watch movies together</div>
-                                        </div>-->
-                                            <!-- Karaoke -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS15.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS15c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Karaoke</span>
-                                            </div>
-                                            <div class="desc">Sing with each other</div>
-                                        </div>-->
-                                            <!-- ASMR -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS18.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS18c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>ASMR</span>
-                                            </div>
-                                            <div class="desc">
-                                                Gentle whisper to your client, excellent mic is required
-                                            </div>
-                                        </div>-->
-                                            <!-- Relationship advice -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS14.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS14c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Relationship advice</span>
-                                            </div>
-                                            <div class="desc">Share your experience and perspectives</div>
-                                        </div>-->
-                                            <!-- Emotional support -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS12.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS12c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Emotional support</span>
-                                            </div>
-                                            <div class="desc">Provide emotional support to people in need</div>
-                                        </div>-->
-                                            <!-- Wake-up call -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS16.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS16c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Wake-up call</span>
-                                            </div>
-                                            <div class="desc">Call and wake up your client at an agreed time</div>
-                                        </div>-->
-                                            <!-- Sleep Call -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS11.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS11c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Sleep Call</span>
-                                            </div>
-                                            <div class="desc">Read bedtime stories for your customers</div>
-                                        </div>-->
-                                            <!-- Drawing -->
-                                            <!--<div class="gameCard">
-                                            <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                <div class="imgMain">
-                                                    <img src="~/Assets/images/ChooseAService/CAS13.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="imgMark"></div>
-                                                <div class="imgLogo">
-                                                    <img src="~/Assets/images/ChooseAService/CAS13c.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="chooseBtn">
-                                                <div class="chooseBtnImg">
-                                                    <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                </div>
-                                                <span>Drawing</span>
-                                            </div>
-                                            <div class="desc">Draw something for your clients</div>
-                                        </div>-->
-                                            <!-- Language Exchange -->
-                                            <!--<div class="gameCard">
-                                                    <div class="gameActive activeNow" onclick="changeStyle(this)">
-                                                        <div class="imgMain">
-                                                            <img src="~/Assets/images/ChooseAService/CAS17.jpg"
-                                                                 alt="">
-                                                        </div>
-                                                        <div class="imgMark"></div>
-                                                        <div class="imgLogo">
-                                                            <img src="~/Assets/images/ChooseAService/CAS17c.jpg"
-                                                                 alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="chooseBtn">
-                                                        <div class="chooseBtnImg">
-                                                            <img src="~/Assets/images/ChooseAService/V.png" alt="">
-                                                        </div>
-                                                        <span>Language Exchange</span>
-                                                    </div>
-                                                    <div class="desc">Teach clients the languages you speak</div>
-                                                </div>
 
                                             </div>
-                                        </div>-->
 
 
 
@@ -1585,8 +755,7 @@
                         </div>
                     </div>
                 </div>
-                @*<button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>*@
-                @*<button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>*@
+
             </div>
 
 
@@ -1596,7 +765,7 @@
                 <div class="epalPage2">
                     <div class="page2Wrapper">
                         <div class="content">
-                            <div class="title">Basic Information ( 2/3 )</div>
+                            <div class="title">Basic Information( 2/3 )</div>
 
                             <!-- page2Loading -->
                             <div class="page2Loading">
@@ -1604,7 +773,7 @@
                                     <div class="addForm">
                                         <p class="desc">
                                             The information you submit will not be disclosed to third parties, and we
-                                            promise to keep your information absolutely confidential
+                                                promise to keep your information absolutely confidential
                                         </p>
                                     </div>
                                 </div>
@@ -1615,182 +784,182 @@
                                 <div class="formMain">
                                     <!-- State -->
                                     <!--<p>State</p>
-                                <select autocomplete=off class="form-select" aria-label="Default select example">
-                                    <option value="1" selected>Set yourself to Online (ready to take orders)</option>
-                                    <option value="2">Set yourself to Offline (not ready to take orders)</option>
+                                <select autocomplete = off class="form-select" aria-label="Default select example">
+                                    <option value = "1" selected>Set yourself to Online(ready to take orders)</option>
+                                    <option value = "2" > Set yourself to Offline(not ready to take orders)</option>
                                 </select>-->
-                                    <!-- Price -->
-                                    <!--<p>Price</p>
-                                <div class="priceSelect">
-                                    <form class="row row-cols-lg-auto g-3 align-items-center">
-                                        <div class="col-12-1">
-                                            <label class="visually-hidden" for="inlineFormInputGroupUsername">2</label>
-                                            <div class="input-group">
-                                                <div class="input-group-text">
-                                                    <img src="~/Assets/images/addgame/price.png"
-                                                         alt="priceIcon">
+                                                <!-- Price -->
+                                                <!--<p>Price</p>
+    <div class="priceSelect">
+        <form class="row row-cols-lg-auto g-3 align-items-center">
+            <div class="col-12-1">
+                <label class="visually-hidden" for="inlineFormInputGroupUsername">2</label>
+                <div class="input-group">
+                    <div class="input-group-text">
+                        <img src="~/Assets/images/addgame/price.png"
+                             alt="priceIcon">
+                    </div>
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername"
+                           placeholder="2">
+                </div>
+            </div>
+
+            <div class="col-12-2">
+                <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+                <select class="form-select" id="inlineFormSelectPref">
+                    <option value="1">/Game</option>
+                    <option value="2">/15Min</option>
+                    <option value="3">/30Min</option>
+                    <option value="4">/Hour</option>
+                    <option value="5">/Time</option>
+                </select>
+            </div>
+
+            <div class="servicePriceQue">
+                <div class="icon">
+                    ?
+                    <span class="tooltiptext">
+                        You can filter based on price per game, hour. and half
+                        hour.
+                        <br>
+                        <br> Price breakdown:
+                        <br> The price range is between 2.00 to 999.99.
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>-->
+
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.addgame.UnitPrice, htmlAttributes: new { @class = "control-label col-md-6" })
+                                                    <div class="col-md-6">
+                                                        @Html.EditorFor(model => model.addgame.UnitPrice, new { htmlAttributes = new { @class = "form-control", placeholder = "please enter price per game" } })
+                                                        @Html.ValidationMessageFor(model => model.addgame.UnitPrice, "", new { @class = "text-danger" })
+                                                    </div>
                                                 </div>
-                                                <input type="text" class="form-control" id="inlineFormInputGroupUsername"
-                                                       placeholder="2">
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.addgame.GameAvailableDay, htmlAttributes: new { @class = "control-label col-md-6" })
+                                                    <div class="col-md-6">
+                                                        @Html.EditorFor(model => model.addgame.GameAvailableDay, new { htmlAttributes = new { @class = "form-control", placeholder = "please enter Mon to Sun" } })
+                                                        @Html.ValidationMessageFor(model => model.addgame.GameAvailableDay, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.addgame.GameStartTime, htmlAttributes: new { @class = "control-label col-md-6" })
+                                                    <div class="col-md-6">
+                                                        @Html.EditorFor(model => model.addgame.GameStartTime, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.addgame.GameStartTime, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.addgame.GameEndTime, htmlAttributes: new { @class = "control-label col-md-6" })
+                                                    <div class="col-md-6">
+                                                        @Html.EditorFor(model => model.addgame.GameEndTime, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.addgame.GameEndTime, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+
+                                                <!-- Timepicker -->
+                                                <!--<p>Availability</p>
+    <div class="timePickerWrapper">
+        <label for="date">Mon</label>
+        <div class="apptTime">
+            <p>
+                Start :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+            <p>
+                End :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+        </div>
+    </div>
+    <div class="timePickerWrapper">
+        <label for="date">Tue</label>
+        <div class="apptTime">
+            <p>
+                Start :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+            <p>
+                End :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+        </div>
+    </div>
+    <div class="timePickerWrapper">
+        <label for="date">Wed</label>
+        <div class="apptTime">
+            <p>
+                Start :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+            <p>
+                End :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+        </div>
+    </div>
+    <div class="timePickerWrapper">
+        <label for="date">Thu</label>
+        <div class="apptTime">
+            <p>
+                Start :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+            <p>
+                End :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+        </div>
+    </div>
+    <div class="timePickerWrapper">
+        <label for="date">Fri</label>
+        <div class="apptTime">
+            <p>
+                Start :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+            <p>
+                End :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+        </div>
+    </div>
+    <div class="timePickerWrapper">
+        <label for="date">Sat</label>
+        <div class="apptTime">
+            <p>
+                Start :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+            <p>
+                End :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+        </div>
+    </div>
+    <div class="timePickerWrapper">
+        <label for="date">Sun</label>
+        <div class="apptTime">
+            <p>
+                Start :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+            <p>
+                End :
+                <input type="time" name="apptTimepicker" class="apptTimepicker">
+            </p>
+        </div>
+    </div>-->
+
+
                                             </div>
-                                        </div>
-
-                                        <div class="col-12-2">
-                                            <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-                                            <select class="form-select" id="inlineFormSelectPref">
-                                                <option value="1">/Game</option>
-                                                <option value="2">/15Min</option>
-                                                <option value="3">/30Min</option>
-                                                <option value="4">/Hour</option>
-                                                <option value="5">/Time</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="servicePriceQue">
-                                            <div class="icon">
-                                                ?
-                                                <span class="tooltiptext">
-                                                    You can filter based on price per game, hour. and half
-                                                    hour.
-                                                    <br>
-                                                    <br> Price breakdown:
-                                                    <br> The price range is between 2.00 to 999.99.
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>-->
-
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.addgame.UnitPrice, htmlAttributes: new { @class = "control-label col-md-6" })
-                                        <div class="col-md-6">
-                                            @Html.EditorFor(model => model.addgame.UnitPrice, new { htmlAttributes = new { @class = "form-control", placeholder = "please enter price per game" } })
-                                            @Html.ValidationMessageFor(model => model.addgame.UnitPrice, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.addgame.GameAvailableDay, htmlAttributes: new { @class = "control-label col-md-6" })
-                                        <div class="col-md-6">
-                                            @Html.EditorFor(model => model.addgame.GameAvailableDay, new { htmlAttributes = new { @class = "form-control", placeholder = "please enter Mon to Sun" } })
-                                            @Html.ValidationMessageFor(model => model.addgame.GameAvailableDay, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.addgame.GameStartTime, htmlAttributes: new { @class = "control-label col-md-6" })
-                                        <div class="col-md-6">
-                                            @Html.EditorFor(model => model.addgame.GameStartTime, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.addgame.GameStartTime, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.addgame.GameEndTime, htmlAttributes: new { @class = "control-label col-md-6" })
-                                        <div class="col-md-6">
-                                            @Html.EditorFor(model => model.addgame.GameEndTime, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.addgame.GameEndTime, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-
-                                    <!-- Timepicker -->
-                                    <!--<p>Availability</p>
-                                <div class="timePickerWrapper">
-                                    <label for="date">Mon</label>
-                                    <div class="apptTime">
-                                        <p>
-                                            Start :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                        <p>
-                                            End :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="timePickerWrapper">
-                                    <label for="date">Tue</label>
-                                    <div class="apptTime">
-                                        <p>
-                                            Start :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                        <p>
-                                            End :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="timePickerWrapper">
-                                    <label for="date">Wed</label>
-                                    <div class="apptTime">
-                                        <p>
-                                            Start :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                        <p>
-                                            End :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="timePickerWrapper">
-                                    <label for="date">Thu</label>
-                                    <div class="apptTime">
-                                        <p>
-                                            Start :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                        <p>
-                                            End :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="timePickerWrapper">
-                                    <label for="date">Fri</label>
-                                    <div class="apptTime">
-                                        <p>
-                                            Start :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                        <p>
-                                            End :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="timePickerWrapper">
-                                    <label for="date">Sat</label>
-                                    <div class="apptTime">
-                                        <p>
-                                            Start :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                        <p>
-                                            End :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="timePickerWrapper">
-                                    <label for="date">Sun</label>
-                                    <div class="apptTime">
-                                        <p>
-                                            Start :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                        <p>
-                                            End :
-                                            <input type="time" name="apptTimepicker" class="apptTimepicker">
-                                        </p>
-                                    </div>
-                                </div>-->
-
-
-                                </div>
                             </div>
                         </div>
                     </div>
