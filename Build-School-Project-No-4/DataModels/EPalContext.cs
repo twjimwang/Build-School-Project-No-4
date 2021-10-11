@@ -10,6 +10,7 @@ namespace Build_School_Project_No_4.DataModels
         public EPalContext()
             : base("name=EPalContext")
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
 
         public virtual DbSet<Chatlist> Chatlist { get; set; }

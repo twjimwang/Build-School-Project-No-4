@@ -9,13 +9,18 @@ let maillog = document.querySelector('.maillog');
 let phonelog = document.querySelector('.phonelog');
 let mobileicon = document.querySelector('.fa-mobile');
 let mailicon = document.querySelector('.fa-envelope');
-let logsignBtn = document.querySelector('#loginbutton');
-//let signupBtn = document.querySelector('.signupbutton');
+let logsignBtn = document.querySelectorAll('.loginbutton');
 let msgicon = document.querySelectorAll('.message-icon-bk');
 let msgiconCl = document.querySelectorAll('.message-icon-cl');
 let msgListTitle = document.querySelector('#message-list-title');
 let msgClose = document.querySelector('.msg-close');
 let msgdropdown = document.querySelector('.dropdown-menu');
+let forgetpass = document.querySelector('.forgetpass');
+let logsignTabContent = document.querySelectorAll('.logsignTabContent');
+let hometab = document.querySelector('#home');
+let profiletab = document.querySelector('#profile');
+let validate = document.querySelectorAll('.form-group span');
+
 
 let logsigntab = document.querySelectorAll('.logsign-tab');
 let logsigntitle = document.querySelector('.logsign-title');
@@ -30,6 +35,7 @@ let searchbar = document.querySelector('.search input');
 let statusbar = document.querySelector('.statusbar');
 let statuslistbtn = document.querySelectorAll('.aside-Menu .dropdown-menu button');
 
+
 let email = document.querySelector(".emailinput");
 /*let password = document.querySelector(".passwordinput");*/
 let logsignmodalbtn = document.querySelector('.logsign-modal-button');
@@ -37,33 +43,31 @@ let logsignmodalbtn = document.querySelector('.logsign-modal-button');
 let mailerror = document.getElementById('email-error');
 let passerror = document.getElementById('myinput-error');
 let valerror = document.querySelectorAll(".field-validation-error");
+//let isRequestAuthenticated = ' @Request.IsAuthenticated';
 
 
 window.onload = function () {
+    ////BS validation
+    //// Example starter JavaScript for disabling form submissions if there are invalid fields
+    //(function () {
+    //    'use strict'
 
-    if (localStorage.getItem("loginEmail") == null) {
-        logsignmodalbtn.style.display = "block";
-    } else {
-        logsignmodalbtn.style.display = "none";
-    }
-    //signupBtn.addEventListener('click', function () {
-    //    localStorage.setItem("signupEmail", email.value);
-    //})
+    //    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //    var forms = document.querySelectorAll('.needs-validation')
 
-    //let loginData = {
-    //    email: email,
-    //    password: password
-    //}
-    logsignBtn.addEventListener('click', function () {
-/*        if (localStorage.getItem("login") == null) {*/
-        localStorage.setItem("loginEmail", email.value);
-/*        }*/
-        //else {
-        //    loginarray = JSON.parse(localStorage.getItem("login"));    
-        //}
-    })
+    //    // Loop over them and prevent submission
+    //    Array.prototype.slice.call(forms)
+    //        .forEach(function (form) {
+    //            form.addEventListener('submit', function (event) {
+    //                if (!form.checkValidity()) {
+    //                    event.preventDefault()
+    //                    event.stopPropagation()
+    //                }
 
-
+    //                form.classList.add('was-validated')
+    //            }, false)
+    //        })
+    //})()
 
 
 
@@ -80,74 +84,200 @@ window.onload = function () {
 
 
 
+
+
     //login / signup modal
     modalbtn.forEach((btn, idx) => {
         logsigntab[idx].classList.remove('logsign-purple-border');
 
-        btn.addEventListener('click', function (event) {
+        //logsignTabContent[idx].classList.remove('show', 'active');
+        //logsigntab[idx].classList.remove('active');    
 
+
+        logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
+        //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
+        modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
+
+        //if (!isRequestAuthenticated)
+        $('#loginmodal').trigger('click');
+
+
+        btn.addEventListener('click', function (event) {
             //初始化modal打開樣式
             logsigntab[idx].classList.add('logsign-purple-border');
-            logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign in and experience ePal services for free";
+
+            logsigntab[idx].classList.add('active');
+            logsignTabContent[idx].classList.add('show', 'active');
+
+
+            logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
             //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
             modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
-            logsignBtn.innerHTML = idx === 0 ? "Log In" : "Sign Up";
-            maillog.style.display = 'block';
 
-            //登入驗證errormsg清除
-            document.querySelectorAll(".field-validation-error").forEach(item => {
-                item.innerText = "";
-            })
+            //if (idx === 0) { logsignBtn[0].value = "Log In"; }
+            //else if (idx === 1) { logsignBtn[1].value = "Sign Up"; }
+
+            //maillog.style.display = 'block';
+
+            ////登入驗證errormsg清除
+            //document.querySelectorAll(".field-validation-error").forEach(item => {
+            //    item.innerText = "";
+            //})
 
 
             logsigntab.forEach((item, index) => {
+
+
+                //if ( (idx == 0 && index == 0) || (idx == 1 && index == 0) ) {
+                //    hometab.style.display = "block";
+                //    profiletab.style.display = "none";
+                //}
+                //else if ((idx == 1 && index == 1) || (idx == 0 && index == 1)) {
+                //    hometab.style.display = "none";
+                //    profiletab.style.display = "block";
+                //}
+
                 //modal裡面按下不同tab，執行各自的purple border
                 item.addEventListener('click', function (event) {
                     // maillog.style.display = 'block';
 
-                    //登入驗證errormsg清除
-                    document.querySelectorAll(".field-validation-error").forEach(item => {
-                        item.innerText = "";
-                    })
+                    ////登入驗證errormsg清除
+                    //document.querySelectorAll(".field-validation-error").forEach(item => {
+                    //    item.innerText = "";
+                    //})
+
+                    //if ((idx == 0 && index == 0) || (idx == 1 && index == 0)) {
+                    //    hometab.style.display = "block";
+                    //    profiletab.style.display = "none";
+                    //}
+                    //else if ((idx == 1 && index == 1) || (idx == 0 && index == 1)) {
+                    //    hometab.style.display = "none";
+                    //    profiletab.style.display = "block";
+                    //}
 
 
                     item.classList.remove('logsign-purple-border');
+
                     logsigntab.forEach(e => {
                         e.classList.remove('logsign-purple-border');
                         logsigntitle.innerHTML = index === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
                         //modalfooter.style.display = index === 0 ? 'flex' : 'none';
                         modalfooterP.innerHTML = index === 0 ? 'Or log in with' : 'Or sign up with';
-                        logsignBtn.innerHTML = index === 0 ? "Log In" : "Sign Up";
+
+                        //if (index === 0) { logsignBtn[0].value = "Log In"; }
+                        //else if (index === 1) { logsignBtn[1].value = "Sign Up"; }
+
+                        //e.classList.remove('show', 'active');
+
                     })
                     event.srcElement.classList.add('logsign-purple-border');
+                    //event.srcElement.classList.add('show', 'active');
+
+                    //modal關閉後清除purple border
+                    modalbtnclose.addEventListener('click', function (event) {
+                        item.classList.remove('logsign-purple-border');
+                        logsignTabContent[index].classList.remove('show', 'active');
+                        logsigntab[index].classList.remove('active');
+                        //idx == "";
+                        //index == "";
+                        //validate.forEach(item => {
+                        //    item.innerHTML = "";
+                        //})
+                    })
+
                 })
-                //modal關閉後清除purple border
-                modalbtnclose.addEventListener('click', function (event) {
-                    item.classList.remove('logsign-purple-border');
-                })
+
             })
         })
+
+
     })
     $('#myModal').modal({ backdrop: 'static', keyboard: false });
 
 
 
+    ////login / signup modal(備份)
+    //modalbtn.forEach((btn, idx) => {
+    //    logsigntab[idx].classList.remove('logsign-purple-border');
+
+    //    logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
+    //    //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
+    //    modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
+
+    //    if (idx === 0) { logsignBtn[0].value = "Log In"; }
+    //    else if (idx === 1) { logsignBtn[1].value = "Sign Up"; }
+    //    //logsignBtn[0].value = "Log In";
+    //    //logsignBtn[1].value = "Sign Up";
+    //    //logsignBtn[idx].value = idx === 0 ? "Log In" : "Sign Up";
+
+
+    //    btn.addEventListener('click', function (event) {
+    //        //初始化modal打開樣式
+    //        logsigntab[idx].classList.add('logsign-purple-border');
+    //        logsigntitle.innerHTML = idx === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
+    //        //modalfooter.style.display = idx === 0 ? 'flex' : 'none';
+    //        modalfooterP.innerHTML = idx === 0 ? 'Or log in with' : 'Or sign up with';
+
+    //        if (idx === 0) { logsignBtn[0].value = "Log In"; }
+    //        else if (idx === 1) { logsignBtn[1].value = "Sign Up"; }
+    //        //logsignBtn[0].value = "Log In";
+    //        //logsignBtn[1].value = "Sign Up";
+    //        //logsignBtn[idx].value = idx === 0 ? "Log In" : "Sign Up";
+
+    //        maillog.style.display = 'block';
+
+    //        ////登入驗證errormsg清除
+    //        //document.querySelectorAll(".field-validation-error").forEach(item => {
+    //        //    item.innerText = "";
+    //        //})
+
+
+    //        logsigntab.forEach((item, index) => {
+
+    //            //modal裡面按下不同tab，執行各自的purple border
+    //            item.addEventListener('click', function (event) {
+    //                // maillog.style.display = 'block';
+
+    //                ////登入驗證errormsg清除
+    //                //document.querySelectorAll(".field-validation-error").forEach(item => {
+    //                //    item.innerText = "";
+    //                //})
+
+
+
+    //                item.classList.remove('logsign-purple-border');
+    //                logsigntab.forEach(e => {
+    //                    e.classList.remove('logsign-purple-border');
+    //                    logsigntitle.innerHTML = index === 0 ? "Log in and experience ePal services for free" : "Sign up and experience ePal services for free";
+    //                    //modalfooter.style.display = index === 0 ? 'flex' : 'none';
+    //                    modalfooterP.innerHTML = index === 0 ? 'Or log in with' : 'Or sign up with';
+
+    //                    if (idx === 0) { logsignBtn[0].value = "Log In"; }
+    //                    else if (idx === 1) { logsignBtn[1].value = "Sign Up"; }
+    //                    //logsignBtn[0].value = "Log In";
+    //                    //logsignBtn[1].value = "Sign Up";
+    //                    //logsignBtn[idx].value = idx === 0 ? "Log In" : "Sign Up";
+
+    //                })
+    //                event.srcElement.classList.add('logsign-purple-border');
+    //            })
+    //            //modal關閉後清除purple border
+    //            modalbtnclose.addEventListener('click', function (event) {
+    //                item.classList.remove('logsign-purple-border');
+    //            })
+    //        })
+    //    })
+    //})
+    //$('#myModal').modal({ backdrop: 'static', keyboard: false });
+
+
+}
 
 
 
 
-////modal password hide/show
-//function Password() {
-//    passinput.forEach((input, idx) => {
-//        if (input.type === "password") {
-//            input.type = "text";
-//            passshow[idx].value = "hide";
-//        } else {
-//            input.type = "password";
-//            passshow[idx].value = "show";
-//        }
-//    })
-//}
+
+
 
 //modal password hide/show
 passinput.forEach((input, idx) => {
@@ -265,61 +395,3 @@ statuslistbtn.forEach((stabtn, idx) => {
 
 
 
-    //< button type = "button" class="btn btn-secondary" data - bs - dismiss="modal" id = "loginbutton" disabled = "true" >
-    //    Log In
-    //                        </button >
-//let mailinput = document.querySelectorAll('.emailinput');
-//let passinput = document.querySelectorAll('.passwordinput');
-
-//logsignBtn.forEach((btn,idx), function () {
-
-//    if (mailinput[idx] != "" && passinput[idx] != "")
-//    {
-//        logsignBtn[idx].disabled = false;
-//    }
-//})
-
-
-//$(function () {
-
-//    $("#logsignform").validate({
-//        rules: {
-//            email: {
-//                required: true,
-//                email: true
-//            },
-//            myinput: "required"
-//        },
-//        messages: {
-//            email: {
-//                required: "Please enter your Email",
-//                email: "Email format is not true"
-//            },
-//            myinput: "Please enter your password"
-//        },
-//        //submitHandler: function (logsignform) {
-//        //    form.submit();
-//        //}
-//    });
-//});
-
-
-    //(function () {
-    //    'use strict'
-
-    //    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    //    var forms = document.querySelectorAll('.needs-validation')
-
-    //    // Loop over them and prevent submission
-    //    Array.prototype.slice.call(forms)
-    //        .forEach(function (form) {
-    //            form.addEventListener('submit', function (event) {
-    //                if (!form.checkValidity()) {
-    //                    event.preventDefault()
-    //                    event.stopPropagation()
-    //                }
-
-    //                form.classList.add('was-validated')
-    //            }, false)
-    //        })
-    //})()
