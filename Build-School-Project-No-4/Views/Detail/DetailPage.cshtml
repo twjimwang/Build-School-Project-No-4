@@ -1,8 +1,6 @@
 ﻿@model Build_School_Project_No_4.ViewModels.GroupViewModel
 @{
     ViewBag.Title = "DetailPage";
-    //var prod = Model.Deets;
-    //var price = Model.Deets.UnitPrice.ToString("N2");
 }
 @section topCSS{
 
@@ -208,7 +206,7 @@
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="col-3 ">
                                 <div class="game-img">
-                                    <img src="~/Assets/images/detail/card_lol_m@2x.png" />
+                                    <img src="@Model.Deets.MobileGameImg" />
                                 </div>
                             </div>
                             <div class="col-9 ">
