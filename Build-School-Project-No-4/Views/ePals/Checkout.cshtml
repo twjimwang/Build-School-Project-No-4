@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Checkout";
     //var ck = Model.Checkout;
+    var startTime = Model.Checkout.StartTime.ToString("MM/dd/yyyy hh:mm tt");
 }
 @section topCSS{
     <link href="~/Assets/css/checkout.css" rel="stylesheet" />
@@ -30,7 +31,7 @@
 
                     <div class="start-info">
                         <div class="greyish">Start Time:</div>
-                        <div class="start-time desc">@Model.Checkout.StartTime</div>
+                        <div class="start-time desc">@startTime</div>
                     </div>
 
                     <div class="unit-price">
@@ -82,19 +83,23 @@
 
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="total-div">
-                    <div class="total-price">Total Price</div>
-                    <div class="price-total price-total-txt">$8.20</div>
-                    <div class="checkout-btn-div">
-                        <button class="checkout-btn">Checkout</button>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-12">
+                    <div class="total-div">
+                        <div class="total-price">Total Price</div>
+                        <div class="price-total price-total-txt">$8.20</div>
+                        <div class="checkout-btn-div">
+                            <button class="checkout-btn" type="submit">Checkout</button>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
+        }
+
     </div>
 </div>
 

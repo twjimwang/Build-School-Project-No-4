@@ -56,6 +56,10 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult NotFound()
         {
             return View();
@@ -112,11 +116,10 @@ namespace Build_School_Project_No_4.Controllers
             };
             return View(groupVM);
         }
-        //[HttpPost]
-        //public ActionResult Checkout(GroupViewModel x, string confirmation)
-        //{
-        //    int i = 0;
-        //    return View("Index");
-        //}
+        [HttpPost]
+        public ActionResult Checkout(GroupViewModel x, string confirmation)
+        {
+            return View("Index");
+        }
     }
 }
