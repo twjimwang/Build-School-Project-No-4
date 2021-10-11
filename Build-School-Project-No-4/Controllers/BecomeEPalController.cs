@@ -38,7 +38,8 @@ namespace Build_School_Project_No_4.Controllers
             };
             AddgameViewModel addVM = new AddgameViewModel()
             {
-                AvailabledayList = new List<ProductPlan>(),
+                planset = new List<ProductPlan>(),
+                //AvailabledayList = new List<ProductPlan>(),
                 //UnitPrice = decimal.Parse(string.Empty)
             };
 
@@ -53,9 +54,10 @@ namespace Build_School_Project_No_4.Controllers
                 new ProductPlan{ GameAvailableDay = "Sunday", GameStartTime = null, GameEndTime=null }
             };
 
-            addgame.addgame.AvailabledayList = AvailabledayList;
-            //string JsonDay = JsonConvert.SerializeObject(AvailabledayList);
-            //ViewBag.JsonLocations = JsonDay;
+            addgame.addgame.planset = AvailabledayList;
+            //addgame.addgame.AvailabledayList = AvailabledayList;
+            ////string JsonDay = JsonConvert.SerializeObject(AvailabledayList);
+            ////ViewBag.JsonLocations = JsonDay;
 
             return View(addgame);
             //return View("_GameDayPartial", addgame);
@@ -68,71 +70,167 @@ namespace Build_School_Project_No_4.Controllers
             var mem = _ctx.Members.Find(1);
             if (mem.MemberId == 1)
             {
-                Product product = new Product
-                {
-                    GameCategoryId = (int)registerVM.addgame.GameCategoryId,
-                    CreatorId = 1,
-                    UnitPrice = registerVM.addgame.UnitPrice,
-                    ProductImg = registerVM.addgame.ProductImg,
-                    Introduction = registerVM.addgame.Introduction,
-                    CreatorImg = registerVM.addgame.CreatorImg,
-                    RecommendationVoice = registerVM.addgame.RecommendationVoice
-                };
-
-                //ProductPlan productPlan = new ProductPlan
-                //{
-                //    GameAvailableDay = registerVM.addgame.GameAvailableDay,
-                //    GameStartTime = registerVM.addgame.GameStartTime,
-                //    GameEndTime = registerVM.addgame.GameEndTime
-                //};
-                //List<ServerEum> server = new List<ServerEum>
-                //{
-                //    ServerId = registerVM.addgame.ServerId
-                //};
-
-                //List<ProductServer> serverName = new List<ProductServer>
-                //{
-                //    new ProductServer
-                //    {
-                //        ServerId = registerVM.addgame.ServerId.ToList()
-
-                //    }
-                //};
-
-
-
-
-
-
-                //List<ProductStyle> styleName = new List<ProductStyle>
-                //{
-                //    new ProductStyle
-                //    {
-                //        StyleId = (int)registerVM.addgame.StyleId
-
-                //    }
-                //};
-                //List<ProductPosition> positionName = new List<ProductPosition>
-                //{
-                //    new ProductPosition
-                //    {
-                //       PositionId = (int)registerVM.addgame.PositionId
-
-                //    }
-                //};
-
                 using (var tran = _ctx.Database.BeginTransaction())
                 {
                     try
                     {
-                        //_ctx.Members.Add(memnber);
+                        AddgameViewModel add = new AddgameViewModel()
+                        {
+                            planset = new List<ProductPlan>(),
+                            ServerId = new List<SelectListItem>(),
+                            StyleId = new List<ProductStyle>(),
+                            PositionId = new List<ProductPosition>()
+                        };
+
+                        //VM -> DM
+                        Product product = new Product
+                        {
+                            GameCategoryId = (int)registerVM.addgame.GameCategoryId,
+                            CreatorId = 1,
+                            UnitPrice = registerVM.addgame.UnitPrice,
+                            ProductImg = registerVM.addgame.ProductImg,
+                            Introduction = registerVM.addgame.Introduction,
+                            CreatorImg = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-girl-cat-names-1606245046.jpg",
+                            //CreatorImg = registerVM.addgame.CreatorImg,
+                            RecommendationVoice = registerVM.addgame.RecommendationVoice,
+                            RankId = (int)registerVM.addgame.RankId
+                        };
 
                         _ctx.Products.Add(product);
+                        _ctx.SaveChanges();
+
+
+                        //List<ServerEum> server = new List<ServerEum>
+                        //{
+                        //    ServerId = registerVM.addgame.ServerId
+                        //};
+
+
+                        ProductServer serverDB = new ProductServer();
+                        var serverSelected = registerVM.addgame.ServerId.Where(x => x.Selected).Select(x => x.Value);
+                        foreach (var item in serverSelected)
+                        {
+                            //.username = comboUserName3.SelectedValue.ToString();
+                            serverDB.ProductId = product.ProductId;
+
+                            string selectedItem = item.ToString();
+                            int val = int.Parse(selectedItem);
+                            serverDB.ServerId = val;
+                            ////grp.iscurrent = true;
+                            //grp.dateadded = DateTime.Now;
+                            _ctx.ProductServers.Add(serverDB);
+                            _ctx.SaveChanges();
+                            
+                        }
+
+                        //var serverlist = registerVM.addgame.ServerId;
+
+                        //foreach (var server in serverlist)
+                        //{
+                        //    ProductServer serverDB = new ProductServer
+                        //    {
+                        //        ProductId = product.ProductId,
+                        //        ServerId = server
+                        //    };
+                        //};
+                        //_ctx.ProductServers.AddRange(serverDB);
+                        //_ctx.SaveChanges();
+
+
+
+                        //List<ProductPlan> planList = new List<ProductPlan>();
+                        //foreach (var item in registerVM.addgame.planset)
+                        //{
+                        //    planList.Add(new ProductPlan
+                        //    {
+                        //        GameAvailableDay = pro.GameAvailableDay,
+                        //        GameStartTime = pro.GameStartTime,
+                        //        GameEndTime = pro.GameEndTime
+                        //    });
+                        //}
                         //_ctx.ProductPlans.Add(productPlan);
-                        //_ctx.ProductServers.AddRange(serverName);
-                        //_ctx.ProductStyles.AddRange(styleName);
-                        //_ctx.ProductPositions.AddRange(positionName);
-                 
+                        //_ctx.SaveChanges();
+
+                        //var result = registerVM.addgame.planset.Where(x => x.GameStartTime != null && x.GameEndTime != null);
+                        ////var result = proplan.GameStartTime;
+                        //List<ProductPlan> planList = new List<ProductPlan>();
+                        //foreach (var item in result)
+                        //{
+                        //    planList.Add(new ProductPlan
+                        //    {
+                        //        GameAvailableDay = item.GameAvailableDay,
+                        //        GameStartTime = item.GameStartTime,
+                        //        GameEndTime = item.GameEndTime
+                        //    });
+                        //}
+
+
+
+                        //List<ProductPlanSet> productplan = new List<ProductPlanSet>
+                        //{
+                        //    new ProductPlanSet()
+                        //    {
+                        //    }
+
+                        //};
+
+                        //add.planset = registerVM.planset.;
+                        //List<ProductPlan> planList = new List<ProductPlan>();
+                        //foreach (var plan in )
+                        //{
+                        //    planList.Add(new ProductPlan { 
+
+                        //        ProductId = plan.ProductId,
+                        //        GameAvailableDay = registerVM.addgame.GameAvailableDay,
+                        //        GameStartTime = plan.GameStartTime,
+                        //        GameEndTime = plan.GameEndTime
+                        //    });
+
+                        //};
+
+
+                        //        ProductPlan productPlan = new ProductPlan
+                        //        {
+                        //            GameAvailableDay = registerVM.addgame.GameAvailableDay,
+                        //            GameStartTime = registerVM.addgame.GameStartTime,
+                        //            GameEndTime = registerVM.addgame.GameEndTime
+                        //        };
+
+
+
+
+
+
+
+
+                        List<ProductStyle> stylelist = registerVM.addgame.StyleId;
+                        foreach (var style in stylelist)
+                        {
+                            stylelist.Add(new ProductStyle
+                            {
+                                ProductId = style.ProductId,
+                                StyleId = style.StyleId
+                            });
+                        };
+
+                        List<ProductPosition> positionlist = registerVM.addgame.PositionId;
+                        foreach (var position in positionlist)
+                        {
+                            positionlist.Add(new ProductPosition
+                            {
+                                ProductId = position.ProductId,
+                                PositionId = position.PositionId
+                            });
+                        };
+
+
+
+
+                        
+                        
+                        _ctx.ProductStyles.AddRange(stylelist);
+                        _ctx.ProductPositions.AddRange(positionlist);
+
                         _ctx.SaveChanges();
                         tran.Commit();
 

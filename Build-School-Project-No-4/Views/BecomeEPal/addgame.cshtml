@@ -1119,6 +1119,11 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            @*@Html.LabelFor(model => model.addgame.ProductImg, htmlAttributes: new { @class = "control-label col-md-3 productimgtitle" })*@
+                                            @Html.HiddenFor(model => model.addgame.RecommendationVoice,  new { @class = "form-control productvoice col-md-3" } )
+                                            @*@Html.ValidationMessageFor(model => model.addgame.ProductImg, "", new { @class = "text-danger" })*@
+                                        </div>
                                     </div>
 
 
@@ -1147,6 +1152,12 @@
                                                 @*<div id="imagePreview"> </div>*@
 
                                             </div>
+                                        </div>
+
+                                        <div class="row">
+                                            @*@Html.LabelFor(model => model.addgame.ProductImg, htmlAttributes: new { @class = "control-label col-md-3 productimgtitle" })*@
+                                            @Html.HiddenFor(model => model.addgame.ProductImg,  new { @class = "form-control productimg col-md-3" } )
+                                            @*@Html.ValidationMessageFor(model => model.addgame.ProductImg, "", new { @class = "text-danger" })*@
                                         </div>
                                     </div>
 
@@ -1307,8 +1318,9 @@
             x[currentTab].style.display = "none";
             currentTab = currentTab + n;
             if (currentTab >= x.length) {
-                uploadAudio();
+                //uploadAudio();
                 //uploadToCloudinary();
+
                 document.getElementById("becomeForm").submit();
 
                 return false;
@@ -1418,11 +1430,16 @@
             task
                 .then(snapshot => snapshot.ref.getDownloadURL())
                 .then(url => {
-                    console.log(url);
-                    alert("Video upload successful!")
+                    console.log(url);                   
+
+                    document.querySelector(".productvoice").value = url;
                     //document.querySelector("#image").src = url;
+
+                    alert("Video upload successful!")
                 })
-                .catch(console.log(error));
+                .catch(error => {
+                    console.log(error);
+                });
         }
 
 
@@ -1512,6 +1529,9 @@
                 console.log(res);
                 photoUrl = res.data.secure_url;
                 console.log(photoUrl);
+
+                document.querySelector(".productimg").value = photoUrl;
+
                 //$("#imageUpload").change(function () {
                 //    readURL(photoUrl);
                 //});
@@ -1580,13 +1600,11 @@
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-
                     //$('.upload_cover').resize(function() {
                     //    if ($(this).height() > 200) {
                     //        $(this).css('height', 'auto');
                     //    }
                     //});
-
 
                     $('.upload_cover').css({ 'width': '', 'height': '', 'background-size': 'contain', 'background-repeat': 'no-repeat', 'border': 'transparent', 'background-color': '#120E1B' });
 
@@ -1601,11 +1619,16 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        //upload to cloud then get file Url
         $("#uploadlistcover").change(function () {
             readURL(this);
+            uploadToCloudinary();
         });
 
-
+        $("#uploadvoice").change(function () {
+            uploadAudio();
+        });
 
     </script>
 
@@ -1776,10 +1799,13 @@
             }
 
 
+        .productimgtitle{
+            
+        }
 
+        .productimg{
 
-
-
+        }
 
 
         /* epalPage */

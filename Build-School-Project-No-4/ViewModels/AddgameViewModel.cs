@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Build_School_Project_No_4.ViewModels
 {
@@ -12,7 +13,7 @@ namespace Build_School_Project_No_4.ViewModels
         [Display(Name = "Unit Price")]
         public decimal UnitPrice { get; set; }        
 
-        public int MemberId { get; set; }
+        //public int MemberId { get; set; }
         public int ProductId { get; set; }
         public GameCategoryList GameCategoryId { get; set; }
 
@@ -31,55 +32,50 @@ namespace Build_School_Project_No_4.ViewModels
 
         [Display(Name ="Server")]
         //public ServerEum ServerId { get; set; }
-        public List<int> ServerId { get; set; }
+        public List<SelectListItem> ServerId { get; set; }
+
 
         [Display(Name = "Style")]
         //public StyleIdEum  StyleId { get; set; }
-        public List<int>  StyleId { get; set; }
+        public List<ProductStyle> StyleId { get; set; }
 
         [Display(Name = "Position")]
         //public PositionEum PositionId { get; set; }
-        public List<int> PositionId { get; set; }
+        public List<ProductPosition> PositionId { get; set; }
 
         [Display(Name = "Rank")]
         public RankEum RankId { get; set; }
 
-        [DataType(DataType.Time)]
-        public List<ProductPlan> AvailabledayList { get; set; }
 
 
+        //[Display(Name = "Game AvailableDay")]
+        //public List<ProductPlan> GameAvailableDay { get; set; }
 
+        //[Display(Name = "Start Time ")]
+        //[DataType(DataType.Time)]
+        //public List<ProductPlan> GameStartTime { get; set; }
 
-        //public AddgameViewModel()
-        //{
-        //    AvailabledayList = new List<ProductPlan>()
-        //    {
-        //        new ProductPlan{ GameAvailableDay = "Monday" },
-        //        new ProductPlan{ GameAvailableDay = "Tuesday" },
-        //        new ProductPlan{ GameAvailableDay = "Wednesday" },
-        //        new ProductPlan{ GameAvailableDay = "Thursday" },
-        //        new ProductPlan{ GameAvailableDay = "Friday" },
-        //        new ProductPlan{ GameAvailableDay = "Saterday" },
-        //        new ProductPlan{ GameAvailableDay = "Sunday" }
-                
-        //    };
-        //}
+        //[Display(Name = "End Time")]
+        //[DataType(DataType.Time)]
+        //public List<ProductPlan> GameEndTime { get; set; }
+
+        public List<ProductPlan> planset { get; set; }
 
 
     }
 
-    //public class Availableday
+    //public class ProductPlanSet
     //{
-    //    [Display(Name = "Game AvailableDay")]
-    //    public AvailableDayEnum GameAvailableDay { get; set; }
+    //    //[Display(Name = "Game AvailableDay")]
+    //    public string GameAvailableDay { get; set; }
 
-    //    [Display(Name = "Start Time ")]
+    //    //[Display(Name = "Start Time ")]
     //    [DataType(DataType.Time)]
-    //    public DateTime GameStartTime { get; set; }
+    //    public DateTime? GameStartTime { get; set; }
 
-    //    [Display(Name = "End Time")]
+    //    //[Display(Name = "End Time")]
     //    [DataType(DataType.Time)]
-    //    public DateTime GameEndTime { get; set; }
+    //    public DateTime? GameEndTime { get; set; }
     //}
 
 
