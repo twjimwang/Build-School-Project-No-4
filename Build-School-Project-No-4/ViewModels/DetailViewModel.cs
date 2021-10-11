@@ -20,5 +20,6 @@ namespace Build_School_Project_No_4.ViewModels
         public string ServerName { get; set; }
         public string RankName { get; set; }
         public string LanguageName { get; set; }
+        public string MobileGameImg { get; set; }
     }
 }
