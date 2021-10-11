@@ -1566,7 +1566,7 @@
 
         axios.get(`https://localhost:44322/api/jsonapi/${lastId}`)
             .then(function (response) {
-
+                console.log(response.data)
                 let CardArray = JSON.parse(response.data).ProductCards
                 
                 //sideBar
@@ -1663,6 +1663,9 @@
             method: 'post',
             responseType: 'json',
             url: 'https://localhost:44322/api/jsonapi',
+            data: {
+
+            },
             params: {id: lastId}
             })
             .then(function (response) {

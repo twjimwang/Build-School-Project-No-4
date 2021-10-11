@@ -97,7 +97,7 @@ namespace Build_School_Project_No_4.Services
             var Servers = _repo.GetAll<Server>().ToList();
             var LineStatus = _repo.GetAll<LineStatus>().ToList();
             var LanguageName = _repo.GetAll<Language>().ToList();
-
+            var todayYear = DateTime.Now.Year;
             var productCards = products.Select(p => new ProductCard
             {
                 UnitPrice = p.UnitPrice,
@@ -112,12 +112,16 @@ namespace Build_School_Project_No_4.Services
                 ProductId = p.ProductId,
                 Server = Servers.First(s => s.ServerId ==((ProductServers.First(y => y.ProductId == p.ProductId).ServerId))).ServerName,
                 Language = LanguageName.First(L => L.LanguageId == (int)Members.First(x => x.MemberId == p.CreatorId).LanguageId).LanguageName,
-                GenderId = (int)Members.First(x => x.MemberId == p.CreatorId).Gender
+                GenderId = (int)Members.First(x => x.MemberId == p.CreatorId).Gender,
+                Age = todayYear - DateTime.Parse(Members.First(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
+                StatusName = LineStatus.First(y => y.LineStatusId == (Members.First(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName
             }).ToList();
             result.CategoryId = categoryId;
             result.ProductCards = productCards;
             return JsonConvert.SerializeObject(result);
         }
-   }
+
+      
+    }
     
 }
