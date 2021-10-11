@@ -86,7 +86,6 @@ namespace Build_School_Project_No_4.Controllers
         [HttpPost]
         public ActionResult Checkout(GroupViewModel x, string confirmation)
         {
-            int i = 0;
             return View("Index");
         }
 
