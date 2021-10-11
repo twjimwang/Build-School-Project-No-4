@@ -54,7 +54,9 @@ namespace Build_School_Project_No_4.Services
                               ServerName = serv.ServerName,
                               RankName = r.RankName,
                               LanguageName = l.LanguageName,
-                              PlayerId = p.ProductId
+                              PlayerId = p.ProductId,
+                              MobileGameImg = g.GameCoverImgMini
+                              
 
                               
                           }).SingleOrDefault();
