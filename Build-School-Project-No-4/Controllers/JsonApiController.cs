@@ -7,7 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Build_School_Project_No_4.DataModels;
 using Build_School_Project_No_4.Services;
-
+using Build_School_Project_No_4.ViewModels;
 
 namespace Build_School_Project_No_4.Controllers
 {
@@ -27,6 +27,12 @@ namespace Build_School_Project_No_4.Controllers
             var cardJson = _productService.GetProductCardsJson(id);
 
             return cardJson;
+        }
+
+        [AcceptVerbs("GET", "POST")]
+        public string GetProductCardByFilter(FilterItemViewModel FilterVM)
+        {
+            return null;
         }
     }
 }

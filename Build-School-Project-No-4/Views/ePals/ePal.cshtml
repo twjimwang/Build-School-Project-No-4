@@ -51,7 +51,7 @@
                                                     <i class="fas fa-caret-down"></i>
                                                 </div>
                                                 <div class="gameFilter-Item-SelectWrapper">
-                                                    <div class="selectWrapper-List">
+                                                    <div class="selectWrapper-List server-Filter">
                                                         <a href="#">
                                                             <div class="list-Item">
                                                                 <p>OCE</p>
@@ -94,7 +94,7 @@
                                                     <i class="fas fa-caret-down"></i>
                                                 </div>
                                                 <div class="gameFilter-Item-SelectWrapper">
-                                                    <div class="selectWrapper-List">
+                                                    <div class="selectWrapper-List Language-Filter">
                                                         <a href="#">
                                                             <div class="list-Item">
                                                                 <p>English</p>
@@ -126,7 +126,7 @@
                                         </div>
                                         <div class="filter-Game-Item">
                                             <input type="checkbox" id="filter-Item-check-3">
-                                            <label for="filter-Item-check-3">
+                                            <label for="filter-Item-check-3 ">
                                                 <div class="filter-Item-Text">Gender</div>
                                                 <div class="filter-Icon">
                                                     <i class="fas fa-caret-down"></i>
@@ -331,95 +331,10 @@
                     <div class="main-Body-CardArea">
                         <div class="container-fluid">
                             <div class="row card-Row">
-                                @foreach (var m in Model.ProductCards.ProductCards)
-                                {
-                                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 my-3">
-                                        <div class="item-Card">
-                                            <a href="@Url.Action("DetailPage",new {id = m.ProductId})" id="card">
-                                                <div class="card">
-                                                    <div class="card-Head">
-                                                        <div class="head-Person-Pic">
-                                                            <img src=@m.CreatorImg alt="">
-                                                            <div class="head-Status">
-                                                                <div class="status-Pic">
-                                                                    <img src=@m.LineStatus
-                                                                         alt="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-Body">
-                                                        <div class="user-Info">
-                                                            <div class="user-Info-Name">
-                                                                <span>@m.CreatorName</span>
-                                                            </div>
-                                                            <div class="uesr-Info-Icon">
-                                                                <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632637505/Independent%20Study/OtherPhoto/Level_db9q6b.jpg"
-                                                                     alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="user-Title">
-                                                            <div class="user-Title-Item">
-                                                                <span>@m.Rank</span>
-                                                                <span>@m.Position</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="user-Voice">
-                                                            <audio id="audio" src="@m.RecommendationVoice"></audio>
-                                                            <div class="voice-Left">
-                                                                <span class="w-15"></span>
-                                                                <span class="w-10"></span>
-                                                                <span class="w-15"></span>
-                                                            </div>
-                                                            <div class="voice-Right">
-                                                                <i class="fas fa-play"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-Footer">
-                                                        <div class="footer-Discound">
-                                                            <p>1st ORDER FREE</p>
-                                                        </div>
-                                                        <div class="footer-Price">
-                                                            <div class="price">
-                                                                <div class="price-Icon">
-                                                                    <img src="https://res.cloudinary.com/drh5ybnss/image/upload/v1632637598/Independent%20Study/OtherPhoto/Icon2_w7mcnt.jpg"
-                                                                         alt="">
-                                                                </div>
-                                                                <div class="price-Text">
-                                                                    <p>
-                                                                        <span>@m.UnitPrice</span>.00/G
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rate">
-                                                                <div class="rate-Icon">
-                                                                    <i class="fas fa-star"></i>
-                                                                </div>
-                                                                <div class="rate-Text">
-                                                                    <p>
-                                                                        @m.StarLevel.0
-                                                                        <span>(85)</span>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                
-                                }
-                                   
-                       
-
-                               
-
                                 <template id='cardCreator'>
                                     <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 my-3">
                                         <div class="item-Card">
-                                            <a href="#" id="card">
+                                            <a href="..." id="card">
                                                 <div class="card">
                                                     <div class="card-Head">
                                                         <div class="head-Person-Pic">
@@ -483,55 +398,53 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
                                     </div>
                                 </template>
-
-
-                                <div class="row">
-                                    <div class="recommendWapper col-12">
-                                        <img src="https://g.epal.gg/entry/us/static/discount.281516f8.png" alt="">
-                                        <a href="@Url.Action("RecommenedController","Recommend")">
-                                            <div class="wrapper">
-                                                <div class="recommendWapper-Left">
-                                                    <div class="left-Title">
-                                                        <h3>Discounts</h3>
-                                                    </div>
-                                                    <div class="left-Text">
-                                                        <span>Play League of Legends for up to 50% off</span>
-                                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="recommendWapper col-12">
+                                    <img src="https://g.epal.gg/entry/us/static/discount.281516f8.png" alt="">
+                                    <a href="@Url.Action("RecommenedController","Recommend")">
+                                        <div class="wrapper">
+                                            <div class="recommendWapper-Left">
+                                                <div class="left-Title">
+                                                    <h3>Discounts</h3>
                                                 </div>
-                                                <div class="recommendWapper-Right">
-                                                    <div class="right-Picture">
-                                                        <div class="right-Picture-Item">
-                                                            <div class="picture-Box">
-                                                                <img src="https://global-oss.epal.gg/image/ablum/1614962220058.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="right-Picture-Item">
-                                                            <div class="picture-Box">
-                                                                <img src="https://global-oss.epal.gg/image/ablum/16298435163538972.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="right-Picture-Item">
-                                                            <div class="picture-Box">
-                                                                <img src="https://global-oss.epal.gg/image/ablum/1605602087572.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right-More">
-                                                        <div class="right-More-text">
-                                                            <p>More</p>
-                                                        </div>
-                                                        <i class="fas fa-angle-right"></i>
-                                                    </div>
+                                                <div class="left-Text">
+                                                    <span>Play League of Legends for up to 50% off</span>
                                                 </div>
                                             </div>
-                                        </a>
+                                            <div class="recommendWapper-Right">
+                                                <div class="right-Picture">
+                                                    <div class="right-Picture-Item">
+                                                        <div class="picture-Box">
+                                                            <img src="https://global-oss.epal.gg/image/ablum/1614962220058.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="right-Picture-Item">
+                                                        <div class="picture-Box">
+                                                            <img src="https://global-oss.epal.gg/image/ablum/16298435163538972.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="right-Picture-Item">
+                                                        <div class="picture-Box">
+                                                            <img src="https://global-oss.epal.gg/image/ablum/1605602087572.jpg?x-oss-process=image/resize,m_fill,w_48,h_48" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right-More">
+                                                    <div class="right-More-text">
+                                                        <p>More</p>
+                                                    </div>
+                                                    <i class="fas fa-angle-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
 
                                     </div>
                                 </div>
@@ -1639,8 +1552,49 @@
 }
 @section endJS
 {
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
+        //取到網址的最後數字ID
+        var x = location.href;
+        var wordArray = x.split('/');
+        var lastId = wordArray[wordArray.length - 1]
+        // filter
+        let row = document.querySelector('.card-Row');
+        let filterTable = document.querySelectorAll('.gameFilter-Item-SelectWrapper');
+        let listItem = document.querySelectorAll('.list-Item');
+        var serverArray = [];
+
+        axios.get(`https://localhost:44322/api/jsonapi/${lastId}`)
+            .then(function (response) {
+
+                let CardArray = JSON.parse(response.data).ProductCards
+                
+                //sideBar
+                CardArray.forEach(x => {
+                    CreateProducts(x)
+                })
+                //filter Item
+                listItem.forEach(x => {
+                    x.addEventListener('click', () => {
+                        //row.innerText = "";
+
+                        //CardArray.forEach(c => {
+                        //    CreateProducts(c);
+                        //});
+
+                        serverArray.push(x.innerText);
+                        sendfilter();
+                        console.log(serverArray)
+                    })
+                })
+                
+            })
+            .catch(ex => {
+                console.log(ex)
+            })
+            
+
+
         //voice
         let VoiceBtn = document.querySelector('.user-Voice')
         let spanOdd = document.querySelectorAll('.voice-Left span:nth-child(odd)')
@@ -1690,23 +1644,27 @@
             })
         }
 
-        // filter
-        let listItem = document.querySelectorAll('.list-Item')
-        listItem.forEach(x => {
-            x.addEventListener('click', () => {
+        //Create ProductCards
+        function CreateProducts(item) {
+            let card = document.querySelector('#cardCreator')
+            let cloneContent = card.content.cloneNode(true);
+            cloneContent.querySelector('.item-Card a').href = '@Url.Action("DetailPage", new {id = "ID"})'.replace("ID", item.ProductId);
+            cloneContent.querySelectorAll('.user-Title-Item span')[0].innerText = item.Rank;
+            cloneContent.querySelectorAll('.user-Title-Item span')[1].innerText = item.Position;
+            cloneContent.querySelector('.head-Person-Pic img').src = item.CreatorImg;
+            cloneContent.querySelector('.status-Pic img').src = item.LineStatus;
+            cloneContent.querySelector('.user-Info-Name span').innerText = item.CreatorName;
+            cloneContent.querySelector('.price-Span').innerText = item.UnitPrice;
+            row.appendChild(cloneContent);
+        }
 
-            })
-        })
-
-        //Creat ProductCards
-        var ProductCards = @Html.Raw(ViewBag.ProductCard);
-        console.log(ProductCards)
-
-        axios({
+        function sendfilter() {
+            axios({
             method: 'post',
+            responseType: 'json',
             url: 'https://localhost:44322/api/jsonapi',
-            params: { id: 1 },
-        })
+            params: {id: lastId}
+            })
             .then(function (response) {
                 if (response.request.readyState === 4 && response.status === 200) {
                     console.log(response.data)
@@ -1715,6 +1673,16 @@
                     console.log("error");
                 }
             })
+        }
+
+        
+
+        
+
+
+
+
+
     </script>
 }
 
