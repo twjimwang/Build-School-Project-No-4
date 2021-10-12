@@ -460,7 +460,7 @@ namespace Build_School_Project_No_4.Controllers
             else
             {
                 //用TempData儲存登入訊息
-                TempData["LoginState"] = "登入資訊有誤，請重新登入";
+                TempData["LoginState"] = ValidateStr;
                 //重新導向頁面
                 return RedirectToAction("LoginResult");
             }
