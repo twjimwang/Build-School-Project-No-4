@@ -263,7 +263,6 @@
     <Compile Include="Controllers\epalAccountController.cs" />
     <Compile Include="Controllers\ePalController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
-    <Compile Include="Controllers\FollowController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeForPhoneController.cs" />
@@ -719,7 +718,6 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Members\Logout.cshtml" />
     <Content Include="Views\Members\profile.cshtml" />
-    <Content Include="Views\Follow\Followings.cshtml" />
     <Content Include="Views\Members\ImageUpload.cshtml" />
     <Content Include="Views\Shared\_AvatarPartial.cshtml" />
     <Content Include="Views\Members\EditProfile.cshtml" />
@@ -727,6 +725,7 @@
     <Content Include="Views\Chill\Meet.cshtml" />
     <Content Include="Views\Chill\MeetLikes.cshtml" />
     <Content Include="Views\Chill\MeetMatches.cshtml" />
+    <Content Include="Views\Members\Followings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
