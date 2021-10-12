@@ -37,7 +37,8 @@ namespace Build_School_Project_No_4.Services
                               PlayerId = p.CreatorId,
                               PlayerName = m.MemberName,
                               GameName = g.GameName,
-                              PlayerPic = p.CreatorImg
+                              PlayerPic = p.CreatorImg,
+                              ProductId = p.ProductId
                           }).SingleOrDefault();
 
 

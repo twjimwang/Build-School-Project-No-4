@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "Success";
+}
+@section topCSS{
+
+    <link href="~/Assets/css/paypalSuccess.css" rel="stylesheet" />
+
+}
+
+<div class="container">
+    <div class="order-container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-5">
+                <div class="accordion" id="orderSummary">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="order">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">
+                                Order Summary
+                            </button>
+                        </h2>
+                        <div id="collapseOrder" class="accordion-collapse collapse show"
+                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="order-info">
+                                    <div class="order-id greyish">OrderID:</div>
+                                    <div class="order-id-value greyish">GLHF-116336178980109446</div>
+                                </div>
+                                <hr>
+                                <div class="game-info">
+                                    <div class="game-play">Play League of Legends with IG: Heyhinaa</div>
+                                    <img src="img/heyhinaa.jpg" alt="">
+                                </div>
+
+                                <div class="start-info">
+                                    <div class="greyish">Start Time:</div>
+                                    <div class="start-time desc">Oct 5, 2:02 AM</div>
+                                </div>
+
+                                <div class="unit-price">
+                                    <div class="greyish">Unit Price:</div>
+                                    <div class="price desc">$3.00/G</div>
+                                </div>
+
+                                <div class="rounds-info">
+                                    <div class="greyish">Rounds:</div>
+                                    <div class="rounds-value desc">1</div>
+                                </div>
+                                <hr>
+                                <div class="subtotal-info">
+                                    <div class="greyish">Subtotal:</div>
+                                    <div class="subtotal desc">$3.00</div>
+                                </div>
+                                <div class="promotion">
+                                    <div class="greyish">ePal Promotion: </div>
+                                    <div class="discount desc"></div>
+                                </div>
+                                <hr>
+                                <div class="final-price-div">
+                                    <div class="greyish">Final Price:</div>
+                                    <div class="rounds-total greyish">1 Round(s) total</div>
+                                    <div class="price-total price-summary">$8.20</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-summary">
+                    <div class="order-info">
+                        <div class="order-id greyish">OrderID:</div>
+                        <div class="order-id-value greyish">GLHF-116336178980109446</div>
+                    </div>
+                    <hr>
+
+                    <div class="game-info">
+                        <div class="game-play">Play League of Legends with IG: Heyhinaa</div>
+                        <img src="img/heyhinaa.jpg" alt="">
+                    </div>
+
+                    <div class="start-info">
+                        <div class="greyish">Start Time:</div>
+                        <div class="start-time desc">Oct 5, 2:02 AM</div>
+                    </div>
+
+                    <div class="unit-price">
+                        <div class="greyish">Unit Price:</div>
+                        <div class="price desc">$3.00/G</div>
+                    </div>
+
+                    <div class="rounds-info">
+                        <div class="greyish">Rounds:</div>
+                        <div class="rounds-value desc">1</div>
+                    </div>
+                    <hr>
+                    <div class="subtotal-info">
+                        <div class="greyish">Subtotal:</div>
+                        <div class="subtotal desc">$3.00</div>
+                    </div>
+                    <div class="promotion">
+                        <div class="greyish">ePal Promotion: </div>
+                        <div class="discount desc"></div>
+                    </div>
+                    <hr>
+                    <div class="final-price-div">
+                        <div class="greyish">Final Price:</div>
+                        <div class="rounds-total greyish">1 Round(s) total</div>
+                        <div class="price-total price-summary">$8.20</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-7">
+                <div class="confirmation">
+                    <h2 class="thanks">Thank you for your order</h2>
+                    <div class="pay-confirm">Payment Confirmation: 1234w98</div>
+                    <div class="wait">Waiting for E-Pal to start the order</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

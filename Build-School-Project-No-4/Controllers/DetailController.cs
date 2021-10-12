@@ -7,6 +7,7 @@ using Build_School_Project_No_4.Services;
 using Build_School_Project_No_4.ViewModels;
 using Build_School_Project_No_4.Repositories;
 using Build_School_Project_No_4.DataModels;
+using PayPal.Api;
 
 namespace Build_School_Project_No_4.Controllers
 {
@@ -86,7 +87,8 @@ namespace Build_School_Project_No_4.Controllers
         [HttpPost]
         public ActionResult Checkout(GroupViewModel x, string confirmation)
         {
-            return View("Index");
+            TempData["confirmation"] = confirmation;
+            return RedirectToAction("PaymentWithPaypal", "Checkout");
         }
 
     }
