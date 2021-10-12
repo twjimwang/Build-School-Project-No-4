@@ -427,12 +427,12 @@
 
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <div class="maillog logmethod">
-                                        @Html.LabelFor(model => model.MemberData.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.MemberData.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.MemberData.Email, "", new { @class = "text-danger", style = "font-size:14px" })
+                                <div class="maillog logmethod">
+                                    @Html.LabelFor(model => model.MemberData.Email, new { @class = "maillabel", id = "email" })<br>
+                                    @Html.TextBoxFor(model => model.MemberData.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
+                                    @Html.ValidationMessageFor(model => model.MemberData.Email, "", new { @class = "text-danger", style = "font-size:14px" })
 
-                                    //password
+                                </div>
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.MemberLogin.Password, new { @for = "password", @class = "passTitle" })<br>
                                         @Html.PasswordFor(model => model.MemberLogin.Password, new { @class = "passwordinput ellipsis form-control", id = "password", name = "password", placeholder = "Please enter your password", required = "required" })
@@ -467,7 +467,7 @@
                                         @*<label for="email" id="email">Email</label><br>
                                             <input type="email" name="email" class="emailinput ellipsis"
                                                    placeholder="Please enter your email">*@
-
+                                         </div>
                                     //password
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.MemberRegister.Password, new { @for = "password", @class = "passTitle" })<br>

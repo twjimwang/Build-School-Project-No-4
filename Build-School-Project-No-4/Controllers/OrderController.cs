@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Build_School_Project_No_4.ViewModels;
+using System.Web.Security;
 
 namespace Build_School_Project_No_4.Controllers
 {
@@ -16,9 +17,23 @@ namespace Build_School_Project_No_4.Controllers
         {
             return View();
         }
+
+        public string GetMemberId()
+        {
+            var cookie = HttpContext.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
+
+            string userid = "";
+            if (cookie != null)
+            {
+                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+                userid = ticket.UserData;
+                return userid;
+            }
+            return null;
+        }
         public ActionResult OrderSummary()
         {
-
+             
             return View();
 
         }
