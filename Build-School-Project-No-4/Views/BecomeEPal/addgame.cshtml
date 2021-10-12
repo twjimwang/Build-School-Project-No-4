@@ -1,5 +1,5 @@
 ﻿@model GroupViewModel
-@{
+@*@{
     List<SelectListItem> ServerList = new List<SelectListItem>
 {
         new SelectListItem{ Text="OCE", Value="1", Selected = false},
@@ -30,7 +30,7 @@
 
     };
 
-}
+}*@
 
 <head>
     <!-- font-family -->
@@ -1020,7 +1020,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @Html.ListBoxFor(model => model.addgame.PositionSelectedId, PositionList, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ListBoxFor(model => model.addgame.PositionSelectedId, new SelectList(Model.addgame.PositionItems, "PositionId", "PositionName"), new { htmlAttributes = new { @class = "form-control" } })
                                                 @Html.ValidationMessageFor(model => model.addgame.PositionSelectedId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -1044,12 +1044,12 @@
                                     <!--Listbox, Style-->
                                     <div class="form-group">
                                         <div class="row">
-                                            @Html.LabelFor(model => model.addgame.StyleId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                            @Html.LabelFor(model => model.addgame.StyleSelectedId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @Html.ListBoxFor(model => model.addgame.StyleId, StyleList, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.addgame.StyleId, "", new { @class = "text-danger" })
+                                                @Html.ListBoxFor(model => model.addgame.StyleSelectedId, new SelectList(Model.addgame.StyleItems, "StyleId", "StyleName"), new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.addgame.StyleSelectedId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>

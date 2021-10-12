@@ -78,8 +78,15 @@ namespace Build_School_Project_No_4.Controllers
             };
             List<int> defaultPosition = new List<int>() { 1 };
 
-
-
+            List<Style> StyleList = new List<Style>()
+            {
+                new Style() { StyleId = 1, StyleName = "Love_Inting" },
+                new Style() { StyleId = 2, StyleName = "Try_Hard" },
+                new Style() { StyleId = 3, StyleName = "Hard_Stuck" },
+                new Style() { StyleId = 4, StyleName = "Global_Presence" },
+                new Style() { StyleId = 5, StyleName = "One_Shot" }
+            };
+            List<int> defaultStyle = new List<int>() { 1 };
 
 
 
@@ -88,6 +95,8 @@ namespace Build_School_Project_No_4.Controllers
             addgame.addgame.ServerSelectedId = defaultServer;
             addgame.addgame.PositionItems = PositionList;
             addgame.addgame.PositionSelectedId = defaultPosition;
+            addgame.addgame.StyleItems = StyleList;
+            addgame.addgame.StyleSelectedId = defaultStyle;
             //addgame.addgame.AvailabledayList = AvailabledayList;
             ////string JsonDay = JsonConvert.SerializeObject(AvailabledayList);
             ////ViewBag.JsonLocations = JsonDay;
@@ -115,8 +124,8 @@ namespace Build_School_Project_No_4.Controllers
                             ServerSelectedId = new List<int>(),
                             PositionItems = new List<Position>(),
                             PositionSelectedId = new List<int>(),
-
-                            StyleId = new List<StyleIdEum>(),
+                            StyleItems = new List<Style>(),
+                            StyleSelectedId = new List<int>(),
 
                         };
 
@@ -175,26 +184,22 @@ namespace Build_School_Project_No_4.Controllers
                         }
 
 
+                        //style
+                        ProductStyle styleDB = new ProductStyle();
+                        var styleSelected = registerVM.addgame.StyleSelectedId;
+                        foreach (var item in styleSelected)
+                        {
+                            //.username = comboUserName3.SelectedValue.ToString();
+                            styleDB.ProductId = product.ProductId;
 
-
-
-                        //List<ServerEum> server = new List<ServerEum>
-                        //{
-                        //    ServerId = registerVM.addgame.ServerId
-                        //};
-
-                        //var serverlist = registerVM.addgame.ServerId;
-
-                        //foreach (var server in serverlist)
-                        //{
-                        //    ProductServer serverDB = new ProductServer
-                        //    {
-                        //        ProductId = product.ProductId,
-                        //        ServerId = server
-                        //    };
-                        //};
-                        //_ctx.ProductServers.AddRange(serverDB);
-                        //_ctx.SaveChanges();
+                            string selectedItem = item.ToString();
+                            int val = int.Parse(selectedItem);
+                            styleDB.StyleId = val;
+                            ////grp.iscurrent = true;
+                            //grp.dateadded = DateTime.Now;
+                            _ctx.ProductStyles.Add(styleDB);
+                            _ctx.SaveChanges();
+                        }
 
 
 
@@ -262,63 +267,6 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-
-                        //List<ProductStyle> styleName = new List<ProductStyle>
-                        //{
-                        //    new ProductStyle
-                        //    {
-                        //        StyleId = (int)registerVM.addgame.StyleId
-
-                        //    }
-                        //};
-
-                        //List<StyleIdEum> stylelist = new List<StyleIdEum>()
-                        //{
-
-                        //     = new StyleIdEum();                       
-
-                        //};
-
-                        //foreach (var style in stylelist)
-                        //{
-                        //    stylelist.Add(new ProductStyle
-                        //    {
-                        //        ProductId = style.ProductId,
-                        //        StyleId = style.StyleId
-                        //    });
-                        //};
-
-
-                        //List<ProductStyle> stylelist = registerVM.addgame.StyleId;
-                        //foreach (var style in stylelist)
-                        //{
-                        //    stylelist.Add(new ProductStyle
-                        //    {
-                        //        ProductId = style.ProductId,
-                        //        StyleId = style.StyleId
-                        //    });
-                        //};
-
-
-
-
-                        //List<ProductPosition> positionlist = registerVM.addgame.PositionId;
-                        //foreach (var position in positionlist)
-                        //{
-                        //    positionlist.Add(new ProductPosition
-                        //    {
-                        //        ProductId = position.ProductId,
-                        //        PositionId = position.PositionId
-                        //    });
-                        //};
-
-
-
-
-
-
-                        //_ctx.ProductStyles.AddRange(stylelist);
-                        //_ctx.ProductPositions.AddRange(positionlist);
 
                         _ctx.SaveChanges();
                         tran.Commit();

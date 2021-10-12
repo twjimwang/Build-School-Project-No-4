@@ -48,10 +48,11 @@ namespace Build_School_Project_No_4.ViewModels
 
 
 
-
+        public IEnumerable<Style> StyleItems { get; set; }
+        //public List<StyleIdEum> StyleId { get; set; }
         [Display(Name = "Style")]
         //public StyleIdEum  StyleId { get; set; }
-        public List<StyleIdEum> StyleId { get; set; }
+        public IEnumerable<int> StyleSelectedId { get; set; }
 
 
 
@@ -76,19 +77,19 @@ namespace Build_School_Project_No_4.ViewModels
 
     }
 
-    //public class ProductPlanSet
-    //{
-    //    //[Display(Name = "Game AvailableDay")]
-    //    public string GameAvailableDay { get; set; }
+    public class ProductPlanSet
+    {
+        //[Display(Name = "Game AvailableDay")]
+        public string GameAvailableDay { get; set; }
 
-    //    //[Display(Name = "Start Time ")]
-    //    [DataType(DataType.Time)]
-    //    public DateTime? GameStartTime { get; set; }
+        //[Display(Name = "Start Time ")]
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime { get; set; }
 
-    //    //[Display(Name = "End Time")]
-    //    [DataType(DataType.Time)]
-    //    public DateTime? GameEndTime { get; set; }
-    //}
+        //[Display(Name = "End Time")]
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime { get; set; }
+    }
 
 
     //public enum AvailableDayEnum
