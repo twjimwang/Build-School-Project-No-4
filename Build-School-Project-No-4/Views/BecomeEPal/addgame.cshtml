@@ -977,12 +977,12 @@
                                     <!--Listbox, Server-->
                                     <div class="form-group">
                                         <div class="row">
-                                            @Html.LabelFor(model => model.addgame.ServerId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                            @Html.LabelFor(model => model.addgame.ServerSelectedId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @Html.ListBoxFor(model => model.addgame.ServerId, ServerList, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.addgame.ServerId, "", new { @class = "text-danger" })
+                                                @Html.ListBoxFor(model => model.addgame.ServerSelectedId, new SelectList(Model.addgame.ServerItems, "ServerId", "ServerName"), new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.addgame.ServerSelectedId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -1016,12 +1016,12 @@
                                     <!--Listbox, Position-->
                                     <div class="form-group">
                                         <div class="row">
-                                            @Html.LabelFor(model => model.addgame.PositionId, htmlAttributes: new { @class = "col-md-6 control-label" })
+                                            @Html.LabelFor(model => model.addgame.PositionSelectedId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @Html.ListBoxFor(model => model.addgame.PositionId, PositionList, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.addgame.PositionId, "", new { @class = "text-danger" })
+                                                @Html.ListBoxFor(model => model.addgame.PositionSelectedId, PositionList, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.addgame.PositionSelectedId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>

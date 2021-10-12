@@ -40,18 +40,10 @@ namespace Build_School_Project_No_4.Controllers
             AddgameViewModel addVM = new AddgameViewModel()
             {
                 planset = new List<ProductPlan>(),
-
-                ServerItems = new List<Server>()
-                {
-                    new Server() { ServerName = "OCE", ServerId = 1 },
-                    new Server() { ServerName = "NA", ServerId = 2 },
-                    new Server() { ServerName = "LAN", ServerId = 3 },
-                    new Server() { ServerName = "BR", ServerId = 4 },
-                    new Server() { ServerName = "EU_West", ServerId = 5 },
-                    new Server() { ServerName = "EU_NorthEast", ServerId = 6 }
-                },
-                ServerId = new List<int>() { 1 }
-
+                ServerItems = new List<Server>(),
+                ServerSelectedId = new List<int>(),
+                PositionItems = new List<Position>(),
+                PositionSelectedId = new List<int>(),
             };
 
             List<ProductPlan>  AvailabledayList = new List<ProductPlan>()
@@ -65,11 +57,40 @@ namespace Build_School_Project_No_4.Controllers
                 new ProductPlan{ GameAvailableDay = "Sunday", GameStartTime = null, GameEndTime=null }
             };
 
+            List<Server> ServerList = new List<Server>()
+            {
+                new Server() { ServerId = 1, ServerName = "OCE" },
+                new Server() { ServerId = 2, ServerName = "NA" },
+                new Server() { ServerId = 3, ServerName = "LAN" },
+                new Server() { ServerId = 4, ServerName = "BR" },
+                new Server() { ServerId = 5, ServerName = "EU_West" },
+                new Server() { ServerId = 6, ServerName = "EU_NorthEast" }
+            };
+            List<int> defaultServer = new List<int>() { 1 };
+
+            List<Position> PositionList = new List<Position>()
+            {
+                new Position() { PositionId = 1, PositionName = "Top" },
+                new Position() { PositionId = 2, PositionName = "Jungler" },
+                new Position() { PositionId = 3, PositionName = "ADC" },
+                new Position() { PositionId = 4, PositionName = "Support" },
+                new Position() { PositionId = 5, PositionName = "Middle" }
+            };
+            List<int> defaultPosition = new List<int>() { 1 };
+
+
+
+
+
+
             addgame.addgame.planset = AvailabledayList;
+            addgame.addgame.ServerItems = ServerList;
+            addgame.addgame.ServerSelectedId = defaultServer;
+            addgame.addgame.PositionItems = PositionList;
+            addgame.addgame.PositionSelectedId = defaultPosition;
             //addgame.addgame.AvailabledayList = AvailabledayList;
             ////string JsonDay = JsonConvert.SerializeObject(AvailabledayList);
             ////ViewBag.JsonLocations = JsonDay;
-            ///
 
 
             return View(addgame);
@@ -90,9 +111,13 @@ namespace Build_School_Project_No_4.Controllers
                         AddgameViewModel add = new AddgameViewModel()
                         {
                             planset = new List<ProductPlan>(),
-                            ServerId = new List<SelectListItem>(),
+                            ServerItems = new List<Server>(),
+                            ServerSelectedId = new List<int>(),
+                            PositionItems = new List<Position>(),
+                            PositionSelectedId = new List<int>(),
+
                             StyleId = new List<StyleIdEum>(),
-                            PositionId = new List<ProductPosition>()
+
                         };
 
                         //VM -> DM
@@ -113,14 +138,10 @@ namespace Build_School_Project_No_4.Controllers
                         _ctx.SaveChanges();
 
 
-                        //List<ServerEum> server = new List<ServerEum>
-                        //{
-                        //    ServerId = registerVM.addgame.ServerId
-                        //};
 
-
+                        //server
                         ProductServer serverDB = new ProductServer();
-                        var serverSelected = registerVM.addgame.ServerId;
+                        var serverSelected = registerVM.addgame.ServerSelectedId;
                         foreach (var item in serverSelected)
                         {
                             //.username = comboUserName3.SelectedValue.ToString();
@@ -135,6 +156,32 @@ namespace Build_School_Project_No_4.Controllers
                             _ctx.SaveChanges();                            
                         }
 
+
+                        //position
+                        ProductPosition positionDB = new ProductPosition();
+                        var positionSelected = registerVM.addgame.PositionSelectedId;
+                        foreach (var item in positionSelected)
+                        {
+                            //.username = comboUserName3.SelectedValue.ToString();
+                            positionDB.ProductId = product.ProductId;
+
+                            string selectedItem = item.ToString();
+                            int val = int.Parse(selectedItem);
+                            positionDB.PositionId = val;
+                            ////grp.iscurrent = true;
+                            //grp.dateadded = DateTime.Now;
+                            _ctx.ProductPositions.Add(positionDB);
+                            _ctx.SaveChanges();
+                        }
+
+
+
+
+
+                        //List<ServerEum> server = new List<ServerEum>
+                        //{
+                        //    ServerId = registerVM.addgame.ServerId
+                        //};
 
                         //var serverlist = registerVM.addgame.ServerId;
 
@@ -153,7 +200,7 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-
+                        //product plan
                         //List<ProductPlan> planList = new List<ProductPlan>();
                         //foreach (var item in registerVM.addgame.planset)
                         //{
@@ -179,8 +226,6 @@ namespace Build_School_Project_No_4.Controllers
                         //        GameEndTime = item.GameEndTime
                         //    });
                         //}
-
-
 
 
 
@@ -257,23 +302,23 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-                        List<ProductPosition> positionlist = registerVM.addgame.PositionId;
-                        foreach (var position in positionlist)
-                        {
-                            positionlist.Add(new ProductPosition
-                            {
-                                ProductId = position.ProductId,
-                                PositionId = position.PositionId
-                            });
-                        };
+                        //List<ProductPosition> positionlist = registerVM.addgame.PositionId;
+                        //foreach (var position in positionlist)
+                        //{
+                        //    positionlist.Add(new ProductPosition
+                        //    {
+                        //        ProductId = position.ProductId,
+                        //        PositionId = position.PositionId
+                        //    });
+                        //};
 
 
 
 
-                        
-                        
+
+
                         //_ctx.ProductStyles.AddRange(stylelist);
-                        _ctx.ProductPositions.AddRange(positionlist);
+                        //_ctx.ProductPositions.AddRange(positionlist);
 
                         _ctx.SaveChanges();
                         tran.Commit();

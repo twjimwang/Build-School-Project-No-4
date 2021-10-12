@@ -29,11 +29,23 @@ namespace Build_School_Project_No_4.ViewModels
         public string RecommendationVoice { get; set; }
 
 
-        public List<Server> ServerItems { get; set; }
-        public List<ProductServer> ServerAllItems { get; set; }
+
+
+        public IEnumerable<Server> ServerItems { get; set; }
+        //public List<ProductServer> ServerAllItems { get; set; }
+
         [Display(Name ="Server")]
         //public ServerEum ServerId { get; set; }
-        public List<int> ServerId { get; set; }
+        public IEnumerable<int> ServerSelectedId { get; set; }
+
+
+        public IEnumerable<Position> PositionItems { get; set; }
+        //public List<ProductPosition> PositionId { get; set; }
+
+        [Display(Name = "Position")]
+        //public PositionEum PositionId { get; set; }
+        public IEnumerable<int> PositionSelectedId { get; set; }
+
 
 
 
@@ -41,9 +53,7 @@ namespace Build_School_Project_No_4.ViewModels
         //public StyleIdEum  StyleId { get; set; }
         public List<StyleIdEum> StyleId { get; set; }
 
-        [Display(Name = "Position")]
-        //public PositionEum PositionId { get; set; }
-        public List<ProductPosition> PositionId { get; set; }
+
 
         [Display(Name = "Rank")]
         public RankEum RankId { get; set; }
