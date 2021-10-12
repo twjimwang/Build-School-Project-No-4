@@ -1,6 +1,11 @@
 ﻿@*@model IEnumerable<ProductPlan>*@
 @model GroupViewModel
 
+@{
+    var day = Model.addgame.planset;
+    //int dayCount = day.Count();
+}
+
 <div class="form-group row">
     <div class="col-4 col-md-2">
         <p>AvailableDay</p>
@@ -13,23 +18,39 @@
     </div>
 </div>
 
+@*<div class="col-4 col-md-2">
+        @Html.DisplayFor(model => day.GameAvailableDay, new { htmlAttributes = new { @class = "form-control visually-hidden", @readonly = "readonly" } })
+    </div>
+    <div class="col-4 col-md-3">
+        @Html.EditorFor(model => day.GameStartTime, new { htmlAttributes = new { @class = "form-control starttime" } })
+        @Html.ValidationMessageFor(model => day.GameStartTime, "", new { @class = "text-danger" })
+    </div>
+    <div class="col-4 col-md-3">
+        @Html.EditorFor(model => day.GameEndTime, new { htmlAttributes = new { @class = "form-control endtime" } })
+        @Html.ValidationMessageFor(model => day.GameEndTime, "", new { @class = "text-danger" })
+    </div>*@
+
+
+
 @*@{ var js = new System.Web.Script.Serialization.JavaScriptSerializer();}*@
-@foreach (var day in Model.addgame.planset)
+@*@foreach (var day in Model.addgame.planset)*@
+@for (var i = 0; i < 7; i++)
 {
     <div class="form-group row">
-
+        @*visually-hidden*@
         <div class="col-4 col-md-2">
-            @Html.DisplayFor(model => day.GameAvailableDay, new { htmlAttributes = new { @class = "form-control visually-hidden", @readonly = "readonly" } })
-            @*@Html.ValidationMessageFor(model => model.addgame.GameAvailableDay, "", new { @class = "text-danger" })*@
+            @Html.EditorFor(model => day[i].GameAvailableDay, new { htmlAttributes = new { @name = @i, @class = "form-control ", @readonly = "readonly" } })
         </div>
         <div class="col-4 col-md-3">
-            @Html.EditorFor(model => day.GameStartTime, new { htmlAttributes = new { @class = "form-control starttime" } })
-            @Html.ValidationMessageFor(model => day.GameStartTime, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => day[i].GameStartTime, new { htmlAttributes = new { @name = @i, @class = "form-control starttime" } })
+            @Html.ValidationMessageFor(model => day[i].GameStartTime, "", new { @class = "text-danger" })
         </div>
         <div class="col-4 col-md-3">
-            @Html.EditorFor(model => day.GameEndTime, new { htmlAttributes = new { @class = "form-control endtime" } })
-            @Html.ValidationMessageFor(model => day.GameEndTime, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => day[i].GameEndTime, new { htmlAttributes = new { @name = @i, @class = "form-control endtime" } })
+            @Html.ValidationMessageFor(model => day[i].GameEndTime, "", new { @class = "text-danger" })
         </div>
 
     </div>
 }
+
+

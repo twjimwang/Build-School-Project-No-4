@@ -39,23 +39,24 @@ namespace Build_School_Project_No_4.Controllers
 
             AddgameViewModel addVM = new AddgameViewModel()
             {
-                planset = new List<ProductPlan>(),
+                //planset = new List<ProductPlanSet>(),
                 ServerItems = new List<Server>(),
                 ServerSelectedId = new List<int>(),
                 PositionItems = new List<Position>(),
                 PositionSelectedId = new List<int>(),
             };
 
-            List<ProductPlan>  AvailabledayList = new List<ProductPlan>()
+            List<ProductPlanSet> AvailabledayList = new List<ProductPlanSet>()
             {
-                new ProductPlan{ GameAvailableDay = "Monday", GameStartTime = null, GameEndTime=null },
-                new ProductPlan{ GameAvailableDay = "Tuesday", GameStartTime = null, GameEndTime=null },
-                new ProductPlan{ GameAvailableDay = "Wednesday", GameStartTime = null, GameEndTime=null },
-                new ProductPlan{ GameAvailableDay = "Thursday", GameStartTime = null, GameEndTime=null },
-                new ProductPlan{ GameAvailableDay = "Friday", GameStartTime = null, GameEndTime=null },
-                new ProductPlan{ GameAvailableDay = "Saterday", GameStartTime = null, GameEndTime=null },
-                new ProductPlan{ GameAvailableDay = "Sunday", GameStartTime = null, GameEndTime=null }
+                new ProductPlanSet{ GameAvailableDay = "Monday", GameStartTime = null, GameEndTime=null },
+                new ProductPlanSet{ GameAvailableDay = "Tuesday", GameStartTime = null, GameEndTime=null },
+                new ProductPlanSet{ GameAvailableDay = "Wednesday", GameStartTime = null, GameEndTime=null },
+                new ProductPlanSet{ GameAvailableDay = "Thursday", GameStartTime = null, GameEndTime=null },
+                new ProductPlanSet{ GameAvailableDay = "Friday", GameStartTime = null, GameEndTime=null },
+                new ProductPlanSet{ GameAvailableDay = "Saterday", GameStartTime = null, GameEndTime=null },
+                new ProductPlanSet{ GameAvailableDay = "Sunday", GameStartTime = null, GameEndTime=null }
             };
+
 
             List<Server> ServerList = new List<Server>()
             {
@@ -97,10 +98,11 @@ namespace Build_School_Project_No_4.Controllers
             addgame.addgame.PositionSelectedId = defaultPosition;
             addgame.addgame.StyleItems = StyleList;
             addgame.addgame.StyleSelectedId = defaultStyle;
-            //addgame.addgame.AvailabledayList = AvailabledayList;
+            //addgame.addgame.GameAvailableDay1 = "Monday";
+            //addgame.addgame.GameAvailableDay2 = "Tuesday";
+
             ////string JsonDay = JsonConvert.SerializeObject(AvailabledayList);
             ////ViewBag.JsonLocations = JsonDay;
-
 
             return View(addgame);
             //return View("_GameDayPartial", addgame);
@@ -119,7 +121,7 @@ namespace Build_School_Project_No_4.Controllers
                     {
                         AddgameViewModel add = new AddgameViewModel()
                         {
-                            planset = new List<ProductPlan>(),
+                            //planset = new List<ProductPlanSet>(),
                             ServerItems = new List<Server>(),
                             ServerSelectedId = new List<int>(),
                             PositionItems = new List<Position>(),
@@ -196,13 +198,42 @@ namespace Build_School_Project_No_4.Controllers
                             int val = int.Parse(selectedItem);
                             styleDB.StyleId = val;
                             ////grp.iscurrent = true;
+                            _ctx.SaveChanges();
                             //grp.dateadded = DateTime.Now;
                             _ctx.ProductStyles.Add(styleDB);
-                            _ctx.SaveChanges();
                         }
 
 
+                        //plan
+                        List<ProductPlanSet> planset = new List<ProductPlanSet>();
+                        ProductPlan planDB = new ProductPlan();
+                        var planItem1 = registerVM.addgame.planset;
 
+
+
+
+                        ////OK
+                        //var planItem1 = registerVM.addgame.GameAvailableDay1;
+                        //var planItems1 = registerVM.addgame.GameStartTime1;
+                        //var planIteme1 = registerVM.addgame.GameEndTime1;    
+
+                        //var planItem2 = registerVM.addgame.GameAvailableDay2;
+                        //var planItems2 = registerVM.addgame.GameStartTime2;
+                        //var planIteme2 = registerVM.addgame.GameEndTime2;
+
+
+
+
+
+                        //foreach (var item in planItem)
+                        //{
+                        //    planDB.ProductId = product.ProductId;
+                        //    planDB.GameAvailableDay = item.GameAvailableDay;
+                        //    planDB.GameStartTime = item.GameStartTime;
+                        //    planDB.GameEndTime = item.GameEndTime;
+                        //    _ctx.ProductPlans.Add(planDB);
+                        //    _ctx.SaveChanges();
+                        //}
 
 
                         //product plan
@@ -265,10 +296,6 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-
-
-
-                        _ctx.SaveChanges();
                         tran.Commit();
 
                         //ViewData["Message"] = "使用者儲存成功";

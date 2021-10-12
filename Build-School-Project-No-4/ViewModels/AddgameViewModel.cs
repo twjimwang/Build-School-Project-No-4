@@ -61,6 +61,27 @@ namespace Build_School_Project_No_4.ViewModels
 
 
 
+
+        //public string GameAvailableDay1 { get; set; }
+
+        //[DataType(DataType.Time)]
+        //public DateTime? GameStartTime1 { get; set; }
+
+        //[DataType(DataType.Time)]
+        //public DateTime? GameEndTime1 { get; set; }
+
+
+
+        //public string GameAvailableDay2 { get; set; }
+
+        //[DataType(DataType.Time)]
+        //public DateTime? GameStartTime2 { get; set; }
+
+        //[DataType(DataType.Time)]
+        //public DateTime? GameEndTime2 { get; set; }
+
+
+
         //[Display(Name = "Game AvailableDay")]
         //public List<ProductPlan> GameAvailableDay { get; set; }
 
@@ -72,21 +93,21 @@ namespace Build_School_Project_No_4.ViewModels
         //[DataType(DataType.Time)]
         //public List<ProductPlan> GameEndTime { get; set; }
 
-        public List<ProductPlan> planset { get; set; }
+        public List<ProductPlanSet> planset { get; set; }
 
 
     }
 
     public class ProductPlanSet
     {
-        //[Display(Name = "Game AvailableDay")]
+        //public int ProductId { get; set; }
+
+
         public string GameAvailableDay { get; set; }
 
-        //[Display(Name = "Start Time ")]
         [DataType(DataType.Time)]
         public DateTime? GameStartTime { get; set; }
 
-        //[Display(Name = "End Time")]
         [DataType(DataType.Time)]
         public DateTime? GameEndTime { get; set; }
     }
