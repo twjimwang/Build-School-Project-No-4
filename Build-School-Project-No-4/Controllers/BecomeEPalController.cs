@@ -78,7 +78,7 @@ namespace Build_School_Project_No_4.Controllers
                         {
                             planset = new List<ProductPlan>(),
                             ServerId = new List<SelectListItem>(),
-                            StyleId = new List<ProductStyle>(),
+                            StyleId = new List<StyleIdEum>(),
                             PositionId = new List<ProductPosition>()
                         };
 
@@ -199,19 +199,45 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
+                        //        List<ProductStyle> styleName = new List<ProductStyle>
+                        //        {
+                        //            new ProductStyle
+                        //            {
+                        //                StyleId = (int)registerVM.addgame.StyleId
+
+                        //            }
+                        //        };
 
 
 
+                        //List<StyleIdEum> stylelist = new List<StyleIdEum>()
+                        //{
 
-                        List<ProductStyle> stylelist = registerVM.addgame.StyleId;
-                        foreach (var style in stylelist)
-                        {
-                            stylelist.Add(new ProductStyle
-                            {
-                                ProductId = style.ProductId,
-                                StyleId = style.StyleId
-                            });
-                        };
+                        //     = new StyleIdEum();                       
+
+                        //};
+
+
+                        //foreach (var style in stylelist)
+                        //{
+                        //    stylelist.Add(new ProductStyle
+                        //    {
+                        //        ProductId = style.ProductId,
+                        //        StyleId = style.StyleId
+                        //    });
+                        //};
+
+
+
+                        //List<ProductStyle> stylelist = registerVM.addgame.StyleId;
+                        //foreach (var style in stylelist)
+                        //{
+                        //    stylelist.Add(new ProductStyle
+                        //    {
+                        //        ProductId = style.ProductId,
+                        //        StyleId = style.StyleId
+                        //    });
+                        //};
 
                         List<ProductPosition> positionlist = registerVM.addgame.PositionId;
                         foreach (var position in positionlist)

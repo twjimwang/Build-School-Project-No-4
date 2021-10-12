@@ -37,7 +37,7 @@ namespace Build_School_Project_No_4.ViewModels
 
         [Display(Name = "Style")]
         //public StyleIdEum  StyleId { get; set; }
-        public List<ProductStyle> StyleId { get; set; }
+        public List<StyleIdEum> StyleId { get; set; }
 
         [Display(Name = "Position")]
         //public PositionEum PositionId { get; set; }
