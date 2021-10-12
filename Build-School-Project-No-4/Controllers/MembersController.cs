@@ -85,7 +85,17 @@ namespace Build_School_Project_No_4.Controllers
 
         }
 
+        public ActionResult Followings()
+        {
+            var memberGet = new FollowService();
+            var members = memberGet.GetFollowMember();
 
+            GroupViewModel followSelectMembers = new GroupViewModel
+            {
+                FollowMembers = members
+            };
+            return View(followSelectMembers);
+        }
 
 
 
