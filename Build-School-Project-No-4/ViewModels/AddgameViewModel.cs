@@ -29,10 +29,12 @@ namespace Build_School_Project_No_4.ViewModels
         public string RecommendationVoice { get; set; }
 
 
-
+        public List<Server> ServerItems { get; set; }
+        public List<ProductServer> ServerAllItems { get; set; }
         [Display(Name ="Server")]
         //public ServerEum ServerId { get; set; }
-        public List<SelectListItem> ServerId { get; set; }
+        public List<int> ServerId { get; set; }
+
 
 
         [Display(Name = "Style")]
