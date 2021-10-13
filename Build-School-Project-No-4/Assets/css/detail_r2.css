@@ -358,7 +358,7 @@ img.buff-img {
   text-align: center;
 }
 
-.modal-body button {
+#playModal .modal-body button {
     background-color: rgb(33, 33, 44);
     padding: 0px 8px;
     border-radius: 4px;
@@ -546,7 +546,7 @@ img.buff-img {
     height: 100%;
   }
 
-  .modal-dialog{
+  #playModal .modal-dialog{
     width: 450px;
   }
 
@@ -575,7 +575,7 @@ img.buff-img {
         position: relative;
         top: 65px;
     }
-  .container {
+ .game-backdrop .container{
     padding: 0 10px;
   }
 
