@@ -112,8 +112,8 @@ namespace Build_School_Project_No_4.Services
                 ProductId = p.ProductId,
                 Server = Servers.First(s => s.ServerId ==((ProductServers.First(y => y.ProductId == p.ProductId).ServerId))).ServerName,
                 Language = LanguageName.First(L => L.LanguageId == (int)Members.First(x => x.MemberId == p.CreatorId).LanguageId).LanguageName,
-                GenderId = (int)Members.First(x => x.MemberId == p.CreatorId).Gender,
-                Age = todayYear - DateTime.Parse(Members.First(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
+                //GenderId = (int)Members.First(x => x.MemberId == p.CreatorId).Gender,
+                //Age = todayYear - DateTime.Parse(Members.First(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
                 StatusName = LineStatus.First(y => y.LineStatusId == (Members.First(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName
             }).ToList();
             result.CategoryId = categoryId;

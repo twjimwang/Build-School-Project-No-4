@@ -7,6 +7,8 @@ namespace Build_School_Project_No_4.ViewModels
 {
     public class FilterItemViewModel
     {
+        public int CategoryId { get; set; }
+
         public List<string> Server { get; set; }
 
         public List<string> Language { get; set; }

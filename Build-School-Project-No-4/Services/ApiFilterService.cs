@@ -17,8 +17,13 @@ namespace Build_School_Project_No_4.Services
             _repo = new Repository();
         }
 
-        public List<ProductViewModel>GetProductCardsByFilter(FilterItemViewModel FilterVM)
+        public string GetProductCardsByFilter(FilterItemViewModel FilterVM)
         {
+            var result = new ProductViewModel()
+            {
+                ProductCards = new List<ProductCard>()
+            };
+
             var server = FilterVM.Server;
             var language = FilterVM.Language;
             var level = FilterVM.Level;
@@ -26,8 +31,15 @@ namespace Build_School_Project_No_4.Services
             var age = FilterVM.Age;
             var gender = FilterVM.Gender;
             var status = FilterVM.Status;
+            var categoryId = FilterVM.CategoryId;
 
-            var products = _repo.GetAll<Products>();
+            var category = _repo.GetAll<GameCategories>().FirstOrDefault(x => x.GameCategoryId == categoryId);
+            if (category == null)
+            {
+                return result.ToString();
+            }
+
+            var products = _repo.GetAll<Products>().Where(x => x.GameCategoryId == category.GameCategoryId);
             var CommentDetails = _repo.GetAll<CommentDetails>();
             var ProductPositions = _repo.GetAll<ProductPosition>();
             var Positions = _repo.GetAll<Position>();
@@ -36,46 +48,82 @@ namespace Build_School_Project_No_4.Services
             var ProductServers = _repo.GetAll<ProductServer>();
             var Servers = _repo.GetAll<Server>();
             var LineStatus = _repo.GetAll<LineStatus>();
-            var Languages = _repo.GetAll<Language>();
+            var LanguageName = _repo.GetAll<Language>();
             var todayYear = DateTime.Now.Year;
 
+           
             if(server != null && server.Count > 0)
             {
                 server.ForEach(s =>
                 {
-                    Servers = Servers.Where(x => x.ServerName == s);
+                    Servers = Servers.Where(p => p.ServerName == s);
                 });
             }
             if(language != null && language.Count > 0)
             {
                 language.ForEach(l =>
                 {
-                    Languages = Languages.Where(x => x.LanguageName == l);
+                    LanguageName = LanguageName.Where(p => p.LanguageName == l);
                 });
             }
             if (gender != null && gender.Count > 0)
             {
                 gender.ForEach(g =>
                 {
-                    Members = Members.Where(x => x.Gender == g);
+                    Members = Members.Where(p => p.MemberId == g);
                 });
             }
             if (status != null && status.Count > 0)
             {
                 status.ForEach(s =>
                 {
-                    
+                    LineStatus = LineStatus.Where(p => p.LineStatusName == s);
                 });
             }
             if (level != null && level.Count > 0)
             {
                 level.ForEach(l =>
                 {
-                    Ranks = Ranks.Where(x => x.RankName == l);
+                    Ranks = Ranks.Where(p => p.RankName == l);
                 });
             }
-
-            return null;
+            if (price != null && price.Count > 0)
+            {
+                price.ForEach(x =>
+                {
+                    products = products.Where(p => p.UnitPrice == x);
+                });
+            }
+            if (age != null && age.Count > 0)
+            {
+                age.ForEach(x =>
+                {
+                    Members = Members.Where(p => todayYear - DateTime.Parse(p.BirthDay.ToString()).Year == x);
+                });
+            }
+            
+                var productCards = products.Select(p => new ProductCard
+                {
+                    UnitPrice = p.UnitPrice,
+                    CreatorImg = p.CreatorImg,
+                    Introduction = p.Introduction,
+                    RecommendationVoice = p.RecommendationVoice,
+                    LineStatus = LineStatus.FirstOrDefault(y => y.LineStatusId == Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LineStatusId).LineStatusImg,
+                    CreatorName = Members.FirstOrDefault(x => x.MemberId == p.CreatorId).MemberName,
+                    StarLevel = CommentDetails.FirstOrDefault(x => x.ProductId == p.ProductId).StarLevel,
+                    Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.FirstOrDefault(x => x.RankId == p.RankId).RankName,
+                    Position = Positions.FirstOrDefault(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
+                    ProductId = p.ProductId,
+                    Server = Servers.FirstOrDefault(s => s.ServerId == ((ProductServers.FirstOrDefault(y => y.ProductId == p.ProductId).ServerId))).ServerName,
+                    Language = LanguageName.FirstOrDefault(L => L.LanguageId == (int)Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LanguageId).LanguageName,
+                    //GenderId = (int)Members.FirstOrDefault(x => x.MemberId == p.CreatorId).Gender,
+                    //Age = todayYear - DateTime.Parse(Members.FirstOrDefault(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
+                    StatusName = LineStatus.FirstOrDefault(y => y.LineStatusId == (Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName
+                }).ToList();
+            
+            result.CategoryId = categoryId;
+            result.ProductCards = productCards;
+            return JsonConvert.SerializeObject(result);
         }
     }
 }
