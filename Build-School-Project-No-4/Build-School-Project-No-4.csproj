@@ -778,7 +778,6 @@
     <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
     <Content Include="Views\Page404\Page404.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
-    <Content Include="Views\Detail\DetailPage.cshtml" />
     <Content Include="Views\Edit_Profile\Edit_Profile.cshtml" />
     <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
@@ -795,12 +794,10 @@
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
-    <Content Include="Views\Detail\DetailPage.cshtml" />
     <Content Include="Views\Detail\NotFound.cshtml" />
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\ePals\ePal.cshtml" />
     <Content Include="Views\ePals\GamesJson.cshtml" />
-    <Content Include="Views\Shared\_Layout_customMobile.cshtml" />
     <Content Include="Views\Detail\Order.cshtml" />
     <Content Include="Views\Detail\Checkout.cshtml" />
     <Content Include="Views\ePals\Order.cshtml" />
@@ -824,6 +821,7 @@
     <Content Include="Views\Checkout\Failure.cshtml" />
     <Content Include="Views\Checkout\Success.cshtml" />
     <Content Include="Views\Checkout\_ViewStart.cshtml" />
+    <Content Include="Views\Detail\DetailPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
