@@ -32,9 +32,9 @@ namespace Build_School_Project_No_4.Controllers
         }
 
         [AcceptVerbs("GET", "POST")]
-        public string GetProductCardByFilter(FilterItemViewModel FilterVM, int CategoryId)
+        public string GetProductCardByFilter(FilterItemViewModel FilterVM)
         {
-            var cardJson = _apiFilterSevice.GetProductCardsByFilter(FilterVM, CategoryId);
+            var cardJson = _apiFilterSevice.GetProductCardsByFilter(FilterVM);
 
             return cardJson;
         }
