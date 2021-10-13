@@ -34,17 +34,22 @@ namespace Build_School_Project_No_4.Services
         {
             var orders = _repo.GetAll<Orders>();
             var members = _repo.GetAll<Members>();
+            var products = _repo.GetAll<Products>();
+            var gameCat = _repo.GetAll<GameCategories>();
             //var result = orders.Where(x => x.OrderConfirmation == confirmation).FirstOrDefault();
             var result = (from o in orders
-                          join m in members on o.CustomerId equals m.MemberId
+                          join p in products on o.ProductId equals p.ProductId
+                          join m in members on p.CreatorId equals m.MemberId
+                          join g in gameCat on p.GameCategoryId equals g.GameCategoryId
                           where o.OrderConfirmation == confirmation
                           select new PaymentViewModel
                           {
-
-
-
+                              ePalName = m.MemberName,
+                              UnitPrice = o.UnitPrice,
+                              Rounds = o.Quantity,
+                              GameName = g.GameName
                           }
-                              );
+                              ).SingleOrDefault();
 
 
             //create itemlist and add item objects to it  
@@ -55,11 +60,10 @@ namespace Build_School_Project_No_4.Services
             //Adding Item Details like name, currency, price etc  
             itemList.items.Add(new Item()
             {
-                name = "Item Name comes here",
+                name = $"{result.Rounds} round(s) of {result.GameName} with {result.ePalName}",
                 currency = "USD",
-                price = "1",
-                quantity = "1",
-                sku = "sku"
+                price = (result.UnitPrice).ToString(),
+                quantity = result.Rounds.ToString(),
             });
             var payer = new Payer()
             {
@@ -74,21 +78,21 @@ namespace Build_School_Project_No_4.Services
             // Adding Tax, shipping and Subtotal details  
             var details = new Details()
             {
-                subtotal = "1"
+                subtotal = (result.Rounds * result.UnitPrice).ToString()
             };
             //Final amount with details  
             var amount = new Amount()
             {
                 currency = "USD",
-                total = "3", // Total must be equal to sum of tax, shipping and subtotal.  
+                total = (result.Rounds * result.UnitPrice).ToString(), // Total must be equal to sum of tax, shipping and subtotal.  
                 details = details
             };
             var transactionList = new List<Transaction>();
             // Adding description about the transaction  
             transactionList.Add(new Transaction()
             {
-                description = "Transaction description",
-                invoice_number = "your generated invoice number57", //Generate an Invoice No  
+                description = "Game4Lyfe" + confirmation,
+                invoice_number = confirmation, //Generate an Invoice No  
                 amount = amount,
                 item_list = itemList
             });

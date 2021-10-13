@@ -19,11 +19,19 @@ namespace Build_School_Project_No_4.Controllers
             _orderConfirmService = new OrderConfirmationService();
         }
 
-        [NoDirectAccess]
+        //[NoDirectAccess]
         public ActionResult Success(string confirmation)
         {
             var isPaid = _orderConfirmService.UpdateOrderStatus(confirmation);
-            return View();
+            if (isPaid == true)
+            {
+                return View();
+
+            }
+            else
+            {
+                return Content("order status change didn't go through");
+            }
         }
 
 
@@ -92,18 +100,18 @@ namespace Build_School_Project_No_4.Controllers
             return RedirectToAction("Success", new { Confirmation = confirmation });
         }
 
-        [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-        public class NoDirectAccessAttribute : ActionFilterAttribute
-        {
-            public override void OnActionExecuting(ActionExecutingContext filterContext)
-            {
-                if (filterContext.HttpContext.Request.UrlReferrer == null ||
-                            filterContext.HttpContext.Request.Url.Host != filterContext.HttpContext.Request.UrlReferrer.Host)
-                {
-                    filterContext.Result = new RedirectToRouteResult(new
-                                   RouteValueDictionary(new { controller = "Home", action = "Index", area = "" }));
-                }
-            }
-        }
+        //[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+        //public class NoDirectAccessAttribute : ActionFilterAttribute
+        //{
+        //    public override void OnActionExecuting(ActionExecutingContext filterContext)
+        //    {
+        //        if (filterContext.HttpContext.Request.UrlReferrer == null ||
+        //                    filterContext.HttpContext.Request.Url.Host != filterContext.HttpContext.Request.UrlReferrer.Host)
+        //        {
+        //            filterContext.Result = new RedirectToRouteResult(new
+        //                           RouteValueDictionary(new { controller = "Home", action = "Index", area = "" }));
+        //        }
+        //    }
+        //}
     }
 }

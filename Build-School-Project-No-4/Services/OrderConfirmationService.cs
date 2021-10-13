@@ -27,14 +27,15 @@ namespace Build_School_Project_No_4.Services
             {
                 return false;
             }
-            using (var tran = _ctx.Database.BeginTransaction())
+            using (var tran = _repo._context.Database.BeginTransaction())
             {
                 try
                 {
                     var result = orders.Where(x => x.OrderConfirmation == confirmation).FirstOrDefault();
                     result.OrderStatusId = 4;
                     result.UpdateDateTime = DateTime.Now.ToUniversalTime();
-                    _ctx.SaveChanges();
+                    _repo.Update(result);
+                    _repo.SaveChanges();
                     tran.Commit();
 
                     return true;
