@@ -1,4 +1,6 @@
 ﻿
+@model GroupViewModel
+
 <div class="container topContent">
     <div class="row navBarPhone">
         <div class="col leftNavbar">
@@ -59,8 +61,8 @@
         <input type="month" class="monthCalender" id="start" name="start" min="2021-10" value="2021-10">
 
         @*<div class="col-4 col-md-1 selectCalender">
-            <input type="month" id="start" name="start" min="2018-03" value="2018-05">
-        </div>*@
+                <input type="month" id="start" name="start" min="2018-03" value="2018-05">
+            </div>*@
 
         <div class="col-12 col-md-1 orderIncome">
             <div class="expensePhone co-6">Expense 0.00</div>
@@ -93,6 +95,39 @@
             Status
         </div>
     </div>
+
+    @foreach (var m in Model.wallets)
+    {
+        <div class="row orderField">
+            <div class="col">
+                @*Item*@
+            </div>
+            <div class="col">
+                @*Order*@
+                <span>@Html.DisplayFor(x => m.OrderId)</span>
+            </div>
+            <div class="col">
+                @*Time*@
+                <span>@Html.DisplayFor(x => m.OrderDate)</span>
+            </div>
+            <div class="col">
+                @*User*@
+                <span>@Html.DisplayFor(x => m.MemberName)</span>
+            </div>
+            <div class="col-2">
+                @*Payment Gateway*@
+            </div>
+            <div class="col">
+                @*Amount*@
+                <span>@Html.DisplayFor(x => m.TotalPrice)</span>
+            </div>
+            <div class="col">
+                @*Status*@
+                <span>@Html.DisplayFor(x => m.OrderStatusName)</span>
+            </div>
+        </div>
+    }
+
     <div class="row walletDetail">
         <img src="~/Assets/WalletImages/wallet.png" />
         <p>Show me the money !</p>
