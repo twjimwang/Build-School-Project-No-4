@@ -55,7 +55,10 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-
+        /// <summary>
+        /// Sonias shit don't touch
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
@@ -119,7 +122,8 @@ namespace Build_School_Project_No_4.Controllers
         [HttpPost]
         public ActionResult Checkout(GroupViewModel x, string confirmation)
         {
-            return View("Index");
+            TempData["confirmation"] = confirmation;
+            return RedirectToAction("PaymentWithPaypal", "Checkout");
         }
     }
 }

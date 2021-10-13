@@ -304,7 +304,6 @@
     <Compile Include="Controllers\ChooseAServiceController.cs" />
     <Compile Include="Controllers\CouponsController.cs" />
     <Compile Include="Controllers\CreatorProjectController.cs" />
-    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
     <Compile Include="Controllers\ePalsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
@@ -794,12 +793,8 @@
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
-    <Content Include="Views\Detail\NotFound.cshtml" />
-    <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\ePals\ePal.cshtml" />
     <Content Include="Views\ePals\GamesJson.cshtml" />
-    <Content Include="Views\Detail\Order.cshtml" />
-    <Content Include="Views\Detail\Checkout.cshtml" />
     <Content Include="Views\ePals\Order.cshtml" />
     <Content Include="Views\ePals\Checkout.cshtml" />
     <Content Include="Views\ePals\DetailPage.cshtml" />
@@ -816,12 +811,11 @@
     <Content Include="Views\Members\ImageUpload.cshtml" />
     <Content Include="Views\Shared\_AvatarPartial.cshtml" />
     <Content Include="Views\Members\EditProfile.cshtml" />
-    <Content Include="Views\Detail\FailureView.cshtml" />
-    <Content Include="Views\Detail\SuccessView.cshtml" />
     <Content Include="Views\Checkout\Failure.cshtml" />
     <Content Include="Views\Checkout\Success.cshtml" />
     <Content Include="Views\Checkout\_ViewStart.cshtml" />
-    <Content Include="Views\Detail\DetailPage.cshtml" />
+    <Content Include="Views\ePals\FailureView.cshtml" />
+    <Content Include="Views\ePals\SuccessView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
