@@ -60,10 +60,11 @@ namespace Build_School_Project_No_4.Services
             //Adding Item Details like name, currency, price etc  
             itemList.items.Add(new Item()
             {
-                name = $"{result.Rounds} round(s) of {result.GameName} with {result.ePalName}",
+                name = "Item Name comes here",
                 currency = "USD",
-                price = (result.UnitPrice).ToString(),
-                quantity = result.Rounds.ToString(),
+                price = "1",
+                quantity = "1",
+                sku = "sku"
             });
             var payer = new Payer()
             {
@@ -78,21 +79,21 @@ namespace Build_School_Project_No_4.Services
             // Adding Tax, shipping and Subtotal details  
             var details = new Details()
             {
-                subtotal = (result.Rounds * result.UnitPrice).ToString()
+                subtotal = "1"
             };
             //Final amount with details  
             var amount = new Amount()
             {
                 currency = "USD",
-                total = (result.Rounds * result.UnitPrice).ToString(), // Total must be equal to sum of tax, shipping and subtotal.  
+                total = "3", // Total must be equal to sum of tax, shipping and subtotal.  
                 details = details
             };
             var transactionList = new List<Transaction>();
             // Adding description about the transaction  
             transactionList.Add(new Transaction()
             {
-                description = "Game4Lyfe" + confirmation,
-                invoice_number = confirmation, //Generate an Invoice No  
+                description = "Transaction description",
+                invoice_number = "your generated invoice number57", //Generate an Invoice No  
                 amount = amount,
                 item_list = itemList
             });

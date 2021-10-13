@@ -27,6 +27,7 @@ namespace Build_School_Project_No_4.Services
             {
                 return false;
             }
+
             using (var tran = _repo._context.Database.BeginTransaction())
             {
                 try
