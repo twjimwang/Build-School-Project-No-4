@@ -672,9 +672,7 @@
     <Content Include="Views\Shared\_Layout_nofooter.cshtml" />
     <Content Include="Views\Shared\_Layout_beforelogin_nofooter.cshtml" />
     <Content Include="Views\Coupons\Coupons.cshtml" />
-    <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\ePal\ePal.cshtml" />
-    <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
     <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
     <Content Include="Views\becomeepal\BecomeEPalPage.cshtml" />
@@ -718,6 +716,7 @@
     <Content Include="Views\CreatorProject\Rule_ListCover.cshtml" />
     <Content Include="Views\CreatorProject\Rule_ScreenshotRules.cshtml" />
     <Content Include="Views\Shared\_GameDayPartial.cshtml" />
+    <Content Include="Views\epalAccount\Wallet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
