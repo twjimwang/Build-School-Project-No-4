@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Build_School_Project_No_4.ViewModels
 {
@@ -12,7 +13,7 @@ namespace Build_School_Project_No_4.ViewModels
         [Display(Name = "Unit Price")]
         public decimal UnitPrice { get; set; }        
 
-        public int MemberId { get; set; }
+        //public int MemberId { get; set; }
         public int ProductId { get; set; }
         public GameCategoryList GameCategoryId { get; set; }
 
@@ -29,70 +30,151 @@ namespace Build_School_Project_No_4.ViewModels
 
 
 
+
+        public IEnumerable<Server> ServerItems { get; set; }
+        //public List<ProductServer> ServerAllItems { get; set; }
+
         [Display(Name ="Server")]
         //public ServerEum ServerId { get; set; }
-        public List<int> ServerId { get; set; }
+        public IEnumerable<int> ServerSelectedId { get; set; }
 
-        [Display(Name = "Style")]
-        //public StyleIdEum  StyleId { get; set; }
-        public List<int>  StyleId { get; set; }
+
+        public IEnumerable<Position> PositionItems { get; set; }
+        //public List<ProductPosition> PositionId { get; set; }
 
         [Display(Name = "Position")]
         //public PositionEum PositionId { get; set; }
-        public List<int> PositionId { get; set; }
+        public IEnumerable<int> PositionSelectedId { get; set; }
+
+
+
+        public IEnumerable<Style> StyleItems { get; set; }
+        //public List<StyleIdEum> StyleId { get; set; }
+        [Display(Name = "Style")]
+        //public StyleIdEum  StyleId { get; set; }
+        public IEnumerable<int> StyleSelectedId { get; set; }
+
+
 
         [Display(Name = "Rank")]
         public RankEum RankId { get; set; }
 
+
+
+
+        public string GameAvailableDay1 { get; set; }
+
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}")]
         [DataType(DataType.Time)]
-        public List<ProductPlan> AvailabledayList { get; set; }
+        public DateTime GameStartTime1 { get; set; }
+
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}")]
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime1 { get; set; }
+
+
+
+        public string GameAvailableDay2 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime2 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime2 { get; set; }
+
+
+        public string GameAvailableDay3 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime3 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime3 { get; set; }
+
+        public string GameAvailableDay4 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime4 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime4 { get; set; }
+
+        public string GameAvailableDay5 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime5 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime5 { get; set; }
+
+        public string GameAvailableDay6 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime6 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime6 { get; set; }
+
+        public string GameAvailableDay7 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime7 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime7 { get; set; }
 
 
 
 
-        //public AddgameViewModel()
-        //{
-        //    AvailabledayList = new List<ProductPlan>()
-        //    {
-        //        new ProductPlan{ GameAvailableDay = "Monday" },
-        //        new ProductPlan{ GameAvailableDay = "Tuesday" },
-        //        new ProductPlan{ GameAvailableDay = "Wednesday" },
-        //        new ProductPlan{ GameAvailableDay = "Thursday" },
-        //        new ProductPlan{ GameAvailableDay = "Friday" },
-        //        new ProductPlan{ GameAvailableDay = "Saterday" },
-        //        new ProductPlan{ GameAvailableDay = "Sunday" }
-                
-        //    };
-        //}
+        //[Display(Name = "Game AvailableDay")]
+        //public string GameAvailableDay { get; set; }
 
+        //[Display(Name = "Start Time ")]
+        //[DataType(DataType.Time)]
+        //public DateTime?[] GameStartTime { get; set; }
+
+        //[Display(Name = "End Time")]
+        //[DataType(DataType.Time)]
+        //public DateTime?[] GameEndTime { get; set; }
+
+
+
+
+
+        //public List<ProductPlanSet> planset { get; set; }
 
     }
 
-    //public class Availableday
+    //public class ProductPlanSet
     //{
-    //    [Display(Name = "Game AvailableDay")]
-    //    public AvailableDayEnum GameAvailableDay { get; set; }
+    //    //public int ProductId { get; set; }
+    //    public string GameAvailableDay { get; set; }
 
-    //    [Display(Name = "Start Time ")]
     //    [DataType(DataType.Time)]
-    //    public DateTime GameStartTime { get; set; }
+    //    public DateTime?[] GameStartTime { get; set; }
 
-    //    [Display(Name = "End Time")]
     //    [DataType(DataType.Time)]
-    //    public DateTime GameEndTime { get; set; }
+    //    public DateTime?[] GameEndTime { get; set; }
     //}
 
 
-    //public enum AvailableDayEnum
-    //{
-    //    Monday = 1,
-    //    Tuesday = 2,
-    //    Wednesday = 3,
-    //    Thursday = 4,
-    //    Friday = 5,
-    //    Saterday = 6,
-    //    Sunday = 7
-    //}
+
+    public enum RankEum
+    {
+        Bronze = 1,
+        Silver = 2,
+        Gold = 3,
+        Platinum = 4,
+        Diamond = 5,
+        Master = 6,
+        Challenger = 7,
+        Unranked = 8
+    }
+
+
+
 
     public enum GameCategoryList
     {
@@ -147,16 +229,6 @@ namespace Build_School_Project_No_4.ViewModels
         Jungler=2,
         ADC=3,
         Support=4,
-        Middle=5,    
-    }
-
-    public enum RankEum
-    {
-        Iron = 1,
-        Bronze = 2,
-        Silver = 3,
-        Gold = 4,
-        Platinum = 5,
-        Diamond = 6
+        Middle=5,   
     }
 }

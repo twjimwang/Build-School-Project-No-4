@@ -12,6 +12,7 @@ namespace Build_School_Project_No_4.ViewModels
 
         public IEnumerable<WalletViewModel> wallets { get; set; }
         public AddgameViewModel addgame { get; set; }
+        //public ProductPlanSet plansetGV { get; set; }
         public MemberViewModel MemberData { get; set; }
 
     }
