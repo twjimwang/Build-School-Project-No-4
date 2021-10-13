@@ -62,67 +62,119 @@ namespace Build_School_Project_No_4.ViewModels
 
 
 
-        //public string GameAvailableDay1 { get; set; }
+        public string GameAvailableDay1 { get; set; }
 
-        //[DataType(DataType.Time)]
-        //public DateTime? GameStartTime1 { get; set; }
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}")]
+        [DataType(DataType.Time)]
+        public DateTime GameStartTime1 { get; set; }
 
-        //[DataType(DataType.Time)]
-        //public DateTime? GameEndTime1 { get; set; }
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}")]
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime1 { get; set; }
 
 
 
-        //public string GameAvailableDay2 { get; set; }
+        public string GameAvailableDay2 { get; set; }
 
-        //[DataType(DataType.Time)]
-        //public DateTime? GameStartTime2 { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime2 { get; set; }
 
-        //[DataType(DataType.Time)]
-        //public DateTime? GameEndTime2 { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime2 { get; set; }
+
+
+        public string GameAvailableDay3 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime3 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime3 { get; set; }
+
+        public string GameAvailableDay4 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime4 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime4 { get; set; }
+
+        public string GameAvailableDay5 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime5 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime5 { get; set; }
+
+        public string GameAvailableDay6 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime6 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime6 { get; set; }
+
+        public string GameAvailableDay7 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameStartTime7 { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime? GameEndTime7 { get; set; }
+
 
 
 
         //[Display(Name = "Game AvailableDay")]
-        //public List<ProductPlan> GameAvailableDay { get; set; }
+        //public string GameAvailableDay { get; set; }
 
         //[Display(Name = "Start Time ")]
         //[DataType(DataType.Time)]
-        //public List<ProductPlan> GameStartTime { get; set; }
+        //public DateTime?[] GameStartTime { get; set; }
 
         //[Display(Name = "End Time")]
         //[DataType(DataType.Time)]
-        //public List<ProductPlan> GameEndTime { get; set; }
+        //public DateTime?[] GameEndTime { get; set; }
 
-        public List<ProductPlanSet> planset { get; set; }
 
+
+
+
+        //public List<ProductPlanSet> planset { get; set; }
 
     }
 
-    public class ProductPlanSet
-    {
-        //public int ProductId { get; set; }
-
-
-        public string GameAvailableDay { get; set; }
-
-        [DataType(DataType.Time)]
-        public DateTime? GameStartTime { get; set; }
-
-        [DataType(DataType.Time)]
-        public DateTime? GameEndTime { get; set; }
-    }
-
-
-    //public enum AvailableDayEnum
+    //public class ProductPlanSet
     //{
-    //    Monday = 1,
-    //    Tuesday = 2,
-    //    Wednesday = 3,
-    //    Thursday = 4,
-    //    Friday = 5,
-    //    Saterday = 6,
-    //    Sunday = 7
+    //    //public int ProductId { get; set; }
+    //    public string GameAvailableDay { get; set; }
+
+    //    [DataType(DataType.Time)]
+    //    public DateTime?[] GameStartTime { get; set; }
+
+    //    [DataType(DataType.Time)]
+    //    public DateTime?[] GameEndTime { get; set; }
     //}
+
+
+
+    public enum RankEum
+    {
+        Bronze = 1,
+        Silver = 2,
+        Gold = 3,
+        Platinum = 4,
+        Diamond = 5,
+        Master = 6,
+        Challenger = 7,
+        Unranked = 8
+    }
+
+
+
 
     public enum GameCategoryList
     {
@@ -177,16 +229,6 @@ namespace Build_School_Project_No_4.ViewModels
         Jungler=2,
         ADC=3,
         Support=4,
-        Middle=5,    
-    }
-
-    public enum RankEum
-    {
-        Iron = 1,
-        Bronze = 2,
-        Silver = 3,
-        Gold = 4,
-        Platinum = 5,
-        Diamond = 6
+        Middle=5,   
     }
 }
