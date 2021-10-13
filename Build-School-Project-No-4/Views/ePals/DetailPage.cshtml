@@ -231,7 +231,8 @@
                                         <span>@Html.LabelFor(x => x.AddCart.Rounds)</span>
                                         <div class="rounds-div">
                                             <button type="button" class="round-subtract"><span>-</span></button>
-                                            @*<input class="round-number" value="1" onfocus="setOldVal(this.value)" onkeyup="PriceChange(undefined, this.value)">*@
+                                            @*<input type="number" class="round-number" value="1" onfocus="setOldVal(this.value)" onkeyup="PriceChange(undefined, this.value)">*@
+                                            @* 衝突 BUG *@
                                             @Html.EditorFor(x => x.AddCart.Rounds, new { htmlAttributes = new { @class = "round-number", Value = "1", onfocus = "setOldVal(this.value)", onkeyup = "PriceChange(undefined, this.value)" } })
                                             @Html.ValidationMessageFor(x => x.AddCart.Rounds, "", new { @class = "text-danger" })
                                             <button type="button" class="round-add"><span>+</span></button>
@@ -242,7 +243,6 @@
                                     <div class="start-time-div">
                                         <span>Start Time</span>
                                         <div class="start-time-settings">
-                                            <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local -->
                                             <input type="datetime-local" id="start-time" name="startTime" class="whitish" onblur="DateCheck(this.value)">
                                             <button type="button" class="time-now"><span>Now</span></button>
                                         </div>
