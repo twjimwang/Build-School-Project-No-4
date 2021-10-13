@@ -56,8 +56,6 @@
 <body style="background-color: #120E1B;">
 
     <div class="">
-        @*<div class="row d-flex justify-content-center align-items-center">
-            <div class="col-md-6">*@
 
         @using (Html.BeginForm("addgame", "becomeepal", FormMethod.Post, new { id = "becomeForm", @class = "", novalidate = "" }))
         {
@@ -68,9 +66,6 @@
 
             @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => Model.addgame.CreatorId, new { @value = @userid })*@
-
-
-            @*<form id="regForm">*@
 
 
             <div class="all-steps" id="all-steps">
@@ -967,7 +962,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @Html.EnumDropDownListFor(model => model.addgame.RankId, new { htmlAttributes = new { @class = "form-control",  style = "background-color: #302F3D; color:white;" } })
+                                                @Html.EnumDropDownListFor(model => model.addgame.RankId, new { htmlAttributes = new { @class = "form-control",  @style = "background-color: #302F3D; color:white;" } })
                                                 @Html.ValidationMessageFor(model => model.addgame.RankId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -981,7 +976,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @Html.ListBoxFor(model => model.addgame.ServerSelectedId, new SelectList(Model.addgame.ServerItems, "ServerId", "ServerName"), new { htmlAttributes = new { @class = "form-control", style = "background-color: #302F3D; color:white;" } })
+                                                @Html.ListBoxFor(model => model.addgame.ServerSelectedId, new SelectList(Model.addgame.ServerItems, "ServerId", "ServerName"), new { @class = "form-control col-md-4", @style = "background-color: #302F3D; color:white;"  })
                                                 @Html.ValidationMessageFor(model => model.addgame.ServerSelectedId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -1091,7 +1086,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @Html.EditorFor(model => Model.addgame.Introduction, new { htmlAttributes = new { @class = "form-control", rows = "10", cols = "50", maxlength = "500" } })
+                                                @Html.EditorFor(model => Model.addgame.Introduction, new { htmlAttributes = new { @class = "form-control", rows = "10", cols = "50", maxlength = "500", style = "background-color: #302F3D; color:white;" } })
                                                 @Html.ValidationMessageFor(model => model.addgame.Introduction, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -1127,7 +1122,7 @@
                                     </div>
 
 
-                                    @*listCover*@
+                                    @*listCover(product img)*@
                                     <div class="form-group listCover">
                                         <div class="row">
                                             <div class="coverTitle">List Cover</div>
@@ -1160,6 +1155,43 @@
                                             @*@Html.ValidationMessageFor(model => model.addgame.ProductImg, "", new { @class = "text-danger" })*@
                                         </div>
                                     </div>
+
+
+
+                                    @*Creator Avatar*@
+                                    <div class="form-group creatorCover">
+                                        <div class="row">
+                                            <div class="coverTitle">Creator Avatar</div>
+                                            @*@Html.LabelFor(model => Model.addgame.ProductImg, htmlAttributes: new { @class = "control-label col-md-6 upload_cover" })*@
+                                            <div class="introDesc col-md-6">
+                                                <p>Upload your avatar</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+
+                                                <label class="control-label col-md-6 upload_cover_creator" for="uploadlistcover" id="imagePreview_creator">
+                                                    <input id="uploadcreatoravatar" type="file" class="form-control uploadfile" accept=".png, .jpg, .jpeg">
+                                                    <div class="upload_icon">
+                                                        <img src="~/Assets/images/GameInformation/addpic.png" alt="">
+                                                    </div>
+                                                    @*@Html.EditorFor(model => Model.addgame.ProductImg, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.addgame.ProductImg, "", new { @class = "text-danger" })*@
+                                                </label>
+                                                @*<div id="imagePreview"> </div>*@
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            @*@Html.LabelFor(model => model.addgame.ProductImg, htmlAttributes: new { @class = "control-label col-md-3 productimgtitle" })*@
+                                            @Html.HiddenFor(model => model.addgame.CreatorImg,  new { @class = "form-control creatorimg col-md-3" } )
+                                            @*@Html.ValidationMessageFor(model => model.addgame.ProductImg, "", new { @class = "text-danger" })*@
+                                        </div>
+                                    </div>
+
+
 
 
 
@@ -1230,7 +1262,7 @@
 
 
 
-            <div style="overflow:auto;" id="nextprevious">
+            <div id="nextprevious">
                 @*<div style="float:left;">*@
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                 <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
@@ -1238,15 +1270,12 @@
                 @*<input type="submit" class="btn submitinput" value="Submit" id="btnSubmit">*@
                 @*</div>*@
             </div>
+            //style = "overflow:auto;"
 
-            @*</form>*@
 
 
         }
 
-
-        @*</div>
-            </div>*@
 
     </div>
 
@@ -1545,6 +1574,52 @@
 
 
 
+        //save Creator image to Cloudinary
+        function uploadCreatorToCloudinary() {
+            var photoUrl = "";
+
+            var cloud_url = 'https://api.cloudinary.com/v1_1/djamumruo/image/upload'
+            var cloud_upload_preset = 'roldewr6'
+            //var file = event.target.files[0];
+
+            //var fileLen = document.getElementsByClassName('uploadfile').files.length;
+            //var voicefile = document.getElementById('uploadvoice').files[0];
+            var imagefile = document.getElementById('uploadcreatoravatar').files[0];
+
+            var formData = new FormData();
+
+            //for (var x = 0; x < fileLen; x++) {
+            //    formData.append('file[]', document.getElementsByClassName('uploadfile').files[x])
+            //}
+            //formData.append('file', voicefile);
+            formData.append('file', imagefile);
+            formData.append('upload_preset', cloud_upload_preset);
+
+            axios({
+                url: cloud_url,
+                method: 'POST',
+                Headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formData
+            }).then(function (res) {
+                console.log(res);
+                photoUrl = res.data.secure_url;
+                console.log(photoUrl);
+
+                document.querySelector(".creatorimg").value = photoUrl;
+
+                //$("#imageUpload").change(function () {
+                //    readURL(photoUrl);
+                //});
+                //SaveImageViaAjax(memberId, photoUrl);
+
+            }).catch(function (err) {
+                console.error(err);
+            });
+        }
+
+
 
 
         ////save voice/image to Cloudinary(備份)
@@ -1595,7 +1670,10 @@
 
 
 
-        //image preview
+
+
+
+        //product image preview
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -1620,11 +1698,46 @@
             }
         }
 
-        //upload to cloud then get file Url
+
+        //creator image preview
+        function readcreatorURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    //$('.upload_cover').resize(function() {
+                    //    if ($(this).height() > 200) {
+                    //        $(this).css('height', 'auto');
+                    //    }
+                    //});
+
+                    $('.upload_cover_creator').css({ 'width': '', 'height': '', 'background-size': 'contain', 'background-repeat': 'no-repeat', 'border': 'transparent', 'background-color': '#120E1B' });
+
+
+                    $('#imagePreview_creator').css('background-image', 'url(' + e.target.result + ')');
+                    document.querySelector("#imagePreview_creator img").src = "";
+
+                    //$('#imagePreview img').css('background-image', 'url(' + e.target.result + ')');
+                    //$('#imagePreview').hide();
+                    //$('#imagePreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        //upload product image to cloud then get file Url
         $("#uploadlistcover").change(function () {
             readURL(this);
             uploadToCloudinary();
         });
+
+        $("#uploadcreatoravatar").change(function () {
+            readcreatorURL(this);
+            uploadCreatorToCloudinary();
+        });
+
+
+
 
         $("#uploadvoice").change(function () {
             uploadAudio();
@@ -1641,6 +1754,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
+
             /*color: white;*/
         }
         /*        .container {
@@ -1763,7 +1877,7 @@
             padding-bottom: 5px;
         }
 
-        /*creator pic*/
+        /*list pic*/
         .listCover .upload_cover {
             position: relative;
             width: 100px;
@@ -1778,6 +1892,24 @@
         .listCover .uploadfile {
             display: none;
         }
+
+        /*creator pic*/
+        .creatorCover .upload_cover_creator {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            cursor: pointer;
+            background: #21212C;
+            border: 1px dashed #595656;
+            border-radius: 5px;
+        }
+
+        .creatorCover .uploadfile {
+            display: none;
+        }
+
+
 
         .upload_icon img {
             position: absolute;
@@ -1811,7 +1943,7 @@
         /* epalPage */
         .epalPage1 {
             height: 100%;
-            overflow: auto;
+            /*overflow: auto;*/
             position: relative;
         }
 
@@ -2091,7 +2223,7 @@
 
             .list {
                 display: grid;
-                grid-template-columns: repeat(4,120%);
+                grid-template-columns: repeat(4,115%);
             }
 
             .list {
@@ -2107,7 +2239,7 @@
 
             .list {
                 display: grid;
-                grid-template-columns: repeat(5,120%);
+                grid-template-columns: repeat(5,115%);
             }
 
             .list {
@@ -2123,7 +2255,7 @@
 
             .list {
                 display: grid;
-                grid-template-columns: repeat(6,120%);
+                grid-template-columns: repeat(6,115%);
             }
 
             .list {
