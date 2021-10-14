@@ -1,4 +1,5 @@
 ﻿using Build_School_Project_No_4.Services;
+using Build_School_Project_No_4.ViewModels;
 using PayPal.Api;
 using System;
 using System.Collections.Generic;
@@ -18,25 +19,6 @@ namespace Build_School_Project_No_4.Controllers
             _paypalService = new PaypalService();
             _orderConfirmService = new OrderConfirmationService();
         }
-
-        //[NoDirectAccess]
-        public ActionResult Success(string confirmation)
-        {
-            var isPaid = _orderConfirmService.UpdateOrderStatus(confirmation);
-            if (isPaid == true)
-            {
-                return View();
-
-            }
-            else
-            {
-                return Content("order status change didn't go through");
-            }
-        }
-
-
-
-
 
 
         // GET: Checkout
@@ -98,6 +80,25 @@ namespace Build_School_Project_No_4.Controllers
             //on successful payment, show success page to user.  
 
             return RedirectToAction("Success", new { Confirmation = confirmation });
+        }
+
+        //[NoDirectAccess]s
+        public ActionResult Success(string confirmation)
+        {
+            var isPaid = _orderConfirmService.UpdateOrderStatus(confirmation);
+            if (isPaid == true)
+            {
+                var confirmationInfo = _orderConfirmService.GetConfirmationInfo(confirmation);
+                GroupViewModel groupVM = new GroupViewModel
+                {
+                    OrderConfirmDetails = confirmationInfo
+                };
+                return View(groupVM);
+            }
+            else
+            {
+                return Content("order status change didn't go through");
+            }
         }
 
         //[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
