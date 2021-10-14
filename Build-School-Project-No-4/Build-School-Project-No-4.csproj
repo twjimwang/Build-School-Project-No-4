@@ -196,6 +196,9 @@
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
+    <Reference Include="ThatsFontAwesome, Version=1.0.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ThatsFontAwesome.1.1.1\lib\ThatsFontAwesome.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -272,7 +275,8 @@
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\BecomeEPalController.cs" />
+    <Compile Include="Controllers\BasicInformationController.cs" />
+    <Compile Include="Controllers\becomeepalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillController.cs" />
     <Compile Include="Controllers\ChooseAServiceController.cs" />
@@ -329,21 +333,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FollowService.cs" />
     <Compile Include="Services\MailService.cs" />
+    <Compile Include="Services\BecomeEPalService.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\ProfileEpalService.cs" />
+    <Compile Include="Services\WalletService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FollowViewModel.cs" />
+    <Compile Include="ViewModels\AddgameViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\MemberAvatarViewModel.cs" />
     <Compile Include="ViewModels\MemberInfoViewModel.cs" />
     <Compile Include="ViewModels\MemberLoginViewModel.cs" />
     <Compile Include="ViewModels\MemberRegisterViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
+    <Compile Include="ViewModels\productPlanViewModel.cs" />
+    <Compile Include="ViewModels\producttestViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Compile Include="ViewModels\WalletViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -356,6 +366,7 @@
     <Content Include="Assets\css\PlusPremium.css" />
     <Content Include="Assets\css\reset.css" />
     <Content Include="Assets\Edit_ProfileImages\avatar.png" />
+    <Content Include="Assets\images\BasicInformation\price.png" />
     <Content Include="Assets\images\becomeEPal\becomebg.png" />
     <Content Include="Assets\images\becomeEPal\flexity.png" />
     <Content Include="Assets\images\becomeEPal\friends.png" />
@@ -490,6 +501,23 @@
     <Content Include="Assets\images\detail\details.png" />
     <Content Include="Assets\images\detail\lol-screenshot.jpg" />
     <Content Include="Assets\images\detail\profile-eniza.gif" />
+    <Content Include="Assets\images\GameInformation\a.png" />
+    <Content Include="Assets\images\GameInformation\addpic.png" />
+    <Content Include="Assets\images\GameInformation\addvideo.jpg" />
+    <Content Include="Assets\images\GameInformation\arrow.jpg" />
+    <Content Include="Assets\images\GameInformation\b.png" />
+    <Content Include="Assets\images\GameInformation\c.png" />
+    <Content Include="Assets\images\GameInformation\d.png" />
+    <Content Include="Assets\images\GameInformation\excellent.png" />
+    <Content Include="Assets\images\GameInformation\good.png" />
+    <Content Include="Assets\images\GameInformation\green.png" />
+    <Content Include="Assets\images\GameInformation\moderate.png" />
+    <Content Include="Assets\images\GameInformation\orange.png" />
+    <Content Include="Assets\images\GameInformation\poor.png" />
+    <Content Include="Assets\images\GameInformation\postAVideoImg.png" />
+    <Content Include="Assets\images\GameInformation\postAVideoImg2.png" />
+    <Content Include="Assets\images\GameInformation\red.png" />
+    <Content Include="Assets\images\GameInformation\warrow.jpg" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
     <Content Include="Assets\images\homepageimg\arrow-right.png" />
     <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
@@ -649,12 +677,20 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -707,12 +743,10 @@
     <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\Shared\_Layout_nofooter.cshtml" />
     <Content Include="Views\Coupons\Coupons.cshtml" />
-    <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\ePal\ePal.cshtml" />
-    <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
     <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
-    <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
+    <Content Include="Views\becomeepal\BecomeEPalPage.cshtml" />
     <Content Include="Views\Page404\Page404.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
     <Content Include="Views\Detail\DetailPage.cshtml" />
@@ -727,6 +761,22 @@
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
+    <Content Include="Views\BasicInformation\BasicInformation.cshtml" />
+    <Content Include="Views\GameInformation\GameInformation.cshtml" />
+    <Content Include="Views\GameInformation\Rule_VoiceRecord.cshtml" />
+    <Content Include="Views\GameInformation\Rule_ListCover.cshtml" />
+    <Content Include="Views\GameInformation\Rule_ScreenshotRules.cshtml" />
+    <Content Include="Views\BasicInformation\Register.cshtml" />
+    <Content Include="Views\becomeepal\addgame.cshtml" />
+    <Content Include="Views\becomeepal\addgame - 複製.cshtml" />
+    <Content Include="Views\CreatorProject\ChooseAService.cshtml" />
+    <Content Include="Views\CreatorProject\BasicInformation.cshtml" />
+    <Content Include="Views\CreatorProject\GameInformation.cshtml" />
+    <Content Include="Views\CreatorProject\Rule_VoiceRecord.cshtml" />
+    <Content Include="Views\CreatorProject\Rule_ListCover.cshtml" />
+    <Content Include="Views\CreatorProject\Rule_ScreenshotRules.cshtml" />
+    <Content Include="Views\Shared\_GameDayPartial.cshtml" />
+    <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\Members\RegisterResult.cshtml" />
     <Content Include="Views\Members\EmailValidate.cshtml" />
     <Content Include="Views\Members\LoginResult.cshtml" />
