@@ -332,7 +332,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FollowService.cs" />
     <Compile Include="Services\MailService.cs" />
-    <Compile Include="Services\BecomeEPalService.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\ProductService.cs" />
@@ -340,14 +339,12 @@
     <Compile Include="Services\ProfileEpalService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FollowViewModel.cs" />
-    <Compile Include="ViewModels\AddgameViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\MemberAvatarViewModel.cs" />
     <Compile Include="ViewModels\MemberInfoViewModel.cs" />
     <Compile Include="ViewModels\MemberLoginViewModel.cs" />
     <Compile Include="ViewModels\MemberRegisterViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
-    <Compile Include="ViewModels\productPlanViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
