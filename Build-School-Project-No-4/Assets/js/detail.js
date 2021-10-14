@@ -1,4 +1,5 @@
-let roundDisplay = document.querySelector(".round-number");
+let roundDisplay = document.querySelector(".rounds-div input");
+roundDisplay.classList.add('round-number');
 let minRound = 1;
 let maxRound = 999;
 let oldVal = 0;

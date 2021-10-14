@@ -188,10 +188,7 @@
         </div>
 
         @* fix *@
-        @using (Html.BeginForm())
-        {
-            var prod = Model.Deets;
-            @Html.AntiForgeryToken()
+
     <div class="modal fade" id="playModal" tabindex="-1" aria-labelledby="playModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -200,94 +197,105 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="container whitish">
-                        <div class="row">
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            <div class="col-3 ">
-                                <div class="game-img">
-                                    <img src="@Model.Deets.MobileGameImg" />
-                                </div>
-                            </div>
-                            <div class="col-9 ">
-                                <div class="game-user-price">
-                                    <div class="game-name">@prod.GameName</div>
-                                    <div class="player-name">@prod.MemberName</div>
-                                    <div class="price-per-game">
-                                        <img src="~/Assets/images/detail/currency.png" />
-                                        <span id="price">@prod.UnitPrice.ToString("N2")</span>
-                                        @Html.EditorFor(model => model.AddCart.UnitPrice, new { htmlAttributes = new { @class = "form-control", Value = Model.Deets.UnitPrice, type = "hidden" } })
-                                        /Game
+                @using (Html.BeginForm())
+                {
+                    var prod = Model.Deets;
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="container whitish">
+                            <div class="row">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="col-3 ">
+                                    <div class="game-img">
+                                        <img src="@Model.Deets.MobileGameImg" />
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <div class="rounds">
-                                        <span>@Html.LabelFor(x => x.AddCart.Rounds)</span>
-                                        <div class="rounds-div">
-                                            <button type="button" class="round-subtract"><span>-</span></button>
-                                            @*<input type="number" class="round-number" value="1" onfocus="setOldVal(this.value)" onkeyup="PriceChange(undefined, this.value)">*@
-                                            @* 衝突 BUG *@
-                                            @Html.EditorFor(x => x.AddCart.Rounds, new { htmlAttributes = new { @class = "round-number", Value = "1", onfocus = "setOldVal(this.value)", onkeyup = "PriceChange(undefined, this.value)" } })
-                                            @Html.ValidationMessageFor(x => x.AddCart.Rounds, "", new { @class = "text-danger" })
-                                            <button type="button" class="round-add"><span>+</span></button>
+                                <div class="col-9 ">
+                                    <div class="game-user-price">
+                                        <div class="game-name">@prod.GameName</div>
+                                        <div class="player-name">@prod.MemberName</div>
+                                        <div class="price-per-game">
+                                            <img src="~/Assets/images/detail/currency.png" />
+                                            <span id="price">@prod.UnitPrice.ToString("N2")</span>
+                                            @Html.EditorFor(model => model.AddCart.UnitPrice, new { htmlAttributes = new { @class = "form-control", @Value = Model.Deets.UnitPrice, type = "hidden" } })
+                                            /Game
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="start-time-div">
-                                        <span>Start Time</span>
-                                        <div class="start-time-settings">
-                                            <input type="datetime-local" id="start-time" name="startTime" class="whitish" onblur="DateCheck(this.value)">
-                                            <button type="button" class="time-now"><span>Now</span></button>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <div class="rounds">
+                                            <span>@Html.LabelFor(x => x.AddCart.Rounds)</span>
+                                            <div class="rounds-div">
+                                                <button type="button" class="round-subtract"><span>-</span></button>
+                                                @*<input type="number"  value="1" onfocus="setOldVal(this.value)" onkeyup="PriceChange(undefined, this.value)">*@
+                                                @* 衝突 BUG *@
+                                                @*@Html.EditorFor(x => x.AddCart.Rounds, new { htmlAttributes = new { @class = "round-number" } })*@
+                                                @*@Html.EditorFor(x => x.AddCart.Rounds, new { htmlAttributes = new { @class = "round-number" } })*@
+                                                @*@Html.EditorFor(x => x.AddCart.Rounds, null, new { htmlAttributes = new { onfocus = "setOldVal(this.value)", onkeyup = "PriceChange(undefined, this.value)" } })*@
+                                                @*@Html.EditorFor(x => x.AddCart.Rounds, null,"sadfs",new { htmlAttributes = new { @class = "asdf", onfocus = "setOldVal(this.value)", onkeyup = "PriceChange(undefined, this.value)" } })*@
+                                                @Html.EditorFor(x => x.AddCart.Rounds, new { htmlAttributes = new { @class = "round-number", Value = "1", onfocus = "setOldVal(this.value)", onkeyup = "PriceChange(undefined, this.value)" } })
+                                                @*@Html.EditorFor(x => x.AddCart.Rounds, new { @class = "round-number" })*@
+                                                @Html.ValidationMessageFor(x => x.AddCart.Rounds, "", new { @class = "text-danger" })
+                                                <button type="button" class="round-add"><span>+</span></button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <hr>
-                                <div class="subtotal-div">
-                                    <span>Subtotal</span>
-                                    <div class="subtotal-div2">
-                                        <img src="~/Assets/images/detail/currency.png" />
-                                        <span class="subtotal">@Model.Deets.UnitPrice.ToString("N2")</span>
+                                    <div class="form-group">
+                                        <div class="start-time-div">
+                                            <span>Start Time</span>
+                                            <div class="start-time-settings">
+                                                <input type="datetime-local" id="start-time" name="startTime" class="whitish" onblur="DateCheck(this.value)">
+                                                <button type="button" class="time-now"><span>Now</span></button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="promo-code-div">
-                                    <span>Promo code</span>
-                                    <div class="enter-code">
-                                        <input placeholder="Enter your promo code" type="text" disabled>
+                                    <hr>
+                                    <div class="subtotal-div">
+                                        <span>Subtotal</span>
+                                        <div class="subtotal-div2">
+                                            <img src="~/Assets/images/detail/currency.png" />
+                                            <span class="subtotal">@Model.Deets.UnitPrice.ToString("N2")</span>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <hr>
-
-                                <div class="final-price-div">
-                                    <span>Final Price</span>
-                                    <div class="final-price">
-
-                                        <span class="rounds-final">1</span> Round(s) total
-                                        <img src="~/Assets/images/detail/currency.png" />
-                                        <span class="final-amount">@Model.Deets.UnitPrice.ToString("N2")</span>
+                                    <div class="promo-code-div">
+                                        <span>Promo code</span>
+                                        <div class="enter-code">
+                                            <input placeholder="Enter your promo code" type="text" disabled>
+                                        </div>
                                     </div>
-                                </div>
 
+                                    <hr>
+
+                                    <div class="final-price-div">
+                                        <span>Final Price</span>
+                                        <div class="final-price">
+
+                                            <span class="rounds-final">1</span> Round(s) total
+                                            <img src="~/Assets/images/detail/currency.png" />
+                                            <span class="final-amount">@Model.Deets.UnitPrice.ToString("N2")</span>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn-cancel" data-bs-dismiss="modal">Close</button>
-                    <button class="btn-purp btn-confirm">Confirm</button>
-                </div>
-            </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel" data-bs-dismiss="modal">Close</button>
+                        <button class="btn-purp btn-confirm">Confirm</button>
+                    </div>
+                }</div>
+
+                
         </div>
     </div>
-        }
+        
 
     </div>
 </div>
