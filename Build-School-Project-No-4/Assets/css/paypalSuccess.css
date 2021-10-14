@@ -190,6 +190,11 @@ div.game-play {
     background-color: #e7f1ff;
     box-shadow: none;
 }
+#orderSummary {
+    margin-bottom: 175px;
+}
+
+
 
 @media screen and (min-width: 576px) {
     .total-div {
