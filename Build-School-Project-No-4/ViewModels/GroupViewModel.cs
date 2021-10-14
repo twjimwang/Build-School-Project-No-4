@@ -27,6 +27,7 @@ namespace Build_School_Project_No_4.ViewModels
         public AddToCartViewModel AddCart { get; set; }
         public CheckoutViewModel Checkout { get; set; }
         public OrderViewModel OrderDetails { get; set; }
+        public OrderConfirmationViewModel OrderConfirmDetails { get; set; }
     }
 
 }
