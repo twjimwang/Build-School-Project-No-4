@@ -34,49 +34,60 @@ namespace Build_School_Project_No_4.Services
             var categoryId = FilterVM.CategoryId;
 
             var category = _repo.GetAll<GameCategories>().FirstOrDefault(x => x.GameCategoryId == categoryId);
-            if (category == null)
-            {
-                return result.ToString();
-            }
-
-            var products = _repo.GetAll<Products>().Where(x => x.GameCategoryId == category.GameCategoryId);
+            var Members = _repo.GetAll<Members>();
+            var LineStatus = _repo.GetAll<LineStatus>();
             var CommentDetails = _repo.GetAll<CommentDetails>();
             var ProductPositions = _repo.GetAll<ProductPosition>();
             var Positions = _repo.GetAll<Position>();
             var Ranks = _repo.GetAll<Rank>();
-            var Members = _repo.GetAll<Members>();
             var ProductServers = _repo.GetAll<ProductServer>();
             var Servers = _repo.GetAll<Server>();
-            var LineStatus = _repo.GetAll<LineStatus>();
             var LanguageName = _repo.GetAll<Language>();
             var todayYear = DateTime.Now.Year;
 
-            var Prop = from product in products
-                       join pds in ProductServers on product.ProductId equals pds.ProductId
-                       join sev in Servers on pds.ServerId equals sev.ServerId
-                       join pos in ProductPositions on product.ProductId equals pos.ProductId
-                       join position in Positions on pos.PositionId equals position.PositionId
-                       join rank in Ranks on product.RankId equals rank.RankId
-                       join member in Members on product.CreatorId equals member.MemberId
-                       join comment in CommentDetails on product.ProductId equals comment.ProductId
-                       join lang in LanguageName on member.LanguageId equals lang.LanguageId
-                       join lit in LineStatus on member.LineStatusId equals lit.LineStatusId
-                       select new ProductCard 
-                       {
-                            CreatorName = member.MemberName,
-                            CreatorImg = product.CreatorImg,
-                            Introduction = product.Introduction,
-                            RecommendationVoice = product.RecommendationVoice,
-                            LineStatus = lit.LineStatusImg,
-                            UnitPrice = product.UnitPrice,
-                            StarLevel = comment.StarLevel,
-                            Rank = rank.RankName,
-                            Position = position.PositionName,
-                            ProductId = product.ProductId,
-                            Server = sev.ServerName,
-                            Language = lang.LanguageName,
-                            StatusName = lit.LineStatusName,
-                       };
+            if (category == null)
+            {
+                return result.ToString();
+            }
+            var products = _repo.GetAll<Products>().Where(x => x.GameCategoryId == category.GameCategoryId);
+            
+            if(status != null && status.Count()>0)
+            {
+                
+                status.ForEach(x =>
+                {
+                    products = products.Where(p => p.CreatorId == Members.First(m => m.MemberId == ))
+                });
+            }
+            
+           
+
+            //var Prop = from product in products
+            //           join pds in ProductServers on product.ProductId equals pds.ProductId
+            //           join sev in Servers on pds.ServerId equals sev.ServerId
+            //           join pos in ProductPositions on product.ProductId equals pos.ProductId
+            //           join position in Positions on pos.PositionId equals position.PositionId
+            //           join rank in Ranks on product.RankId equals rank.RankId
+            //           join member in Members on product.CreatorId equals member.MemberId
+            //           join comment in CommentDetails on product.ProductId equals comment.ProductId
+            //           join lang in LanguageName on member.LanguageId equals lang.LanguageId
+            //           join lit in LineStatus on member.LineStatusId equals lit.LineStatusId
+            //           select new ProductCard 
+            //           {
+            //                CreatorName = member.MemberName,
+            //                CreatorImg = product.CreatorImg,
+            //                Introduction = product.Introduction,
+            //                RecommendationVoice = product.RecommendationVoice,
+            //                LineStatus = lit.LineStatusImg,
+            //                UnitPrice = product.UnitPrice,
+            //                StarLevel = comment.StarLevel,
+            //                Rank = rank.RankName,
+            //                Position = position.PositionName,
+            //                ProductId = product.ProductId,
+            //                Server = sev.ServerName,
+            //                Language = lang.LanguageName,
+            //                StatusName = lit.LineStatusName,
+            //           };
                 var productCards = products.Select(p => new ProductCard
                 {
                     UnitPrice = p.UnitPrice,
