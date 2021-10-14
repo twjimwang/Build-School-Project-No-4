@@ -783,7 +783,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.addgame.UnitPrice, htmlAttributes: new { @class = "control-label col-md-3" })
                                         <div class="col-md-3">
-                                            @Html.EditorFor(model => model.addgame.UnitPrice, new { htmlAttributes = new { @class = "form-control uniprice", placeholder = "please enter price per game", style = "background-color: #302F3D; color:white;" } })
+                                            @Html.EditorFor(model => model.addgame.UnitPrice, new { htmlAttributes = new { @class = "form-control uniprice", placeholder = "please enter price per game", style = "background-color: #302F3D; color:white; margin-top:5px;" } })
                                             @Html.ValidationMessageFor(model => model.addgame.UnitPrice, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -961,8 +961,8 @@
                                             @Html.LabelFor(model => model.addgame.RankId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                @Html.EnumDropDownListFor(model => model.addgame.RankId, new { htmlAttributes = new { @class = "form-control",  @style = "background-color: #302F3D; color:white;" } })
+                                            <div class="col-md-3">
+                                                @Html.EnumDropDownListFor(model => model.addgame.RankId, new { @class = "form-controlform-select", style = "background-color:#21212C; color:white; margin-top:5px;" } )
                                                 @Html.ValidationMessageFor(model => model.addgame.RankId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -975,7 +975,7 @@
                                             @Html.LabelFor(model => model.addgame.ServerSelectedId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 @Html.ListBoxFor(model => model.addgame.ServerSelectedId, new SelectList(Model.addgame.ServerItems, "ServerId", "ServerName"), new { @class = "form-control col-md-4", @style = "background-color: #302F3D; color:white;"  })
                                                 @Html.ValidationMessageFor(model => model.addgame.ServerSelectedId, "", new { @class = "text-danger" })
                                             </div>
@@ -1014,8 +1014,8 @@
                                             @Html.LabelFor(model => model.addgame.PositionSelectedId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                @Html.ListBoxFor(model => model.addgame.PositionSelectedId, new SelectList(Model.addgame.PositionItems, "PositionId", "PositionName"), new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="col-md-3">
+                                                @Html.ListBoxFor(model => model.addgame.PositionSelectedId, new SelectList(Model.addgame.PositionItems, "PositionId", "PositionName"),  new { @class = "form-control form-select", style = "background-color:#21212C; color:white; margin-top:5px;" })
                                                 @Html.ValidationMessageFor(model => model.addgame.PositionSelectedId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -1042,8 +1042,8 @@
                                             @Html.LabelFor(model => model.addgame.StyleSelectedId, htmlAttributes: new { @class = "col-md-6 control-label" })
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                @Html.ListBoxFor(model => model.addgame.StyleSelectedId, new SelectList(Model.addgame.StyleItems, "StyleId", "StyleName"), new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="col-md-3">
+                                                @Html.ListBoxFor(model => model.addgame.StyleSelectedId, new SelectList(Model.addgame.StyleItems, "StyleId", "StyleName"), new { @class = "form-control form-select", style = "background-color:#21212C; color:white; margin-top:5px;" })
                                                 @Html.ValidationMessageFor(model => model.addgame.StyleSelectedId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>

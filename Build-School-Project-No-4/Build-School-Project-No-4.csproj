@@ -274,6 +274,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BasicInformationController.cs" />
     <Compile Include="Controllers\becomeepalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
