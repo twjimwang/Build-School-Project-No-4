@@ -17,16 +17,16 @@ namespace Build_School_Project_No_4.Services
         //    _Repo = new Repository();
         //}
 
-        private IQueryable<Order> Orders;
-        private IQueryable<Member> Members;
-        private IQueryable<OrderStatu> OrderStatus;
+        private IQueryable<Orders> Orders;
+        private IQueryable<Members> Members;
+        private IQueryable<OrderStatus> OrderStatus;
 
         public WalletService()
         {
             _Repo = new Repository();
-            Orders = _Repo.GetAll<Order>();
-            Members = _Repo.GetAll<Member>();
-            OrderStatus=_Repo.GetAll<OrderStatu>();
+            Orders = _Repo.GetAll<Orders>();
+            Members = _Repo.GetAll<Members>();
+            OrderStatus=_Repo.GetAll<OrderStatus>();
         }
 
         public List<WalletViewModel> GetWalletData()

@@ -138,7 +138,7 @@ namespace Build_School_Project_No_4.Controllers
                         };
 
                         //VM -> DM
-                        Product product = new Product
+                        Products product = new Products
                         {
                             GameCategoryId = (int)registerVM.addgame.GameCategoryId,
                             CreatorId = 1,
@@ -169,7 +169,7 @@ namespace Build_School_Project_No_4.Controllers
                             serverDB.ServerId = val;
                             ////grp.iscurrent = true;
                             //grp.dateadded = DateTime.Now;
-                            _ctx.ProductServers.Add(serverDB);
+                            _ctx.ProductServer.Add(serverDB);
                             _ctx.SaveChanges();                            
                         }
 
@@ -187,7 +187,7 @@ namespace Build_School_Project_No_4.Controllers
                             positionDB.PositionId = val;
                             ////grp.iscurrent = true;
                             //grp.dateadded = DateTime.Now;
-                            _ctx.ProductPositions.Add(positionDB);
+                            _ctx.ProductPosition.Add(positionDB);
                             _ctx.SaveChanges();
                         }
 
@@ -205,7 +205,7 @@ namespace Build_School_Project_No_4.Controllers
                             styleDB.StyleId = val;
                             ////grp.iscurrent = true;                            
                             //grp.dateadded = DateTime.Now;
-                            _ctx.ProductStyles.Add(styleDB);
+                            _ctx.ProductStyle.Add(styleDB);
                             _ctx.SaveChanges();
                         }
 
@@ -220,7 +220,7 @@ namespace Build_School_Project_No_4.Controllers
                         //}
 
 
-                        ProductPlan productplan1 = new ProductPlan
+                        ProductPlans productplan1 = new ProductPlans
                         {
                             //.ToShortTimeString()
                             ProductId = product.ProductId,
@@ -235,7 +235,7 @@ namespace Build_School_Project_No_4.Controllers
                         }
 
 
-                        ProductPlan productplan2 = new ProductPlan
+                        ProductPlans productplan2 = new ProductPlans
                         {
                             ProductId = product.ProductId,
                             GameAvailableDay = registerVM.addgame.GameAvailableDay2,
@@ -249,7 +249,7 @@ namespace Build_School_Project_No_4.Controllers
                         }
 
 
-                        ProductPlan productplan3 = new ProductPlan
+                        ProductPlans productplan3 = new ProductPlans
                         {
                             ProductId = product.ProductId,
                             GameAvailableDay = registerVM.addgame.GameAvailableDay3,
@@ -263,7 +263,7 @@ namespace Build_School_Project_No_4.Controllers
                         }
 
 
-                        ProductPlan productplan4 = new ProductPlan
+                        ProductPlans productplan4 = new ProductPlans
                         {
                             ProductId = product.ProductId,
                             GameAvailableDay = registerVM.addgame.GameAvailableDay4,
@@ -277,7 +277,7 @@ namespace Build_School_Project_No_4.Controllers
                         }
 
 
-                        ProductPlan productplan5 = new ProductPlan
+                        ProductPlans productplan5 = new ProductPlans
                         {
                             ProductId = product.ProductId,
                             GameAvailableDay = registerVM.addgame.GameAvailableDay5,
@@ -291,7 +291,7 @@ namespace Build_School_Project_No_4.Controllers
                         }
 
 
-                        ProductPlan productplan6 = new ProductPlan
+                        ProductPlans productplan6 = new ProductPlans
                         {
                             ProductId = product.ProductId,
                             GameAvailableDay = registerVM.addgame.GameAvailableDay6,
@@ -305,7 +305,7 @@ namespace Build_School_Project_No_4.Controllers
                         }
 
 
-                        ProductPlan productplan7 = new ProductPlan
+                        ProductPlans productplan7 = new ProductPlans
                         {
                             ProductId = product.ProductId,
                             GameAvailableDay = registerVM.addgame.GameAvailableDay7,
