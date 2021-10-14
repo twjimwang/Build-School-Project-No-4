@@ -50,7 +50,7 @@ namespace Build_School_Project_No_4.Controllers
         }
 
 
-
+       
 
         //[Authorize]
         public ActionResult profile()
@@ -85,7 +85,17 @@ namespace Build_School_Project_No_4.Controllers
 
         }
 
+        public ActionResult Followings()
+        {
+            var memberGet = new FollowService();
+            var members = memberGet.GetFollowMember();
 
+            GroupViewModel followSelectMembers = new GroupViewModel
+            {
+                FollowMembers = members
+            };
+            return View(followSelectMembers);
+        }
 
 
 
@@ -95,98 +105,158 @@ namespace Build_School_Project_No_4.Controllers
             //return PartialView("_AvatarPartial");
             return View();
         }
-        [HttpPost]
-        public bool SaveImageToServer()
+        //[HttpPost]
+        //public bool SaveImageToServer()
+        //{
+        //    try
+        //    {
+        //        HttpFileCollectionBase files = Request.Files;
+        //        HttpPostedFileBase file = files[0];
+        //        string _apiKey = ConfigurationManager.AppSettings["CloudinaryAPIKey"];
+        //        string _apiSecret = ConfigurationManager.AppSettings["CloudinarySecretKey"];
+        //        string _cloud = ConfigurationManager.AppSettings["CloudinaryAccount"];
+        //        string uploadedImageUrl = string.Empty;
+        //        string fname = string.Empty;
+        //        var myAccount = new Account { ApiKey = _apiKey, ApiSecret = _apiSecret, Cloud = _cloud };
+        //        Cloudinary _cloudinary = new Cloudinary(myAccount);
+        //        _cloudinary.Api.Secure = true;
+
+
+        //        //if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
+        //        //{
+        //        //    string[] testfiles = file.FileName.Split(new char[] { '\\' });
+        //        //    fname = testfiles[testfiles.Length - 1];
+        //        //}
+        //        //else
+        //        //{
+        //        //    fname = Regex.Replace(file.FileName.Trim(), @"[^0-9a-zA-Z.]+", "_");
+        //        //}
+
+        //        using (Image img = Image.FromStream(file.InputStream))
+        //        {
+        //            int imageHeight = 0;
+        //            int imageWidth = 0;
+        //            if (img.Height > 320)
+        //            {
+        //                var ratio = (double)img.Height / 320;
+        //                imageHeight = (int)(img.Height / ratio);
+        //                imageWidth = (int)(img.Width / ratio);
+        //            }
+        //            else
+        //            {
+        //                imageHeight = img.Height;
+        //                imageWidth = img.Width;
+        //            }
+        //            var uploadParams = new ImageUploadParams()
+        //            {
+        //                File = new FileDescription(file.FileName, file.InputStream),
+        //                Folder = "MyImages",
+        //                Transformation = new Transformation().Width(imageWidth).Height(imageHeight).Crop("thumb").Gravity("face")
+        //            };
+                    
+                    
+        //            var uploadResult = _cloudinary.Upload(uploadParams);
+                    
+        //            //Failed to deserialize response with status code: NotFound cloudinary
+        //            //cloudinary Unexpected character encountered while parsing value: <.Path '', line 0, position 0.
+
+        //            //uploadedImageUrl = uploadResult?.SecureUri?.AbsoluteUri;
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //    }
+        //}
+
+
+        //[HttpPost]
+        //public ActionResult SaveAvatarToDB(int MemberId, string ProfilePicture)
+        //{
+
+        //    Members member = db.Members.First(x => x.MemberId == MemberId);
+
+        //    using (var tran = db.Database.BeginTransaction())
+        //    {
+        //        try
+        //        {
+        //            member.ProfilePicture = ProfilePicture;
+        //            db.SaveChanges();
+        //            tran.Commit();
+
+        //            return Content("寫入資料庫成功");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            tran.Rollback();
+
+        //            return Content("寫入資料庫失敗:" + ex.ToString());
+        //        }
+        //    }
+        //}
+
+
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult GetAvatar()
         {
-            try
+            Members emp = db.Members.Find(int.Parse(GetMemberId()));
+            if (emp == null)
             {
-                HttpFileCollectionBase files = Request.Files;
-                HttpPostedFileBase file = files[0];
-                string _apiKey = ConfigurationManager.AppSettings["CloudinaryAPIKey"];
-                string _apiSecret = ConfigurationManager.AppSettings["CloudinarySecretKey"];
-                string _cloud = ConfigurationManager.AppSettings["CloudinaryAccount"];
-                string uploadedImageUrl = string.Empty;
-                string fname = string.Empty;
-                var myAccount = new Account { ApiKey = _apiKey, ApiSecret = _apiSecret, Cloud = _cloud };
-                Cloudinary _cloudinary = new Cloudinary(myAccount);
-                _cloudinary.Api.Secure = true;
-
-
-                //if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
-                //{
-                //    string[] testfiles = file.FileName.Split(new char[] { '\\' });
-                //    fname = testfiles[testfiles.Length - 1];
-                //}
-                //else
-                //{
-                //    fname = Regex.Replace(file.FileName.Trim(), @"[^0-9a-zA-Z.]+", "_");
-                //}
-
-                using (Image img = Image.FromStream(file.InputStream))
-                {
-                    int imageHeight = 0;
-                    int imageWidth = 0;
-                    if (img.Height > 320)
-                    {
-                        var ratio = (double)img.Height / 320;
-                        imageHeight = (int)(img.Height / ratio);
-                        imageWidth = (int)(img.Width / ratio);
-                    }
-                    else
-                    {
-                        imageHeight = img.Height;
-                        imageWidth = img.Width;
-                    }
-                    var uploadParams = new ImageUploadParams()
-                    {
-                        File = new FileDescription(file.FileName, file.InputStream),
-                        Folder = "MyImages",
-                        Transformation = new Transformation().Width(imageWidth).Height(imageHeight).Crop("thumb").Gravity("face")
-                    };
-                    
-                    
-                    var uploadResult = _cloudinary.Upload(uploadParams);
-                    
-                    //Failed to deserialize response with status code: NotFound cloudinary
-                    //cloudinary Unexpected character encountered while parsing value: <.Path '', line 0, position 0.
-
-                    //uploadedImageUrl = uploadResult?.SecureUri?.AbsoluteUri;
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
+                return HttpNotFound();
             }
 
+            GroupViewModel groupMember = new GroupViewModel()
+            {
+                MemberInfo = new MemberInfoViewModel()
+            };
+
+            //DM -> MemberInfoViewModel -> GroupViewModel
+            MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
+            {
+                //MemberId = emp.MemberId,
+                ProfilePicture = emp.ProfilePicture
+            };
+
+            groupMember.MemberInfo = MemberInfo;
+            ViewBag.Avatar = groupMember;
+            //TempData["Avatar"] = groupMember;
+
+
+            //return View("EditProfile");
+            return View("EditProfile");
         }
 
-        [HttpPost]
-        public ActionResult SaveAvatarToDB(int MemberId, string ProfilePicture)
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult GetAvatarForLayout()
         {
-
-            Members member = db.Members.First(x => x.MemberId == MemberId);
-
-            using (var tran = db.Database.BeginTransaction())
+            Members emp = db.Members.Find(int.Parse(GetMemberId()));
+            if (emp == null)
             {
-                try
-                {
-                    member.ProfilePicture = ProfilePicture;
-                    db.SaveChanges();
-                    tran.Commit();
-
-                    return Content("寫入資料庫成功");
-                }
-                catch (Exception ex)
-                {
-                    tran.Rollback();
-
-                    return Content("寫入資料庫失敗:" + ex.ToString());
-                }
+                return HttpNotFound();
             }
+
+            GroupViewModel groupMember = new GroupViewModel()
+            {
+                MemberInfo = new MemberInfoViewModel()
+            };
+
+            //DM -> MemberInfoViewModel -> GroupViewModel
+            MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
+            {
+                //MemberId = emp.MemberId,
+                ProfilePicture = emp.ProfilePicture
+            };
+
+            groupMember.MemberInfo = MemberInfo;
+            ViewBag.Avatar = groupMember;
+
+            return View("_Layout_nofooter", groupMember);
         }
-
-
 
 
 
@@ -230,10 +300,12 @@ namespace Build_School_Project_No_4.Controllers
                 LanguageId = (LanguageCategories)emp.LanguageId,
                 Bio = emp.Bio,
                 Email = emp.Email,
-                Password = emp.Password
+                Password = emp.Password,
+                ProfilePicture = emp.ProfilePicture
             };
 
             groupMember.MemberInfo = MemberInfo;
+            ViewBag.Avatar = groupMember.MemberInfo.ProfilePicture;
                         
 
             return View("EditProfile", groupMember);
@@ -398,7 +470,7 @@ namespace Build_School_Project_No_4.Controllers
             else
             {
                 //用TempData儲存登入訊息
-                TempData["LoginState"] = "登入資訊有誤，請重新登入";
+                TempData["LoginState"] = ValidateStr;
                 //重新導向頁面
                 return RedirectToAction("LoginResult");
             }

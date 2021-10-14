@@ -8,11 +8,20 @@ using System.Web.Mvc;
 
 namespace Build_School_Project_No_4.Controllers
 {
-    public class ChillMeetLikeController : Controller
+    public class ChillController : Controller
     {
-        
-        // GET: ChillMeetLike
+        // GET: Chill
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Live()
+        {
+            return View();
+        }
+
+        public ActionResult Meet()
         {
             return View();
         }
@@ -25,12 +34,9 @@ namespace Build_School_Project_No_4.Controllers
             GroupViewModel meetlikes = new GroupViewModel
             {
                 MeetLikes = members
-            };            
+            };
             return View(meetlikes);
         }
-
-
-
 
         public ActionResult MeetMatches()
         {
@@ -39,6 +45,5 @@ namespace Build_School_Project_No_4.Controllers
 
             return View(members);
         }
-
     }
 }

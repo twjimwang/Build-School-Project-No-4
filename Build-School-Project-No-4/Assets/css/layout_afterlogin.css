@@ -717,6 +717,7 @@ footer #address {
 
     .message.dropdown {
         display: none;
+        margin-left: 16px;
     }
 
     .navbar-right .loginbtn {

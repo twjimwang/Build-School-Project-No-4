@@ -38,7 +38,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12 col-sm-10">
+        <div class="col-md-12 col-sm-12">
             <div class="container">
                 <div class="row">
                     <div class="title tab-inner Profilecenter col-md-12">
@@ -84,7 +84,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => Model.MemberInfo.MemberName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => Model.MemberInfo.MemberName, new { htmlAttributes = new { @class = "form-control", style = "background-color:#21212C; color:white; margin-top:5px;" } })
                                     @Html.ValidationMessageFor(model => Model.MemberInfo.MemberName, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => Model.MemberInfo.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => Model.MemberInfo.Phone, new { htmlAttributes = new { @class = "form-control", style = "background-color:#21212C; color:white; margin-top:5px;" } })
                                     @Html.ValidationMessageFor(model => Model.MemberInfo.Phone, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => Model.MemberInfo.Country, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => Model.MemberInfo.Country, new { htmlAttributes = new { @class = "form-control", style = "background-color:#21212C; color:white; margin-top:5px;" } })
                                     @Html.ValidationMessageFor(model => Model.MemberInfo.Country, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EnumDropDownListFor(model => model.MemberInfo.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EnumDropDownListFor(model => model.MemberInfo.Gender, new { @class = "form-control form-select", style = "background-color:#21212C; color:white; margin-top:5px;" } )
                                     @Html.ValidationMessageFor(model => model.MemberInfo.Gender, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -161,7 +161,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => Model.MemberInfo.BirthDay, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => Model.MemberInfo.BirthDay, new { htmlAttributes = new { @class = "form-control", style = "background-color:#21212C; color:white; margin-top:5px;" } })
                                     @Html.ValidationMessageFor(model => Model.MemberInfo.BirthDay, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -173,7 +173,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => Model.MemberInfo.TimeZone, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => Model.MemberInfo.TimeZone, new { htmlAttributes = new { @class = "form-control", style = "background-color:#21212C; color:white; margin-top:5px;" } })
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EnumDropDownListFor(model => model.MemberInfo.LanguageId, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EnumDropDownListFor(model => model.MemberInfo.LanguageId, new { @class = "form-control form-select", style = "background-color:#21212C; color:white; margin-top:5px;" } )
                                     @Html.ValidationMessageFor(model => model.MemberInfo.LanguageId, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -199,7 +199,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => Model.MemberInfo.Bio, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => Model.MemberInfo.Bio, new { htmlAttributes = new { @class = "form-control", style = "background-color:#21212C; color:white; margin-top:5px;" } })
                                 </div>
                             </div>
                         </div>
@@ -212,7 +212,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => Model.MemberInfo.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => Model.MemberInfo.Email, new { htmlAttributes = new { @class = "form-control", style = "background-color:#21212C; color:white; margin-top:5px;" } })
                                     @Html.ValidationMessageFor(model => Model.MemberInfo.Email, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -224,7 +224,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => Model.MemberInfo.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => Model.MemberInfo.Password, new { htmlAttributes = new { @class = "form-control", style = "background-color:#21212C; color:white; margin-top:5px;" } })
                                     @Html.ValidationMessageFor(model => Model.MemberInfo.Password, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -464,12 +464,16 @@
         //    });
         //})
 
-        let photo_url = "";
-        let memId = parseInt(@userid);
+
+        //save avatar to Cloudinary、DB
+        let photoUrl = "";
+        let memberId = parseInt(@userid);
         //let memEmail = @useremail;
 
-        var cloud_url = 'https://api.cloudinary.com/v1_1/drub4oabm/image/upload'
-        var cloud_upload_preset = 'cltdf3ai'
+        //var cloud_url = 'https://api.cloudinary.com/v1_1/drub4oabm/image/upload'
+        var cloud_url = 'https://api.cloudinary.com/v1_1/djamumruo/image/upload'
+        //var cloud_upload_preset = 'cltdf3ai'
+        var cloud_upload_preset = 'roldewr6'
 
         var imgPreview = document.getElementById('imagePreview');
         var fileUpload = document.getElementById('btnSubmit');
@@ -489,16 +493,15 @@
                 method: 'POST',
                 Headers: {
                     'Content-Type': 'multipart/form-data'
-                    // 'Content-Type': 'application/X-www-form-urlencoded'
                 },
                 data: formData
             }).then(function (res) {
                 console.log(res);
-                photo_url = res.data.secure_url;
+                photoUrl = res.data.secure_url;
                 $("#imageUpload").change(function () {
-                    readURL(photo_url);
+                    readURL(photoUrl);
                 });
-                SaveImageViaAjax(memId, photo_url);
+                SaveImageViaAjax(memberId, photoUrl);
 
 
             }).catch(function (err) {
@@ -508,9 +511,10 @@
 
 
         });
-        //$("#imagePreview").css('background-image', 'url(" + photo_url + ")');
+        //$("#imagePreview").css('background-image', 'url(" + photoUrl + ")');
 
 
+        //image preview
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -528,48 +532,44 @@
 
 
 
-
-
+        //save avatar to Cloudinary、DB
         function SaveImageViaAjax(memberId, photoUrl) {
-            //var id = 123;
-            //var formData = new FormData();
-            //var totalFiles = document.getElementById("imageUploadForm").files.length;
 
-            //for (var i = 0; i < totalFiles; i++) {
-            //    var file = document.getElementById("imageUploadForm").files[i];
-
-            //    formData.append("imageUploadForm", file);
-            //}
-            //var data = JSON.stringify({
-            //    MemberId: memberId,
-            //    ProfilePicture: photoUrl
-            //});
-            var data = JSON.stringify({
-                MemberId: memberId,
-                ProfilePicture: photoUrl,
-                //Email: memEmail
+            var Data = JSON.stringify({
+                MemberId: `${memberId}`,
+                ProfilePicture: `${photoUrl}`
             });
 
             $.ajax({
-                url: "https://localhost:44322/Api/MembersApi",
+                url: "https://localhost:44322/api/MembersApi/",
                 type: "POST",
-                data: data,
-                async: false,
-                contentType: 'application/json',
+                data: Data,
+                async: true,
+                contentType: 'application/json; charset=utf-8',
                 processData: false,
-                success: function (dbres) {
-                        console.log(dbres);
+                //dataType: "json",
+                success: function (res) {
+                        console.log(res);
                      $("#ShowMsg").text("Image Uploaded Successfully...!").css("color", "green")
                 },
-                error: function (dberr) {
-                        console.log(dberr);
+                error: function (err) {
+                        console.log(err);
                     $("#ShowMsg").text("Image Not Uploaded...!").css("color", "red")
                 }
             });
 
         }
 
+        //display avatar
+        document.getElementById('imagePreview').style.backgroundImage = "url('@ViewBag.Avatar')";
 
+        @*let Avatar = @ViewBag.Avatar;
+        if (Avatar != "") {
+            $("#imagePreview").css('background-image', 'url(" + Avatar + ")');
+        }
+        else {
+            $("#imagePreview").css('background-image', 'url("/Assets/Edit_ProfileImages/avatar.png")');
+        }*@
 
 
 
