@@ -53,10 +53,14 @@ namespace Build_School_Project_No_4.Services
             
             if(status != null && status.Count()>0)
             {
-                
                 status.ForEach(x =>
                 {
-                    products = products.Where(p => p.CreatorId == Members.First(m => m.MemberId == ))
+                    //找到他的ID
+                    var LinestausId = LineStatus.FirstOrDefault(y => y.LineStatusName == x).LineStatusId;
+                    //透過ID與Member做關聯
+                    var MemberId = Members.FirstOrDefault(m=>m.LineStatusId == LinestausId).MemberId;
+                    //透過memberId找符合的productId
+                    products = products.Where(p => p.CreatorId == MemberId);
                 });
             }
             
@@ -106,84 +110,6 @@ namespace Build_School_Project_No_4.Services
                     //Age = todayYear - DateTime.Parse(Members.FirstOrDefault(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
                     //StatusName = LineStatus.FirstOrDefault(y => y.LineStatusId == (Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName
                 }).ToList();
-            
-            productCards.ForEach(p =>
-            {
-                if (server != null && server.Count > 0)
-                {
-                    server.ForEach(s =>
-                    {
-                        if(p.Server == s)
-                        {
-                            
-                        }
-                    });
-                }
-                if (language != null && language.Count > 0)
-                {
-                    language.ForEach(l =>
-                    {
-                        if (p.Language == l)
-                        {
-
-                        }
-                    });
-
-                }
-                if (gender != null && gender.Count > 0)
-                {
-                    gender.ForEach(g =>
-                    {
-                        if (p.GenderId == g)
-                        {
-
-                        }
-                    });
-                }
-                if (status != null && status.Count > 0)
-                {
-                    status.ForEach(s =>
-                    {
-                        if (p.StatusName == s)
-                        {
-
-                        }
-                    });
-                }
-                if (level != null && level.Count > 0)
-                {
-                    level.ForEach(l =>
-                    {
-                        if (p.Rank == l)
-                        {
-
-                        }
-                    });
-                }
-                if (price != null && price.Count > 0)
-                {
-                    price.ForEach(x =>
-                    {
-                        if (p.UnitPrice == x)
-                        {
-
-                        }
-                    });
-                }
-                if (age != null && age.Count > 0)
-                {
-                    age.ForEach(a =>
-                    {
-                        if(p.Age == a)
-                        {
-
-                        }
-                    });
-                }
-
-            });
-
-
             result.CategoryId = categoryId;
             result.ProductCards = productCards;
             return JsonConvert.SerializeObject(result);

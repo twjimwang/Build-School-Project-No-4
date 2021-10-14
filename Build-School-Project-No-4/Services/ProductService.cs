@@ -110,11 +110,11 @@ namespace Build_School_Project_No_4.Services
                 Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.First(x => x.RankId == p.RankId).RankName,
                 Position = Positions.First(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
                 ProductId = p.ProductId,
-                Server = Servers.First(s => s.ServerId ==((ProductServers.First(y => y.ProductId == p.ProductId).ServerId))).ServerName,
-                Language = LanguageName.First(L => L.LanguageId == (int)Members.First(x => x.MemberId == p.CreatorId).LanguageId).LanguageName,
+                //Server = Servers.First(s => s.ServerId ==((ProductServers.First(y => y.ProductId == p.ProductId).ServerId))).ServerName,
+                //Language = LanguageName.First(L => L.LanguageId == (int)Members.First(x => x.MemberId == p.CreatorId).LanguageId).LanguageName,
                 //GenderId = (int)Members.First(x => x.MemberId == p.CreatorId).Gender,
                 //Age = todayYear - DateTime.Parse(Members.First(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
-                StatusName = LineStatus.First(y => y.LineStatusId == (Members.First(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName
+                //StatusName = LineStatus.First(y => y.LineStatusId == (Members.First(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName
             }).ToList();
             result.CategoryId = categoryId;
             result.ProductCards = productCards;
