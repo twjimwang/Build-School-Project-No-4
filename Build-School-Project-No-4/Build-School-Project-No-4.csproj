@@ -701,7 +701,6 @@
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
     <Content Include="Views\Subscription\Subscription.cshtml" />
     <Content Include="Views\Detail\DetailPage.cshtml" />
-    <Content Include="Views\Members\Delete.cshtml" />
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />

@@ -105,96 +105,96 @@ namespace Build_School_Project_No_4.Controllers
             //return PartialView("_AvatarPartial");
             return View();
         }
-        [HttpPost]
-        public bool SaveImageToServer()
-        {
-            try
-            {
-                HttpFileCollectionBase files = Request.Files;
-                HttpPostedFileBase file = files[0];
-                string _apiKey = ConfigurationManager.AppSettings["CloudinaryAPIKey"];
-                string _apiSecret = ConfigurationManager.AppSettings["CloudinarySecretKey"];
-                string _cloud = ConfigurationManager.AppSettings["CloudinaryAccount"];
-                string uploadedImageUrl = string.Empty;
-                string fname = string.Empty;
-                var myAccount = new Account { ApiKey = _apiKey, ApiSecret = _apiSecret, Cloud = _cloud };
-                Cloudinary _cloudinary = new Cloudinary(myAccount);
-                _cloudinary.Api.Secure = true;
+        //[HttpPost]
+        //public bool SaveImageToServer()
+        //{
+        //    try
+        //    {
+        //        HttpFileCollectionBase files = Request.Files;
+        //        HttpPostedFileBase file = files[0];
+        //        string _apiKey = ConfigurationManager.AppSettings["CloudinaryAPIKey"];
+        //        string _apiSecret = ConfigurationManager.AppSettings["CloudinarySecretKey"];
+        //        string _cloud = ConfigurationManager.AppSettings["CloudinaryAccount"];
+        //        string uploadedImageUrl = string.Empty;
+        //        string fname = string.Empty;
+        //        var myAccount = new Account { ApiKey = _apiKey, ApiSecret = _apiSecret, Cloud = _cloud };
+        //        Cloudinary _cloudinary = new Cloudinary(myAccount);
+        //        _cloudinary.Api.Secure = true;
 
 
-                //if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
-                //{
-                //    string[] testfiles = file.FileName.Split(new char[] { '\\' });
-                //    fname = testfiles[testfiles.Length - 1];
-                //}
-                //else
-                //{
-                //    fname = Regex.Replace(file.FileName.Trim(), @"[^0-9a-zA-Z.]+", "_");
-                //}
+        //        //if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
+        //        //{
+        //        //    string[] testfiles = file.FileName.Split(new char[] { '\\' });
+        //        //    fname = testfiles[testfiles.Length - 1];
+        //        //}
+        //        //else
+        //        //{
+        //        //    fname = Regex.Replace(file.FileName.Trim(), @"[^0-9a-zA-Z.]+", "_");
+        //        //}
 
-                using (Image img = Image.FromStream(file.InputStream))
-                {
-                    int imageHeight = 0;
-                    int imageWidth = 0;
-                    if (img.Height > 320)
-                    {
-                        var ratio = (double)img.Height / 320;
-                        imageHeight = (int)(img.Height / ratio);
-                        imageWidth = (int)(img.Width / ratio);
-                    }
-                    else
-                    {
-                        imageHeight = img.Height;
-                        imageWidth = img.Width;
-                    }
-                    var uploadParams = new ImageUploadParams()
-                    {
-                        File = new FileDescription(file.FileName, file.InputStream),
-                        Folder = "MyImages",
-                        Transformation = new Transformation().Width(imageWidth).Height(imageHeight).Crop("thumb").Gravity("face")
-                    };
+        //        using (Image img = Image.FromStream(file.InputStream))
+        //        {
+        //            int imageHeight = 0;
+        //            int imageWidth = 0;
+        //            if (img.Height > 320)
+        //            {
+        //                var ratio = (double)img.Height / 320;
+        //                imageHeight = (int)(img.Height / ratio);
+        //                imageWidth = (int)(img.Width / ratio);
+        //            }
+        //            else
+        //            {
+        //                imageHeight = img.Height;
+        //                imageWidth = img.Width;
+        //            }
+        //            var uploadParams = new ImageUploadParams()
+        //            {
+        //                File = new FileDescription(file.FileName, file.InputStream),
+        //                Folder = "MyImages",
+        //                Transformation = new Transformation().Width(imageWidth).Height(imageHeight).Crop("thumb").Gravity("face")
+        //            };
                     
                     
-                    var uploadResult = _cloudinary.Upload(uploadParams);
+        //            var uploadResult = _cloudinary.Upload(uploadParams);
                     
-                    //Failed to deserialize response with status code: NotFound cloudinary
-                    //cloudinary Unexpected character encountered while parsing value: <.Path '', line 0, position 0.
+        //            //Failed to deserialize response with status code: NotFound cloudinary
+        //            //cloudinary Unexpected character encountered while parsing value: <.Path '', line 0, position 0.
 
-                    //uploadedImageUrl = uploadResult?.SecureUri?.AbsoluteUri;
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+        //            //uploadedImageUrl = uploadResult?.SecureUri?.AbsoluteUri;
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //    }
+        //}
 
-        }
 
-        [HttpPost]
-        public ActionResult SaveAvatarToDB(int MemberId, string ProfilePicture)
-        {
+        //[HttpPost]
+        //public ActionResult SaveAvatarToDB(int MemberId, string ProfilePicture)
+        //{
 
-            Members member = db.Members.First(x => x.MemberId == MemberId);
+        //    Members member = db.Members.First(x => x.MemberId == MemberId);
 
-            using (var tran = db.Database.BeginTransaction())
-            {
-                try
-                {
-                    member.ProfilePicture = ProfilePicture;
-                    db.SaveChanges();
-                    tran.Commit();
+        //    using (var tran = db.Database.BeginTransaction())
+        //    {
+        //        try
+        //        {
+        //            member.ProfilePicture = ProfilePicture;
+        //            db.SaveChanges();
+        //            tran.Commit();
 
-                    return Content("寫入資料庫成功");
-                }
-                catch (Exception ex)
-                {
-                    tran.Rollback();
+        //            return Content("寫入資料庫成功");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            tran.Rollback();
 
-                    return Content("寫入資料庫失敗:" + ex.ToString());
-                }
-            }
-        }
+        //            return Content("寫入資料庫失敗:" + ex.ToString());
+        //        }
+        //    }
+        //}
 
 
 
