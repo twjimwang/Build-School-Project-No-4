@@ -1,0 +1,1095 @@
+﻿@model  GroupViewModel
+
+@{
+    ViewBag.Title = "profile";
+}
+
+
+<div class="container-fluid p-0 mobile-hide">
+    <div class="mobile-space-top">
+    </div>
+    <div class="mobile-head-top"></div>
+</div>
+
+
+
+<div class="container profile-pos">
+
+
+    <div class="row">
+        @foreach (var item in Model.Profiles)
+        {
+            <div class="col-12 col-md-3">
+                <div class="profile-pic">
+                    @*<img src="img/default_avatar.png" alt="avatar">*@
+                    @*<img src=" https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632809097/Profile/default_avatar_f231pc.png" alt="avatar">*@
+                    <img src="@item.ProfilePicture" alt="avatar">
+                </div>
+            </div>
+
+        }
+
+        @*@foreach (var item in Model.Profiles)
+            {*@
+        <div class="col-12 col-md-9">
+            <div class="profile-info">
+                <div class="profile-top">
+                    @foreach (var item in Model.Profiles)
+                    {<span class="profile-name">@item.MemberName</span>
+                    if (@item.Gender == 0)
+                    { <div class="gender"><img class="gender" src="https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632833966/Profile/gender-m_msytvi.png" alt=""></div>}
+                    else
+                    { <div class="gender"><img class="gender" src="https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632833966/Profile/gender-f_ia8gbh.png" alt=""></div>}
+                    <div class="status">ONLINE</div>}
+                    @*<div class="status">@item.LineStatus</div>}*@
+                    <button class="edit-profile-dropdown" id="dropwdown-btn">
+                        <span class="dots">• • •</span>
+                        </butt>
+                </div><div class="a-col">
+                    @foreach (var item in Model.Profiles)
+                    {
+
+                        @*<a href="@Url.Action("Followings","FollowController")" class="a-title">*@
+                        <a href="@Url.Action("Followings","Follow")" class="a-title">
+                            <span class="followers-count">@item.FollowsNumber</span> Followers <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="#" class="a-title">
+                            <span class="following-count">@item.FollingsNumber</span> Following <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="#" class="a-title">
+                            <span class="visitors-count">@item.VistorsNumber</span> Visitors <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="#" class="a-title">
+                            <span class="medals-count">0</span> Medals <i class="fas fa-chevron-right"></i>
+                        </a>
+                    }
+
+                </div><div class="profile-details greyish">
+                    @foreach (var item in Model.Profiles)
+                    {
+                        <div class="profile-id">ID: <span class="id-num">@item.MemberId</span></div>
+                        <div class="profile-language">Language: <span class="lang-name">@item.LanguageName</span></div>
+                        <div class="profile-bio">
+                            Hii my name is @item.MemberName :)
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row edit-profile-mobile" id="edit-profile-mobiles">
+        <div class="col-12">
+            <div class="edit-btn-div">
+                <button class="edit-mobile-btn" data-bs-toggle="modal"
+                        data-bs-target="#editProfileModal">
+                    Edit Profile
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <a href="#">Edit profile</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#changeAvatarModal">Edit avatar</a>
+                    <a data-bs-dismiss="modal">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="changeAvatarModal" tabindex="-1" aria-labelledby="changeAvatarLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changeAvatarLabel">Avatar</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="avatar-img">
+                        @*<img src="img/default_avatar.png" alt="avatar">*@
+                        @*<img src="https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1632809097/Profile/default_avatar_f231pc.png" alt="avatar">*@
+                        @foreach (var item in Model.Profiles)
+                        {<img src="@item.ProfilePicture" alt="avatar">}
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="avatar-size-req">
+                        *Avatar must be JPG, GPEG, GIF, or PNG and cannot exceed 5MB
+                    </div>
+
+                    <button type="button" class="btn change-avatar-btn">Change Avatar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <div class="swiper-container">
+                <div class="swiper-pagination2"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-name="Services">
+                        <button>Service Setting</button>
+                        <div class="services-container">
+                            <div class="row">
+                                <div class="col-12 col-md-7 col-lg-6">
+                                    <div class="services-overview">
+                                        <div class="average">
+                                            <div class="overview-title greyish">Average Score</div>
+                                            <div class="average-score services-txt">
+                                                <i class="fas fa-star gold-star"></i>
+                                                @*<span class="service-score">4.6</span>*@
+                                                @foreach (var item in Model.Profiles)
+                                                {<span class="service-score">@item.StarAvg</span>}
+                                                /5.0
+                                            </div>
+                                        </div>
+                                        <div class="served-div">
+                                            <div class="overview-title greyish">Served</div>
+                                            @foreach (var item in Model.Profiles)
+                                            {<div class="number-served service-score">@item.serverNumber</div>}
+                                            @*<div class="number-served service-score">8</div>*@
+                                        </div>
+                                        <div class="recommended-div">
+                                            <div class="overview-title greyish">Recommended</div>
+                                            @foreach (var item in Model.Profiles)
+                                            {<div class="number-served service-score">@item.commentNumber</div>}
+                                            @*<div class="number-recommended service-score">8</div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-5 col-lg-6">
+                                    <div class="tags-div">
+                                        @*<div class="tag carry">Carry in Game(<span>6</span>)</div>
+                                        <div class="tag sweet-voice">Sweet Voice(<span>4</span>)</div>
+                                        <div class="tag fast-response">Fast Response(<span>3</span>)</div>
+                                        <div class="tag interactive">Interactive(<span>3</span>)</div>
+                                        <div class="tag cooperative">Cooperative(<span>3</span>)</div>
+                                        <div class="tag humorous">Humorous(<span>2</span>)</div>*@
+                                        <div class="tag carry">Carry in Game</div>
+                                        <div class="tag sweet-voice">Sweet Voice</div>
+                                        <div class="tag fast-response">Fast Response</div>
+                                        <div class="tag interactive">Interactive</div>
+                                        <div class="tag cooperative">Cooperative</div>
+                                        <div class="tag humorous">Humorous</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-name="Album">
+                        <button>Upload</button>
+                        <div class="album-div">
+                            <img src="img/effb.jpeg" alt="">
+                            <img src="img/insta.jpeg" alt="">
+                            <img src="img/insta.jpeg" alt="">
+                            <img src="img/insta.jpeg" alt="">
+                            <img src="img/insta.jpeg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+
+
+<script>
+    var names = [];
+    $(".swiper-wrapper .swiper-slide").each(function (i) {
+        names.push($(this).data("name"));
+    });
+
+    var swiper = new Swiper(".swiper-container", {
+        pagination: {
+            el: ".swiper-pagination2",
+            clickable: true,
+            paginationClickable: true,
+            type: "custom",
+
+            renderCustom: function (swiper, current, total) {
+                var text =
+                    "<span class='pContainer' style='background-color:transperent;text-align: left;width:100%; font-weight: 500; display:block; font-size: 12px;'>";
+                for (let i = 1; i <= total; i++) {
+                    //alert(total);
+                    if (current == i) {
+                        text +=
+                            "<span class=' purp-underline ' style='display:inline-block;border-bottom:3px solid rgb(112,65,230);text-align:left;width: auto;color:white;  z-index: 5;' >" +
+                            names[i - 1] +
+                            "</span>";
+                    } else {
+                        text +=
+                            "<span class='swiper-pagination-bullet p-span' style='display:inline-block;text-align:center; width: auto; color:rgb(196,195,230);'>" +
+                            names[i - 1] +
+                            "</span>";
+                    }
+                }
+                text += "</span>";
+                return text;
+            },
+        },
+        direction: "horizontal",
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        paginationHide: true,
+        clickable: true,
+        breakpoints: {
+            300: {
+                allowTouchMove: true,
+            },
+            768: {
+                allowTouchMove: false
+            },
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#dropwdown-btn").hover(function (event) {
+            $('#editProfileModal').modal('show');
+            event.stopPropagation();
+
+        }, function (e) {
+            $('#editProfileModal').modal('hide');
+            e.stopPropagation();
+        });
+    });
+</script>
+@*</body>
+
+    </html>*@
+
+
+@section topCSS{
+    <style>
+        body {
+            background-color: rgb(18, 14, 27);
+            background-color: black;
+            color: white;
+            font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+        }
+
+        /* .bodyMVC {
+            background-color: rgb(18, 14, 27);
+            color: white;
+            font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+        }*/
+
+        /*  a {
+                    text-decoration: none;
+                    color: white;
+                }*/
+
+        a,
+        a:visited,
+        a:hover,
+        a:active {
+            color: inherit;
+        }
+
+        button {
+            text-decoration: none;
+            background-color: rgba(122, 52, 189, 0);
+            color: white;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .greyish {
+            color: rgb(196, 195, 230);
+            font-size: 12px;
+        }
+
+        .mobile-space-top {
+            height: 105px;
+            background-color: rgb(113, 73, 206);
+        }
+
+        .mobile-head-top {
+            height: 30px;
+            background-color: rgb(18, 14, 27);
+            border-top-left-radius: 23px;
+            border-top-right-radius: 23px;
+            position: relative;
+            top: -30px;
+        }
+
+        .profile-pos {
+            position: relative;
+            top: -100px;
+        }
+
+        .profile-pic {
+            display: flex;
+            justify-content: center;
+            height: 80px;
+            width: auto;
+        }
+
+            .profile-pic img {
+                border-radius: 50px;
+            }
+
+        .profile-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .profile-name {
+            font-size: 23px;
+            font-weight: 600;
+        }
+
+        .status {
+            text-align: center;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            background-color: rgb(31, 185, 175);
+            width: 50px;
+            padding: 2px 2px 0px;
+            border-radius: 4px;
+        }
+
+        .gender {
+            display: none;
+        }
+
+        .a-col {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 10px 0;
+        }
+
+        .a-title {
+            font-size: 11px;
+            text-decoration: none;
+            color: white;
+        }
+
+            .a-title:last-of-type {
+                margin-right: 0;
+            }
+
+            .a-title span {
+                font-size: 15px;
+            }
+
+            .a-title i {
+                font-size: 8px;
+            }
+
+        .profile-details {
+            margin-left: 6%;
+        }
+
+            .profile-details div {
+                margin-bottom: 2px;
+            }
+
+        .edit-btn-div {
+            display: flex;
+            justify-content: center;
+        }
+
+        .edit-mobile-btn {
+            margin-top: 15px;
+            font-size: 14px;
+            color: rgb(113, 73, 206);
+            border: 1px solid rgb(113, 73, 206);
+            padding: 2px 25px;
+        }
+
+            .edit-mobile-btn:active,
+            .edit-mobile-btn:hover {
+                color: rgb(157, 126, 230);
+                border: 1px solid rgb(157, 126, 230);
+            }
+
+        .modal-backdrop {
+            z-index: -1;
+            opacity: 0;
+            background-color: rgba(25, 12, 56, 0);
+        }
+
+        .edit-profile-dropdown {
+            display: none;
+        }
+
+        #editProfileModal .modal-dialog {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-bottom: 10px;
+        }
+
+        #editProfileModal,
+        .modal-dialog,
+        .modal-content,
+        .modal-body {
+            border-radius: 15px;
+        }
+
+            #editProfileModal .modal-body,
+            .modal-content {
+                background-color: rgb(48, 47, 61);
+                border-radius: 15px;
+            }
+
+            #editProfileModal a {
+                display: block;
+                text-align: center;
+                padding: 5px 0;
+            }
+
+                #editProfileModal a:last-of-type {
+                    border-top: 1px solid rgba(128, 128, 128, 0.295);
+                }
+
+                #editProfileModal a:active {
+                    border-radius: 12px;
+                    background-color: rgba(71, 69, 77, 0.411);
+                }
+
+                #editProfileModal a:hover {
+                    border-radius: 12px;
+                    background-color: rgba(71, 69, 77, 0.411);
+                }
+
+        #changeAvatarModal {
+            padding-top: 20px;
+            background-color: rgba(18, 14, 27, 0.8);
+        }
+
+            #changeAvatarModal .modal-content {
+                background-color: rgb(48, 47, 61);
+                height: 75vh;
+            }
+
+            #changeAvatarModal .modal-footer {
+                justify-content: center;
+            }
+
+        .avatar-size-req {
+            font-size: 10px;
+        }
+
+        .change-avatar-btn {
+            background-color: rgb(113, 73, 206);
+            border-radius: 20px;
+            color: white;
+            font-weight: 500;
+            width: 100%;
+            font-size: 14px;
+        }
+
+            .change-avatar-btn:hover {
+                background-color: rgb(92, 55, 194);
+                color: white;
+                transition: all 0.2s ease-out;
+            }
+
+        #changeAvatarModal .modal-footer {
+            border-top: 1px solid rgba(250, 128, 114, 0);
+        }
+
+        #changeAvatarModal .modal-header {
+            border-bottom: 1px solid rgba(250, 128, 114, 0);
+        }
+
+        #changeAvatarModal .modal-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar-img img {
+            width: 100%;
+        }
+
+        .modal-body a {
+            cursor: pointer;
+        }
+
+        .swiper-container {
+            overflow: hidden;
+            position: relative;
+            top: -80px;
+            margin: 0 10px;
+        }
+
+        .swiper-slide {
+            width: 100%;
+            white-space: initial;
+        }
+
+        .pContainer span {
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: rgba(0, 100, 0, 0);
+            cursor: pointer;
+        }
+
+        .services-container,
+        .album-div {
+            margin-top: 15px;
+        }
+
+        .services-container {
+            background-color: rgb(48, 47, 61);
+            height: auto;
+            border-radius: 10px;
+            padding: 10px 7px;
+        }
+
+        .services-overview {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+        }
+
+        .average,
+        .served-div,
+        .recommended-div {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+            .average::after,
+            .served-div::after {
+                content: "";
+                border-right: 1px solid rgb(70, 69, 85);
+                height: 30px;
+                position: absolute;
+                right: -25px;
+                top: 5px;
+            }
+
+        .average-score i {
+            font-size: 10px;
+            text-align: center;
+            background: linear-gradient(315deg, #ff894c, #ffd839);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .services-txt {
+            font-size: 13px;
+        }
+
+        .service-score {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .tags-div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+            .tags-div .tag {
+                background-color: rgb(18, 14, 27);
+                font-size: 13px;
+                margin-top: 7px;
+                margin-right: 10px;
+                padding: 2px 12px;
+                border-radius: 10px;
+            }
+
+        .swiper-container button {
+            background-color: rgb(112, 65, 230);
+            position: absolute;
+            top: -28px;
+            left: 62%;
+            font-size: 13px;
+            padding: 3px 8px;
+            font-weight: 500;
+        }
+
+        .album-div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+            .album-div img {
+                margin: 0 6px;
+                height: 150px;
+                width: auto;
+            }
+
+        @@media screen and (min-width: 400px) {
+            .profile-name {
+                font-size: 26px;
+            }
+
+            .a-title {
+                font-size: 14px;
+            }
+
+                .a-title span {
+                    font-size: 18px;
+                }
+
+                .a-title i {
+                    font-size: 10px;
+                }
+
+            .edit-mobile-btn {
+                margin-top: 15px;
+                font-size: 17px;
+                padding: 3px 50px;
+            }
+
+            .profile-details {
+                margin-left: 8%;
+            }
+
+            .tags-div {
+                margin: 5px 15px;
+            }
+
+            .swiper-container button {
+                background-color: rgb(112, 65, 230);
+                position: absolute;
+                top: -28px;
+                left: 70%;
+                font-size: 13px;
+                padding: 3px 8px;
+                font-weight: 500;
+            }
+
+            .purp-underline,
+            .p-span {
+                font-size: 12px;
+            }
+        }
+
+        @@media screen and (min-width: 480px) {
+            .swiper-container button {
+                left: 75%;
+            }
+        }
+
+        @@media screen and (min-width: 576px) {
+            .a-col {
+                justify-content: space-around;
+            }
+
+            .profile-details {
+                margin-left: 6%;
+            }
+
+            .swiper-container {
+                margin: 0 0;
+            }
+
+                .swiper-container button {
+                    /*top: -3px;*/
+                    top: -10px;
+                    left: 75%;
+                    padding: 3px 15px;
+                }
+
+            .greyish {
+                font-size: 13px;
+            }
+
+            .a-title {
+                font-size: 14px;
+            }
+
+                .a-title span {
+                    font-size: 20px;
+                }
+
+            .edit-mobile-btn {
+                margin-top: 15px;
+                margin-bottom: 10px;
+                font-size: 14px;
+                padding: 4px 50px;
+            }
+
+            .services-overview {
+                justify-content: initial;
+                padding: 5px 10px;
+            }
+
+            .average,
+            .served-div,
+            .recommended-div {
+                margin-right: 55px;
+            }
+
+            .tags-div {
+                margin: 5px 0px;
+            }
+
+            .album-div img {
+                margin: 10px 10px;
+                height: 170px;
+                width: auto;
+            }
+        }
+
+        @@media screen and (min-width: 768px) {
+            .profile-pos {
+                position: relative;
+                top: 100px;
+            }
+
+            .profile-top {
+                flex-direction: row;
+            }
+
+            .profile-pic {
+                display: flex;
+                justify-content: flex-end;
+                width: 180px;
+                height: 180px;
+            }
+
+                .profile-pic img {
+                    border-radius: 10px;
+                }
+
+            .profile-info {
+                margin-left: 20px;
+            }
+
+            .profile-name {
+                font-size: 35px;
+            }
+
+            .mobile-hide {
+                display: none;
+            }
+
+            .gender {
+                display: block;
+                width: 20px;
+                margin-left: 5px;
+            }
+
+            .status {
+                text-align: center;
+                font-size: 10px;
+                margin-left: 15px;
+            }
+
+            .a-col {
+                display: flex;
+                justify-content: initial;
+                margin: 0 0 10px 0;
+            }
+
+            .a-title {
+                margin-right: 15px;
+                font-size: 15px;
+            }
+
+                .a-title:last-of-type {
+                    margin-right: 0;
+                }
+
+                .a-title span {
+                    font-size: 20px;
+                }
+
+                .a-title i {
+                    font-size: 10px;
+                }
+
+            .edit-profile-mobile {
+                display: none;
+            }
+
+            #edit-profile-mobiles {
+                display: none;
+            }
+
+            .profile-details {
+                margin-left: 0;
+            }
+
+                .profile-details div {
+                    margin-bottom: 4px;
+                }
+
+            .edit-profile-dropdown {
+                position: absolute;
+                right: 30px;
+                background-color: rgb(48, 47, 61);
+                height: 35px;
+                width: 35px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .dots {
+                font-size: 10px;
+            }
+
+            #editProfileModal .modal-dialog {
+                position: absolute;
+                bottom: initial;
+                left: initial;
+                top: 70px;
+                right: 10%;
+                width: 120px;
+                margin-bottom: 10px;
+            }
+
+            #editProfileModal,
+            .modal-dialog,
+            .modal-content,
+            .modal-body {
+                border-radius: 10px;
+            }
+
+                #editProfileModal .modal-body {
+                    font-size: 14px;
+                }
+
+            #changeAvatarModal .modal-content {
+                padding: 10px 20px;
+                height: 520px;
+            }
+
+            #changeAvatarModal .avatar-img {
+                height: 300px;
+                width: auto;
+            }
+
+            #changeAvatarModal img {
+                height: 100%;
+                width: auto;
+            }
+
+            .swiper-container {
+                top: 20px;
+            }
+
+                .swiper-container button {
+                    left: 80%;
+                    padding: 4px 13px;
+                    font-size: 15px;
+                }
+
+            .tags-div {
+                align-items: center;
+            }
+
+                .tags-div .tag {
+                    padding: 4px 12px;
+                    border-radius: 10px;
+                    height: auto;
+                }
+
+            .overview-title {
+                font-size: 12px;
+            }
+
+            .average-score i {
+                font-size: 13px;
+            }
+
+            .services-txt {
+                font-size: 13px;
+            }
+
+            .service-score {
+                font-size: 22px;
+                font-weight: normal;
+            }
+
+            .average::after,
+            .served-div::after {
+                height: 37px;
+            }
+
+            .pContainer span {
+                font-size: 17px;
+                font-weight: 600;
+            }
+
+            .services-container {
+                margin-top: 20px;
+            }
+
+            .album-div img {
+                width: 180px;
+                height: auto;
+            }
+        }
+
+        @@media screen and (min-width: 992px) {
+            .profile-info {
+                margin-left: 35px;
+            }
+
+            .profile-pic {
+                justify-content: flex-start;
+                width: 250px;
+                height: 250px;
+            }
+
+                .profile-pic img {
+                    border-radius: 10px;
+                    width: auto;
+                    height: 250px;
+                }
+
+            .profile-name {
+                font-size: 37px;
+            }
+
+            .a-title {
+                margin-right: 20px;
+            }
+
+                .a-title span {
+                    font-size: 24px;
+                }
+
+            .profile-details {
+                font-size: 14px;
+                line-height: 1.7em;
+            }
+
+            #changeAvatarModal .modal-content {
+                background-color: rgb(48, 47, 61);
+                height: 500px;
+            }
+
+            .swiper-container {
+                margin-top: 125px;
+            }
+
+                .swiper-container button {
+                    left: 83%;
+                    padding: 5px 17px;
+                    font-size: 16.5px;
+                }
+
+            .services-container {
+                display: flex;
+            }
+
+            .overview-title {
+                font-size: 15px;
+            }
+
+            .average-score i {
+                font-size: 16px;
+            }
+
+            .services-txt {
+                font-size: 15px;
+            }
+
+            .service-score {
+                font-size: 25px;
+                font-weight: normal;
+            }
+
+            .tags-div .tag {
+                padding: 4px 12px;
+                font-size: 14px;
+            }
+
+            .pContainer span {
+                font-size: 19px;
+            }
+
+            .album-div img {
+                width: 200px;
+                height: auto;
+            }
+        }
+
+        @@media screen and (min-width: 1200px) {
+            .profile-info {
+                margin-left: -20px;
+            }
+
+            .services-container {
+                padding: 20px 10px;
+            }
+
+            .swiper-container button {
+                left: 85%;
+                padding: 6px 18px;
+                font-size: 18px;
+                border-radius: 22px;
+                font-weight: 600;
+            }
+
+            .overview-title {
+                font-size: 20px;
+            }
+
+            .average-score i {
+                font-size: 18px;
+            }
+
+            .services-txt {
+                font-size: 18px;
+            }
+
+            .service-score {
+                font-size: 32px;
+                font-weight: normal;
+            }
+
+            .album-div img {
+                width: 250px;
+                height: auto;
+            }
+        }
+    </style>
+}

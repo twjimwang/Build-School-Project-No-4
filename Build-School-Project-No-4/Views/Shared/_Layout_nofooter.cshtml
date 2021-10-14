@@ -24,6 +24,17 @@
     <link rel="stylesheet" href="~/Assets/css/reset.css">
     <link rel="stylesheet" href="~/Assets/css/layout_afterlogin_nofooter.css">
 
+    @*抓到使用者登入的cookie資訊*@
+    @{
+        HttpCookie cookie = HttpContext.Current.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
+
+        string userid = "";
+        if (cookie != null)
+        {
+            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+            userid = ticket.UserData;
+        }
+    }
 
 
 </head>
@@ -92,6 +103,8 @@
                     </li>
                 </ul>
 
+
+
                 <!-- right navbar -->
                 <div class="navbar-right d-flex">
                     <div class="search">
@@ -103,195 +116,213 @@
                         <a href="@Url.Action("BecomeEPalPage","BecomeEPal")">Become an ePal</a>
                     </div>
 
-                    <div class="logsign-modal-button">
-                        <!-- 首頁login/signup -->
-                        <!-- Button trigger modal -->
-                        <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
-                                data-bs-target="#myModal" id="loginmodal">
-                            Log In
-                        </button>
-                        <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
-                                data-bs-target="#myModal" id="signupmodal">
-                            Sign Up
-                        </button>
-                    </div>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
 
-                    <!-- right navbar message dropdown list -->
-                    <div class="message dropdown">
-                        <i class="far fa-envelope" type="button" id="dropdown-message" data-bs-toggle="dropdown"></i>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-message"
-                            id="dropdown-message-ul" data-stopPropagation="true" data-toggle="dropdown-menu">
-                            <div class="myMessage">
-                                <div class="sidepage">
-                                    <div class="sideitem">
-                                        <img src="~/Assets/images/layout/message1.png" alt="Order Messages" id="order-message"
-                                             class="message-icon message-icon-bk">
-                                    </div>
-                                    <div class="sideitem">
-                                        <img src="~/Assets/images/layout/message2.png" alt="Social Messages" id="social-message"
-                                             class="message-icon message-icon-bk">
-                                    </div>
-                                    <div class="sideitem">
-                                        <img src="~/Assets/images/layout/message3.png" alt="System Messages" id="system-message"
-                                             class="message-icon message-icon-bk">
-                                    </div>
-                                </div>
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <div class="title" id="message-list-title">Order Messages</div>
-                                    </div>
-                                    <!-- msg-body template -->
-                                    <div class="message-body">
-                                        <div class="list-item">
-                                            <div class="list-item-left">
-                                                <div class="list-title">
-                                                    League of Legends
-                                                </div>
-                                                <div class="list-text">
-                                                    Please pay within 15 mins
-                                                </div>
-                                                <div class="list-time">
-                                                    2 hours ago
-                                                </div>
-                                            </div>
-                                            <div class="list-item-right">
-                                                <div class="personalimg">
-                                                    <i class="fas fa-smile"></i>
-                                                </div>
-                                                <div class="list-check">
-                                                    <a href="#">
-                                                        check
-                                                        <i class="fas fa-chevron-right"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
+                        <div class="logsign-modal-button">
+                            <!-- 首頁login/signup -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
+                                    data-bs-target="#myModal" id="loginmodal">
+                                Log In
+                            </button>
+                            <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
+                                    data-bs-target="#myModal" id="signupmodal">
+                                Sign Up
+                            </button>
+                        </div>
+
+                    }
+                    else
+                    {
+
+                        @*<div style="color:white">@(User.Identity.Name)</div>*@
+                        @*<li>@Html.ActionLink("變更密碼", "ChangePassword", "Members")</li>*@
+                        @*<div>@Html.ActionLink("Log out", "Logout", "Members")</div>*@
+                        <input type="button" value="Log out" class="logoutbtn" onclick="location.href='@Url.Action("Logout", "Members")'" />
+
+                        <!-- right navbar message dropdown list -->
+                        <div class="message dropdown">
+                            <i class="far fa-envelope" type="button" id="dropdown-message" data-bs-toggle="dropdown"></i>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-message"
+                                id="dropdown-message-ul" data-stopPropagation="true" data-toggle="dropdown-menu">
+                                <div class="myMessage">
+                                    <div class="sidepage">
+                                        <div class="sideitem">
+                                            <img src="~/Assets/images/layout/message1.png" alt="Order Messages" id="order-message"
+                                                 class="message-icon message-icon-bk">
                                         </div>
-                                        <div class="message-footer">
-                                            <a href="#">
-                                                <span class="more">More</span>
-                                            </a>
+                                        <div class="sideitem">
+                                            <img src="~/Assets/images/layout/message2.png" alt="Social Messages" id="social-message"
+                                                 class="message-icon message-icon-bk">
+                                        </div>
+                                        <div class="sideitem">
+                                            <img src="~/Assets/images/layout/message3.png" alt="System Messages" id="system-message"
+                                                 class="message-icon message-icon-bk">
                                         </div>
                                     </div>
+                                    <div class="message-content">
+                                        <div class="message-header">
+                                            <div class="title" id="message-list-title">Order Messages</div>
+                                        </div>
+                                        <!-- msg-body template -->
+                                        <div class="message-body">
+                                            <div class="list-item">
+                                                <div class="list-item-left">
+                                                    <div class="list-title">
+                                                        League of Legends
+                                                    </div>
+                                                    <div class="list-text">
+                                                        Please pay within 15 mins
+                                                    </div>
+                                                    <div class="list-time">
+                                                        2 hours ago
+                                                    </div>
+                                                </div>
+                                                <div class="list-item-right">
+                                                    <div class="personalimg">
+                                                        <i class="fas fa-smile"></i>
+                                                    </div>
+                                                    <div class="list-check">
+                                                        <a href="#">
+                                                            check
+                                                            <i class="fas fa-chevron-right"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message-footer">
+                                                <a href="#">
+                                                    <span class="more">More</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </ul>
-                    </div>
-
-
-                    <div class="personal-account">
-                        <div class="personal-img">
-                            <img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()">
+                            </ul>
                         </div>
-                        <div class="aside-Menu">
-                            <div class="userinfo">
-                                <div class="user-photo">
-                                    <a href="#">
-                                        <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
-                                    </a>
-                                </div>
-                                <div class="uesr-account-name">
-                                    <a href="#">XXX</a>
-                                </div>
-                                <div class="aside-close">
-                                    <button type="button" class="btn-close btn-close-white" aria-label="Close"
-                                            onclick="PersonalClose()"></button>
-                                </div>
+
+                        //個人帳戶資訊
+                        <div class="personal-account">
+                            <div class="personal-img">
+                                <img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()">
                             </div>
+                            <div class="aside-Menu">
+                                <div class="userinfo">
+                                    <div class="user-photo">
+                                        <a href="#">
+                                            <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
+                                        </a>
+                                    </div>
+                                    <div class="uesr-account-name">
+                                        <a href="~/Members/profile/@userid">
+                                            <div style="color:white">@(User.Identity.Name)</div>
+                                        </a>
+                                        @Html.HiddenFor(model => model.MemberLogin.MemberId, new { @class = "", id = "memberId" })
+                                    </div>
+                                    <div class="aside-close">
+                                        <button type="button" class="btn-close btn-close-white" aria-label="Close"
+                                                onclick="PersonalClose()"></button>
+                                    </div>
+                                </div>
 
-                            <div class="online-wrapper dropstart">
-                                <a type="button" class="btn statusbar" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <!-- 用JS控制 -->
-                                    <img src="~/Assets/images/layout/online.png" alt="">ONLINE
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            <img src="~/Assets/images/layout/online.png" alt="">ONLINE
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            <img src="~/Assets/images/layout/inorder.png" alt="">IN AN ORDER
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            <img src="~/Assets/images/layout/resting.png" alt="">RESTING
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            <img src="~/Assets/images/layout/offline.png" alt="">OFFLINE
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
+                                <div class="online-wrapper dropstart">
+                                    <a type="button" class="btn statusbar" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <!-- 用JS控制 -->
+                                        <img src="~/Assets/images/layout/online.png" alt="">ONLINE
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <button class="dropdown-item" type="button">
+                                                <img src="~/Assets/images/layout/online.png" alt="">ONLINE
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="dropdown-item" type="button">
+                                                <img src="~/Assets/images/layout/inorder.png" alt="">IN AN ORDER
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="dropdown-item" type="button">
+                                                <img src="~/Assets/images/layout/resting.png" alt="">RESTING
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="dropdown-item" type="button">
+                                                <img src="~/Assets/images/layout/offline.png" alt="">OFFLINE
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
 
-                            <div class="info-wrapper">
-                                <div class="infosta" id="followers">
-                                    <div class="num">0</div>
-                                    <div class="txt">Followers</div>
+                                <div class="info-wrapper">
+                                    <div class="infosta" id="followers">
+                                        <div class="num">0</div>
+                                        <div class="txt">Followers</div>
+                                    </div>
+                                    <div class="infosta" id="followings">
+                                        <div class="num">1</div>
+                                        <div class="txt">Folloeings</div>
+                                    </div>
+                                    <div class="infosta" id="vistors">
+                                        <div class="num">2</div>
+                                        <div class="txt">Vistors</div>
+                                    </div>
+                                    <div class="infosta" id="medals">
+                                        <div class="num">3</div>
+                                        <div class="txt">Medals</div>
+                                    </div>
                                 </div>
-                                <div class="infosta" id="followings">
-                                    <div class="num">1</div>
-                                    <div class="txt">Folloeings</div>
-                                </div>
-                                <div class="infosta" id="vistors">
-                                    <div class="num">2</div>
-                                    <div class="txt">Vistors</div>
-                                </div>
-                                <div class="infosta" id="medals">
-                                    <div class="num">3</div>
-                                    <div class="txt">Medals</div>
-                                </div>
-                            </div>
 
-                            <div class="money-wrapper">
-                                <div class="money-item" id="order">
-                                    <a href="@Url.Action("Order","Order")">
-                                        <img src="~/Assets/images/layout/ordericon.png" alt="order">
-                                        <div class="txt">Order</div>
-                                    </a>
+                                <div class="money-wrapper">
+                                    <div class="money-item" id="order">
+                                        <a href="@Url.Action("Order", "Order")">
+                                            <img src="~/Assets/images/layout/ordericon.png" alt="order">
+                                            <div class="txt">Order</div>
+                                        </a>
+                                    </div>
+                                    <div class="money-item" id="wallet">
+                                        <a href="@Url.Action("Wallet", "epalAccount")">
+                                            <img src="~/Assets/images/layout/walleticon.png" alt="wallet">
+                                            <div class="txt">Wallet</div>
+                                        </a>
+                                    </div>
+                                    <div class="money-item" id="coupons">
+                                        <a href="@Url.Action("Coupons", "Coupons")">
+                                            <img src="~/Assets/images/layout/couponicon.png" alt="coupon">
+                                            <div class="txt">Coupons</div>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="money-item" id="wallet">
-                                    <a href="@Url.Action("Wallet","epalAccount")">
-                                        <img src="~/Assets/images/layout/walleticon.png" alt="wallet">
-                                        <div class="txt">Wallet</div>
-                                    </a>
-                                </div>
-                                <div class="money-item" id="coupons">
-                                    <a href="@Url.Action("Coupons","Coupons")">
-                                        <img src="~/Assets/images/layout/couponicon.png" alt="coupon">
-                                        <div class="txt">Coupons</div>
-                                    </a>
-                                </div>
-                            </div>
 
-                            <div class="member-wrapper">
-                                <div class="makemember" id="epalplus">
-                                    <a href="#">
-                                        <p id="plustxt">4.99 Buff for 14 privileges</p>
-                                    </a>
+                                <div class="member-wrapper">
+                                    <div class="makemember" id="epalplus">
+                                        <a href="#">
+                                            <p id="plustxt">4.99 Buff for 14 privileges</p>
+                                        </a>
 
+                                    </div>
+                                    <div class="makemember" id="anepal">
+                                        <a href="#">
+                                            <p id="anepaltxt1">Become an ePal</p>
+                                            <p id="anepaltxt2">Earn extra cash by gaming with others.</p>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="makemember" id="anepal">
-                                    <a href="#">
-                                        <p id="anepaltxt1">Become an ePal</p>
-                                        <p id="anepaltxt2">Earn extra cash by gaming with others.</p>
-                                    </a>
-                                </div>
-                            </div>
 
-                            <div class="setting-wrappers">
-                                <div class="settingimg">
-                                    <a href="@Url.Action("Edit_Profile","Edit_Profile")">
-                                        <i class="fas fa-cog"></i>Settings
-                                        @*<div class="txt">Settings</div>*@
-                                    </a>
+                                <div class="setting-wrappers">
+                                    <div class="settingimg">
+                                        <a href="~/Members/EditProfile/@userid">
+                                            <i class="fas fa-cog"></i>Settings
+                                            @*<div class="txt">Settings</div>*@
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+
+                    }
+
                 </div>
             </div>
         </nav>
@@ -347,8 +378,8 @@
     </div>
 
 
-    <!-- (平板以上)Navbar login/signup Modal   -->
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    @*(平板以上)Navbar login/signup Modal*@
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -366,10 +397,10 @@
                 </div>
 
                 <div class="modal-body">
-                    <!-- tab -->
+                    @*tab*@
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active logsign-tab" id="login-tab" data-bs-toggle="tab"
+                            <button class="nav-link logsign-tab" id="login-tab" data-bs-toggle="tab"
                                     data-bs-target="#home" type="button" role="tab" aria-controls="home"
                                     aria-selected="true">
                                 Log In
@@ -384,146 +415,73 @@
                         </li>
                     </ul>
 
-                    <!-- tab-content -->
+                    @*tab-content*@
                     <div class="tab-content" id="myTabContent">
 
-                        <!-- login tab content -->
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        @*login tab content*@
+                        <div class="tab-pane fade logsignTabContent" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="wrap">
 
-                                <form action="@Url.Action("Login", "Members")" method="post" id="logsignform">
-                                    <!-- mail login -->
+                                @using (Html.BeginForm("Login", "Members", FormMethod.Post, new { id = "logsignform", @class = "needs-validation", novalidate = "true" }))
+                                {
+
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <div class="maillog logmethod">
-                                        @Html.LabelFor(model => model.MemberData.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.MemberData.Email, null, new { @class = "emailinput ellipsis", id = "email", name = "email", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.MemberData.Email, "", new { @class = "text-danger", style = "font-size:14px" })
-
-                                        @*<label for="email" id="email">Email</label><br>
-                                            <input id="email" type="email" name="email" class="emailinput ellipsis"
-                                                   placeholder="Please enter your email" value="" required="required">*@
-
-                                        @*<div class="valid-feedback">
-                                                Looks good!
-                                            </div>*@
-                                        @*<span class="btn" id="loginmethod">
-                                                <i class="fas fa-mobile logmobile"></i>
-                                            </span>*@
+                                    //mail
+                                    <div class="maillog logmethod form-group">
+                                        @Html.LabelFor(model => model.MemberLogin.Email, new { @class = "maillabel", @for = "email" })<br>
+                                        @Html.TextBoxFor(model => model.MemberLogin.Email, null, new { @class = "emailinput ellipsis form-control", id = "email", name = "email", placeholder = "Please enter your email", required = "required" })
+                                        @Html.ValidationMessageFor(model => model.MemberLogin.Email, "", new { @class = "text-danger", style = "font-size:14px" })
                                     </div>
-                                    <!-- phone login -->
-                                    <!--<div class="phonelog logmethod">
-                                        <label for="phone" id="email">Phone Number</label>
-                                        <select id="phone" class="form-select  phoneselect">
-                                            <option selected>+1</option>
-                                            <option>...</option>
-                                        </select>
 
-                                        <input type="tel" name="phone" class="phoneinput ellipsis"
-                                               placeholder="Please enter your phone number">
-
-                                        <span class="btn" id="loginmethod">
-                                            <i class="far fa-envelope logmail"></i>
-                                        </span>
-                                    </div>-->
-                                    <!-- password -->
-                                    @Html.LabelFor(model => model.MemberData.Password, new { @id = "password" })<br>
-                                    @Html.PasswordFor(model => model.MemberData.Password, new { @class = "passwordinput ellipsis", id = "myinput", name = "password", placeholder = "Please enter your password" })
-                                    <input type="button" class="passwordshow" value="show" ><br>
-
-                                    @Html.ValidationMessageFor(model => model.MemberData.Password, "", new { @class = "text-danger", style = "font-size:14px" })
-
-                                    @*<label for="password" id="password">Password</label><br>
-                                        <input type="password" name="password" class="passwordinput ellipsis"
-                                               placeholder="Please enter your password" value="" id="myinput" required="required">*@
-
-
-                                    @*<div class="valid-feedback">
-                                            Looks good!
-                                        </div>*@
+                                    //password
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.MemberLogin.Password, new { @for = "password", @class = "passTitle" })<br>
+                                        @Html.PasswordFor(model => model.MemberLogin.Password, new { @class = "passwordinput ellipsis form-control", id = "password", name = "password", placeholder = "Please enter your password", required = "required" })
+                                        <input type="button" class="passwordshow passwordshowLogin" value="show">
+                                        @Html.ValidationMessageFor(model => model.MemberLogin.Password, "", new { @class = "text-danger", style = "font-size:14px" })
+                                    </div>
 
                                     <a href="#" id="forgetpass">Forget your password?</a>
 
-                                    @*<input type="submit"  value="Log In" />*@
-                                    <input type="submit" class="btn btn-secondary" data-bs-dismiss="modal" id="loginbutton" value="Log In">
-                                    @ViewBag.Message
-                                </form>
-                            </div>
-                            <!-- contact us用modal -->
-                        </div>
-
-
-                        <!-- signup tab content -->
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-                            <div class="wrap">
-
-                                @using (Html.BeginForm("Register", "Members", FormMethod.Post))
-                                {
-                                    @*<form action="@Url.Action("Register", "Member")" method="post">*@
-                                    @Html.AntiForgeryToken()
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <!-- mail signup -->
-                                    <div class="maillog">
-                                        @Html.LabelFor(model => model.MemberData.Email, new { @class = "maillabel", id = "email" })<br>
-                                        @Html.TextBoxFor(model => model.MemberData.Email, null, new { @class = "emailinput ellipsis", placeholder = "Please enter your email" })
-                                        @Html.ValidationMessageFor(model => model.MemberData.Email, "", new { @class = "text-danger", style = "font-size:12px" })
-
-                                        @*<label for="email" id="email">Email</label><br>
-                                            <input type="email" name="email" class="emailinput ellipsis"
-                                                   placeholder="Please enter your email">*@
-
-                                        @*<span class="btn" id="loginmethod">
-                                                <i class="fas fa-mobile signmobile"></i>
-                                            </span>*@
-                                    </div>
-                                    <!-- phone signup -->
-                                    <!--<div class="phonelog">
-                                        <label for="phone" id="email">Phone Number</label>
-                                        <select id="phone" class="form-select  phoneselect">
-                                            <option selected>+1</option>
-                                            <option>...</option>
-                                        </select>
-
-                                        <input type="tel" name="phone" class="phoneinput ellipsis"
-                                               placeholder="Please enter your phone number">
-
-                                        <span class="btn" id="loginmethod">
-                                            <i class="far fa-envelope signmail"></i>
-                                        </span>
-                                    </div>-->
-                                    <!-- password -->
-                                    @Html.LabelFor(model => model.MemberData.Password, new { @id = "password" })<br>
-                                    @Html.PasswordFor(model => model.MemberData.Password, new { @class = "passwordinput ellipsis", id = "myinput", placeholder = "Please enter your password" })
-                                    <input type="button" class="passwordshow" value="show">
-
-                                    @Html.ValidationMessageFor(model => model.MemberData.Password, "", new { @class = "text-danger", style = "font-size:12px" })
-
-                                    @*<label for="password" id="password">Password</label><br>
-                                        <input type="password" name="password" class="passwordinput ellipsis"
-                                               placeholder="Please enter your password" value="" id="myinput">*@
-
-                                    <input type="submit" class="btn btn-secondary mt-5" data-bs-dismiss="modal" id="loginbutton" value="Sign Up">
-
-
-
-                                    @*<div class="form-check">
-                                            <input class="form-check-input signchk" type="checkbox" value="" id="signcheck">
-                                            <span class="purplemark"></span>
-                                            <label class="form-check-label signchktxt" for="signcheck">
-                                                After checking, you are indicating that you have read and acknowledge the <a href="#" id="signchklink">E-Pal Platform User Agreement.</a>
-                                            </label>
-                                        </div>*@
-
-                                    @*</form>*@
+                                    <input type="submit" class="btn btn-secondary loginbutton" id="loginbutton" value="Log In">
                                 }
 
                             </div>
-                            <!-- contact us用modal -->
+                        </div>
+
+
+                        @*signup tab content*@
+                        <div class="tab-pane fade logsignTabContent" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                            <div class="wrap">
+
+                                @using (Html.BeginForm("Register", "Members", FormMethod.Post, new { id = "logsignform", @class = "needs-validation", novalidate = "true" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    //mail
+                                    <div class="maillog form-group">
+                                        @Html.LabelFor(model => model.MemberRegister.Email, new { @class = "maillabel", @for = "email" })<br>
+                                        @Html.TextBoxFor(model => model.MemberRegister.Email, null, new { @class = "emailinput ellipsis form-control", id = "email", name = "email", placeholder = "Please enter your email", required = "required" })
+                                        @Html.ValidationMessageFor(model => model.MemberRegister.Email, "", new { @class = "text-danger", style = "font-size:14px" })
+                                    </div>
+
+                                    //password
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.MemberRegister.Password, new { @for = "password", @class = "passTitle" })<br>
+                                        @Html.PasswordFor(model => model.MemberRegister.Password, new { @class = "passwordinput ellipsis form-control", id = "password", name = "password", placeholder = "Please enter your password", required = "required" })
+                                        <input type="button" class="passwordshow passwordshowSignup" value="show">
+                                        @Html.ValidationMessageFor(model => model.MemberRegister.Password, "", new { @class = "text-danger", style = "font-size:14px" })
+                                    </div>
+
+                                    <input type="submit" class="btn btn-secondary mt-5 loginbutton" id="loginbutton" value="Sign Up">
+                                }
+
+                            </div>
                         </div>
 
                     </div>
-
                 </div>
 
                 <div class="modalfooter">
@@ -866,8 +824,8 @@
 
 
     <script type="text/javascript" src="~/Assets/js/layout_afterlogin_nofooter.js"></script>
-
-
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 
     @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>*@
@@ -878,6 +836,12 @@
 
     @RenderSection("endCSS", required: false)
     @RenderSection("endJS", required: false)
+
+
+    @*前端驗證*@
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 
 
 

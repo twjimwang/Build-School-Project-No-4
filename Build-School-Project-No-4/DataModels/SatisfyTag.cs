@@ -12,7 +12,7 @@ namespace Build_School_Project_No_4.DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SatisfyTag()
         {
-            Comments = new HashSet<Comment>();
+            Comment = new HashSet<Comment>();
         }
 
         public int SatisfyTagId { get; set; }
@@ -22,6 +22,6 @@ namespace Build_School_Project_No_4.DataModels
         public string SatisfyTagName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comment { get; set; }
     }
 }

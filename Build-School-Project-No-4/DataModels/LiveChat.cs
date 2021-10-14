@@ -22,9 +22,9 @@ namespace Build_School_Project_No_4.DataModels
 
         public DateTime LiveMessageDateTime { get; set; }
 
-        public virtual Member Member { get; set; }
+        public virtual Members Members { get; set; }
 
-        public virtual Member Member1 { get; set; }
+        public virtual Members Members1 { get; set; }
 
         public virtual MessageType MessageType { get; set; }
     }

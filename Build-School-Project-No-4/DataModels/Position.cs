@@ -12,7 +12,7 @@ namespace Build_School_Project_No_4.DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Position()
         {
-            ProductPositions = new HashSet<ProductPosition>();
+            ProductPosition = new HashSet<ProductPosition>();
         }
 
         public int PositionId { get; set; }
@@ -22,6 +22,6 @@ namespace Build_School_Project_No_4.DataModels
         public string PositionName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductPosition> ProductPositions { get; set; }
+        public virtual ICollection<ProductPosition> ProductPosition { get; set; }
     }
 }

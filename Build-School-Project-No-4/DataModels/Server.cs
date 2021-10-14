@@ -12,7 +12,7 @@ namespace Build_School_Project_No_4.DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Server()
         {
-            ProductServers = new HashSet<ProductServer>();
+            ProductServer = new HashSet<ProductServer>();
         }
 
         public int ServerId { get; set; }
@@ -22,6 +22,6 @@ namespace Build_School_Project_No_4.DataModels
         public string ServerName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductServer> ProductServers { get; set; }
+        public virtual ICollection<ProductServer> ProductServer { get; set; }
     }
 }

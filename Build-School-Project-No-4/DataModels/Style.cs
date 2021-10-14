@@ -12,7 +12,7 @@ namespace Build_School_Project_No_4.DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Style()
         {
-            ProductStyles = new HashSet<ProductStyle>();
+            ProductStyle = new HashSet<ProductStyle>();
         }
 
         public int StyleId { get; set; }
@@ -22,6 +22,6 @@ namespace Build_School_Project_No_4.DataModels
         public string StyleName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductStyle> ProductStyles { get; set; }
+        public virtual ICollection<ProductStyle> ProductStyle { get; set; }
     }
 }
