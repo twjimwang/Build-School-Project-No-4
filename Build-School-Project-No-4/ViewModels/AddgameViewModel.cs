@@ -67,7 +67,7 @@ namespace Build_School_Project_No_4.ViewModels
         //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayFormat(DataFormatString = "{0:HH:mm}")]
         [DataType(DataType.Time)]
-        public DateTime GameStartTime1 { get; set; }
+        public DateTime? GameStartTime1 { get; set; }
 
         //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayFormat(DataFormatString = "{0:HH:mm}")]
