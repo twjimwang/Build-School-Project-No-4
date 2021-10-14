@@ -679,6 +679,7 @@ footer {
 
     .message.dropdown {
         display: none;
+        margin-left: 16px;
     }
 
     .navbar-right .loginbtn {
@@ -724,8 +725,8 @@ footer {
         top: 0;
         bottom: 0;
         border-radius: 50%;
-        max-width:50px;
-        height:50px;
+        max-width:40px;
+        height:40px;
 /*        myimg:expression(onload=function(){
         this.style.width=(this.offsetWidth > 50)?"50px":"auto"});*/
     }

@@ -53,13 +53,13 @@
                         <a class="nav-link text-white navItem" aria-current="page" href="@Url.Action("ePal","ePal")">ePal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","ChillMeet")">Chill</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","Chill")">Chill</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link text-white navItem" href="#">Posts</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="@Url.Action("CreatorProject","CreatorProject")">Creator Project</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("addtogame","becomeanepal")">Creator Project</a>
                     </li>
 
                     <li class="dropdown nav-item dropdown-about-list">
@@ -111,7 +111,7 @@
                     </div>
 
                     <div class="becomeEPal-button">
-                        <a href="@Url.Action("BecomeEPalPage","BecomeEPal")">Become an ePal</a>
+                        <a href="@Url.Action("addtogame","becomeanepal")">Become an ePal</a>
                     </div>
 
 
@@ -301,7 +301,7 @@
 
                                     </div>
                                     <div class="makemember" id="anepal">
-                                        <a href="#">
+                                        <a href="@Url.Action("addtogame","becomeanepal")">
                                             <p id="anepaltxt1">Become an ePal</p>
                                             <p id="anepaltxt2">Earn extra cash by gaming with others.</p>
                                         </a>

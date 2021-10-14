@@ -50,7 +50,7 @@ namespace Build_School_Project_No_4.Controllers
         }
 
 
-
+       
 
         //[Authorize]
         public ActionResult profile()
