@@ -1,6 +1,9 @@
-﻿
+﻿@model GroupViewModel
+
 @{
     ViewBag.Title = "Success";
+    var startTime = Model.OrderConfirmDetails.StartTime.ToString("MM/dd/yyyy hh:mm tt");
+    var o = Model.OrderConfirmDetails;
 }
 @section topCSS{
 
@@ -25,32 +28,32 @@
                             <div class="accordion-body">
                                 <div class="order-info">
                                     <div class="order-id greyish">OrderID:</div>
-                                    <div class="order-id-value greyish">GLHF-116336178980109446</div>
+                                    <div class="order-id-value greyish">@o.OrderConfirmation</div>
                                 </div>
                                 <hr>
                                 <div class="game-info">
-                                    <div class="game-play">Play League of Legends with IG: Heyhinaa</div>
-                                    <img src="img/heyhinaa.jpg" alt="">
+                                    <div class="game-play">Play @o.GameName with @o.PlayerName</div>
+                                    <img src="@o.PlayerPic" alt="">
                                 </div>
 
                                 <div class="start-info">
                                     <div class="greyish">Start Time:</div>
-                                    <div class="start-time desc">Oct 5, 2:02 AM</div>
+                                    <div class="start-time desc">@startTime</div>
                                 </div>
 
                                 <div class="unit-price">
                                     <div class="greyish">Unit Price:</div>
-                                    <div class="price desc">$3.00/G</div>
+                                    <div class="price desc">$@o.UnitPrice.ToString("N2")/G</div>
                                 </div>
 
                                 <div class="rounds-info">
                                     <div class="greyish">Rounds:</div>
-                                    <div class="rounds-value desc">1</div>
+                                    <div class="rounds-value desc">@o.Rounds</div>
                                 </div>
                                 <hr>
                                 <div class="subtotal-info">
                                     <div class="greyish">Subtotal:</div>
-                                    <div class="subtotal desc">$3.00</div>
+                                    <div class="subtotal desc">$@((o.Rounds * o.UnitPrice).ToString("N2"))</div>
                                 </div>
                                 <div class="promotion">
                                     <div class="greyish">ePal Promotion: </div>
@@ -59,8 +62,8 @@
                                 <hr>
                                 <div class="final-price-div">
                                     <div class="greyish">Final Price:</div>
-                                    <div class="rounds-total greyish">1 Round(s) total</div>
-                                    <div class="price-total price-summary">$8.20</div>
+                                    <div class="rounds-total greyish">@o.Rounds Round(s) total</div>
+                                    <div class="price-total price-summary">$@((o.Rounds * o.UnitPrice).ToString("N2"))</div>
                                 </div>
                             </div>
                         </div>
@@ -69,33 +72,33 @@
                 <div class="cart-summary">
                     <div class="order-info">
                         <div class="order-id greyish">OrderID:</div>
-                        <div class="order-id-value greyish">GLHF-116336178980109446</div>
+                        <div class="order-id-value greyish">@o.OrderConfirmation</div>
                     </div>
                     <hr>
 
                     <div class="game-info">
-                        <div class="game-play">Play League of Legends with IG: Heyhinaa</div>
-                        <img src="img/heyhinaa.jpg" alt="">
+                        <div class="game-play">Play @o.GameName with @o.PlayerName</div>
+                        <img src="@o.PlayerPic" alt="">
                     </div>
 
                     <div class="start-info">
                         <div class="greyish">Start Time:</div>
-                        <div class="start-time desc">Oct 5, 2:02 AM</div>
+                        <div class="start-time desc">@startTime</div>
                     </div>
 
                     <div class="unit-price">
                         <div class="greyish">Unit Price:</div>
-                        <div class="price desc">$3.00/G</div>
+                        <div class="price desc">$@o.UnitPrice.ToString("N2")/G</div>
                     </div>
 
                     <div class="rounds-info">
                         <div class="greyish">Rounds:</div>
-                        <div class="rounds-value desc">1</div>
+                        <div class="rounds-value desc">@o.Rounds</div>
                     </div>
                     <hr>
                     <div class="subtotal-info">
                         <div class="greyish">Subtotal:</div>
-                        <div class="subtotal desc">$3.00</div>
+                        <div class="subtotal desc">$@o.UnitPrice.ToString("N2")</div>
                     </div>
                     <div class="promotion">
                         <div class="greyish">ePal Promotion: </div>
@@ -104,8 +107,8 @@
                     <hr>
                     <div class="final-price-div">
                         <div class="greyish">Final Price:</div>
-                        <div class="rounds-total greyish">1 Round(s) total</div>
-                        <div class="price-total price-summary">$8.20</div>
+                        <div class="rounds-total greyish">@o.Rounds Round(s) total</div>
+                        <div class="price-total price-summary">$@((o.Rounds * o.UnitPrice).ToString("N2"))</div>
                     </div>
 
                 </div>
@@ -113,7 +116,7 @@
             <div class="col-12 col-md-6 col-lg-7">
                 <div class="confirmation">
                     <h2 class="thanks">Thank you for your order</h2>
-                    <div class="pay-confirm">Payment Confirmation: 1234w98</div>
+                    <div class="pay-confirm">Payment Confirmation: @o.OrderConfirmation</div>
                     <div class="wait">Waiting for E-Pal to start the order</div>
                 </div>
             </div>
