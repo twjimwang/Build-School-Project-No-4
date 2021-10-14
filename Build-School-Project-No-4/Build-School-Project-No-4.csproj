@@ -275,6 +275,7 @@
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BasicInformationController.cs" />
     <Compile Include="Controllers\becomeepalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillController.cs" />
@@ -332,13 +333,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FollowService.cs" />
     <Compile Include="Services\MailService.cs" />
+    <Compile Include="Services\becomeepalService.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\ProfileEpalService.cs" />
+    <Compile Include="Services\WalletService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FollowViewModel.cs" />
+    <Compile Include="ViewModels\AddgameViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\MemberAvatarViewModel.cs" />
     <Compile Include="ViewModels\MemberInfoViewModel.cs" />
@@ -347,6 +351,7 @@
     <Compile Include="ViewModels\MemberViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Compile Include="ViewModels\WalletViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -761,7 +766,7 @@
     <Content Include="Views\GameInformation\Rule_ScreenshotRules.cshtml" />
     <Content Include="Views\BasicInformation\Register.cshtml" />
     <Content Include="Views\becomeepal\addgame.cshtml" />
-    <Content Include="Views\becomeepal\addgame - 複製.cshtml" />
+    <Content Include="Views\becomeepal\addgame _jzp.cshtml" />
     <Content Include="Views\CreatorProject\ChooseAService.cshtml" />
     <Content Include="Views\CreatorProject\BasicInformation.cshtml" />
     <Content Include="Views\CreatorProject\GameInformation.cshtml" />

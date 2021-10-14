@@ -6,25 +6,10 @@ using System.Web.Mvc;
 
 namespace Build_School_Project_No_4.Controllers
 {
-    public class CreatorProjectController : Controller
+    public class GameInformationController : Controller
     {
-        // GET: CreatorProject
+        // GET: GameInformation
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult CreatorProject()
-        {
-            return View();
-        }
-
-        public ActionResult ChooseAService()
-        {
-            return View();
-        }
-
-        public ActionResult BasicInformation()
         {
             return View();
         }
