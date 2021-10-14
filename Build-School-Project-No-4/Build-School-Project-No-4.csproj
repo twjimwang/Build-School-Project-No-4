@@ -220,9 +220,6 @@
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
-    <Reference Include="ThatsFontAwesome, Version=1.0.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ThatsFontAwesome.1.1.1\lib\ThatsFontAwesome.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -304,8 +301,6 @@
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
-    <Compile Include="Controllers\ChillLiveController.cs" />
-    <Compile Include="Controllers\ChillMeetLikeController.cs" />
     <Compile Include="Controllers\ChooseAServiceController.cs" />
     <Compile Include="Controllers\CouponsController.cs" />
     <Compile Include="Controllers\CreatorProjectController.cs" />
@@ -357,7 +352,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\DetailRepository.cs" />
+    <Compile Include="Repositories\DetailRepositioy.cs" />
     <Compile Include="Services\AddToCartService.cs" />
     <Compile Include="Services\ApiFilterService.cs" />
     <Compile Include="Services\CheckoutService.cs" />
@@ -819,7 +814,6 @@
     <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
     <Content Include="Views\ePal\EPalIndex.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
-    <Content Include="Views\Order\Orders.cshtml" />
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
@@ -861,13 +855,15 @@
     <Content Include="Views\GameInformation\Rule_ScreenshotRules.cshtml" />
     <Content Include="Views\GameInformation\Rule_VoiceRecord.cshtml" />
     <Content Include="Views\Shared\_GameDayPartial.cshtml" />
+    <Content Include="Views\Checkout\Failure.cshtml" />
+    <Content Include="Views\Checkout\Success.cshtml" />
+    <Content Include="Views\ePals\FailureView.cshtml" />
+    <Content Include="Views\ePals\SuccessView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="obj\Release\" />
-    <Folder Include="Views\Api\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
