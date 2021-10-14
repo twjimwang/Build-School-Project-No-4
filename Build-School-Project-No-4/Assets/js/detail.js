@@ -102,10 +102,11 @@ function setOldVal(val) {
 let inputDate = document.getElementById('start-time');
 let d, localDatetime;
 let timeNowBtn = document.querySelector('.time-now');
-window.onload = function () {
+window.addEventListener('load', function () {
     localDatetime = TimeNowPlusTen();
     inputDate.value = localDatetime;
-}
+});
+
 
 timeNowBtn.addEventListener('click', () => {
     localDatetime = TimeNowPlusTen();
