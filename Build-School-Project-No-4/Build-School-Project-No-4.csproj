@@ -701,12 +701,9 @@
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
     <Content Include="Views\Subscription\Subscription.cshtml" />
     <Content Include="Views\Detail\DetailPage.cshtml" />
-    <Content Include="Views\Members\Details.cshtml" />
-    <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
     <Content Include="Views\ePal\EPalIndex.cshtml" />
-    <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\Order\Orders.cshtml" />
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
