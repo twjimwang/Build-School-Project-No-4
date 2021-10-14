@@ -275,7 +275,6 @@
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\BasicInformationController.cs" />
     <Compile Include="Controllers\becomeepalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillController.cs" />
@@ -286,8 +285,6 @@
     <Compile Include="Controllers\epalAccountController.cs" />
     <Compile Include="Controllers\ePalController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
-    <Compile Include="Controllers\ChillMeetController.cs" />
-    <Compile Include="Controllers\FollowController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeForPhoneController.cs" />
@@ -341,7 +338,6 @@
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\ProfileEpalService.cs" />
-    <Compile Include="Services\WalletService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FollowViewModel.cs" />
     <Compile Include="ViewModels\AddgameViewModel.cs" />
@@ -352,10 +348,8 @@
     <Compile Include="ViewModels\MemberRegisterViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
     <Compile Include="ViewModels\productPlanViewModel.cs" />
-    <Compile Include="ViewModels\producttestViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
-    <Compile Include="ViewModels\WalletViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
