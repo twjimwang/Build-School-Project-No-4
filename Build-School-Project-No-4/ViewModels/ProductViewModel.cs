@@ -9,10 +9,9 @@ namespace Build_School_Project_No_4.ViewModels
     {
         public int CategoryId { get; set; }
 
-        
-
         public List<ProductCard> ProductCards { get; set; }
     }
+
 
     public class ProductCard 
     {

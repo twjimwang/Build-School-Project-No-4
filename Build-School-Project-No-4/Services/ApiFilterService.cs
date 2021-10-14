@@ -51,57 +51,32 @@ namespace Build_School_Project_No_4.Services
             var LanguageName = _repo.GetAll<Language>();
             var todayYear = DateTime.Now.Year;
 
-           
-            if(server != null && server.Count > 0)
-            {
-                server.ForEach(s =>
-                {
-                    Servers = Servers.Where(p => p.ServerName == s);
-                });
-            }
-            if(language != null && language.Count > 0)
-            {
-                language.ForEach(l =>
-                {
-                    LanguageName = LanguageName.Where(p => p.LanguageName == l);
-                });
-            }
-            if (gender != null && gender.Count > 0)
-            {
-                gender.ForEach(g =>
-                {
-                    Members = Members.Where(p => p.MemberId == g);
-                });
-            }
-            if (status != null && status.Count > 0)
-            {
-                status.ForEach(s =>
-                {
-                    LineStatus = LineStatus.Where(p => p.LineStatusName == s);
-                });
-            }
-            if (level != null && level.Count > 0)
-            {
-                level.ForEach(l =>
-                {
-                    Ranks = Ranks.Where(p => p.RankName == l);
-                });
-            }
-            if (price != null && price.Count > 0)
-            {
-                price.ForEach(x =>
-                {
-                    products = products.Where(p => p.UnitPrice == x);
-                });
-            }
-            if (age != null && age.Count > 0)
-            {
-                age.ForEach(x =>
-                {
-                    Members = Members.Where(p => todayYear - DateTime.Parse(p.BirthDay.ToString()).Year == x);
-                });
-            }
-            
+            var Prop = from product in products
+                       join pds in ProductServers on product.ProductId equals pds.ProductId
+                       join sev in Servers on pds.ServerId equals sev.ServerId
+                       join pos in ProductPositions on product.ProductId equals pos.ProductId
+                       join position in Positions on pos.PositionId equals position.PositionId
+                       join rank in Ranks on product.RankId equals rank.RankId
+                       join member in Members on product.CreatorId equals member.MemberId
+                       join comment in CommentDetails on product.ProductId equals comment.ProductId
+                       join lang in LanguageName on member.LanguageId equals lang.LanguageId
+                       join lit in LineStatus on member.LineStatusId equals lit.LineStatusId
+                       select new ProductCard 
+                       {
+                            CreatorName = member.MemberName,
+                            CreatorImg = product.CreatorImg,
+                            Introduction = product.Introduction,
+                            RecommendationVoice = product.RecommendationVoice,
+                            LineStatus = lit.LineStatusImg,
+                            UnitPrice = product.UnitPrice,
+                            StarLevel = comment.StarLevel,
+                            Rank = rank.RankName,
+                            Position = position.PositionName,
+                            ProductId = product.ProductId,
+                            Server = sev.ServerName,
+                            Language = lang.LanguageName,
+                            StatusName = lit.LineStatusName,
+                       };
                 var productCards = products.Select(p => new ProductCard
                 {
                     UnitPrice = p.UnitPrice,
@@ -114,13 +89,90 @@ namespace Build_School_Project_No_4.Services
                     Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.FirstOrDefault(x => x.RankId == p.RankId).RankName,
                     Position = Positions.FirstOrDefault(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
                     ProductId = p.ProductId,
-                    Server = Servers.FirstOrDefault(s => s.ServerId == ((ProductServers.FirstOrDefault(y => y.ProductId == p.ProductId).ServerId))).ServerName,
+                    Server = Servers.FirstOrDefault(s => s.ServerId == ProductServers.FirstOrDefault(y => y.ProductId == p.ProductId).ServerId).ServerName,
                     Language = LanguageName.FirstOrDefault(L => L.LanguageId == (int)Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LanguageId).LanguageName,
-                    //GenderId = (int)Members.FirstOrDefault(x => x.MemberId == p.CreatorId).Gender,
-                    //Age = todayYear - DateTime.Parse(Members.FirstOrDefault(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
+                    GenderId = (int)Members.FirstOrDefault(x => x.MemberId == p.CreatorId).Gender,
+                    Age = todayYear - DateTime.Parse(Members.FirstOrDefault(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
                     StatusName = LineStatus.FirstOrDefault(y => y.LineStatusId == (Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName
                 }).ToList();
             
+            productCards.ForEach(p =>
+            {
+                if (server != null && server.Count > 0)
+                {
+                    server.ForEach(s =>
+                    {
+                        if(p.Server == s)
+                        {
+                            
+                        }
+                    });
+                }
+                if (language != null && language.Count > 0)
+                {
+                    language.ForEach(l =>
+                    {
+                        if (p.Language == l)
+                        {
+
+                        }
+                    });
+
+                }
+                if (gender != null && gender.Count > 0)
+                {
+                    gender.ForEach(g =>
+                    {
+                        if (p.GenderId == g)
+                        {
+
+                        }
+                    });
+                }
+                if (status != null && status.Count > 0)
+                {
+                    status.ForEach(s =>
+                    {
+                        if (p.StatusName == s)
+                        {
+
+                        }
+                    });
+                }
+                if (level != null && level.Count > 0)
+                {
+                    level.ForEach(l =>
+                    {
+                        if (p.Rank == l)
+                        {
+
+                        }
+                    });
+                }
+                if (price != null && price.Count > 0)
+                {
+                    price.ForEach(x =>
+                    {
+                        if (p.UnitPrice == x)
+                        {
+
+                        }
+                    });
+                }
+                if (age != null && age.Count > 0)
+                {
+                    age.ForEach(a =>
+                    {
+                        if(p.Age == a)
+                        {
+
+                        }
+                    });
+                }
+
+            });
+
+
             result.CategoryId = categoryId;
             result.ProductCards = productCards;
             return JsonConvert.SerializeObject(result);
