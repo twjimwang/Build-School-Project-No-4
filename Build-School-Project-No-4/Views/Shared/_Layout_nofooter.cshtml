@@ -53,13 +53,13 @@
                         <a class="nav-link text-white navItem" aria-current="page" href="@Url.Action("ePal","ePal")">ePal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","ChillMeet")">Chill</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","Chill")">Chill</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link text-white navItem" href="#">Posts</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="@Url.Action("CreatorProject","CreatorProject")">Creator Project</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("BecomeEPalPage","becomeepal")">Creator Project</a>
                     </li>
 
                     <li class="dropdown nav-item dropdown-about-list">
@@ -113,14 +113,13 @@
                     </div>
 
                     <div class="becomeEPal-button">
-                        <a href="@Url.Action("BecomeEPalPage","BecomeEPal")">Become an ePal</a>
+                        <a href="@Url.Action("BecomeEPalPage","becomeepal")">Become an ePal</a>
                     </div>
 
                     @if (!User.Identity.IsAuthenticated)
                     {
-
                         <div class="logsign-modal-button">
-                            <!-- 首頁login/signup -->
+                            <!-- login/signup -->
                             <!-- Button trigger modal -->
                             <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
                                     data-bs-target="#myModal" id="loginmodal">
@@ -131,11 +130,9 @@
                                 Sign Up
                             </button>
                         </div>
-
                     }
                     else
                     {
-
                         @*<div style="color:white">@(User.Identity.Name)</div>*@
                         @*<li>@Html.ActionLink("變更密碼", "ChangePassword", "Members")</li>*@
                         @*<div>@Html.ActionLink("Log out", "Logout", "Members")</div>*@
@@ -205,13 +202,15 @@
                         //個人帳戶資訊
                         <div class="personal-account">
                             <div class="personal-img">
-                                <img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()">
+                                <img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()" id="navbarAvatar">
+                                @*<img src=@ViewBag.Avatar style="cursor:pointer" onclick="PersonalOpen()" id="navbarAvatar">*@
                             </div>
                             <div class="aside-Menu">
                                 <div class="userinfo">
                                     <div class="user-photo">
-                                        <a href="#">
+                                        <a href="~/Members/profile/@userid">
                                             <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
+                                            @*<img src=@Model.MemberInfo.ProfilePicture alt="userphoto">*@
                                         </a>
                                     </div>
                                     <div class="uesr-account-name">
@@ -303,7 +302,7 @@
 
                                     </div>
                                     <div class="makemember" id="anepal">
-                                        <a href="#">
+                                        <a href="@Url.Action("BecomeEPalPage","becomeepal")">
                                             <p id="anepaltxt1">Become an ePal</p>
                                             <p id="anepaltxt2">Earn extra cash by gaming with others.</p>
                                         </a>
@@ -843,6 +842,17 @@
         @Scripts.Render("~/bundles/jqueryval")
     }
 
+
+    @section endJS{
+        <script>
+            @*if (@ViewBag.Avatar == "") {
+                //<img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()" id="navbarAvatar">
+                    document.getElementById('navbarAvatar').src = "~/Assets/images/layout/avatar.png";
+            } else {
+                    document.getElementById('navbarAvatar').src = @Model.MemberInfo.ProfilePicture;
+            }*@
+        </script>
+        }
 
 
 </body>
