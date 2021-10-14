@@ -209,6 +209,7 @@ namespace Build_School_Project_No_4.Controllers
                             _ctx.SaveChanges();
                         }
 
+
                         //plan
                         //VM -> DM
                         //ProductPlan productplan1 = new ProductPlan() 
@@ -216,7 +217,6 @@ namespace Build_School_Project_No_4.Controllers
 
                         //for(var i = 1; i<=7; i++)
                         //{
-
                         //}
 
 
@@ -247,6 +247,78 @@ namespace Build_School_Project_No_4.Controllers
                             _ctx.ProductPlans.Add(productplan2);
                             _ctx.SaveChanges();
                         }
+
+
+                        ProductPlan productplan3 = new ProductPlan
+                        {
+                            ProductId = product.ProductId,
+                            GameAvailableDay = registerVM.addgame.GameAvailableDay3,
+                            GameStartTime = registerVM.addgame.GameStartTime3,
+                            GameEndTime = registerVM.addgame.GameEndTime3,
+                        };
+                        if (productplan3 != null)
+                        {
+                            _ctx.ProductPlans.Add(productplan3);
+                            _ctx.SaveChanges();
+                        }
+
+
+                        ProductPlan productplan4 = new ProductPlan
+                        {
+                            ProductId = product.ProductId,
+                            GameAvailableDay = registerVM.addgame.GameAvailableDay4,
+                            GameStartTime = registerVM.addgame.GameStartTime4,
+                            GameEndTime = registerVM.addgame.GameEndTime4,
+                        };
+                        if (productplan4 != null)
+                        {
+                            _ctx.ProductPlans.Add(productplan4);
+                            _ctx.SaveChanges();
+                        }
+
+
+                        ProductPlan productplan5 = new ProductPlan
+                        {
+                            ProductId = product.ProductId,
+                            GameAvailableDay = registerVM.addgame.GameAvailableDay5,
+                            GameStartTime = registerVM.addgame.GameStartTime5,
+                            GameEndTime = registerVM.addgame.GameEndTime5,
+                        };
+                        if (productplan5 != null)
+                        {
+                            _ctx.ProductPlans.Add(productplan5);
+                            _ctx.SaveChanges();
+                        }
+
+
+                        ProductPlan productplan6 = new ProductPlan
+                        {
+                            ProductId = product.ProductId,
+                            GameAvailableDay = registerVM.addgame.GameAvailableDay6,
+                            GameStartTime = registerVM.addgame.GameStartTime6,
+                            GameEndTime = registerVM.addgame.GameEndTime6,
+                        };
+                        if (productplan6 != null)
+                        {
+                            _ctx.ProductPlans.Add(productplan6);
+                            _ctx.SaveChanges();
+                        }
+
+
+                        ProductPlan productplan7 = new ProductPlan
+                        {
+                            ProductId = product.ProductId,
+                            GameAvailableDay = registerVM.addgame.GameAvailableDay7,
+                            GameStartTime = registerVM.addgame.GameStartTime7,
+                            GameEndTime = registerVM.addgame.GameEndTime7,
+                        };
+                        if (productplan7 != null)
+                        {
+                            _ctx.ProductPlans.Add(productplan7);
+                            _ctx.SaveChanges();
+                        }
+
+
 
 
                         ////plan
