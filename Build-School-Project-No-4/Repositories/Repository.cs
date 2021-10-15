@@ -8,8 +8,13 @@ namespace Build_School_Project_No_4.Services
 {
     public class Repository
     {
-        private readonly DbContext _context;
+        public readonly DbContext _context;
 
+        public Repository(DbContext context)
+        {
+            if (context == null) { throw new ArgumentNullException(); }
+            _context = context;
+        }
         public Repository()
         {
             _context = new EPalContext();

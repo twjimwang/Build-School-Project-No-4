@@ -63,12 +63,6 @@
     <Reference Include="Microsoft.AspNetCore.Html.Abstractions, Version=1.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Html.Abstractions.1.0.3\lib\netstandard1.0\Microsoft.AspNetCore.Html.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=1.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.1.0.3\lib\net451\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=1.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.1.0.3\lib\net451\Microsoft.AspNetCore.Http.Features.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
     </Reference>
@@ -79,20 +73,14 @@
       <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.WebEncoders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.WebEncoders.1.0.0\lib\netstandard1.0\Microsoft.Extensions.WebEncoders.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
     </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
@@ -119,8 +107,8 @@
       <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
@@ -308,19 +296,17 @@
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\BecomeEPalController.cs" />
+    <Compile Include="Controllers\BasicInformationController.cs" />
+    <Compile Include="Controllers\becomeepalController.cs" />
     <Compile Include="Controllers\ChatForPhoneController.cs" />
-    <Compile Include="Controllers\ChillLiveController.cs" />
-    <Compile Include="Controllers\ChillMeetLikeController.cs" />
+    <Compile Include="Controllers\ChillController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ChooseAServiceController.cs" />
     <Compile Include="Controllers\CouponsController.cs" />
     <Compile Include="Controllers\CreatorProjectController.cs" />
-    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\epalAccountController.cs" />
     <Compile Include="Controllers\ePalsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
-    <Compile Include="Controllers\ChillMeetController.cs" />
-    <Compile Include="Controllers\FollowController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JsonApiController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -366,18 +352,23 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\DetailRepository.cs" />
+    <Compile Include="Repositories\DetailRepositioy.cs" />
     <Compile Include="Services\AddToCartService.cs" />
     <Compile Include="Services\ApiFilterService.cs" />
     <Compile Include="Services\CheckoutService.cs" />
     <Compile Include="Services\DetailServices.cs" />
     <Compile Include="Services\FollowService.cs" />
     <Compile Include="Services\MailService.cs" />
+    <Compile Include="Services\becomeepalService.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Services\OrderConfirmationService.cs" />
+    <Compile Include="Services\PaypalService.cs" />
+    <Compile Include="Services\PaypaylConfiguration.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\ProfileEpalService.cs" />
+    <Compile Include="Services\WalletService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FollowViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
@@ -385,13 +376,18 @@
     <Compile Include="ViewModels\CheckoutViewModel.cs" />
     <Compile Include="ViewModels\DetailViewModel.cs" />
     <Compile Include="ViewModels\FilterItemViewModel.cs" />
+    <Compile Include="ViewModels\AddgameViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\MemberAvatarViewModel.cs" />
     <Compile Include="ViewModels\MemberInfoViewModel.cs" />
     <Compile Include="ViewModels\MemberLoginViewModel.cs" />
     <Compile Include="ViewModels\MemberRegisterViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
+    <Compile Include="ViewModels\OrderConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\PaymentViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Compile Include="ViewModels\WalletViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -405,9 +401,12 @@
     <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
     <Content Include="Assets\css\layout_beforelogin.css" />
     <Content Include="Assets\css\orders.css" />
+    <Content Include="Assets\css\orderconfirmedpaypal.css" />
+    <Content Include="Assets\css\paypalSuccess.css" />
     <Content Include="Assets\css\PlusPremium.css" />
     <Content Include="Assets\css\reset.css" />
     <Content Include="Assets\Edit_ProfileImages\avatar.png" />
+    <Content Include="Assets\images\BasicInformation\price.png" />
     <Content Include="Assets\images\becomeEPal\becomebg.png" />
     <Content Include="Assets\images\becomeEPal\flexity.png" />
     <Content Include="Assets\images\becomeEPal\friends.png" />
@@ -550,6 +549,23 @@
     <Content Include="Assets\images\epalPage\games.png" />
     <Content Include="Assets\images\epalPage\lifestyle.png" />
     <Content Include="Assets\images\epalPage\trending.png" />
+    <Content Include="Assets\images\GameInformation\a.png" />
+    <Content Include="Assets\images\GameInformation\addpic.png" />
+    <Content Include="Assets\images\GameInformation\addvideo.jpg" />
+    <Content Include="Assets\images\GameInformation\arrow.jpg" />
+    <Content Include="Assets\images\GameInformation\b.png" />
+    <Content Include="Assets\images\GameInformation\c.png" />
+    <Content Include="Assets\images\GameInformation\d.png" />
+    <Content Include="Assets\images\GameInformation\excellent.png" />
+    <Content Include="Assets\images\GameInformation\good.png" />
+    <Content Include="Assets\images\GameInformation\green.png" />
+    <Content Include="Assets\images\GameInformation\moderate.png" />
+    <Content Include="Assets\images\GameInformation\orange.png" />
+    <Content Include="Assets\images\GameInformation\poor.png" />
+    <Content Include="Assets\images\GameInformation\postAVideoImg.png" />
+    <Content Include="Assets\images\GameInformation\postAVideoImg2.png" />
+    <Content Include="Assets\images\GameInformation\red.png" />
+    <Content Include="Assets\images\GameInformation\warrow.jpg" />
     <Content Include="Assets\images\homepageimg\arrow-left.png" />
     <Content Include="Assets\images\homepageimg\arrow-right.png" />
     <Content Include="Assets\images\homepageimg\bottom slider games\emotionalsupport.png" />
@@ -716,12 +732,20 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -771,45 +795,31 @@
     <Content Include="Views\Recommend\RecommenedController.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
     <Content Include="Views\FAQ\FAQ.cshtml" />
-    <Content Include="Views\ChillMeet\Meet.cshtml" />
-    <Content Include="Views\ChillLive\Live.cshtml" />
     <Content Include="Views\Shared\_Layout_nofooter.cshtml" />
     <Content Include="Views\Coupons\Coupons.cshtml" />
+    <Content Include="Views\ePal\ePal.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
     <Content Include="Views\ChatForPhone\ChatForPhonePage.cshtml" />
-    <Content Include="Views\BecomeEPal\BecomeEPalPage.cshtml" />
+    <Content Include="Views\becomeepal\BecomeEPalPage.cshtml" />
     <Content Include="Views\Page404\Page404.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
-    <Content Include="Views\Detail\DetailPage.cshtml" />
     <Content Include="Views\Edit_Profile\Edit_Profile.cshtml" />
     <Content Include="Views\SettingsAccount\SettingsAccount.cshtml" />
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
     <Content Include="Views\Subscription\Subscription.cshtml" />
-    <Content Include="Views\Members\Delete.cshtml" />
-    <Content Include="Views\Members\Details.cshtml" />
-    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Detail\DetailPage.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
-    <Content Include="Views\ChillMeetLike\MeetLikes.cshtml" />
-    <Content Include="Views\ChillMeetLike\MeetMatches.cshtml" />
     <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
+    <Content Include="Views\ePal\EPalIndex.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
-    <Content Include="Views\Members\CreateSeed.cshtml" />
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
-    <Content Include="Views\Detail\DetailPage.cshtml" />
-    <Content Include="Views\Detail\NotFound.cshtml" />
-    <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\ePals\ePal.cshtml" />
     <Content Include="Views\ePals\GamesJson.cshtml" />
-    <Content Include="Views\Shared\_Layout_customMobile.cshtml" />
-    <Content Include="Views\Detail\Order.cshtml" />
-    <Content Include="Views\Detail\_ViewStart.cshtml" />
-    <Content Include="Views\Detail\Checkout.cshtml" />
     <Content Include="Views\ePals\Order.cshtml" />
-    <Content Include="Views\ePals\_ViewStart.cshtml" />
     <Content Include="Views\ePals\Checkout.cshtml" />
     <Content Include="Views\ePals\DetailPage.cshtml" />
     <Content Include="Views\ePals\Index.cshtml" />
@@ -821,17 +831,39 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Members\Logout.cshtml" />
     <Content Include="Views\Members\profile.cshtml" />
-    <Content Include="Views\Follow\Followings.cshtml" />
     <Content Include="Views\Members\ImageUpload.cshtml" />
     <Content Include="Views\Shared\_AvatarPartial.cshtml" />
     <Content Include="Views\Members\EditProfile.cshtml" />
+    <Content Include="Views\Chill\Live.cshtml" />
+    <Content Include="Views\Chill\Meet.cshtml" />
+    <Content Include="Views\Chill\MeetLikes.cshtml" />
+    <Content Include="Views\Chill\MeetMatches.cshtml" />
+    <Content Include="Views\Members\Followings.cshtml" />
+    <Content Include="Views\becomeepal\addgame _jzp.cshtml" />
+    <Content Include="Views\becomeepal\addgame.cshtml" />
+    <Content Include="Views\BasicInformation\Register.cshtml" />
+    <Content Include="Views\BasicInformation\BasicInformation.cshtml" />
+    <Content Include="Views\CreatorProject\BasicInformation.cshtml" />
+    <Content Include="Views\CreatorProject\ChooseAService.cshtml" />
+    <Content Include="Views\CreatorProject\GameInformation.cshtml" />
+    <Content Include="Views\CreatorProject\Rule_ListCover.cshtml" />
+    <Content Include="Views\CreatorProject\Rule_ScreenshotRules.cshtml" />
+    <Content Include="Views\CreatorProject\Rule_VoiceRecord.cshtml" />
+    <Content Include="Views\epalAccount\Wallet.cshtml" />
+    <Content Include="Views\GameInformation\GameInformation.cshtml" />
+    <Content Include="Views\GameInformation\Rule_ListCover.cshtml" />
+    <Content Include="Views\GameInformation\Rule_ScreenshotRules.cshtml" />
+    <Content Include="Views\GameInformation\Rule_VoiceRecord.cshtml" />
+    <Content Include="Views\Shared\_GameDayPartial.cshtml" />
+    <Content Include="Views\Checkout\Failure.cshtml" />
+    <Content Include="Views\Checkout\Success.cshtml" />
+    <Content Include="Views\ePals\FailureView.cshtml" />
+    <Content Include="Views\ePals\SuccessView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="obj\Release\" />
-    <Folder Include="Views\Api\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Checkout";
     //var ck = Model.Checkout;
+    var startTime = Model.Checkout.StartTime.ToString("MM/dd/yyyy hh:mm tt");
 }
 @section topCSS{
     <link href="~/Assets/css/checkout.css" rel="stylesheet" />
@@ -30,7 +31,7 @@
 
                     <div class="start-info">
                         <div class="greyish">Start Time:</div>
-                        <div class="start-time desc">@Model.Checkout.StartTime</div>
+                        <div class="start-time desc">@startTime</div>
                     </div>
 
                     <div class="unit-price">
@@ -58,7 +59,7 @@
                         <div class="price-total price-summary">$@((Model.Checkout.Rounds * Model.Checkout.UnitPrice).ToString("N2"))</div>
                     </div>
                     <div class="timer-div greyish">
-                        Please complete the payment within <span class="time-left" id="counter"></span>, otherwise the order will be cancelled automatically
+                        Please complete the payment within <span class="time-left" id="counter"></span><span class="testtest"></span>, otherwise the order will be cancelled automatically
 
                     </div>
                 </div>
@@ -82,23 +83,83 @@
 
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="total-div">
-                    <div class="total-price">Total Price</div>
-                    <div class="price-total price-total-txt">$8.20</div>
-                    <div class="checkout-btn-div">
-                        <button class="checkout-btn">Checkout</button>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-12">
+                    <div class="total-div">
+                        <div class="total-price">Total Price</div>
+                        <div class="price-total price-total-txt">$@((Model.Checkout.Rounds * Model.Checkout.UnitPrice).ToString("N2"))</div>
+                        <div class="checkout-btn-div">
+                            <button class="checkout-btn" type="submit">Checkout</button>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
+        }
+
     </div>
 </div>
 
 @section endJS{
     
-    <script src="~/Assets/js/checkout.js"></script>
+    @*<script src="~/Assets/js/checkout.js"></script>*@
+<script>
+
+    let timer = document.getElementById('counter')
+    let dateTimeNow = new Date();
+    let timeNow = dateTimeNow.getTime();
+    let orderTime = new Date("@startTime");
+
+    let expireTime = new Date(orderTime.setMinutes(orderTime.getMinutes() + 5 )).getTime();
+    let remainingTime = expireTime - timeNow;
+
+
+
+
+    let timeLeft = (remainingTime) / 1000;
+    let min, sec;
+    min = Math.floor(timeLeft / 60);
+    sec = Math.floor(timeLeft % 60);
+
+    let isTimedOut = CheckTime();
+    if (isTimedOut == false) {
+        let setTime = setInterval(countdown, 1000)
+    }
+    else {
+        timer.innerText = "---";
+        alert('Session has timed out, please try placing a new order');
+        window.location = `/detail/detailpage/@Model.Checkout.ProductId`;
+    }
+
+
+    function countdown() {
+        sec--
+        timeLeft--;
+        if (sec < 0 && min > 0) {
+            sec = 59;
+            min--
+            timer.innerText = `${min}m ${sec}s`;
+        } else if (sec > 0 && min > 0) {
+            timer.innerText = `${min}m ${sec}s`;
+        } else if (sec == 0 && min == 0) {
+            timer.innerText = '0s';
+
+            clearInterval(setTime);
+            alert('Session has timed out, please try placing a new order');
+            window.location = `/detail/detailpage/@Model.Checkout.ProductId`;
+        } else {
+            timer.innerText = `${min}m ${sec}s`;
+        }
+    }
+
+    function CheckTime() {
+        if (timeLeft < 0) {
+            return true;
+        }
+        else { return false };
+    }
+</script>
 }

@@ -34,15 +34,15 @@ namespace Build_School_Project_No_4.Controllers
             {
                 return RedirectToAction("ePal", "ePals", new { id = 1 });
             }
-            var ProductCards = _productService.GetProductCardsData(id.Value);
+            //var ProductCards = _productService.GetProductCardsData(id.Value);
             var GamesDeatils = _productService.GetGamesAllAndDeatils(id.Value);
 
             GroupViewModel result = new GroupViewModel
             {
                 GamesDetails = GamesDeatils,
-                ProductCards = ProductCards
+                //ProductCards = ProductCards
             };
-            ViewBag.ProductCard = _productService.GetProductCardsJson(id.Value);
+            //ViewBag.ProductCard = _productService.GetProductCardsJson(id.Value);
             return View("ePal",result);
         }
 
@@ -55,7 +55,14 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-
+        /// <summary>
+        /// Sonias shit don't touch
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult NotFound()
         {
             return View();
@@ -112,11 +119,11 @@ namespace Build_School_Project_No_4.Controllers
             };
             return View(groupVM);
         }
-        //[HttpPost]
-        //public ActionResult Checkout(GroupViewModel x, string confirmation)
-        //{
-        //    int i = 0;
-        //    return View("Index");
-        //}
+        [HttpPost]
+        public ActionResult Checkout(GroupViewModel x, string confirmation)
+        {
+            TempData["confirmation"] = confirmation;
+            return RedirectToAction("PaymentWithPaypal", "Checkout");
+        }
     }
 }

@@ -1,0 +1,312 @@
+body {
+    background-color: rgb(18, 14, 27);
+    color: white;
+    font-family: Poppins, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+hr {
+    height: 1px;
+    color: rgb(90, 90, 90);
+}
+
+.order-container {
+    padding-top: 30px;
+}
+
+.order-container .row {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.cart-summary {
+    background-color: rgb(48, 47, 61);
+    border-radius: 8px;
+    padding: 10px 20px;
+    border-top: 6px solid rgb(112, 65, 230);
+    margin: 0 auto;
+    max-width: 450px;
+    display: none;
+}
+
+.order-info,
+.game-info,
+.start-info,
+.unit-price,
+.rounds-info,
+.subtotal-info,
+.promotion,
+.final-price-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.order-info {
+    margin-top: 8px;
+}
+
+.game-info {
+    align-items: initial;
+}
+
+.start-info {
+    margin-top: 15px;
+}
+
+div.game-play {
+    font-size: 19px;
+    font-weight: 600;
+    color: white;
+    margin-right: 10px;
+    width: 300px;
+}
+
+.game-info img {
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+}
+
+.greyish {
+    color: rgb(196, 195, 230);
+    font-size: 16px;
+}
+
+.order-id-value {
+    font-size: 15px;
+}
+
+.desc {
+    font-size: 16px;
+}
+
+.rounds-total {
+    font-size: 14px;
+}
+
+.price-summary {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.total-div {
+    border-top: 1px solid rgb(48, 47, 61);
+    margin-top: 90px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.total-price {
+    font-size: 15px;
+}
+
+.total-price,
+.price-total-txt {
+    margin-right: 15px;
+}
+
+.price-total-txt {
+    font-size: 25px;
+}
+
+.confirmation {
+    text-align: center;
+    padding-top: 30px;
+}
+
+#orderSummary {
+    margin: 50px auto;
+    width: 80%;
+}
+
+.thanks {
+    color: rgb(112, 65, 230);
+    font-size: 28px;
+}
+.pay-confirm {
+    font-size: 17px;
+    padding: 13px 0;
+}
+
+.wait {
+    font-size: 20px;
+}
+
+.accordion,
+.accordion-item {
+    background-color: rgb(48, 47, 61);
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+}
+
+.accordion-header,
+.accordion-item {
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+}
+
+.accordion-item {
+    border: none;
+}
+
+.accordion-body,
+.accordion-button,
+.accordion-header {
+    background-color: rgb(48, 47, 61) !important;
+}
+
+.accordion-button {
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+    color: white !important;
+}
+
+.accordion-body {
+    border-bottom-right-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+}
+
+.accordion-button.collapsed {
+    color: orange;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+    color: white;
+}
+
+.accordion-button:not(.collapsed),
+.accordion-button:focus {
+    color: transparent;
+    background-color: #e7f1ff;
+    box-shadow: none;
+}
+
+@media screen and (min-width: 576px) {
+    .total-div {
+        margin-top: 135px;
+    }
+
+    .total-price,
+    .price-total-txt {
+        margin-right: 22px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #orderSummary {
+        display: none;
+    }
+
+    .order-container .row {
+        display: flex;
+        flex-direction: row-reverse;
+        max-width: 1100px;
+    }
+
+    .cart-summary {
+        max-width: initial;
+        display: block;
+    }
+
+    .order-container {
+        padding-top: 130px;
+    }
+
+    .greyish,
+    .desc {
+        font-size: 15px;
+    }
+
+    .order-id-value {
+        font-size: 15px;
+    }
+
+    .rounds-total {
+        font-size: 14px;
+    }
+
+    div.game-play {
+        font-size: 16px;
+        width: 220px;
+    }
+
+    .total-div {
+        margin-top: 90px;
+    }
+
+    .total-price {
+        font-size: 16px;
+    }
+
+    .price-total-txt {
+        font-size: 27px;
+    }
+
+    .checkout-btn {
+        border-radius: 25px;
+        padding: 5px 18px;
+        font-size: 18px;
+    }
+
+    .confirmation {
+        padding-top: 80px;
+    }
+
+    .thanks {
+        font-size: 28px;
+        font-weight: 600;
+        padding-bottom: 10px;
+    }
+
+    .pay-confirm {
+        font-size: 18px;
+        padding: 8px 0;
+    }
+
+    .wait {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    div.game-play {
+        font-size: 17px;
+        width: 180px;
+    }
+    .order-container {
+        padding-top: 180px;
+    }
+
+    .confirmation {
+        padding-top: 100px;
+    }
+
+    .thanks {
+        font-size: 35px;
+        font-weight: 600;
+    }
+
+    .pay-confirm {
+        font-size: 20px;
+    }
+
+    .wait {
+        font-size: 25px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    div.game-play {
+        width: 290px;
+    }
+}

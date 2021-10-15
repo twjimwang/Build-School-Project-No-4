@@ -717,6 +717,7 @@ footer #address {
 
     .message.dropdown {
         display: none;
+        margin-left: 16px;
     }
 
     .navbar-right .loginbtn {
@@ -1300,13 +1301,13 @@ footer #address {
         width: 100px;
         background-color: #21212C;
         color: white;
-        &.ellipsis{
+/*        &.ellipsis{
             position: absolute;
             top: 6px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-        }
+        }*/
     }
 
     .navbar-right .search input:hover {

@@ -53,13 +53,13 @@
                         <a class="nav-link text-white navItem" aria-current="page" href="@Url.Action("ePal","ePals",new {id = "1" })">ePal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","ChillMeet")">Chill</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","Chill")">Chill</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link text-white navItem" href="#">Posts</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="@Url.Action("CreatorProject","CreatorProject")">Creator Project</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("BecomeEPalPage","becomeepal")">Creator Project</a>
                     </li>
 
                     <li class="dropdown nav-item dropdown-about-list">
@@ -111,14 +111,14 @@
                     </div>
 
                     <div class="becomeEPal-button">
-                        <a href="@Url.Action("BecomeEPalPage","BecomeEPal")">Become an ePal</a>
+                        <a href="@Url.Action("BecomeEPalPage","becomeepal")">Become an ePal</a>
                     </div>
 
 
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <div class="logsign-modal-button">
-                            <!-- 首頁login/signup -->
+                            <!-- login/signup -->
                             <!-- Button trigger modal -->
                             <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
                                     data-bs-target="#myModal" id="loginmodal">
@@ -208,12 +208,12 @@
                             <div class="aside-Menu">
                                 <div class="userinfo">
                                     <div class="user-photo">
-                                        <a href="#">
+                                        <a href="~/Members/profile/@userid">
                                             <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
                                         </a>
                                     </div>
                                     <div class="uesr-account-name">
-                                        <a href="#">
+                                        <a href="~/Members/profile/@userid">
                                             <div style="color:white">@(User.Identity.Name)</div>
                                         </a>
                                         @Html.HiddenFor(model => model.MemberLogin.MemberId, new { @class = "", id = "memberId" })
@@ -301,7 +301,7 @@
 
                                     </div>
                                     <div class="makemember" id="anepal">
-                                        <a href="#">
+                                        <a href="@Url.Action("BecomeEPalPage","becomeepal")">
                                             <p id="anepaltxt1">Become an ePal</p>
                                             <p id="anepaltxt2">Earn extra cash by gaming with others.</p>
                                         </a>
@@ -426,14 +426,14 @@
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     //mail
                                     <div class="maillog logmethod form-group">
-                                        @Html.LabelFor(model => model.MemberLogin.Email, new { @class = "maillabel", @for = "email" })<br>
+                                        @Html.LabelFor(model => model.MemberLogin.Email, new { @class = "maillabel", @for = "email" })<br />
                                         @Html.TextBoxFor(model => model.MemberLogin.Email, null, new { @class = "emailinput ellipsis form-control", id = "email", name = "email", placeholder = "Please enter your email", required = "required" })
                                         @Html.ValidationMessageFor(model => model.MemberLogin.Email, "", new { @class = "text-danger", style = "font-size:14px" })
                                     </div>
 
                                     //password
                                     <div class="form-group ">
-                                        @Html.LabelFor(model => model.MemberLogin.Password, new { @for = "password", @class = "passTitle" })<br>
+                                        @Html.LabelFor(model => model.MemberLogin.Password, new { @for = "password", @class = "passTitle" })<br />
                                         @Html.PasswordFor(model => model.MemberLogin.Password, new { @class = "passwordinput ellipsis form-control", id = "password", name = "password", placeholder = "Please enter your password", required = "required" })
                                         <input type="button" class="passwordshow passwordshowLogin" value="show">
                                         @Html.ValidationMessageFor(model => model.MemberLogin.Password, "", new { @class = "text-danger", style = "font-size:14px" })
@@ -442,6 +442,7 @@
                                     <a href="#" id="forgetpass">Forget your password?</a>
 
                                     <input type="submit" class="btn btn-secondary loginbutton" id="loginbutton" value="Log In">
+                                
                                 }
 
                             </div>
@@ -464,7 +465,6 @@
                                         @Html.ValidationMessageFor(model => model.MemberRegister.Email, "", new { @class = "text-danger", style = "font-size:14px" })
                                     </div>
 
-                                    //password
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.MemberRegister.Password, new { @for = "password", @class = "passTitle" })<br>
                                         @Html.PasswordFor(model => model.MemberRegister.Password, new { @class = "passwordinput ellipsis form-control", id = "password", name = "password", placeholder = "Please enter your password", required = "required" })

@@ -15,10 +15,12 @@ namespace Build_School_Project_No_4.Controllers
     public class JsonApiController : ApiController
     {
         private readonly ProductService _productService;
+        private readonly ApiFilterService _apiFilterSevice;
 
         public JsonApiController()
         {
             _productService = new ProductService();
+            _apiFilterSevice = new ApiFilterService();
         }
 
         [AcceptVerbs("GET", "POST")]
@@ -32,7 +34,9 @@ namespace Build_School_Project_No_4.Controllers
         [AcceptVerbs("GET", "POST")]
         public string GetProductCardByFilter(FilterItemViewModel FilterVM)
         {
-            return null;
+            var cardJson = _apiFilterSevice.GetProductCardsByFilter(FilterVM);
+
+            return cardJson;
         }
     }
 }

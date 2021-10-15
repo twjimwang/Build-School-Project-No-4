@@ -1,4 +1,5 @@
-let roundDisplay = document.querySelector(".round-number");
+let roundDisplay = document.querySelector(".rounds-div input");
+roundDisplay.classList.add('round-number');
 let minRound = 1;
 let maxRound = 999;
 let oldVal = 0;
@@ -101,10 +102,11 @@ function setOldVal(val) {
 let inputDate = document.getElementById('start-time');
 let d, localDatetime;
 let timeNowBtn = document.querySelector('.time-now');
-window.onload = function () {
+window.addEventListener('load', function () {
     localDatetime = TimeNowPlusTen();
     inputDate.value = localDatetime;
-}
+});
+
 
 timeNowBtn.addEventListener('click', () => {
     localDatetime = TimeNowPlusTen();

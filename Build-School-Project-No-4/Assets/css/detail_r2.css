@@ -14,28 +14,28 @@ button {
   border-radius: 17px;
 }
 
-input {
-  border: none;
-  background-color: rgb(33, 33, 44);
-  color: white;
-  border: 1px solid transparent;
-  border-radius: 3px;
+#playModal input {
+    border: none;
+    background-color: rgb(33, 33, 44);
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 3px;
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+    #playModal input::-webkit-outer-spin-button,
+    #playModal input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
-input[type=datetime-local]:focus {
-  outline: none;
-  border-color: rgb(70, 38, 158);
-  box-shadow: 0 0 7px rgb(110, 67, 232);
-}
+    #playModal  input[type=datetime-local]:focus {
+        outline: none;
+        border-color: rgb(70, 38, 158);
+        box-shadow: 0 0 7px rgb(110, 67, 232);
+    }
 
-input[type=text]:focus {
-  outline: none;
-}
+    #playModal input[type=text]:focus {
+        outline: none;
+    }
 
 hr {
   color: rgb(114, 114, 133);
@@ -358,7 +358,7 @@ img.buff-img {
   text-align: center;
 }
 
-.modal-body button {
+#playModal .modal-body button {
     background-color: rgb(33, 33, 44);
     padding: 0px 8px;
     border-radius: 4px;
@@ -546,7 +546,7 @@ img.buff-img {
     height: 100%;
   }
 
-  .modal-dialog{
+  #playModal .modal-dialog{
     width: 450px;
   }
 
@@ -575,7 +575,7 @@ img.buff-img {
         position: relative;
         top: 65px;
     }
-  .container {
+ .game-backdrop .container{
     padding: 0 10px;
   }
 
