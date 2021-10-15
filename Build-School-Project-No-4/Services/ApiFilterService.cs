@@ -44,14 +44,27 @@ namespace Build_School_Project_No_4.Services
             var Servers = _repo.GetAll<Server>();
             var LanguageName = _repo.GetAll<Language>();
             var todayYear = DateTime.Now.Year;
+            var productsx = _repo.GetAll<Products>();
+            var gameCat = _repo.GetAll<GameCategories>();
+            var resultxx = (from p in productsx
+                            join m in Members on p.CreatorId equals m.MemberId
+                            join l in LineStatus on m.LineStatusId equals l.LineStatusId
+                            join g in gameCat on p.GameCategoryId equals g.GameCategoryId
+                            where g.GameCategoryId == categoryId
+                            select new ProductCard 
+                            {
+                                UnitPrice = p.UnitPrice,
+                                LineStatus = l.LineStatusImg,
+
+                            });
 
             if (category == null)
             {
                 return result.ToString();
             }
             var products = _repo.GetAll<Products>().Where(x => x.GameCategoryId == category.GameCategoryId);
-            
-            if(status != null && status.Count()>0)
+            List<int> intersectedList = new List<int>();
+            if (status != null && status.Count()>0)
             {
                 status.ForEach(x =>
                 {
@@ -62,11 +75,11 @@ namespace Build_School_Project_No_4.Services
                     //透過memberId找符合的productId
                     var prod = products.Select(p => p.CreatorId).ToList();
                     //找出交集
-                    var intersectedList = prod.Intersect(MemberId);
-                    
+                    intersectedList = prod.Intersect(MemberId).ToList();
                 });
             }
 
+            
                 var productCards = products.Select(p => new ProductCard
                 {
                     UnitPrice = p.UnitPrice,
@@ -85,8 +98,12 @@ namespace Build_School_Project_No_4.Services
                     //Age = todayYear - DateTime.Parse(Members.FirstOrDefault(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
                     //StatusName = LineStatus.FirstOrDefault(y => y.LineStatusId == (Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName
                 }).ToList();
+                result.ProductCards = productCards;
+            
+            
+               
             result.CategoryId = categoryId;
-            result.ProductCards = productCards;
+           
             return JsonConvert.SerializeObject(result);
         }
     }

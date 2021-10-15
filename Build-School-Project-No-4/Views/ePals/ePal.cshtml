@@ -140,7 +140,7 @@
                                                 </div>
                                             </label>
                                         </div>
-                                        <div class="filter-Game-Item">
+                                        <div class="filter-Game-Item ">
                                             <input type="checkbox" id="filter-Item-check-4">
                                             <label for="filter-Item-check-4">
                                                 <div class="filter-Item-Text">All Status</div>
@@ -1729,7 +1729,14 @@
         })
 
 
-
+        //window.onclick
+        window.onclick = function (event) {
+            if (!event.target.matches('.filter-Game-Item')) {
+                dropdowns.forEach(function (openDropdown) {
+                    dropdown.classList.contains('show') && dropdown.classList.remove('show');
+                });
+            }
+        };
 
 
 
