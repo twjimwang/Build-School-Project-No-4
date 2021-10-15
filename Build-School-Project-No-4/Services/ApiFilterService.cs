@@ -58,40 +58,15 @@ namespace Build_School_Project_No_4.Services
                     //找到他的ID
                     var LinestausId = LineStatus.FirstOrDefault(y => y.LineStatusName == x).LineStatusId;
                     //透過ID與Member做關聯
-                    var MemberId = Members.FirstOrDefault(m=>m.LineStatusId == LinestausId).MemberId;
+                    var MemberId = Members.Where(m => m.LineStatusId == LinestausId).Select(y => y.MemberId).ToList();
                     //透過memberId找符合的productId
-                    products = products.Where(p => p.CreatorId == MemberId);
+                    var prod = products.Select(p => p.CreatorId).ToList();
+                    //找出交集
+                    var intersectedList = prod.Intersect(MemberId);
+                    
                 });
             }
-            
-           
 
-            //var Prop = from product in products
-            //           join pds in ProductServers on product.ProductId equals pds.ProductId
-            //           join sev in Servers on pds.ServerId equals sev.ServerId
-            //           join pos in ProductPositions on product.ProductId equals pos.ProductId
-            //           join position in Positions on pos.PositionId equals position.PositionId
-            //           join rank in Ranks on product.RankId equals rank.RankId
-            //           join member in Members on product.CreatorId equals member.MemberId
-            //           join comment in CommentDetails on product.ProductId equals comment.ProductId
-            //           join lang in LanguageName on member.LanguageId equals lang.LanguageId
-            //           join lit in LineStatus on member.LineStatusId equals lit.LineStatusId
-            //           select new ProductCard 
-            //           {
-            //                CreatorName = member.MemberName,
-            //                CreatorImg = product.CreatorImg,
-            //                Introduction = product.Introduction,
-            //                RecommendationVoice = product.RecommendationVoice,
-            //                LineStatus = lit.LineStatusImg,
-            //                UnitPrice = product.UnitPrice,
-            //                StarLevel = comment.StarLevel,
-            //                Rank = rank.RankName,
-            //                Position = position.PositionName,
-            //                ProductId = product.ProductId,
-            //                Server = sev.ServerName,
-            //                Language = lang.LanguageName,
-            //                StatusName = lit.LineStatusName,
-            //           };
                 var productCards = products.Select(p => new ProductCard
                 {
                     UnitPrice = p.UnitPrice,
