@@ -29,7 +29,7 @@ namespace Build_School_Project_No_4.Services
             {
                 return result;
             }
-            var orders = _repo.GetAll<Orders>().Where(x => x.OrderStatusId == category.OrderStatusId).ToList();
+            var orders = _repo.GetAll<Orders>().Where(x => x.OrderStatusId == category.OrderStatusId);
             var GameNames = _repo.GetAll<GameCategories>().ToList();
             var orderstatu = _repo.GetAll<OrderStatus>().ToList();
             var products = _repo.GetAll<Products>().ToList();
@@ -41,7 +41,7 @@ namespace Build_School_Project_No_4.Services
                 OrderDate=o.OrderDate,
                 TotalPrice=o.UnitPrice*o.Quantity,
                 OrderId=o.OrderId,
-                GameName=GameNames.First(y=>y.GameCategoryId ==(products.FirstOrDefault(x=>x.ProductId==o.ProductId).GameCategoryId)).GameName
+                GameName=GameNames.FirstOrDefault(y=>y.GameCategoryId ==(products.FirstOrDefault(x=>x.ProductId==o.ProductId).GameCategoryId)).GameName
 
             }).ToList();
 
