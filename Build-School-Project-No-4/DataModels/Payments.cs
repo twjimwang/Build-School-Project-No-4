@@ -6,29 +6,29 @@ namespace Build_School_Project_No_4.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class GameCategories
+    public partial class Payments
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GameCategories()
+        public Payments()
         {
-            Products = new HashSet<Products>();
+            Orders = new HashSet<Orders>();
         }
 
         [Key]
-        public int GameCategoryId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int PaymentId { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string GameName { get; set; }
+        public string TransactionUID { get; set; }
+
+        public DateTime TransationDateTime { get; set; }
 
         [Required]
-        public string GameCoverImg { get; set; }
+        public string ConfirmationId { get; set; }
 
-        public string GameCoverImgMini { get; set; }
-
-        public string GameAlias { get; set; }
+        public int PayMethod { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

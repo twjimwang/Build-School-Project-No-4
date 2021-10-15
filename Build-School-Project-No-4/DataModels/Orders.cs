@@ -23,23 +23,27 @@ namespace Build_School_Project_No_4.DataModels
 
         public DateTime OrderDate { get; set; }
 
-        public DateTime GameStartDateTime { get; set; }
+        public DateTime DesiredStartTime { get; set; }
 
         public DateTime? GameEndDateTime { get; set; }
 
         public int OrderStatusId { get; set; }
 
-        public DateTime? UpdateDateTime { get; set; }
-
         [Required]
         [StringLength(50)]
         public string OrderConfirmation { get; set; }
+
+        public DateTime? GameStartTime { get; set; }
+
+        public int? PaymentId { get; set; }
 
         public virtual Members Members { get; set; }
 
         public virtual OrderStatus OrderStatus { get; set; }
 
         public virtual OrderStatus OrderStatus1 { get; set; }
+
+        public virtual Payments Payments { get; set; }
 
         public virtual Products Products { get; set; }
     }

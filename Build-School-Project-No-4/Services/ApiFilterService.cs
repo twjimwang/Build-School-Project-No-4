@@ -61,50 +61,50 @@ namespace Build_School_Project_No_4.Services
                        join comment in CommentDetails on product.ProductId equals comment.ProductId
                        join lang in LanguageName on member.LanguageId equals lang.LanguageId
                        join lit in LineStatus on member.LineStatusId equals lit.LineStatusId
-                       select new ProductCard 
+                       select new ProductCard
                        {
-                            CreatorName = member.MemberName,
-                            CreatorImg = product.CreatorImg,
-                            Introduction = product.Introduction,
-                            RecommendationVoice = product.RecommendationVoice,
-                            LineStatus = lit.LineStatusImg,
-                            UnitPrice = product.UnitPrice,
-                            StarLevel = comment.StarLevel,
-                            Rank = rank.RankName,
-                            Position = position.PositionName,
-                            ProductId = product.ProductId,
-                            Server = sev.ServerName,
-                            Language = lang.LanguageName,
-                            StatusName = lit.LineStatusName,
+                           CreatorName = member.MemberName,
+                           CreatorImg = product.CreatorImg,
+                           Introduction = product.Introduction,
+                           RecommendationVoice = product.RecommendationVoice,
+                           LineStatus = lit.LineStatusImg,
+                           UnitPrice = product.UnitPrice,
+                           StarLevel = comment.StarLevel,
+                           Rank = rank.RankName,
+                           Position = position.PositionName,
+                           ProductId = product.ProductId,
+                           Server = sev.ServerName,
+                           Language = lang.LanguageName,
+                           StatusName = lit.LineStatusName,
                        };
-                var productCards = products.Select(p => new ProductCard
-                {
-                    UnitPrice = p.UnitPrice,
-                    CreatorImg = p.CreatorImg,
-                    Introduction = p.Introduction,
-                    RecommendationVoice = p.RecommendationVoice,
-                    LineStatus = LineStatus.FirstOrDefault(y => y.LineStatusId == Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LineStatusId).LineStatusImg,
-                    CreatorName = Members.FirstOrDefault(x => x.MemberId == p.CreatorId).MemberName,
-                    StarLevel = CommentDetails.FirstOrDefault(x => x.ProductId == p.ProductId).StarLevel,
-                    Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.FirstOrDefault(x => x.RankId == p.RankId).RankName,
-                    Position = Positions.FirstOrDefault(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
-                    ProductId = p.ProductId,
-                    Server = Servers.FirstOrDefault(s => s.ServerId == ProductServers.FirstOrDefault(y => y.ProductId == p.ProductId).ServerId).ServerName,
-                    Language = LanguageName.FirstOrDefault(L => L.LanguageId == (int)Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LanguageId).LanguageName,
-                    GenderId = (int)Members.FirstOrDefault(x => x.MemberId == p.CreatorId).Gender,
-                    //Age = todayYear - DateTime.Parse(Members.FirstOrDefault(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
-                    //StatusName = LineStatus.FirstOrDefault(y => y.LineStatusId == (Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName
-                }).ToList();
-            
+            var productCards = products.Select(p => new ProductCard
+            {
+                UnitPrice = p.UnitPrice,
+                CreatorImg = p.CreatorImg,
+                Introduction = p.Introduction,
+                RecommendationVoice = p.RecommendationVoice,
+                LineStatus = LineStatus.FirstOrDefault(y => y.LineStatusId == Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LineStatusId).LineStatusImg,
+                CreatorName = Members.FirstOrDefault(x => x.MemberId == p.CreatorId).MemberName,
+                StarLevel = CommentDetails.FirstOrDefault(x => x.ProductId == p.ProductId).StarLevel,
+                Rank = Ranks.FirstOrDefault(x => x.RankId == p.RankId) == null ? "No Rank" : Ranks.FirstOrDefault(x => x.RankId == p.RankId).RankName,
+                Position = Positions.FirstOrDefault(y => y.PositionId == (ProductPositions.FirstOrDefault(x => x.ProductId == p.ProductId).PositionId)).PositionName,
+                ProductId = p.ProductId,
+                Server = Servers.FirstOrDefault(s => s.ServerId == ProductServers.FirstOrDefault(y => y.ProductId == p.ProductId).ServerId).ServerName,
+                Language = LanguageName.FirstOrDefault(L => L.LanguageId == (int)Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LanguageId).LanguageName,
+                GenderId = (int)Members.FirstOrDefault(x => x.MemberId == p.CreatorId).Gender,
+                //Age = todayYear - DateTime.Parse(Members.FirstOrDefault(x => x.MemberId == p.CreatorId).BirthDay.ToString()).Year,
+                //StatusName = LineStatus.FirstOrDefault(y => y.LineStatusId == (Members.FirstOrDefault(x => x.MemberId == p.CreatorId).LineStatusId)).LineStatusName
+            }).ToList();
+
             productCards.ForEach(p =>
             {
                 if (server != null && server.Count > 0)
                 {
                     server.ForEach(s =>
                     {
-                        if(p.Server == s)
+                        if (p.Server == s)
                         {
-                            
+
                         }
                     });
                 }
@@ -163,7 +163,7 @@ namespace Build_School_Project_No_4.Services
                 {
                     age.ForEach(a =>
                     {
-                        if(p.Age == a)
+                        if (p.Age == a)
                         {
 
                         }

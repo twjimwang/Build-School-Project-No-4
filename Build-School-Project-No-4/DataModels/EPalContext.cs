@@ -10,7 +10,6 @@ namespace Build_School_Project_No_4.DataModels
         public EPalContext()
             : base("name=EPalContext")
         {
-            this.Configuration.ProxyCreationEnabled = false;
         }
 
         public virtual DbSet<Chatlist> Chatlist { get; set; }
@@ -27,6 +26,7 @@ namespace Build_School_Project_No_4.DataModels
         public virtual DbSet<MessageType> MessageType { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<OrderStatus> OrderStatus { get; set; }
+        public virtual DbSet<Payments> Payments { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<ProductPlans> ProductPlans { get; set; }
         public virtual DbSet<ProductPosition> ProductPosition { get; set; }
