@@ -12,6 +12,22 @@ namespace Build_School_Project_No_4.Controllers
 {
     public class OrderController : Controller
     {
+        private readonly ProductService _productService;
+        private readonly EPalContext _ctx;
+        private readonly DetailServices _detailService;
+        private readonly AddToCartService _cartService;
+        private readonly CheckoutService _checkoutService;
+        private readonly OrderService _orderService;
+
+        public OrderController()
+        {
+            _productService = new ProductService();
+            _detailService = new DetailServices();
+            _ctx = new EPalContext();
+            _cartService = new AddToCartService();
+            _checkoutService = new CheckoutService();
+            _orderService = new OrderService();
+        }
         // GET: Order
         public ActionResult Index()
         {
@@ -31,11 +47,26 @@ namespace Build_School_Project_No_4.Controllers
             }
             return null;
         }
-        public ActionResult OrderSummary()
+        public ActionResult OrderSummary(int? id)
         {
-             
-            return View();
+            
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index");
+            }
+            var order = new OrderService();
+            var abc = order.GetOrderCardData(id.Value);
+            // var ordercards = _orderService.GetOrderCardData(id.Value);
+            GroupViewModel result = new GroupViewModel
+            {
+                Order = abc
+            };
 
+
+
+
+
+            return View(result);
         }
 
        
