@@ -866,7 +866,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="obj\Release\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
