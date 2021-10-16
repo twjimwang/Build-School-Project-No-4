@@ -1,13 +1,15 @@
-﻿
+﻿@model GroupViewModel
+
+
 <nav>
     <div class="container phoneTopNav">
         <div class="phoneNavSelect">
             <div class="row text-center">
                 <div class="col-4 selectPlay">
-                    <a href="@Url.Action("Live","Chill")">Live</a>
+                    <a href="@Url.Action("Live","ChillLive")">Live</a>
                 </div>
                 <div class="col-4 selectPlay">
-                    <a href="@Url.Action("Meet", "Chill")">Meet</a>
+                    <a href="@Url.Action("Meet", "ChillMeet")">Meet</a>
                 </div>
                 <div class="col-4">
                     <input type="checkbox" id="menu-checks">
@@ -43,17 +45,15 @@
 <div class="Meet-Container">
     <div class="row">
         <div class="col-4 Meet-Left-link">
-            <a href="@Url.Action("Live","Chill")">Live</a>
-            <a href="@Url.Action("Meet", "Chill")">Meet</a>
+            <a href="#">Live</a>
+            <a href="#">Meet</a>
         </div>
         <div class="col-4">
 
         </div>
         <div class="col-4 Meet-Right-link">
-            @*<a href="#">Like</a>
-                <a href="#">Setting</a>*@
             <button type="button" class="btn btn-secondary ">
-                <a href="@Url.Action("MeetLikes","Chill")">
+                <a href="@Url.Action("MeetLikes","ChillMeetLike")">
                     <i class="far fa-smile"></i>
                     <span>Likes</span>
                 </a>
@@ -67,6 +67,8 @@
 </div>
 
 
+
+
 <div class="tinder">
     <div class="tinder--status">
 
@@ -75,37 +77,36 @@
 
     </div>
 
+
+
     <div class="tinder--cards">
-        <div class="tinder--card">
-            <img src="~/Assets/MeetImages/Meets/Meet500.png" />
-            <h3>Mini</h3>
-            <p>English</p>
-        </div>
-        <div class="tinder--card">
-            <img src="~/Assets/MeetImages/Meets/Meet13.png" />
-            <h3>Mini</h3>
-            <p>English</p>
-        </div>
-        <div class="tinder--card">
-            <img src="~/Assets/MeetImages/Meets/Meet17.png" />
-            <h3>Mini</h3>
-            <p>English</p>
-        </div>
-        <div class="tinder--card">
-            <img src="~/Assets/MeetImages/Meets/Meet14.png" />
-            <h3>Mini</h3>
-            <p>English</p>
-        </div>
-        <div class="tinder--card">
-            <img src="~/Assets/MeetImages/Meets/Meet16.png" />
-            <h3>Mini</h3>
-            <p>English</p>
-        </div>
+
+        @foreach (var item in Model.ChillMeetResult)
+        {
+            <div class="tinder--card">
+                <p id=@item.UserId style="display:none">@item.UserId</p>
+                @*<img src="~/Assets/MeetImages/Meets/Meet500.png" />*@
+                <img src="@item.MeetPicture" />
+
+                @*<img src="https://res.cloudinary.com/johnson1990hitachi1/image/upload/v1634371760/Meet/AndyM_usuezv.png" />*@
+                <h3>@item.MemberName</h3>
+                <p>@item.Country</p>
+                @*<div id="memberLikeID" style="display:none">@item.MemberId</div>*@
+                @*<div id="memberLikeID" style="display:none">222</div>*@
+                @*<div id=@item.MemberId style="display:none">@item.MemberId</div>*@
+                <p id=@item.MemberId style="display:none">@item.MemberId</p>
+            </div>
+        }
+
+
+
     </div>
 
+
+
+    @*}*@
     <div class="tinder--buttons">
         <div class="circle col-md-3 col-3" id="circle1">
-            @*<img src="./pic/icon1.png" alt="Alternate Text" />*@
             <img src="~/Assets/MeetImages/Meets/icon1.png" />
         </div>
         <div class="circle col-md-3 col-3" id="nope">
@@ -121,7 +122,10 @@
 </div>
 
 
+
+
 <script src='https://hammerjs.github.io/dist/hammer.min.js'></script>
+
 
 
 
@@ -133,12 +137,15 @@
     var allCards = document.querySelectorAll('.tinder--card');
     var nope = document.getElementById('nope');
     var love = document.getElementById('love');
+    /* let cardUserId = 60;*/
+
 
     function initCards(card, index) {
         var newCards = document.querySelectorAll('.tinder--card:not(.removed)');
 
         newCards.forEach(function (card, index) {
             card.style.zIndex = allCards.length - index;
+            /*    card.tagName = allCards.length - index;*/
             // card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
             card.style.opacity = (10 - index) / 10;
         });
@@ -177,7 +184,7 @@
             var moveOutWidth = document.body.clientWidth;
             var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
 
-            event.target.classList.toggle('removed', !keep);
+            /*  event.target.classList.toggle('removed', !keep);*/
 
             if (keep) {
                 event.target.style.transform = '';
@@ -189,6 +196,22 @@
                 var xMulti = event.deltaX * 0.03;
                 var yMulti = event.deltaY / 80;
                 var rotate = xMulti * yMulti;
+
+
+                if (toX > 0) {
+                    var cards = document.querySelectorAll('.tinder--card:not(.removed)');
+
+                    var card = cards[0];
+                    //取得卡片最後一個元素的內容
+                    var cardHtml = cards[0].innerHTML;
+                    var cardlikeId = cards[0].lastElementChild.innerText;
+                    var cardUserId = cards[0].firstElementChild.innerText;
+                    /* console.log(cardUserId);*/
+
+                    SaveImageViaAjax(cardUserId, cardlikeId);
+                }
+
+                event.target.classList.toggle('removed', !keep);
 
                 event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
                 initCards();
@@ -204,6 +227,17 @@
             if (!cards.length) return false;
 
             var card = cards[0];
+            //取得卡片最後一個元素的內容
+            var cardlikeId = cards[0].lastElementChild.innerText;
+            var cardUserId = cards[0].firstElementChild.innerText;
+            console.log(cardUserId);
+            console.log(cardlikeId);
+
+            //let memberId = 1;
+            //SaveImageViaAjax(memberId, cardlikeId);
+
+            SaveImageViaAjax(cardUserId, cardlikeId);
+
 
             card.classList.add('removed');
 
@@ -227,6 +261,211 @@
 
 
 </script>
+
+
+<script>
+
+
+        var fileUpload = document.getElementById('love');
+
+        fileUpload.addEventListener("click", function (event) {
+
+          //  var cards = document.querySelectorAll('.tinder--card:not(.removed)');
+          //  var card = cards[0];
+          //  //取得卡片最後一個元素的內容
+          //  var carddiv = cards[0].lastElementChild.innerText;
+          ///*  console.log(carddiv);*/
+
+            //let memberId = 1;
+            //SaveImageViaAjax(memberId,carddiv);
+
+        });
+
+
+        //save avatar to Cloudinary、DB
+    function SaveImageViaAjax(cardUserId,cardId) {
+
+            /*let likeMemberId = document.getElementById('memberLikeID').innerHTML;*/
+       /* let cardUserId = 60;*/
+        let CardIDs = cardId;
+     /*   let CardUserId = cardUserId;*/
+ /*       let likeMemberId = 1;*/
+        let usersId = cardUserId;
+
+        console.log(CardIDs);
+        console.log(usersId);
+
+            console.log('==========');
+
+            //var Data = JSON.stringify({
+            //    MemberId: `${likeMemberId}`,
+            //    LikeId: `${CardIDs}`,
+            //});
+
+        //var Data = JSON.stringify({
+        //    CardUserId: `${cardUserId}`,
+        //    LikeId: `${CardIDs}`,
+        //});
+
+
+        var Data = JSON.stringify({
+       /*     CardUserId: 555,*/
+            UserId: `${usersId}`,
+            LikeId: `${CardIDs}`,
+        });
+
+
+
+
+            $.ajax({
+                url: "https://localhost:44322/api/ChillMeetApi/",
+                type: "POST",
+                data: Data,
+                async: true,
+                contentType: 'application/json; charset=utf-8',
+                processData: false,
+                //dataType: "json",
+                success: function (res) {
+                        console.log(res);
+                     //$("#ShowMsg").text("Image Uploaded Successfully...!").css("color", "green")
+                },
+                error: function (err) {
+                        console.log(err);
+                    //$("#ShowMsg").text("Image Not Uploaded...!").css("color", "red")
+                }
+            });
+
+            //$.ajax({
+            //    url: "https://localhost:44322/api/ChillMeetApi/",
+            //    type: "POST",
+            //    data: Data,
+            //    async: true,
+            //    contentType: 'application/json; charset=utf-8',
+            //    processData: false,
+            //    //dataType: "json",
+            //    success: function (res) {
+            //        console.log(res);
+            //    },
+            //    error: function (err) {
+            //        console.log(err);
+            //    }
+            //});
+
+
+
+
+
+
+            //var apiurl = "";
+
+            //  $().ready(function () {
+            //        $("#post").click(function () {
+            //            $.post(apiurl, JsonDataHandler);
+            //        });
+
+            //    });
+
+            //var jsArray = null;
+            //function JsonDataHandler(response) {
+            //    if(response != null) {
+            //        jsArray = response;
+            //        result = JSON.stringify(response);
+            //    }
+            //}
+
+
+        }
+
+        //display avatar
+        @*document.getElementById('imagePreview').style.backgroundImage = "url('@ViewBag.Avatar')";*@
+
+
+
+
+
+
+        //$(function () {
+        //    //$("<br/>").insertAfter("input");
+        //    //$("<br/>").insertAfter("textarea");
+        //    $("<br/>").insertAfter(".form-group");
+        //});
+</script>
+
+
+
+@*<dd id="MeetNopeTexts" name="MeetNopeTexts">123</dd>*@
+
+
+@*<div>
+        name:<input type="text" id="name"><br />
+        age:<input type="text" id="age"><br />
+        <input type="button" value="submit" id="btn" onclick="f1()" />
+    </div>*@
+
+
+
+@*<script>
+        function f1() {
+            var postData = {
+                name: $("#name").val(),
+                age: $("#age").val()
+            };
+            $.post("api/User/Func1", postData, function (resp) {
+                console.log(resp);
+            });
+        }
+    </script>*@
+
+
+
+
+
+
+
+
+@*function postValue() {
+        let meetNopeText = $("#MeetNopeText").text();
+        let protuctName = $("#MeetLikeText").text();
+
+        /*debugger;*/
+        //1.MemberID加1
+        //2.回傳memberID是誰
+        //3.回傳翻牌對象的Id
+        //4.翻牌一次將資料更新到資料庫
+
+
+        //問題
+        //誰可以傳資料 ? ajax還是webApi 應該是Webapi的post
+        //View這邊的資料, webapi怎麼收到 ?
+        //    webapi 是否有參數可收到 ? yes透過參數
+        //參數從何而來 ?
+        //webApi要那種 ? 內建 ?
+        //        路由什麼角色 ? webapi透過路由取得資料 ?
+        //            路由怎麼設定 ?
+        //                Webapi怎麼利用路由 ?
+        //webapi
+
+
+
+
+        $.ajax({
+            type: "Post",
+            url: "/ChillMeet/GetLikes",
+            data: { MeetNopeText: meetNopeText },
+            dataType: "text",
+            success: function (response) {
+                /*         debugger;*/
+                /*alert("點擊成功");*/
+                console.log(meetNopeText);
+                alert(response);
+
+            }
+
+        });
+    }*@
+
+
+
 
 @section topCSS{
 
@@ -273,14 +512,14 @@
         }
 
             /* .tinder--status i {
-                font-size: 100px;
-                opacity: 0;
-                transform: scale(0.3);
-                transition: all 0.2s ease-in-out;
-                position: absolute;
-                width: 100px;
-                margin-left: -50px;
-            } */
+                    font-size: 100px;
+                    opacity: 0;
+                    transform: scale(0.3);
+                    transition: all 0.2s ease-in-out;
+                    position: absolute;
+                    width: 100px;
+                    margin-left: -50px;
+                } */
 
             .tinder--status img {
                 font-size: 100px;
@@ -360,9 +599,9 @@
             pointer-events: none;
             color: #FFFFFF;
             /*
-            background: #302f3d;
-            margin-top: 0px;
-            color: white; */
+                background: #302f3d;
+                margin-top: 0px;
+                color: white; */
         }
 
         .tinder--card p {
@@ -603,3 +842,15 @@
 
 
 }
+
+@*測試抓取值
+    var card = cards[0];
+                        var cardHTML = cards[0].innerHTML
+                        var cardContent = cards[0].innerText;
+                        /* var carddiv = cards[0].lastChild.innerText;*/
+                        var carddiv = cards[0].lastElementChild.innerText;
+                        console.log(cardHTML);
+                        console.log('=========');
+                        console.log(cardContent);
+                        console.log('=========');
+                        console.log(carddiv);*@
