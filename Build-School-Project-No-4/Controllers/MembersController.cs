@@ -591,8 +591,11 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-
-
+        //Privacy Policy
+        public ActionResult PrivacyPolicy()
+        {
+            return View();
+        }
 
 
 
