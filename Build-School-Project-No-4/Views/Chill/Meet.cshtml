@@ -236,16 +236,15 @@
             //let memberId = 1;
             //SaveImageViaAjax(memberId, cardlikeId);
 
-            SaveImageViaAjax(cardUserId, cardlikeId);
-
-
-            card.classList.add('removed');
 
             if (love) {
                 card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+                SaveImageViaAjax(cardUserId, cardlikeId);
             } else {
                 card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
             }
+
+            card.classList.add('removed');
 
             initCards();
 
@@ -270,14 +269,6 @@
 
         fileUpload.addEventListener("click", function (event) {
 
-          //  var cards = document.querySelectorAll('.tinder--card:not(.removed)');
-          //  var card = cards[0];
-          //  //取得卡片最後一個元素的內容
-          //  var carddiv = cards[0].lastElementChild.innerText;
-          ///*  console.log(carddiv);*/
-
-            //let memberId = 1;
-            //SaveImageViaAjax(memberId,carddiv);
 
         });
 
@@ -285,27 +276,15 @@
         //save avatar to Cloudinary、DB
     function SaveImageViaAjax(cardUserId,cardId) {
 
-            /*let likeMemberId = document.getElementById('memberLikeID').innerHTML;*/
-       /* let cardUserId = 60;*/
+
         let CardIDs = cardId;
-     /*   let CardUserId = cardUserId;*/
- /*       let likeMemberId = 1;*/
         let usersId = cardUserId;
 
         console.log(CardIDs);
         console.log(usersId);
+        console.log('==========');
 
-            console.log('==========');
 
-            //var Data = JSON.stringify({
-            //    MemberId: `${likeMemberId}`,
-            //    LikeId: `${CardIDs}`,
-            //});
-
-        //var Data = JSON.stringify({
-        //    CardUserId: `${cardUserId}`,
-        //    LikeId: `${CardIDs}`,
-        //});
 
 
         var Data = JSON.stringify({
@@ -335,134 +314,11 @@
                 }
             });
 
-            //$.ajax({
-            //    url: "https://localhost:44322/api/ChillMeetApi/",
-            //    type: "POST",
-            //    data: Data,
-            //    async: true,
-            //    contentType: 'application/json; charset=utf-8',
-            //    processData: false,
-            //    //dataType: "json",
-            //    success: function (res) {
-            //        console.log(res);
-            //    },
-            //    error: function (err) {
-            //        console.log(err);
-            //    }
-            //});
-
-
-
-
-
-
-            //var apiurl = "";
-
-            //  $().ready(function () {
-            //        $("#post").click(function () {
-            //            $.post(apiurl, JsonDataHandler);
-            //        });
-
-            //    });
-
-            //var jsArray = null;
-            //function JsonDataHandler(response) {
-            //    if(response != null) {
-            //        jsArray = response;
-            //        result = JSON.stringify(response);
-            //    }
-            //}
-
 
         }
 
-        //display avatar
-        @*document.getElementById('imagePreview').style.backgroundImage = "url('@ViewBag.Avatar')";*@
 
-
-
-
-
-
-        //$(function () {
-        //    //$("<br/>").insertAfter("input");
-        //    //$("<br/>").insertAfter("textarea");
-        //    $("<br/>").insertAfter(".form-group");
-        //});
 </script>
-
-
-
-@*<dd id="MeetNopeTexts" name="MeetNopeTexts">123</dd>*@
-
-
-@*<div>
-        name:<input type="text" id="name"><br />
-        age:<input type="text" id="age"><br />
-        <input type="button" value="submit" id="btn" onclick="f1()" />
-    </div>*@
-
-
-
-@*<script>
-        function f1() {
-            var postData = {
-                name: $("#name").val(),
-                age: $("#age").val()
-            };
-            $.post("api/User/Func1", postData, function (resp) {
-                console.log(resp);
-            });
-        }
-    </script>*@
-
-
-
-
-
-
-
-
-@*function postValue() {
-        let meetNopeText = $("#MeetNopeText").text();
-        let protuctName = $("#MeetLikeText").text();
-
-        /*debugger;*/
-        //1.MemberID加1
-        //2.回傳memberID是誰
-        //3.回傳翻牌對象的Id
-        //4.翻牌一次將資料更新到資料庫
-
-
-        //問題
-        //誰可以傳資料 ? ajax還是webApi 應該是Webapi的post
-        //View這邊的資料, webapi怎麼收到 ?
-        //    webapi 是否有參數可收到 ? yes透過參數
-        //參數從何而來 ?
-        //webApi要那種 ? 內建 ?
-        //        路由什麼角色 ? webapi透過路由取得資料 ?
-        //            路由怎麼設定 ?
-        //                Webapi怎麼利用路由 ?
-        //webapi
-
-
-
-
-        $.ajax({
-            type: "Post",
-            url: "/ChillMeet/GetLikes",
-            data: { MeetNopeText: meetNopeText },
-            dataType: "text",
-            success: function (response) {
-                /*         debugger;*/
-                /*alert("點擊成功");*/
-                console.log(meetNopeText);
-                alert(response);
-
-            }
-
-        });
-    }*@
 
 
 
