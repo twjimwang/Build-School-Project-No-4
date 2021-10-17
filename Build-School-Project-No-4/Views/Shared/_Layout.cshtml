@@ -53,13 +53,13 @@
                         <a class="nav-link text-white navItem" aria-current="page" href="@Url.Action("ePal","ePals",new {id = "1" })">ePal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","ChillMeet")">Chill</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("Meet","Chill")">Chill</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link text-white navItem" href="#">Posts</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link text-white navItem" href="@Url.Action("CreatorProject","CreatorProject")">Creator Project</a>
+                        <a class="nav-link text-white navItem" href="@Url.Action("BecomeEPalPage","becomeepal")">Creator Project</a>
                     </li>
 
                     <li class="dropdown nav-item dropdown-about-list">
@@ -111,14 +111,14 @@
                     </div>
 
                     <div class="becomeEPal-button">
-                        <a href="@Url.Action("BecomeEPalPage","BecomeEPal")">Become an ePal</a>
+                        <a href="@Url.Action("BecomeEPalPage","becomeepal")">Become an ePal</a>
                     </div>
 
 
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <div class="logsign-modal-button">
-                            <!-- 首頁login/signup -->
+                            <!-- login/signup -->
                             <!-- Button trigger modal -->
                             <button type="button" class="loginbtn text-white modalbutton" data-bs-toggle="modal"
                                     data-bs-target="#myModal" id="loginmodal">
@@ -208,12 +208,12 @@
                             <div class="aside-Menu">
                                 <div class="userinfo">
                                     <div class="user-photo">
-                                        <a href="#">
+                                        <a href="~/Members/profile/@userid">
                                             <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
                                         </a>
                                     </div>
                                     <div class="uesr-account-name">
-                                        <a href="#">
+                                        <a href="~/Members/profile/@userid">
                                             <div style="color:white">@(User.Identity.Name)</div>
                                         </a>
                                         @Html.HiddenFor(model => model.MemberLogin.MemberId, new { @class = "", id = "memberId" })
@@ -301,7 +301,7 @@
 
                                     </div>
                                     <div class="makemember" id="anepal">
-                                        <a href="#">
+                                        <a href="@Url.Action("BecomeEPalPage","becomeepal")">
                                             <p id="anepaltxt1">Become an ePal</p>
                                             <p id="anepaltxt2">Earn extra cash by gaming with others.</p>
                                         </a>

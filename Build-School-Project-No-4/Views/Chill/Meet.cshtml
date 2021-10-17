@@ -4,10 +4,10 @@
         <div class="phoneNavSelect">
             <div class="row text-center">
                 <div class="col-4 selectPlay">
-                    <a href="@Url.Action("Live","ChillLive")">Live</a>
+                    <a href="@Url.Action("Live","Chill")">Live</a>
                 </div>
                 <div class="col-4 selectPlay">
-                    <a href="@Url.Action("Meet", "ChillMeet")">Meet</a>
+                    <a href="@Url.Action("Meet", "Chill")">Meet</a>
                 </div>
                 <div class="col-4">
                     <input type="checkbox" id="menu-checks">
@@ -43,8 +43,8 @@
 <div class="Meet-Container">
     <div class="row">
         <div class="col-4 Meet-Left-link">
-            <a href="#">Live</a>
-            <a href="#">Meet</a>
+            <a href="@Url.Action("Live","Chill")">Live</a>
+            <a href="@Url.Action("Meet", "Chill")">Meet</a>
         </div>
         <div class="col-4">
 
@@ -53,7 +53,7 @@
             @*<a href="#">Like</a>
                 <a href="#">Setting</a>*@
             <button type="button" class="btn btn-secondary ">
-                <a href="@Url.Action("MeetLikes","ChillMeetLike")">
+                <a href="@Url.Action("MeetLikes","Chill")">
                     <i class="far fa-smile"></i>
                     <span>Likes</span>
                 </a>
@@ -241,8 +241,8 @@
         body {
             /* background: #CCFBFE; */
             background: black;
- /*            overflow: hidden;*/
-            overflow-x:hidden;
+            /*            overflow: hidden;*/
+            overflow-x: hidden;
             font-family: sans-serif;
         }
 
@@ -377,7 +377,7 @@
             flex: 0 0 100px;
             text-align: center;
             padding-top: 20px;
-            margin-bottom:15px;
+            margin-bottom: 15px;
         }
 
             .tinder--buttons button {
@@ -579,7 +579,7 @@
             }
 
             .tinder--buttons {
-                margin-bottom:42px;
+                margin-bottom: 42px;
             }
         }
 

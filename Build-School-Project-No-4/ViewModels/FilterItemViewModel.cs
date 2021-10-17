@@ -22,5 +22,6 @@ namespace Build_School_Project_No_4.ViewModels
         public List<int> Gender { get; set; }
 
         public List<string> Status { get; set; }
+
     }
 }
