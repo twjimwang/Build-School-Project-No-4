@@ -106,6 +106,10 @@
 @section endJS{
     
     @*<script src="~/Assets/js/checkout.js"></script>*@
+    @{ 
+        var unixDateTime = Model.Checkout.OrderDateTime;
+    }
+
 <script>
 
     let timer = document.getElementById('counter')
@@ -115,6 +119,21 @@
 
     let expireTime = new Date(orderTime.setMinutes(orderTime.getMinutes() + 5 )).getTime();
     let remainingTime = expireTime - timeNow;
+
+    const utcStart = new Date("@unixDateTime").getTime();
+    const utcEnd = utcStart + 900000;
+    var now = new Date();
+    const utcNow = new Date(now.getTime() + now.getTimezoneOffset() * 60000).getTime();
+    console.log(utcStart)
+    console.log(utcEnd)
+    console.log(utcNow)
+
+    console.log(utcEnd - utcNow)
+
+
+
+
+
 
 
 
@@ -149,7 +168,7 @@
 
             clearInterval(setTime);
             alert('Session has timed out, please try placing a new order');
-            window.location = `/detail/detailpage/@Model.Checkout.ProductId`;
+            window.location = `/epals/detailpage/@Model.Checkout.ProductId`;
         } else {
             timer.innerText = `${min}m ${sec}s`;
         }

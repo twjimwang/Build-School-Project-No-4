@@ -32,6 +32,7 @@ namespace Build_School_Project_No_4.Services
                           {
                               OrderConfirmation = orderConfirmation,
                               StartTime = o.GameStartDateTime,
+                              OrderDateTime = o.OrderDate,
                               UnitPrice = o.UnitPrice,
                               Rounds = o.Quantity,
                               PlayerId = p.CreatorId,
