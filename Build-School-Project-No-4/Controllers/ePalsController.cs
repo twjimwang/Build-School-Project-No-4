@@ -53,8 +53,6 @@ namespace Build_School_Project_No_4.Controllers
             return View();
         }
 
-
-
         /// <summary>
         /// Sonias shit don't touch
         /// </summary>

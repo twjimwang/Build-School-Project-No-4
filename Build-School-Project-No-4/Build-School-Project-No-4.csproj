@@ -797,7 +797,6 @@
     <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\Shared\_Layout_nofooter.cshtml" />
     <Content Include="Views\Coupons\Coupons.cshtml" />
-    <Content Include="Views\ePal\ePal.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
@@ -812,7 +811,6 @@
     <Content Include="Views\Detail\DetailPage.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
-    <Content Include="Views\ePal\EPalIndex.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
