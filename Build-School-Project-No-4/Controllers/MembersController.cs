@@ -19,11 +19,15 @@ using System.Text.RegularExpressions;
 using System.Drawing;
 using System.IO;
 using Newtonsoft.Json;
+using Google.Apis.Auth;
+using Google.Apis.Http;
 
 namespace Build_School_Project_No_4.Controllers
 {
     public class MembersController : Controller
     {
+        //private readonly IHttpClientFactory _clientFactory;
+
         private EPalContext db = new EPalContext();
         private MemberService _MemberService;
         private MailService _MailService;
@@ -31,7 +35,9 @@ namespace Build_School_Project_No_4.Controllers
         {
             _MemberService = new MemberService();
             _MailService = new MailService();
+            //_clientFactory = clientFactory;
         }
+
 
 
         //取得登入者的memberId
@@ -99,102 +105,155 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-        // GET: Cloudinary
-        public ActionResult ImageUpload()
+
+
+
+        public ActionResult FBtest()
         {
-            //return PartialView("_AvatarPartial");
             return View();
         }
-        //[HttpPost]
-        //public bool SaveImageToServer()
-        //{
-        //    try
-        //    {
-        //        HttpFileCollectionBase files = Request.Files;
-        //        HttpPostedFileBase file = files[0];
-        //        string _apiKey = ConfigurationManager.AppSettings["CloudinaryAPIKey"];
-        //        string _apiSecret = ConfigurationManager.AppSettings["CloudinarySecretKey"];
-        //        string _cloud = ConfigurationManager.AppSettings["CloudinaryAccount"];
-        //        string uploadedImageUrl = string.Empty;
-        //        string fname = string.Empty;
-        //        var myAccount = new Account { ApiKey = _apiKey, ApiSecret = _apiSecret, Cloud = _cloud };
-        //        Cloudinary _cloudinary = new Cloudinary(myAccount);
-        //        _cloudinary.Api.Secure = true;
 
 
-        //        //if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
-        //        //{
-        //        //    string[] testfiles = file.FileName.Split(new char[] { '\\' });
-        //        //    fname = testfiles[testfiles.Length - 1];
-        //        //}
-        //        //else
-        //        //{
-        //        //    fname = Regex.Replace(file.FileName.Trim(), @"[^0-9a-zA-Z.]+", "_");
-        //        //}
 
-        //        using (Image img = Image.FromStream(file.InputStream))
-        //        {
-        //            int imageHeight = 0;
-        //            int imageWidth = 0;
-        //            if (img.Height > 320)
-        //            {
-        //                var ratio = (double)img.Height / 320;
-        //                imageHeight = (int)(img.Height / ratio);
-        //                imageWidth = (int)(img.Width / ratio);
-        //            }
-        //            else
-        //            {
-        //                imageHeight = img.Height;
-        //                imageWidth = img.Width;
-        //            }
-        //            var uploadParams = new ImageUploadParams()
-        //            {
-        //                File = new FileDescription(file.FileName, file.InputStream),
-        //                Folder = "MyImages",
-        //                Transformation = new Transformation().Width(imageWidth).Height(imageHeight).Crop("thumb").Gravity("face")
-        //            };
-                    
-                    
-        //            var uploadResult = _cloudinary.Upload(uploadParams);
-                    
-        //            //Failed to deserialize response with status code: NotFound cloudinary
-        //            //cloudinary Unexpected character encountered while parsing value: <.Path '', line 0, position 0.
+        public ActionResult LoginProcess()
+        {
+            return View();
+        }
 
-        //            //uploadedImageUrl = uploadResult?.SecureUri?.AbsoluteUri;
-        //            return true;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //    }
-        //}
+        [HttpPost]
+        public async Task<ActionResult> LoginProcess(string token)
+        {
+            string msg = "ok";
+            GoogleJsonWebSignature.Payload payload = null;
+            try
+            {
+                payload = await GoogleJsonWebSignature.ValidateAsync(token, new GoogleJsonWebSignature.ValidationSettings()
+                {
+                    Audience = new List<string>() { "1025795679023-8g9j439beq7h92iv9us8nj3d77ifitr7.apps.googleusercontent.com" }//要驗證的client id，把自己申請的Client ID填進去
+                });
+                string email = payload.Email;
+                string Id = payload.JwtId;
+                string name = payload.Name;
+            }
+            catch (Google.Apis.Auth.InvalidJwtException ex)
+            {
+                msg = ex.Message;
+            }
+            catch (Newtonsoft.Json.JsonReaderException ex)
+            {
+                msg = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+
+            if (msg == "ok" && payload != null)
+            {//都成功
+                string user_id = payload.Subject;//取得user_id
+                msg = $@"您的 user_id :{user_id}";
+            }
+
+            return Content(msg);
+
+            ////// Nuget套件 System.IdentityModel.Tokens.Jwt
+            ////var user = new System.IdentityModel.Tokens.Jwt.JwtSecurityToken(token);
+
+            //// 除此之外，也可以透過Google API 取得
+            //var url = $"https://oauth2.googleapis.com/tokeninfo?id_token={token}";
+            //var client = _clientFactory.CreateClient();
+            //var response = await client.GetAsync(url);
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    var responseContent = await response.Content.ReadAsStringAsync();
+            //    // 略...
+            //}
+
+            //return View();
+        }
 
 
-        //[HttpPost]
-        //public ActionResult SaveAvatarToDB(int MemberId, string ProfilePicture)
-        //{
 
-        //    Members member = db.Members.First(x => x.MemberId == MemberId);
 
-        //    using (var tran = db.Database.BeginTransaction())
-        //    {
-        //        try
-        //        {
-        //            member.ProfilePicture = ProfilePicture;
-        //            db.SaveChanges();
-        //            tran.Commit();
 
-        //            return Content("寫入資料庫成功");
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            tran.Rollback();
+        public ActionResult Test()
+        {
+            return View();
+        }
 
-        //            return Content("寫入資料庫失敗:" + ex.ToString());
-        //        }
-        //    }
-        //}
+        [HttpPost]
+        public async Task<ActionResult> Test(string id_token, string OauthId, string OauthName, string OauthEmail, string AuthResponse)
+        {
+            string msg = "ok";
+            GoogleJsonWebSignature.Payload payload = null;
+            try
+            {
+                payload = await GoogleJsonWebSignature.ValidateAsync(id_token, new GoogleJsonWebSignature.ValidationSettings()
+                {
+                    Audience = new List<string>() { "1025795679023-8g9j439beq7h92iv9us8nj3d77ifitr7.apps.googleusercontent.com" }//要驗證的client id，把自己申請的Client ID填進去
+                });
+                string email = payload.Email;
+                string Id = payload.JwtId;
+                string name = payload.Name;
+            }
+            catch (Google.Apis.Auth.InvalidJwtException ex)
+            {
+                msg = ex.Message;
+            }
+            catch (Newtonsoft.Json.JsonReaderException ex)
+            {
+                msg = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+
+            if (msg == "ok" && payload != null)
+            {//都成功
+                string user_id = payload.Subject;//取得user_id
+                msg = $@"您的 user_id :{user_id}";
+            }
+
+            return Content(msg);
+
+
+
+            //var member = _MemberService.MemberRigisterData()
+            //.Where(m => m.Email == newMember.MemberRegister.Email)
+            //.FirstOrDefault();
+            //if (member == null)
+            //{
+            //    //將密碼Hash
+            //    newMember.MemberRegister.Password = _MemberService.HashPassword(newMember.MemberRegister.Password);
+
+            //    //GroupViewModel -> DM
+            //    Members emp = new Members
+            //    {
+            //        Email = newMember.MemberRegister.Email,
+            //        Password = newMember.MemberRegister.Password,
+            //        AuthCode = AuthCode
+            //    };
+            //    db.Members.Add(emp);
+            //    db.SaveChanges();
+            //}
+            //else
+            //{
+            //    //用TempData儲存註冊訊息
+            //    TempData["RegisterState"] = "此帳號己有人使用，請重新註冊";
+            //    //重新導向頁面
+            //    return RedirectToAction("RegisterResult");
+            //}
+        }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -257,9 +316,6 @@ namespace Build_School_Project_No_4.Controllers
 
             return View("_Layout_nofooter", groupMember);
         }
-
-
-
 
 
 
