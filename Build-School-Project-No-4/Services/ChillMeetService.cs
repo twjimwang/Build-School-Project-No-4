@@ -62,6 +62,92 @@ namespace Build_School_Project_No_4.Services
             return result;
         }
 
+        //取得LikeID對應的會員資料
+        public List<MemberViewModel> GetMemberLike()
+        {
+            List<MeetLikes> meetLikes = _Repo.GetAll<MeetLikes>().ToList();
+            List<Members> members = _Repo.GetAll<Members>().ToList();
+
+            //demoId
+            int ownId = 60;
+            var ownLike = meetLikes.Where(x => x.MemberId == ownId);
+
+            List<MemberViewModel> result = new List<MemberViewModel>();
+            foreach (var item in ownLike)
+            {
+                var y = members.First(x => x.MemberId == item.LikeId);
+
+                var m = new MemberViewModel
+                {
+                    MemberId = y.MemberId,
+                    MemberName = y.MemberName,
+                    Bio = y.Bio,
+                    ProfilePicture = y.ProfilePicture,
+                    Gender = y.Gender
+                    //MemberName = item.MemberName,
+                    //RegistrationDate = item.RegistrationDate,
+                    //Email = item.Email,
+                    //Password = item.Password,
+                    //Phone = item.Phone,
+                    //Country = item.Country,
+                    //CityId = item.CityId,
+                    //Gender = item.Gender,
+                    //BirthDay = item.BirthDay,
+                    //TimeZone = item.TimeZone,
+                    //LanguageId = item.LanguageId,
+                    //Bio = item.Bio,
+                    //ProfilePicture = item.ProfilePicture,
+                };
+                result.Add(m);
+
+            }
+            return result;
+        }
+
+
+        //取得LikeID對應的會員資料
+        public List<MemberViewModel> GetMemberMatch()
+        {
+            List<MeetLikes> meetLikes = _Repo.GetAll<MeetLikes>().ToList();
+            List<Members> members = _Repo.GetAll<Members>().ToList();
+
+            //demoId
+            int ownId = 60;
+            var ownLike = meetLikes.Where(x => x.MemberId == ownId);
+
+            List<MeetLikes> MatchList = new List<MeetLikes>();
+            //onwLike有多個清單
+            foreach (var item in ownLike)
+            {
+                var a = meetLikes.Where(x => x.MemberId == item.LikeId);
+                var b = a.FirstOrDefault(x => x.LikeId == ownId);
+                if (b != null)
+                {
+                    MatchList.Add(b);
+                }
+
+            }
+
+
+            List<MemberViewModel> result = new List<MemberViewModel>();
+            foreach (var item in MatchList)
+            {
+                var y = members.First(x => x.MemberId == item.MemberId);
+
+                var m = new MemberViewModel
+                {
+                    MemberId = y.MemberId,
+                    MemberName = y.MemberName,
+                    Bio = y.Bio,
+                    ProfilePicture = y.ProfilePicture,
+                    Gender = y.Gender
+
+                };
+                result.Add(m);
+
+            }
+            return result;
+        }
 
     }
 }

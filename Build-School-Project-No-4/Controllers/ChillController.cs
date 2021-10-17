@@ -72,12 +72,15 @@ namespace Build_School_Project_No_4.Controllers
 
         public ActionResult MeetLikes()
         {
-            var memberGet = new MemberService();
-            var members = memberGet.GetMember();
+            var memberlikeGet = new ChillMeetService();
+            var memberMatchGet = new ChillMeetService();
 
+            var memberMatch = memberMatchGet.GetMemberMatch();
+            var memberlike = memberlikeGet.GetMemberLike();
             GroupViewModel meetlikes = new GroupViewModel
             {
-                MeetLikes = members
+                MeetLikes = memberlike,
+                Matches = memberMatch
             };
             return View(meetlikes);
         }
