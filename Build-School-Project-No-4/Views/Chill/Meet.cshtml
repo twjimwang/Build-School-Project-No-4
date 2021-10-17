@@ -6,10 +6,10 @@
         <div class="phoneNavSelect">
             <div class="row text-center">
                 <div class="col-4 selectPlay">
-                    <a href="@Url.Action("Live","ChillLive")">Live</a>
+                    <a href="@Url.Action("Live","Chill")">Live</a>
                 </div>
                 <div class="col-4 selectPlay">
-                    <a href="@Url.Action("Meet", "ChillMeet")">Meet</a>
+                    <a href="@Url.Action("Meet", "Chill")">Meet</a>
                 </div>
                 <div class="col-4">
                     <input type="checkbox" id="menu-checks">
@@ -45,23 +45,26 @@
 <div class="Meet-Container">
     <div class="row">
         <div class="col-4 Meet-Left-link">
-            <a href="#">Live</a>
+            <a href="@Url.Action("Live","Chill")">Live</a>
             <a href="#">Meet</a>
         </div>
         <div class="col-4">
 
         </div>
         <div class="col-4 Meet-Right-link">
-            <button type="button" class="btn btn-secondary ">
-                <a href="@Url.Action("MeetLikes","ChillMeetLike")">
-                    <i class="far fa-smile"></i>
-                    <span>Likes</span>
-                </a>
-            </button>
-            <button type="button" class="btn btn-secondary">
-                <i class="fas fa-cog"></i>
-                <span>Setting</span>
-            </button>
+            @*<button type="button" class="btn btn-secondary ">*@
+                <button type="button">
+                    <a href="@Url.Action("MeetLikes","Chill")">
+                        <i class="far fa-smile"></i>
+                        <span>Likes</span>
+                    </a>
+                </button>
+                <button type="button">
+                    <a href="@Url.Action("MeetLikes","Chill")">
+                        <i class="fas fa-cog"></i>
+                        <span>Setting</span>
+                    </a>
+                </button>
         </div>
     </div>
 </div>
@@ -556,11 +559,7 @@
         }
 
         .Meet-Left-link {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .Meet-Right-link {
+            margin-top: 18px;
             text-align: center;
         }
 
@@ -583,13 +582,17 @@
 
         .Meet-Right-link {
             display: flex;
-            justify-content: center;
+           /* justify-content: center;*/
+          /*  text-align: center;*/
         }
 
             .Meet-Right-link button {
                 border-radius: 20px;
-                margin: 15px;
-                font-size: x-large;
+                background-color:gray;
+               /* max-width:180px;*/
+                padding:5px;
+                margin: 10px;
+             /*   font-size: x-large;*/
             }
 
                 .Meet-Right-link button i {
@@ -597,7 +600,8 @@
                 }
 
                 .Meet-Right-link button a {
-                    /*size: 5px;*/
+                  /*  size: 5px;*/
+                  font-size:24px;
                     color: white;
                     text-decoration: none;
                 }
