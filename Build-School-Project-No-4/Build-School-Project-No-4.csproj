@@ -316,6 +316,7 @@
     <Compile Include="Controllers\ChatForPhoneController.cs" />
     <Compile Include="Controllers\ChillController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\ChillMeetApiController.cs" />
     <Compile Include="Controllers\ChooseAServiceController.cs" />
     <Compile Include="Controllers\CouponsController.cs" />
     <Compile Include="Controllers\CreatorProjectController.cs" />
@@ -372,6 +373,7 @@
     <Compile Include="Services\AddToCartService.cs" />
     <Compile Include="Services\ApiFilterService.cs" />
     <Compile Include="Services\CheckoutService.cs" />
+    <Compile Include="Services\ChillMeetService.cs" />
     <Compile Include="Services\DetailServices.cs" />
     <Compile Include="Services\FollowService.cs" />
     <Compile Include="Services\MailService.cs" />
@@ -386,6 +388,7 @@
     <Compile Include="Services\ProfileEpalService.cs" />
     <Compile Include="Services\WalletService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ChillMeetViewModel.cs" />
     <Compile Include="ViewModels\FollowViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\AddToCartViewModel.cs" />
