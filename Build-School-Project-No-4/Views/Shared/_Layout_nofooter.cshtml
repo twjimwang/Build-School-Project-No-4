@@ -1,4 +1,7 @@
 ﻿@model GroupViewModel
+@{ 
+    var personalAvatar = ViewBag.Avatar;
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +35,11 @@
         if (cookie != null)
         {
             FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+
+            //var result = @Html.Raw(ticket.UserData);
+            //userid = result.MemberId;
+
+            //userid = Json.Decode<Members>(ticket.UserData);
             userid = ticket.UserData;
         }
     }
@@ -201,8 +209,14 @@
                         //個人帳戶資訊
                         <div class="personal-account">
                             <div class="personal-img">
-                                <img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()" id="navbarAvatar">
-                                @*<img src=@ViewBag.Avatar style="cursor:pointer" onclick="PersonalOpen()" id="navbarAvatar">*@
+                                @if (@ViewBag.Avatar == null)
+                                {
+                                    <img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()" id="navbarAvatar">
+                                }
+                                else
+                                {
+                                    <img src=@ViewBag.Avatar style="cursor:pointer" onclick="PersonalOpen()" id="navbarAvatar">
+                                }
                             </div>
                             <div class="aside-Menu">
                                 <div class="userinfo">
@@ -495,7 +509,8 @@
                         @*<a href="#"><i class="fab fa-twitch"></i></a>
                         <a href="#"><i class="fab fa-discord"></i></a>*@
                         <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-apple"></i></a>
+                        @*<a href="#"><i class="fab fa-apple"></i></a>*@
+                        <a href="#"><i class="fab fa-line"></i></a>
                     </div>
                     <span id="GOOGLE_STATUS_2"></span>
                 </div>

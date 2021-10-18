@@ -417,8 +417,6 @@
     <Content Include="Assets\css\detail_r2.css" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
-    <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
-    <Content Include="Assets\css\layout_beforelogin.css" />
     <Content Include="Assets\css\orders.css" />
     <Content Include="Assets\css\orderconfirmedpaypal.css" />
     <Content Include="Assets\css\paypalSuccess.css" />

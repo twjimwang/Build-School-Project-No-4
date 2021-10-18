@@ -181,8 +181,9 @@ namespace Build_School_Project_No_4.Controllers
             return View();
         }
 
+        //, string OauthId, string OauthName, string OauthEmail, string AuthResponse
         [HttpPost]
-        public async Task<ActionResult> Test(string id_token, string OauthId, string OauthName, string OauthEmail, string AuthResponse)
+        public async Task<ActionResult> Test(string id_token)
         {
             string msg = "ok";
             GoogleJsonWebSignature.Payload payload = null;
@@ -210,7 +211,8 @@ namespace Build_School_Project_No_4.Controllers
             }
 
             if (msg == "ok" && payload != null)
-            {//都成功
+            {   
+                //都成功
                 string user_id = payload.Subject;//取得user_id
                 msg = $@"您的 user_id :{user_id}";
             }
@@ -475,6 +477,14 @@ namespace Build_School_Project_No_4.Controllers
                 string email = HttpUtility.HtmlEncode(loginMember.MemberLogin.Email);
                 //string password = HashService.MD5Hash(HttpUtility.HtmlEncode(loginVM.Password));
 
+                //Members meminfo = new Members()
+                //{
+                //    MemberId = user.MemberId,
+                //    MemberName = user.MemberName,
+                //    ProfilePicture = user.ProfilePicture
+                //};
+                //string JsonMeminfo = JsonConvert.SerializeObject(meminfo);
+
                 //建立FormsAuthenticationTicket
                 var ticket = new FormsAuthenticationTicket(
                             version: 1,
@@ -483,6 +493,7 @@ namespace Build_School_Project_No_4.Controllers
                             expiration: DateTime.UtcNow.AddMinutes(30),//Cookie有效時間=現在時間往後+30分鐘
                             isPersistent: loginMember.MemberLogin.Remember,// 是否要記住我 true or false
                             userData: user.MemberId.ToString(), //可以放使用者角色名稱
+                            //userData: user.MemberId.ToString(), //可以放使用者角色名稱
                             cookiePath: FormsAuthentication.FormsCookiePath);
 
                 //加密Ticket

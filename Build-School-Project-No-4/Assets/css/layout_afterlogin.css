@@ -414,6 +414,8 @@ body {
 
 .modal .modalfooter .otherlogin {
     justify-content: space-around;
+    position:absolute;
+    right:50px;
 }
 
 .modal .modalfooter .otherlogin a {
@@ -425,7 +427,8 @@ body {
     height: 40px;
     display: inline-block;
     position: absolute;
-    left: 230px;
+    left: -18px;
+    bottom:0px;
 }
 
 .modal .modalfooter .otherlogin .fab {
@@ -436,6 +439,9 @@ body {
     border-radius: 50%;
     text-align: center;
     padding: 8px 0;
+}
+.modal .modalfooter .otherlogin .fa-line {
+    color: #06C755;
 }
 
 .modal .modalfooter .otherlogin .fa-twitch {
