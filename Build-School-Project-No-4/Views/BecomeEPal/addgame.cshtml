@@ -1159,7 +1159,7 @@
 
 
                                     @*Creator Avatar*@
-                                    <!--<div class="form-group creatorCover">
+                                    <div class="form-group creatorCover">
                                         <div class="row">
                                             <div class="coverTitle">Creator Avatar</div>                                            
                                             <div class="introDesc col-md-6">
@@ -1170,7 +1170,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
 
-                                                <label class="control-label col-md-6 upload_cover_creator" for="uploadlistcover" id="imagePreview_creator">
+                                                <label class="control-label col-md-6 upload_cover_creator" for="uploadcreatoravatar" id="imagePreview_creator">
                                                     <input id="uploadcreatoravatar" type="file" class="form-control uploadfile" accept=".png, .jpg, .jpeg">
                                                     <div class="upload_icon">
                                                         <img src="~/Assets/images/GameInformation/addpic.png" alt="">
@@ -1180,10 +1180,10 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">-->                                            
-                                            @*@Html.HiddenFor(model => model.addgame.CreatorImg,  new { @class = "form-control creatorimg col-md-3" } )*@                                            
-                                        <!--</div>
-                                    </div>-->
+                                        <div class="row">                                            
+                                            @Html.HiddenFor(model => model.addgame.CreatorImg,  new { @class = "form-control creatorimg col-md-3" } )                                            
+                                        </div>
+                                    </div>
 
 
 
