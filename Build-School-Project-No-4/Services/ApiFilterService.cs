@@ -100,10 +100,22 @@ namespace Build_School_Project_No_4.Services
                 decimal highprice = decimal.Parse(highPrice);
                 products = products.Where(x => x.UnitPrice <= highprice);
             }
-            //if(gender == 0 || gender == 1)
-            //{
-            //    products = products.Where(x => x.Members.Gender == gender);
-            //}
+            if (!string.IsNullOrEmpty(gender))
+            {
+                if(gender == "Male")
+                {
+                    products = products.Where(x => x.Members.Gender == 1);
+                }
+                if(gender == "Female")
+                {
+                    products = products.Where(x => x.Members.Gender == 0);
+                }
+                else
+                {
+                    products = products.Select(x => x);
+                }
+                
+            }
             var productCards = products.Select(p => new ProductCard
             {
                 UnitPrice = p.UnitPrice,

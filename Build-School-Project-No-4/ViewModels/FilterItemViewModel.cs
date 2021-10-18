@@ -23,7 +23,7 @@ namespace Build_School_Project_No_4.ViewModels
 
         public string LowPrice { get; set; }
 
-        public int Gender { get; set; }
+        public string Gender { get; set; }
 
         public string Status { get; set; }
 
