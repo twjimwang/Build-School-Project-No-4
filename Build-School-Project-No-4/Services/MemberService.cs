@@ -115,6 +115,7 @@ namespace Build_School_Project_No_4.Services
                 Data.Password = member.Password;
                 Data.AuthCode = member.AuthCode;
                 Data.IsAdmin = member.IsAdmin;
+                Data.ProfilePicture = member.ProfilePicture;
             }
             catch (Exception ex)
             {

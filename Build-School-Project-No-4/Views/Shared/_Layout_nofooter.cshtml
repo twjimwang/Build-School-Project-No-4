@@ -1,7 +1,7 @@
 ﻿@model GroupViewModel
-@{ 
+@*@{ 
     var personalAvatar = ViewBag.Avatar;
-}
+}*@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,15 +32,16 @@
         HttpCookie cookie = HttpContext.Current.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
 
         string userid = "";
+        string avatar = "";
         if (cookie != null)
         {
             FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
 
-            //var result = @Html.Raw(ticket.UserData);
-            //userid = result.MemberId;
+            var obj = Json.Decode<Members>(ticket.UserData);
+            userid = obj.MemberId.ToString();
 
-            //userid = Json.Decode<Members>(ticket.UserData);
-            userid = ticket.UserData;
+            avatar = obj.ProfilePicture;
+
         }
     }
 
@@ -209,21 +210,30 @@
                         //個人帳戶資訊
                         <div class="personal-account">
                             <div class="personal-img">
-                                @if (@ViewBag.Avatar == null)
+                                @if ( avatar == null)
                                 {
                                     <img src="~/Assets/images/layout/avatar.png" style="cursor:pointer" onclick="PersonalOpen()" id="navbarAvatar">
                                 }
                                 else
                                 {
-                                    <img src=@ViewBag.Avatar style="cursor:pointer" onclick="PersonalOpen()" id="navbarAvatar">
+                                    <img src="@avatar" style="cursor:pointer" onclick="PersonalOpen()" id="navbarAvatar">
                                 }
                             </div>
                             <div class="aside-Menu">
                                 <div class="userinfo">
                                     <div class="user-photo">
                                         <a href="~/Members/profile/@userid">
-                                            <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
+                                            @if (avatar == null)
+                                            {
+                                                <img src="~/Assets/images/layout/avatar.png" alt="userphoto">
+                                            }
+                                            else
+                                            {
+                                                <img src=@avatar alt="userphoto">
+                                            }
+                                            @*<img src="~/Assets/images/layout/avatar.png" alt="userphoto">*@
                                             @*<img src=@Model.MemberInfo.ProfilePicture alt="userphoto">*@
+
                                         </a>
                                     </div>
                                     <div class="uesr-account-name">

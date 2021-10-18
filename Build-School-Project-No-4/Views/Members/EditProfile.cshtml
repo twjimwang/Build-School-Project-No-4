@@ -10,12 +10,16 @@
     HttpCookie cookie = HttpContext.Current.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
 
     string userid = "";
-    string useremail = "";
+    //string avatar = "";
     if (cookie != null)
     {
         FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
-        userid = ticket.UserData;
-        //useremail = ticket.name;
+
+        var obj = Json.Decode<Members>(ticket.UserData);
+        userid = obj.MemberId.ToString();
+
+        //avatar = obj.ProfilePicture;
+
     }
 }
 
@@ -149,7 +153,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EnumDropDownListFor(model => model.MemberInfo.Gender, new { @class = "form-control form-select", style = "background-color:#21212C; color:white; margin-top:5px;" } )
+                                    @Html.EnumDropDownListFor(model => model.MemberInfo.Gender, new { @class = "form-control form-select", style = "background-color:#21212C; color:white; margin-top:5px;" })
                                     @Html.ValidationMessageFor(model => model.MemberInfo.Gender, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -185,7 +189,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    @Html.EnumDropDownListFor(model => model.MemberInfo.LanguageId, new { @class = "form-control form-select", style = "background-color:#21212C; color:white; margin-top:5px;" } )
+                                    @Html.EnumDropDownListFor(model => model.MemberInfo.LanguageId, new { @class = "form-control form-select", style = "background-color:#21212C; color:white; margin-top:5px;" })
                                     @Html.ValidationMessageFor(model => model.MemberInfo.LanguageId, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -396,14 +400,14 @@
             padding-bottom: 30px;
         }
 
-        .avatar-upload #imagePreview {
-            background-image: url("/Assets/Edit_ProfileImages/avatar.png");
-        }
+            .avatar-upload #imagePreview {
+                background-image: url("/Assets/Edit_ProfileImages/avatar.png");
+            }
 
 
 
-            @@media screen and (max-width: 767px) {
-                header {
+        @@media screen and (max-width: 767px) {
+            header {
                 height: 0px;
             }
 
@@ -468,7 +472,6 @@
         //save avatar to Cloudinary、DB
         let photoUrl = "";
         let memberId = parseInt(@userid);
-        //let memEmail = @useremail;
 
         //var cloud_url = 'https://api.cloudinary.com/v1_1/drub4oabm/image/upload'
         var cloud_url = 'https://api.cloudinary.com/v1_1/djamumruo/image/upload'

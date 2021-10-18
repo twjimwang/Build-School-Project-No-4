@@ -1,5 +1,7 @@
-﻿using Build_School_Project_No_4.Services;
+﻿using Build_School_Project_No_4.DataModels;
+using Build_School_Project_No_4.Services;
 using Build_School_Project_No_4.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +39,9 @@ namespace Build_School_Project_No_4.Controllers
             if (cookie != null)
             {
                 FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
-                userid = ticket.UserData;
+
+                var obj = JsonConvert.DeserializeObject<Members>(ticket.UserData);
+                userid = obj.MemberId.ToString();
                 return userid;
             }
             return null;
@@ -69,7 +73,7 @@ namespace Build_School_Project_No_4.Controllers
 
             return View(meetlikes);
         }
-
+        
         public ActionResult MeetLikes()
         {
             var memberlikeGet = new ChillMeetService();

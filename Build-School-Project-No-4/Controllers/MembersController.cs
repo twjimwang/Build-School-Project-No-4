@@ -26,7 +26,6 @@ namespace Build_School_Project_No_4.Controllers
 {
     public class MembersController : Controller
     {
-        //private readonly IHttpClientFactory _clientFactory;
 
         private EPalContext db = new EPalContext();
         private MemberService _MemberService;
@@ -35,7 +34,6 @@ namespace Build_School_Project_No_4.Controllers
         {
             _MemberService = new MemberService();
             _MailService = new MailService();
-            //_clientFactory = clientFactory;
         }
 
 
@@ -49,7 +47,9 @@ namespace Build_School_Project_No_4.Controllers
             if (cookie != null)
             {
                 FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
-                userid = ticket.UserData;
+
+                var obj = JsonConvert.DeserializeObject<Members>(ticket.UserData);
+                userid = obj.MemberId.ToString();
                 return userid;
             }
             return null;
@@ -112,8 +112,6 @@ namespace Build_School_Project_No_4.Controllers
         {
             return View();
         }
-
-
 
         public ActionResult LoginProcess()
         {
@@ -259,65 +257,63 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-        [HttpGet]
-        [Authorize]
-        public ActionResult GetAvatar()
-        {
-            Members emp = db.Members.Find(int.Parse(GetMemberId()));
-            if (emp == null)
-            {
-                return HttpNotFound();
-            }
+        //[HttpGet]
+        //[Authorize]
+        //public ActionResult GetAvatar()
+        //{
+        //    Members emp = db.Members.Find(int.Parse(GetMemberId()));
+        //    if (emp == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
 
-            GroupViewModel groupMember = new GroupViewModel()
-            {
-                MemberInfo = new MemberInfoViewModel()
-            };
+        //    GroupViewModel groupMember = new GroupViewModel()
+        //    {
+        //        MemberInfo = new MemberInfoViewModel()
+        //    };
 
-            //DM -> MemberInfoViewModel -> GroupViewModel
-            MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
-            {
-                //MemberId = emp.MemberId,
-                ProfilePicture = emp.ProfilePicture
-            };
+        //    //DM -> MemberInfoViewModel -> GroupViewModel
+        //    MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
+        //    {
+        //        //MemberId = emp.MemberId,
+        //        ProfilePicture = emp.ProfilePicture
+        //    };
 
-            groupMember.MemberInfo = MemberInfo;
-            ViewBag.Avatar = groupMember;
-            //TempData["Avatar"] = groupMember;
+        //    groupMember.MemberInfo = MemberInfo;
+        //    ViewBag.Avatar = groupMember;
 
-
-            //return View("EditProfile");
-            return View("EditProfile");
-        }
+        //    return View("EditProfile");
+        //}
 
 
-        [HttpGet]
-        [Authorize]
-        public ActionResult GetAvatarForLayout()
-        {
-            Members emp = db.Members.Find(int.Parse(GetMemberId()));
-            if (emp == null)
-            {
-                return HttpNotFound();
-            }
+        //[HttpGet]
+        //[Authorize]
+        //public ActionResult GetAvatarForLayout()
+        //{
+        //    Members emp = db.Members.Find(int.Parse(GetMemberId()));
+        //    if (emp == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
 
-            GroupViewModel groupMember = new GroupViewModel()
-            {
-                MemberInfo = new MemberInfoViewModel()
-            };
+        //    GroupViewModel groupMember = new GroupViewModel()
+        //    {
+        //        MemberInfo = new MemberInfoViewModel()
+        //    };
 
-            //DM -> MemberInfoViewModel -> GroupViewModel
-            MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
-            {
-                //MemberId = emp.MemberId,
-                ProfilePicture = emp.ProfilePicture
-            };
+        //    //DM -> MemberInfoViewModel -> GroupViewModel
+        //    MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
+        //    {
+        //        //MemberId = emp.MemberId,
+        //        ProfilePicture = emp.ProfilePicture
+        //    };
 
-            groupMember.MemberInfo = MemberInfo;
-            ViewBag.Avatar = groupMember;
+        //    groupMember.MemberInfo = MemberInfo;
+        //    ViewBag.Avatar = groupMember;
 
-            return View("_Layout_nofooter", groupMember);
-        }
+        //    return View("_Layout_nofooter", groupMember);
+        //}
+
 
 
 
@@ -363,8 +359,7 @@ namespace Build_School_Project_No_4.Controllers
             };
 
             groupMember.MemberInfo = MemberInfo;
-            ViewBag.Avatar = groupMember.MemberInfo.ProfilePicture;
-                        
+            ViewBag.Avatar = groupMember.MemberInfo.ProfilePicture;                        
 
             return View("EditProfile", groupMember);
         }
@@ -374,7 +369,7 @@ namespace Build_School_Project_No_4.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditProfile([Bind(Include = "MemberInfo")] GroupViewModel EditMember)
         {   
-            //將密碼Hash
+            //密碼Hash
             EditMember.MemberInfo.Password = _MemberService.HashPassword(EditMember.MemberInfo.Password);
 
             //GroupViewModel -> MemberInfoViewModel -> DM
@@ -477,13 +472,13 @@ namespace Build_School_Project_No_4.Controllers
                 string email = HttpUtility.HtmlEncode(loginMember.MemberLogin.Email);
                 //string password = HashService.MD5Hash(HttpUtility.HtmlEncode(loginVM.Password));
 
-                //Members meminfo = new Members()
-                //{
-                //    MemberId = user.MemberId,
-                //    MemberName = user.MemberName,
-                //    ProfilePicture = user.ProfilePicture
-                //};
-                //string JsonMeminfo = JsonConvert.SerializeObject(meminfo);
+                Members meminfo = new Members()
+                {
+                    MemberId = user.MemberId,
+                    MemberName = user.MemberName,
+                    ProfilePicture = user.ProfilePicture
+                };
+                string JsonMeminfo = JsonConvert.SerializeObject(meminfo);
 
                 //建立FormsAuthenticationTicket
                 var ticket = new FormsAuthenticationTicket(
@@ -492,7 +487,7 @@ namespace Build_School_Project_No_4.Controllers
                             issueDate: DateTime.UtcNow,//現在UTC時間
                             expiration: DateTime.UtcNow.AddMinutes(30),//Cookie有效時間=現在時間往後+30分鐘
                             isPersistent: loginMember.MemberLogin.Remember,// 是否要記住我 true or false
-                            userData: user.MemberId.ToString(), //可以放使用者角色名稱
+                            userData: JsonMeminfo, //可以放使用者角色名稱
                             //userData: user.MemberId.ToString(), //可以放使用者角色名稱
                             cookiePath: FormsAuthentication.FormsCookiePath);
 
