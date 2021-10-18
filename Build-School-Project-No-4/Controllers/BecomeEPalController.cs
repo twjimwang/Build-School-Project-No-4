@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Build_School_Project_No_4.Controllers
 {
@@ -29,6 +30,24 @@ namespace Build_School_Project_No_4.Controllers
         }
 
 
+
+        //取得登入者的memberId
+        public string GetMemberId()
+        {
+            var cookie = HttpContext.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
+
+            string userid = "";
+            if (cookie != null)
+            {
+                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+                userid = ticket.UserData;
+                return userid;
+            }
+            return null;
+        }
+
+
+        [Authorize]
         [HttpGet]
         public ActionResult addgame()
         {
@@ -115,13 +134,12 @@ namespace Build_School_Project_No_4.Controllers
             //return View("_GameDayPartial", addgame);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult addgame(GroupViewModel registerVM)
         {
-            var mem = _ctx.Members.Find(1);
-            if (mem.MemberId == 1)
-            {
+
                 using (var tran = _ctx.Database.BeginTransaction())
                 {
                     try
@@ -141,7 +159,7 @@ namespace Build_School_Project_No_4.Controllers
                         Products product = new Products
                         {
                             GameCategoryId = (int)registerVM.addgame.GameCategoryId,
-                            CreatorId = 1,
+                            CreatorId = int.Parse(GetMemberId()),
                             UnitPrice = registerVM.addgame.UnitPrice,
                             ProductImg = registerVM.addgame.ProductImg,
                             Introduction = registerVM.addgame.Introduction,
@@ -211,15 +229,6 @@ namespace Build_School_Project_No_4.Controllers
 
 
                         //plan
-                        //VM -> DM
-                        //ProductPlan productplan1 = new ProductPlan() 
-                        //if (productplan1.) { }
-
-                        //for(var i = 1; i<=7; i++)
-                        //{
-                        //}
-
-
                         ProductPlans productplan1 = new ProductPlans
                         {
                             //.ToShortTimeString()
@@ -345,40 +354,7 @@ namespace Build_School_Project_No_4.Controllers
                         //var planItems2 = registerVM.addgame.planset[1].GameStartTime;
                         //var planIteme2 = registerVM.addgame.planset[1].GameEndTime;
 
-
-
-
-
-
-
-
-                        //foreach (var item in planItem)
-                        //{
-                        //    planDB.ProductId = product.ProductId;
-                        //    planDB.GameAvailableDay = item.GameAvailableDay;
-                        //    planDB.GameStartTime = item.GameStartTime;
-                        //    planDB.GameEndTime = item.GameEndTime;
-                        //    _ctx.ProductPlans.Add(planDB);
-                        //    _ctx.SaveChanges();
-                        //}
-
-                        //product plan
-                        //List<ProductPlan> planList = new List<ProductPlan>();
-                        //foreach (var item in registerVM.addgame.planset)
-                        //{
-                        //    planList.Add(new ProductPlan
-                        //    {
-                        //        GameAvailableDay = pro.GameAvailableDay,
-                        //        GameStartTime = pro.GameStartTime,
-                        //        GameEndTime = pro.GameEndTime
-                        //    });
-                        //}
-                        //_ctx.ProductPlans.Add(productPlan);
-                        //_ctx.SaveChanges();
-
-
-
-                        tran.Commit();
+                                                tran.Commit();
 
                         //ViewData["Message"] = "使用者儲存成功";
                         return Content("創建商品成功");
@@ -389,9 +365,7 @@ namespace Build_School_Project_No_4.Controllers
                         return Content("創建商品失敗:" + ex.ToString());
                     }
                 }
-            }
 
-            return Content("此會員不存在");
         }
     }
 }
