@@ -94,11 +94,13 @@ namespace Build_School_Project_No_4.Controllers
         public ActionResult Followings()
         {
             var memberGet = new FollowService();
-            var members = memberGet.GetFollowMember();
+            var members = memberGet.GetMemberFollow();
+            var Followers = memberGet.GetMemberFollowers();
 
             GroupViewModel followSelectMembers = new GroupViewModel
             {
-                FollowMembers = members
+                FollowingMember = members,
+                FollowerMember = Followers
             };
             return View(followSelectMembers);
         }
