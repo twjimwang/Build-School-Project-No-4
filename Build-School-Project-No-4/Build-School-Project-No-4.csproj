@@ -727,8 +727,6 @@
     <Content Include="Assets\WalletImages\Money.png" />
     <Content Include="Assets\WalletImages\nobody.png" />
     <Content Include="Assets\WalletImages\wallet.png" />
-    <Content Include="bin\Build-School-Project-No-4.dll" />
-    <Content Include="bin\Build-School-Project-No-4.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -863,8 +861,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="obj\Debug\" />
-    <Folder Include="obj\Release\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
