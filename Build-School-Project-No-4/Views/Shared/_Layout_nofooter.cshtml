@@ -1,7 +1,4 @@
 ﻿@model GroupViewModel
-@*@{ 
-    var personalAvatar = ViewBag.Avatar;
-}*@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +38,6 @@
             userid = obj.MemberId.ToString();
 
             avatar = obj.ProfilePicture;
-
         }
     }
 
@@ -874,16 +870,6 @@
     @*前端驗證*@
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
-    }
-
-
-    @section endJS{
-
-        <script>
-
-
-
-        </script>
     }
 
 

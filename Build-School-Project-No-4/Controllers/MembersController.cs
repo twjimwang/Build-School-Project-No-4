@@ -175,7 +175,7 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-
+        //google
         public ActionResult Test()
         {
             return View();
@@ -323,41 +323,44 @@ namespace Build_School_Project_No_4.Controllers
         [Authorize]
         public ActionResult EditProfile()
         {
-            Members emp = db.Members.Find(int.Parse(GetMemberId()));
-            if (emp == null)
-            {
-                return HttpNotFound();
-            }
+            MemberInfoViewModel MemberInfo = _MemberService.GetEditProfileInfo(int.Parse(GetMemberId()));
 
-            if(emp.Gender == null)
-            {
-                emp.Gender = 0;
-            }
-            if (emp.LanguageId == null)
-            {
-                emp.LanguageId = 0;
-            }
+            //Members emp = db.Members.Find(int.Parse(GetMemberId()));
+            //if (emp == null)
+            //{
+            //    return HttpNotFound();
+            //}
+
+            //if(emp.Gender == null)
+            //{
+            //    emp.Gender = 0;
+            //}
+            //if (emp.LanguageId == null)
+            //{
+            //    emp.LanguageId = 0;
+            //}
+
+            ////DM -> MemberInfoViewModel -> GroupViewModel
+            //MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
+            //{
+            //    MemberId = emp.MemberId,
+            //    MemberName = emp.MemberName,
+            //    Phone = emp.Phone,
+            //    Country = emp.Country,
+            //    Gender = (Genders)emp.Gender,
+            //    BirthDay = emp.BirthDay,
+            //    TimeZone = emp.TimeZone,
+            //    LanguageId = (LanguageCategories)emp.LanguageId,
+            //    Bio = emp.Bio,
+            //    Email = emp.Email,
+            //    Password = emp.Password,
+            //    ProfilePicture = emp.ProfilePicture
+            //};
+
 
             GroupViewModel groupMember = new GroupViewModel()
             {
                 MemberInfo = new MemberInfoViewModel()
-            };
-
-            //DM -> MemberInfoViewModel -> GroupViewModel
-            MemberInfoViewModel MemberInfo = new MemberInfoViewModel()
-            {
-                MemberId = emp.MemberId,
-                MemberName = emp.MemberName,
-                Phone = emp.Phone,
-                Country = emp.Country,
-                Gender = (Genders)emp.Gender,
-                BirthDay = emp.BirthDay,
-                TimeZone = emp.TimeZone,
-                LanguageId = (LanguageCategories)emp.LanguageId,
-                Bio = emp.Bio,
-                Email = emp.Email,
-                Password = emp.Password,
-                ProfilePicture = emp.ProfilePicture
             };
 
             groupMember.MemberInfo = MemberInfo;
@@ -443,16 +446,12 @@ namespace Build_School_Project_No_4.Controllers
         public static string LoginUserKey = "UserInfo@CCC";
 
         //Get: Members/Login
-        //[Authorize]
-        //[AllowAnonymous]
         public ActionResult Login()
         {
             return View();
         }
 
         //Post: Members/Login
-        //[Authorize]
-        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Login(GroupViewModel loginMember)
@@ -552,8 +551,9 @@ namespace Build_School_Project_No_4.Controllers
 
 
 
-        //[AllowAnonymous]
+
         //Get:Members/Register
+        //[AllowAnonymous]
         public ActionResult Register()
         {
             return View();

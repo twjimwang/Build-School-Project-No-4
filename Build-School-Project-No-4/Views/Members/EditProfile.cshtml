@@ -1,10 +1,5 @@
 ﻿@model GroupViewModel
 
-@*@{
-        //從公用Utility類別取得SelectListItem集合
-        var GenderList = Utility.getGenderList();
-        var LanguageList = Utility.getLanguageList();
-    }*@
 @*抓到使用者登入的cookie資訊*@
 @{
     HttpCookie cookie = HttpContext.Current.Request.Cookies.Get(FormsAuthentication.FormsCookieName);
@@ -22,23 +17,6 @@
 
     }
 }
-
-@*<div class="Sidebar ">
-        <input type="checkbox" name="" id="Side-menu-switch">
-        <div class="Side-menu">
-            <nav class="tab-title">
-                <a href="@Url.Action("EditProfile","Members")">Edit Profile</a>
-                <a href="@Url.Action("SettingsAccount","SettingsAccount")">Account</a>
-                <a href="#">Notifications</a>
-                <a href="#">Privacy</a>
-                <a href="#">Wedsite Log</a>
-            </nav>
-            <label for="Side-menu-switch">
-                <i class="fas fa-arrow-right"></i>
-            </label>
-        </div>
-    </div>*@
-
 
 <div class="container">
     <div class="row">
@@ -566,20 +544,8 @@
         //display avatar
         document.getElementById('imagePreview').style.backgroundImage = "url('@ViewBag.Avatar')";
 
-        @*let Avatar = @ViewBag.Avatar;
-        if (Avatar != "") {
-            $("#imagePreview").css('background-image', 'url(" + Avatar + ")');
-        }
-        else {
-            $("#imagePreview").css('background-image', 'url("/Assets/Edit_ProfileImages/avatar.png")');
-        }*@
-
-
-
 
         $(function () {
-            //$("<br/>").insertAfter("input");
-            //$("<br/>").insertAfter("textarea");
             $("<br/>").insertAfter(".form-group");
         });
     </script>
