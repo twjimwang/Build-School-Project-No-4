@@ -230,9 +230,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+   
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -399,8 +397,6 @@
     <Content Include="Assets\css\detail_r2.css" />
     <Content Include="Assets\css\layout_afterlogin_nofooter.css" />
     <Content Include="Assets\css\layout_afterlogin.css" />
-    <Content Include="Assets\css\layout_beforelogin_nofooter.css" />
-    <Content Include="Assets\css\layout_beforelogin.css" />
     <Content Include="Assets\css\orders.css" />
     <Content Include="Assets\css\orderconfirmedpaypal.css" />
     <Content Include="Assets\css\paypalSuccess.css" />
