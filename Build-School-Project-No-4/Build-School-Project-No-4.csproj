@@ -799,11 +799,7 @@
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
     <Content Include="Views\UserAgreement\UserAgreement.cshtml" />
     <Content Include="Views\Subscription\Subscription.cshtml" />
-    <Content Include="Views\Detail\DetailPage.cshtml" />
-    <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\CreatorProject\CreatorProject.cshtml" />
-    <Content Include="Views\ePal\EPalIndex.cshtml" />
-    <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\ChooseAService\ChooseAService.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
