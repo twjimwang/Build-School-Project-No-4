@@ -792,7 +792,6 @@
     <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\Shared\_Layout_nofooter.cshtml" />
     <Content Include="Views\Coupons\Coupons.cshtml" />
-    <Content Include="Views\ePal\ePal.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\epalAccount\Wallet.cshtml" />
     <Content Include="Views\MeForPhone\MeForPhonePage.cshtml" />
